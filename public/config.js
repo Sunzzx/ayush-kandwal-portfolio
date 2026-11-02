@@ -6,7 +6,6 @@ var rootEnv = typeof window !== 'undefined' ? window : (typeof global !== 'undef
 rootEnv.OBSERVATORY_CONFIG = {
   operator: {
     name: 'Ayush Kandwal',
-    preferredName: 'Ayu',
     handle: 'Sunzzx',
     title: 'Systems Architect, AI Researcher & Quant',
     email: 'ayushkandwal2007@gmail.com',

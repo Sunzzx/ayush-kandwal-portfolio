@@ -1,4 +1,4 @@
-# 🌌 Ayush Kandwal ("Ayu") — The Photorealistic 3D Multiverse Codex
+# 🌌 Ayush Kandwal — The Photorealistic 3D Multiverse Codex
 
 > Ultra-dark, photorealistic 3D Multiverse Portfolio & Systems Engine for **Ayush Kandwal (Sunzzx)**. Built with Three.js WebGL shaders, procedural Web Audio API synthesis, and strict domain separation between career credentials and creative dimensions.
 
@@ -43,7 +43,7 @@
 ### 🌌 Universe 02: The Alpha Centauri Creative Galaxy (Music, Cinema & Aesthetics)
 *Accessible via the Relativistic Wormhole / Galaxy Jump drive.*
 
-1. **Mars (The Sonic Forge — Music Production by "Ayu"):**
+1. **Mars (The Sonic Forge — Music Production):**
    - Music production crafted in **Logic Pro on macOS** (Indie, Desi Hip-Hop, Alan Walker melodic EDM, and ChromaVerb synth pads).
    - Interactive playable **4-Chord Synth Pad** directly in the browser + Spotify profile link (`kanayuuh`).
 2. **Alpha Centauri A (Cinema, Noir & 1M+ Pinterest):**
@@ -57,7 +57,7 @@
 
 ---
 
-### 🕹️ Universe 03: The Interactive Arcade Nebula (3 Playable Mini-Games About Ayu)
+### 🕹️ Universe 03: The Interactive Arcade Nebula (3 Playable Mini-Games)
 1. **Orbital Debugger (Asteroid Defense):** Real-time canvas space shooter where players blast bug-labeled asteroids (`DeadCode`, `CRDT-Conflict`, `AST-Glitch`) to unlock milestones from Ayush's journey.
 2. **Alpha Signal Catcher (Quant Mini-Game):** Statistical anomaly reflex game inspired by WorldQuant & *The Devil's Plan*.
 3. **2 Truths & 1 Hallucination (AI Trivia Protocol):** Interactive rapid-fire quiz exploring wild real facts about Ayush.
