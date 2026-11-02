@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth selection:bg-slate-700 selection:text-white">
+<html lang="en" class="dark scroll-smooth selection:bg-white selection:text-black">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ayush Kandwal — Systems Architect, Quantitative Researcher & Dual IIT Scholar</title>
-  <meta name="description" content="Personal portfolio and systems observatory of Ayush Kandwal (Sunzzx) — Autonomous Swarms, Distributed Systems, Quantitative Research, and Dual IIT Candidate (IIT Madras & IIT Patna).">
+  <title>Ayush Kandwal — Systems Architect & Quantitative Researcher</title>
+  <meta name="description" content="Personal portfolio and systems observatory of Ayush Kandwal (Sunzzx) — Autonomous Swarms, Distributed Protocols, Quantitative Research, and Dual IIT Candidate (IIT Madras & IIT Patna).">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>">
 
   <!-- Tailwind CSS & Google Fonts -->
@@ -15,14 +15,16 @@
       theme: {
         extend: {
           colors: {
-            void: '#030306',
-            surface: { 900: '#08080f', 800: '#0f1019', 700: '#171826' },
-            border: 'rgba(255, 255, 255, 0.08)',
-            accent: '#38bdf8'
+            void: '#000000',
+            card: '#080808',
+            hovercard: '#0f0f0f',
+            border: 'rgba(255, 255, 255, 0.1)',
+            borderHover: 'rgba(255, 255, 255, 0.25)'
           },
           fontFamily: {
             sans: ['Space Grotesk', 'Inter', '-apple-system', 'sans-serif'],
-            mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+            display: ['Syne', 'Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
           }
         }
       }
@@ -31,60 +33,59 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700;800&family=Syne:wght@700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    body { background-color: #030306; }
+    body { background-color: #000000; color: #ffffff; }
     .glass-nav {
-      background: rgba(8, 8, 15, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .bento-card {
-      background: rgba(12, 13, 22, 0.65);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      transition: all 0.25s ease-out;
+    .noir-card {
+      background: #080808;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .bento-card:hover {
-      border-color: rgba(255, 255, 255, 0.2);
+    .noir-card:hover {
+      background: #0f0f0f;
+      border-color: rgba(255, 255, 255, 0.25);
       transform: translateY(-2px);
-      background: rgba(16, 17, 30, 0.75);
     }
   </style>
 </head>
-<body class="text-slate-200 antialiased min-h-screen flex flex-col font-sans relative overflow-x-hidden">
+<body class="antialiased min-h-screen flex flex-col font-sans relative overflow-x-hidden">
 
-  <!-- Shared Deep Space Astronomical Canvas -->
+  <!-- Pure Astronomical Deep Space Canvas -->
   <script src="public/space.js"></script>
 
-  <!-- Navigation Bar -->
-  <header class="fixed top-0 left-0 right-0 z-50 glass-nav px-6 lg:px-12 py-3.5">
+  <!-- Clean Monochrome Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav px-6 lg:px-12 py-4">
     <div class="max-w-6xl mx-auto flex items-center justify-between">
       
-      <!-- Logo & Identity -->
-      <a href="index.html" class="flex items-center gap-2.5 group">
-        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400/80 group-hover:scale-125 transition-transform"></span>
-        <span class="font-bold tracking-tight text-white text-sm">AYUSH KANDWAL</span>
-        <span class="text-xs text-slate-500 font-mono hidden sm:inline">/ SUNZZX</span>
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 group">
+        <span class="w-2 h-2 rounded-full bg-white group-hover:scale-125 transition-transform"></span>
+        <span class="font-bold tracking-tight text-white text-sm font-display">AYUSH KANDWAL</span>
+        <span class="text-xs text-neutral-500 font-mono hidden sm:inline">/ SUNZZX</span>
       </a>
 
-      <!-- Multi-Page Navigation Links -->
+      <!-- Navigation Links -->
       <nav class="hidden md:flex items-center gap-1 text-xs font-mono">
-        <a href="index.html" class="px-3 py-1.5 rounded-md text-white bg-white/10 font-medium">Overview</a>
-        <a href="projects.html" class="px-3 py-1.5 rounded-md text-slate-400 hover:text-white hover:bg-white/5 transition-colors">Projects (51+)</a>
-        <a href="about.html" class="px-3 py-1.5 rounded-md text-slate-400 hover:text-white hover:bg-white/5 transition-colors">Academics & Dossier</a>
-        <a href="cosmos.html" class="px-3 py-1.5 rounded-md text-slate-400 hover:text-white hover:bg-white/5 transition-colors">Creative Cosmos</a>
-        <a href="contact.html" class="px-3 py-1.5 rounded-md text-slate-400 hover:text-white hover:bg-white/5 transition-colors">Terminal & Links</a>
+        <a href="index.html" class="px-3 py-1.5 rounded text-white bg-white/10 font-bold">Overview</a>
+        <a href="projects.html" class="px-3 py-1.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">Projects (51+)</a>
+        <a href="about.html" class="px-3 py-1.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">Academics & Dossier</a>
+        <a href="cosmos.html" class="px-3 py-1.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">Creative Cosmos</a>
+        <a href="contact.html" class="px-3 py-1.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">Contact / Shell</a>
       </nav>
 
-      <!-- Action Button -->
-      <div class="flex items-center gap-3">
-        <a href="projects.html" class="px-3.5 py-1.5 rounded-md border border-white/15 bg-white/5 hover:bg-white/10 text-white text-xs font-mono transition-all flex items-center gap-1.5">
-          <span>Systems Fleet</span>
-          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+      <!-- Terminal / GitHub CTA -->
+      <div class="flex items-center gap-2">
+        <a href="https://github.com/Sunzzx" target="_blank" class="px-3 py-1.5 rounded border border-white/20 bg-white/5 hover:bg-white/10 text-white text-xs font-mono transition-all flex items-center gap-1.5">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i>
+          <span>GitHub</span>
         </a>
       </div>
 
@@ -92,180 +93,179 @@
   </header>
 
   <!-- Mobile Sub-Nav -->
-  <div class="md:hidden fixed top-[53px] left-0 right-0 z-40 bg-surface-900/90 backdrop-blur-md border-b border-border px-4 py-2 flex items-center justify-between text-xs font-mono overflow-x-auto">
-    <a href="index.html" class="text-cyan-400 font-bold whitespace-nowrap px-2">Overview</a>
-    <a href="projects.html" class="text-slate-400 hover:text-white whitespace-nowrap px-2">Projects</a>
-    <a href="about.html" class="text-slate-400 hover:text-white whitespace-nowrap px-2">Academics</a>
-    <a href="cosmos.html" class="text-slate-400 hover:text-white whitespace-nowrap px-2">Creative</a>
-    <a href="contact.html" class="text-slate-400 hover:text-white whitespace-nowrap px-2">Contact</a>
+  <div class="md:hidden fixed top-[57px] left-0 right-0 z-40 bg-black/95 backdrop-blur-md border-b border-white/10 px-4 py-2.5 flex items-center justify-between text-xs font-mono overflow-x-auto">
+    <a href="index.html" class="text-white font-bold whitespace-nowrap px-2">Overview</a>
+    <a href="projects.html" class="text-neutral-400 hover:text-white whitespace-nowrap px-2">Projects</a>
+    <a href="about.html" class="text-neutral-400 hover:text-white whitespace-nowrap px-2">Academics</a>
+    <a href="cosmos.html" class="text-neutral-400 hover:text-white whitespace-nowrap px-2">Creative</a>
+    <a href="contact.html" class="text-neutral-400 hover:text-white whitespace-nowrap px-2">Contact</a>
   </div>
 
-  <!-- MAIN CONTENT CONTAINER -->
-  <main class="flex-1 max-w-5xl mx-auto w-full px-6 pt-32 pb-24 space-y-24">
+  <!-- MAIN EDITORIAL CONTENT -->
+  <main class="flex-1 max-w-5xl mx-auto w-full px-6 pt-36 pb-24 space-y-24">
 
-    <!-- HERO SECTION (Editorial & Restrained) -->
+    <!-- HERO SECTION -->
     <section class="space-y-6 pt-4">
       
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-slate-300 text-xs font-mono">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span>Deep Space Observatory &bull; Available for High-Impact Roles</span>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/5 text-neutral-300 text-xs font-mono">
+        <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+        <span>OBSERVATORY // AVAILABLE FOR SYSTEMS & QUANT ROLES</span>
       </div>
 
-      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.08]">
-        Engineering autonomous systems, distributed protocols & quantitative alphas.
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white font-display leading-[1.05]">
+        Systems Architect, Quantitative Researcher & Dual IIT Scholar.
       </h1>
 
-      <p class="max-w-3xl text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-        I am <strong>Ayush Kandwal ("Ayu")</strong>, an autonomous systems architect and quantitative researcher. 
-        I build 24/7 background swarms, distributed state delta replicators, and order book simulation models. 
-        Currently pursuing a dual degree across <strong>IIT Madras</strong> (BS Data Science) and <strong>IIT Patna</strong> (BS Computer Science), alongside <strong>BA (Hons) Economics</strong> at the University of Delhi.
+      <p class="max-w-3xl text-base sm:text-lg text-neutral-300 font-normal leading-relaxed">
+        I am <strong>Ayush Kandwal ("Ayu")</strong>. I engineer 24/7 autonomous daemon swarms, distributed state delta replicators, and quantitative alpha models. Currently pursuing dual bachelor degrees simultaneously at <strong>IIT Madras</strong> (BS Data Science) and <strong>IIT Patna</strong> (BS Computer Science), alongside <strong>BA (Hons) Economics</strong> at the University of Delhi.
       </p>
 
-      <!-- Fast Access Action Row -->
+      <!-- Fast Action Row -->
       <div class="flex flex-wrap items-center gap-3 pt-2 text-xs font-mono">
-        <a href="projects.html" class="px-5 py-2.5 rounded-lg bg-white text-void font-bold hover:bg-slate-200 transition-all flex items-center gap-2">
-          <span>View 51+ Shipped Repositories</span>
+        <a href="projects.html" class="px-5 py-2.5 rounded bg-white text-black font-bold hover:bg-neutral-200 transition-all flex items-center gap-2">
+          <span>Explore 51+ Systems</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
-        <a href="about.html" class="px-5 py-2.5 rounded-lg border border-white/15 bg-white/5 hover:bg-white/10 text-white transition-all flex items-center gap-2">
-          <span>Academic & Industry Dossier</span>
+        <a href="about.html" class="px-5 py-2.5 rounded border border-white/20 bg-white/5 hover:bg-white/10 text-white transition-all">
+          <span>Academic Dossier</span>
         </a>
-        <a href="contact.html" class="px-5 py-2.5 rounded-lg border border-white/15 bg-white/5 hover:bg-white/10 text-slate-300 transition-all flex items-center gap-2">
-          <span>Terminal & Contact</span>
+        <a href="contact.html" class="px-5 py-2.5 rounded border border-white/20 bg-white/5 hover:bg-white/10 text-neutral-300 transition-all">
+          <span>Direct Channels</span>
         </a>
       </div>
 
-      <!-- Quick Metrics Bar -->
+      <!-- Live Counters Bar -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-white/10">
         <div>
-          <div class="text-2xl font-bold font-mono text-white">51+</div>
-          <div class="text-xs text-slate-400 font-mono mt-0.5">Shipped FOSS Repos</div>
+          <div class="text-3xl font-bold font-mono text-white">51+</div>
+          <div class="text-xs text-neutral-400 font-mono mt-0.5">Shipped FOSS Repos</div>
         </div>
         <div>
-          <div class="text-2xl font-bold font-mono text-white">18</div>
-          <div class="text-xs text-slate-400 font-mono mt-0.5">24/7 Autonomous Daemons</div>
+          <div class="text-3xl font-bold font-mono text-white">18</div>
+          <div class="text-xs text-neutral-400 font-mono mt-0.5">24/7 Autonomous Daemons</div>
         </div>
         <div>
-          <div class="text-2xl font-bold font-mono text-white">Dual IIT</div>
-          <div class="text-xs text-slate-400 font-mono mt-0.5">IIT Madras + IIT Patna BS</div>
+          <div class="text-3xl font-bold font-mono text-white">Dual IIT</div>
+          <div class="text-xs text-neutral-400 font-mono mt-0.5">IITM BS + IITP BS</div>
         </div>
         <div>
-          <div class="text-2xl font-bold font-mono text-white">AK45063</div>
-          <div class="text-xs text-slate-400 font-mono mt-0.5">WorldQuant Brain Consultant</div>
+          <div class="text-3xl font-bold font-mono text-white">AK45063</div>
+          <div class="text-xs text-neutral-400 font-mono mt-0.5">WorldQuant Consultant</div>
         </div>
       </div>
 
     </section>
 
-    <!-- BENTO OVERVIEW GRID -->
+    <!-- CORE PILLARS BENTO -->
     <section class="space-y-6">
       <div class="flex items-center justify-between border-b border-white/10 pb-3">
-        <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2 font-mono">
-          <span>// CORE PILLARS</span>
-        </h2>
-        <span class="text-xs text-slate-400 font-mono">ENGINEERING & ACADEMIC POSTURE</span>
+        <h2 class="text-sm font-bold text-white tracking-widest font-mono">// CORE DISCIPLINES</h2>
+        <span class="text-xs text-neutral-500 font-mono">ENGINEERING & RESEARCH POSTURE</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         
-        <!-- Bento 1: Autonomous Swarms & Hermes Core -->
-        <a href="projects.html" class="bento-card p-6 rounded-2xl block group">
+        <!-- Bento 1: Autonomous Swarms & Hermes -->
+        <a href="projects.html" class="noir-card p-6 rounded-xl block group">
           <div class="flex items-start justify-between">
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">AUTONOMOUS SWARMS</span>
-            <i data-lucide="cpu" class="w-5 h-5 text-slate-400 group-hover:text-cyan-300 transition-colors"></i>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">01 / SWARMS</span>
+            <i data-lucide="cpu" class="w-5 h-5 text-neutral-500 group-hover:text-white transition-colors"></i>
           </div>
-          <h3 class="text-xl font-bold text-white mt-4 group-hover:text-cyan-300 transition-colors">
-            Hermes Fleet & Swarm Intelligence
+          <h3 class="text-xl font-bold text-white mt-4 group-hover:text-neutral-200 transition-colors font-display">
+            Hermes Autonomous Swarm Core
           </h3>
-          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-            18 background daemons running 24/7 on macOS. Implements clean-room reverse engineering, automated dependency pruning, speculative decoding, and 100% WhatsApp alert routing.
+          <p class="text-xs text-neutral-400 mt-2 leading-relaxed">
+            18 background daemons running 24/7 on macOS. Implements clean-room reverse engineering, AST dead-code pruning, speculative decoding, and 100% WhatsApp notification dispatch (+91 7417939838).
           </p>
-          <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono text-slate-400">
-            <span>24/7 Zero-Touch Automation</span>
-            <span class="text-cyan-300 group-hover:translate-x-1 transition-transform">&rarr;</span>
+          <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-400">
+            <span>24/7 Zero-Touch Execution</span>
+            <span class="group-hover:translate-x-1 transition-transform text-white">&rarr;</span>
           </div>
         </a>
 
         <!-- Bento 2: Quantitative Alpha Mining -->
-        <a href="about.html" class="bento-card p-6 rounded-2xl block group">
+        <a href="about.html" class="noir-card p-6 rounded-xl block group">
           <div class="flex items-start justify-between">
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">QUANTITATIVE FINANCE</span>
-            <i data-lucide="trending-up" class="w-5 h-5 text-slate-400 group-hover:text-amber-300 transition-colors"></i>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">02 / QUANT</span>
+            <i data-lucide="trending-up" class="w-5 h-5 text-neutral-500 group-hover:text-white transition-colors"></i>
           </div>
-          <h3 class="text-xl font-bold text-white mt-4 group-hover:text-amber-300 transition-colors">
+          <h3 class="text-xl font-bold text-white mt-4 group-hover:text-neutral-200 transition-colors font-display">
             WorldQuant Brain & Microstructure
           </h3>
-          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-            Active Research Consultant (ID: AK45063, USA Region). Mining mathematical alpha factors, analyzing cross-asset momentum, and backtesting order-book microstructure signals.
+          <p class="text-xs text-neutral-400 mt-2 leading-relaxed">
+            Active Research Consultant (ID: AK45063, USA Region). Mining mathematical alpha factors, analyzing cross-asset momentum, and developing order-book microstructure backtests.
           </p>
-          <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono text-slate-400">
+          <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-400">
             <span>Alpha Generation & Backtesting</span>
-            <span class="text-amber-300 group-hover:translate-x-1 transition-transform">&rarr;</span>
+            <span class="group-hover:translate-x-1 transition-transform text-white">&rarr;</span>
           </div>
         </a>
 
-        <!-- Bento 3: Dual IIT Academic Citadel -->
-        <a href="about.html" class="bento-card p-6 rounded-2xl block group">
+        <!-- Bento 3: Dual IIT Degrees -->
+        <a href="about.html" class="noir-card p-6 rounded-xl block group">
           <div class="flex items-start justify-between">
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 border border-purple-500/20">ACADEMICS & DEGREES</span>
-            <i data-lucide="graduation-cap" class="w-5 h-5 text-slate-400 group-hover:text-purple-300 transition-colors"></i>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">03 / ACADEMICS</span>
+            <i data-lucide="graduation-cap" class="w-5 h-5 text-neutral-500 group-hover:text-white transition-colors"></i>
           </div>
-          <h3 class="text-xl font-bold text-white mt-4 group-hover:text-purple-300 transition-colors">
+          <h3 class="text-xl font-bold text-white mt-4 group-hover:text-neutral-200 transition-colors font-display">
             Dual IIT BS Candidate & Fellowships
           </h3>
-          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-            BS in Data Science & Applications (IIT Madras, Roll: 24f1000816), B.Sc. (Hons) in Computer Science (IIT Patna, Roll: 2412res45), BA (Hons) Economics (University of Delhi), and UC Berkeley REYES Physics.
+          <p class="text-xs text-neutral-400 mt-2 leading-relaxed">
+            BS in Data Science (IIT Madras, Roll: 24f1000816), B.Sc. (Hons) in Computer Science (IIT Patna, Roll: 2412res45), BA (Hons) Economics (DU), and UC Berkeley REYES Physics.
           </p>
-          <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono text-slate-400">
+          <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-400">
             <span>IIT Madras &bull; IIT Patna &bull; DU &bull; Berkeley</span>
-            <span class="text-purple-300 group-hover:translate-x-1 transition-transform">&rarr;</span>
+            <span class="group-hover:translate-x-1 transition-transform text-white">&rarr;</span>
           </div>
         </a>
 
-        <!-- Bento 4: Creative Cosmos & Virtual Worlds -->
-        <a href="cosmos.html" class="bento-card p-6 rounded-2xl block group">
+        <!-- Bento 4: Creative Cosmos & Gaming -->
+        <a href="cosmos.html" class="noir-card p-6 rounded-xl block group">
           <div class="flex items-start justify-between">
-            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">CREATIVE & GAMING</span>
-            <i data-lucide="music" class="w-5 h-5 text-slate-400 group-hover:text-emerald-300 transition-colors"></i>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">04 / CREATIVE</span>
+            <i data-lucide="music" class="w-5 h-5 text-neutral-500 group-hover:text-white transition-colors"></i>
           </div>
-          <h3 class="text-xl font-bold text-white mt-4 group-hover:text-emerald-300 transition-colors">
+          <h3 class="text-xl font-bold text-white mt-4 group-hover:text-neutral-200 transition-colors font-display">
             Music Production, Roblox & 1M+ Pinterest
           </h3>
-          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-            Logic Pro music engineering by "Ayu", Roblox Luau game dev (#5294143085), competitive Steam/Twitch (CS2, Valorant), and 1M+ monthly viewers on curated dark-noir Pinterest boards.
+          <p class="text-xs text-neutral-400 mt-2 leading-relaxed">
+            Logic Pro music engineering by "Ayu", Roblox Luau multiplayer engine (#5294143085), Steam/Twitch (@kanayuuh), and over 1M+ monthly viewers on curated dark-noir Pinterest archives.
           </p>
-          <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono text-slate-400">
-            <span>Music Stems &bull; Roblox &bull; Cinema</span>
-            <span class="text-emerald-300 group-hover:translate-x-1 transition-transform">&rarr;</span>
+          <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono text-neutral-400">
+            <span>Music Stems &bull; Roblox &bull; Noir Cinema</span>
+            <span class="group-hover:translate-x-1 transition-transform text-white">&rarr;</span>
           </div>
         </a>
 
       </div>
     </section>
 
-    <!-- SELECTED PRODUCTION SHIPMENTS -->
+    <!-- SELECTED PRODUCTION CODEBASES -->
     <section class="space-y-6">
       <div class="flex items-center justify-between border-b border-white/10 pb-3">
         <div>
-          <h2 class="text-lg font-bold text-white tracking-tight font-mono">// FLAGSHIP REPOSITORIES</h2>
-          <p class="text-xs text-slate-400 mt-0.5">High-complexity distributed protocols, AI tools, and production applications.</p>
+          <h2 class="text-sm font-bold text-white tracking-widest font-mono">// FLAGSHIP REPOSITORIES</h2>
+          <p class="text-xs text-neutral-400 mt-0.5">Distributed protocols, production web apps, and machine learning engines.</p>
         </div>
-        <a href="projects.html" class="text-xs font-mono text-cyan-400 hover:underline">View All 51+ &rarr;</a>
+        <a href="projects.html" class="text-xs font-mono text-white hover:underline flex items-center gap-1">
+          <span>All 51+ Repos</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
       </div>
 
       <div class="space-y-4">
         
         <!-- SafetyPin -->
-        <div class="bento-card p-5 rounded-xl flex flex-col md:flex-row justify-between gap-4">
+        <div class="noir-card p-6 rounded-xl flex flex-col md:flex-row justify-between gap-4">
           <div class="space-y-2">
             <div class="flex items-center gap-2">
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">PRODUCTION SPA</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">PRODUCTION SPA</span>
               <h3 class="text-base font-bold text-white">SafetyPin (Sunzzx/safetypin)</h3>
             </div>
-            <p class="text-xs text-slate-300 leading-relaxed max-w-2xl">
-              Women's navigation and incident safety application engineered with React 19, Leaflet.js, Web Audio telemetry, and custom GPS drift-detection algorithms. Deployed live on Vercel.
+            <p class="text-xs text-neutral-300 leading-relaxed max-w-2xl">
+              Women's safety navigation application engineered with React 19, Leaflet.js, Web Audio telemetry, and custom GPS route drift-detection algorithms. Deployed live on Vercel.
             </p>
-            <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400 pt-1">
+            <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-neutral-400 pt-1">
               <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">React 19</span>
               <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Leaflet.js</span>
               <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Web Audio API</span>
@@ -273,7 +273,7 @@
             </div>
           </div>
           <div class="flex md:flex-col items-end justify-between text-xs font-mono gap-2 shrink-0">
-            <a href="https://github.com/Sunzzx/safetypin" target="_blank" class="px-3 py-1.5 rounded bg-white/10 hover:bg-white/15 text-white flex items-center gap-1">
+            <a href="https://github.com/Sunzzx/safetypin" target="_blank" class="px-3 py-1.5 rounded bg-white/10 hover:bg-white/20 text-white flex items-center gap-1">
               <span>GitHub</span>
               <i data-lucide="external-link" class="w-3 h-3"></i>
             </a>
@@ -281,23 +281,23 @@
         </div>
 
         <!-- Chronos HLC State Delta Replicator -->
-        <div class="bento-card p-5 rounded-xl flex flex-col md:flex-row justify-between gap-4">
+        <div class="noir-card p-6 rounded-xl flex flex-col md:flex-row justify-between gap-4">
           <div class="space-y-2">
             <div class="flex items-center gap-2">
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 border border-purple-500/20">DISTRIBUTED PROTOCOL</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">DISTRIBUTED PROTOCOL</span>
               <h3 class="text-base font-bold text-white">chronos-hlc-state-delta-replicator</h3>
             </div>
-            <p class="text-xs text-slate-300 leading-relaxed max-w-2xl">
-              High-performance distributed state delta replicator utilizing Hybrid Logical Clocks (HLC) and Delta-CRDTs for causal peer-to-peer conflict-free consistency without central coordination.
+            <p class="text-xs text-neutral-300 leading-relaxed max-w-2xl">
+              High-performance distributed state delta replicator utilizing Hybrid Logical Clocks (HLC) and Delta-CRDTs for causal peer-to-peer conflict-free consistency without central brokers.
             </p>
-            <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400 pt-1">
-              <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Python / Rust</span>
+            <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-neutral-400 pt-1">
+              <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Distributed Systems</span>
               <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Hybrid Logical Clocks</span>
               <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Delta-CRDT</span>
             </div>
           </div>
           <div class="flex md:flex-col items-end justify-between text-xs font-mono gap-2 shrink-0">
-            <a href="https://github.com/Sunzzx/chronos-hlc-state-delta-replicator" target="_blank" class="px-3 py-1.5 rounded bg-white/10 hover:bg-white/15 text-white flex items-center gap-1">
+            <a href="https://github.com/Sunzzx/chronos-hlc-state-delta-replicator" target="_blank" class="px-3 py-1.5 rounded bg-white/10 hover:bg-white/20 text-white flex items-center gap-1">
               <span>GitHub</span>
               <i data-lucide="external-link" class="w-3 h-3"></i>
             </a>
@@ -305,23 +305,23 @@
         </div>
 
         <!-- Kaggle Grandmaster Autopilot -->
-        <div class="bento-card p-5 rounded-xl flex flex-col md:flex-row justify-between gap-4">
+        <div class="noir-card p-6 rounded-xl flex flex-col md:flex-row justify-between gap-4">
           <div class="space-y-2">
             <div class="flex items-center gap-2">
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">AUTONOMOUS ML</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">AUTONOMOUS ML</span>
               <h3 class="text-base font-bold text-white">kaggle-grandmaster-autopilot</h3>
             </div>
-            <p class="text-xs text-slate-300 leading-relaxed max-w-2xl">
-              End-to-end competition scout, automated EDA, LightGBM/XGBoost cross-validation trainer, and leaderboard submission engine configured to compete relentlessly for top-tier rankings.
+            <p class="text-xs text-neutral-300 leading-relaxed max-w-2xl">
+              Autonomous competition scout, automated feature engineering, LightGBM/XGBoost cross-validation trainer, and leaderboard submission engine configured to compete daily.
             </p>
-            <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400 pt-1">
+            <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-neutral-400 pt-1">
               <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">LightGBM</span>
               <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">XGBoost</span>
               <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Kaggle CLI</span>
             </div>
           </div>
           <div class="flex md:flex-col items-end justify-between text-xs font-mono gap-2 shrink-0">
-            <a href="https://github.com/Sunzzx" target="_blank" class="px-3 py-1.5 rounded bg-white/10 hover:bg-white/15 text-white flex items-center gap-1">
+            <a href="https://github.com/Sunzzx" target="_blank" class="px-3 py-1.5 rounded bg-white/10 hover:bg-white/20 text-white flex items-center gap-1">
               <span>GitHub</span>
               <i data-lucide="external-link" class="w-3 h-3"></i>
             </a>
@@ -334,16 +334,16 @@
   </main>
 
   <!-- Site Footer -->
-  <footer class="border-t border-white/10 py-8 px-6 text-xs font-mono text-slate-400 bg-surface-900/50">
+  <footer class="border-t border-white/10 py-8 px-6 text-xs font-mono text-neutral-400 bg-black">
     <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
       <div>
         &copy; 2026 Ayush Kandwal ("Ayu"). Systems Architect & Quantitative Researcher.
       </div>
-      <div class="flex items-center gap-4 text-slate-300">
+      <div class="flex items-center gap-4 text-neutral-300">
         <a href="https://github.com/Sunzzx" target="_blank" class="hover:text-white">GitHub</a>
         <a href="https://x.com/its_ayu5" target="_blank" class="hover:text-white">Twitter/X</a>
         <a href="https://www.linkedin.com/in/ayush-kandwal" target="_blank" class="hover:text-white">LinkedIn</a>
-        <a href="contact.html" class="hover:text-white">Contact / CLI</a>
+        <a href="contact.html" class="hover:text-white">Contact / Shell</a>
       </div>
     </div>
   </footer>

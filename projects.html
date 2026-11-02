@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth selection:bg-slate-700 selection:text-white">
+<html lang="en" class="dark scroll-smooth selection:bg-white selection:text-black">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,14 +14,15 @@
       theme: {
         extend: {
           colors: {
-            void: '#030306',
-            surface: { 900: '#08080f', 800: '#0f1019', 700: '#171826' },
-            border: 'rgba(255, 255, 255, 0.08)',
-            accent: '#38bdf8'
+            void: '#000000',
+            card: '#080808',
+            hovercard: '#0f0f0f',
+            border: 'rgba(255, 255, 255, 0.1)'
           },
           fontFamily: {
             sans: ['Space Grotesk', 'Inter', '-apple-system', 'sans-serif'],
-            mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+            display: ['Syne', 'Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
           }
         }
       }
@@ -30,55 +31,54 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700;800&family=Syne:wght@700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    body { background-color: #030306; }
+    body { background-color: #000000; color: #ffffff; }
     .glass-nav {
-      background: rgba(8, 8, 15, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .bento-card {
-      background: rgba(12, 13, 22, 0.65);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      transition: all 0.25s ease-out;
+    .noir-card {
+      background: #080808;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .bento-card:hover {
-      border-color: rgba(255, 255, 255, 0.2);
+    .noir-card:hover {
+      background: #0f0f0f;
+      border-color: rgba(255, 255, 255, 0.25);
       transform: translateY(-2px);
-      background: rgba(16, 17, 30, 0.75);
     }
   </style>
 </head>
-<body class="text-slate-200 antialiased min-h-screen flex flex-col font-sans relative overflow-x-hidden">
+<body class="antialiased min-h-screen flex flex-col font-sans relative overflow-x-hidden">
 
-  <!-- Shared Deep Space Astronomical Canvas -->
+  <!-- Pure Astronomical Deep Space Canvas -->
   <script src="public/space.js"></script>
 
   <!-- Navigation Bar -->
-  <header class="fixed top-0 left-0 right-0 z-50 glass-nav px-6 lg:px-12 py-3.5">
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav px-6 lg:px-12 py-4">
     <div class="max-w-6xl mx-auto flex items-center justify-between">
       
-      <a href="index.html" class="flex items-center gap-2.5 group">
-        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400/80 group-hover:scale-125 transition-transform"></span>
-        <span class="font-bold tracking-tight text-white text-sm">AYUSH KANDWAL</span>
-        <span class="text-xs text-slate-500 font-mono hidden sm:inline">/ SUNZZX</span>
+      <a href="index.html" class="flex items-center gap-2 group">
+        <span class="w-2 h-2 rounded-full bg-white group-hover:scale-125 transition-transform"></span>
+        <span class="font-bold tracking-tight text-white text-sm font-display">AYUSH KANDWAL</span>
+        <span class="text-xs text-neutral-500 font-mono hidden sm:inline">/ SUNZZX</span>
       </a>
 
       <nav class="hidden md:flex items-center gap-1 text-xs font-mono">
-        <a href="index.html" class="px-3 py-1.5 rounded-md text-slate-400 hover:text-white hover:bg-white/5 transition-colors">Overview</a>
-        <a href="projects.html" class="px-3 py-1.5 rounded-md text-white bg-white/10 font-medium">Projects (51+)</a>
-        <a href="about.html" class="px-3 py-1.5 rounded-md text-slate-400 hover:text-white hover:bg-white/5 transition-colors">Academics & Dossier</a>
-        <a href="cosmos.html" class="px-3 py-1.5 rounded-md text-slate-400 hover:text-white hover:bg-white/5 transition-colors">Creative Cosmos</a>
-        <a href="contact.html" class="px-3 py-1.5 rounded-md text-slate-400 hover:text-white hover:bg-white/5 transition-colors">Terminal & Links</a>
+        <a href="index.html" class="px-3 py-1.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">Overview</a>
+        <a href="projects.html" class="px-3 py-1.5 rounded text-white bg-white/10 font-bold">Projects (51+)</a>
+        <a href="about.html" class="px-3 py-1.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">Academics & Dossier</a>
+        <a href="cosmos.html" class="px-3 py-1.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">Creative Cosmos</a>
+        <a href="contact.html" class="px-3 py-1.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">Contact / Shell</a>
       </nav>
 
-      <div class="flex items-center gap-3">
-        <a href="https://github.com/Sunzzx" target="_blank" class="px-3.5 py-1.5 rounded-md border border-white/15 bg-white/5 hover:bg-white/10 text-white text-xs font-mono transition-all flex items-center gap-1.5">
+      <div class="flex items-center gap-2">
+        <a href="https://github.com/Sunzzx" target="_blank" class="px-3 py-1.5 rounded border border-white/20 bg-white/5 hover:bg-white/10 text-white text-xs font-mono transition-all flex items-center gap-1.5">
           <i data-lucide="github" class="w-3.5 h-3.5"></i>
           <span>GitHub</span>
         </a>
@@ -88,78 +88,78 @@
   </header>
 
   <!-- Mobile Sub-Nav -->
-  <div class="md:hidden fixed top-[53px] left-0 right-0 z-40 bg-surface-900/90 backdrop-blur-md border-b border-border px-4 py-2 flex items-center justify-between text-xs font-mono overflow-x-auto">
-    <a href="index.html" class="text-slate-400 hover:text-white whitespace-nowrap px-2">Overview</a>
-    <a href="projects.html" class="text-cyan-400 font-bold whitespace-nowrap px-2">Projects</a>
-    <a href="about.html" class="text-slate-400 hover:text-white whitespace-nowrap px-2">Academics</a>
-    <a href="cosmos.html" class="text-slate-400 hover:text-white whitespace-nowrap px-2">Creative</a>
-    <a href="contact.html" class="text-slate-400 hover:text-white whitespace-nowrap px-2">Contact</a>
+  <div class="md:hidden fixed top-[57px] left-0 right-0 z-40 bg-black/95 backdrop-blur-md border-b border-white/10 px-4 py-2.5 flex items-center justify-between text-xs font-mono overflow-x-auto">
+    <a href="index.html" class="text-neutral-400 hover:text-white whitespace-nowrap px-2">Overview</a>
+    <a href="projects.html" class="text-white font-bold whitespace-nowrap px-2">Projects</a>
+    <a href="about.html" class="text-neutral-400 hover:text-white whitespace-nowrap px-2">Academics</a>
+    <a href="cosmos.html" class="text-neutral-400 hover:text-white whitespace-nowrap px-2">Creative</a>
+    <a href="contact.html" class="text-neutral-400 hover:text-white whitespace-nowrap px-2">Contact</a>
   </div>
 
   <!-- MAIN FLEET CATALOG -->
-  <main class="flex-1 max-w-5xl mx-auto w-full px-6 pt-32 pb-24 space-y-12">
+  <main class="flex-1 max-w-5xl mx-auto w-full px-6 pt-36 pb-24 space-y-12">
 
     <!-- Page Header -->
     <div class="space-y-4">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-slate-300 text-xs font-mono">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/5 text-neutral-300 text-xs font-mono">
         <span>ENGINEERING REPOSITORIES &bull; 51+ SHIPPED SYSTEMS</span>
       </div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-        Production Fleet & Open-Source Codebases
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-display">
+        Production Fleet & Codebases
       </h1>
-      <p class="text-slate-400 max-w-2xl text-sm leading-relaxed">
-        Autonomous agents, distributed state synchronization engines, high-frequency quant backtesters, and security utilities. Built with strict performance guarantees and zero placeholder code.
+      <p class="text-neutral-400 max-w-2xl text-sm leading-relaxed">
+        Autonomous agents, distributed state synchronization protocols, quantitative backtesters, and security utilities. Built with strict performance guarantees and zero placeholder code.
       </p>
     </div>
 
     <!-- Category Filter Tabs -->
     <div class="flex flex-wrap items-center gap-2 text-xs font-mono border-b border-white/10 pb-4">
-      <button onclick="filterProjects('all')" id="btn-all" class="px-3.5 py-1.5 rounded-lg bg-white text-void font-bold transition-all">All Systems (51+)</button>
-      <button onclick="filterProjects('swarms')" id="btn-swarms" class="px-3.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 transition-all">Autonomous AI & Swarms</button>
-      <button onclick="filterProjects('distributed')" id="btn-distributed" class="px-3.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 transition-all">Distributed Protocols</button>
-      <button onclick="filterProjects('quant')" id="btn-quant" class="px-3.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 transition-all">Quantitative Finance</button>
-      <button onclick="filterProjects('security')" id="btn-security" class="px-3.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 transition-all">Security & DevTools</button>
+      <button onclick="filterProjects('all')" id="btn-all" class="px-3.5 py-1.5 rounded bg-white text-black font-bold transition-all">All Systems (51+)</button>
+      <button onclick="filterProjects('swarms')" id="btn-swarms" class="px-3.5 py-1.5 rounded bg-white/5 hover:bg-white/10 text-neutral-300 transition-all">Autonomous AI & Swarms</button>
+      <button onclick="filterProjects('distributed')" id="btn-distributed" class="px-3.5 py-1.5 rounded bg-white/5 hover:bg-white/10 text-neutral-300 transition-all">Distributed Protocols</button>
+      <button onclick="filterProjects('quant')" id="btn-quant" class="px-3.5 py-1.5 rounded bg-white/5 hover:bg-white/10 text-neutral-300 transition-all">Quantitative Finance</button>
+      <button onclick="filterProjects('security')" id="btn-security" class="px-3.5 py-1.5 rounded bg-white/5 hover:bg-white/10 text-neutral-300 transition-all">Security & DevTools</button>
     </div>
 
     <!-- Projects Grid -->
     <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5">
 
       <!-- Hermes Swarm Core -->
-      <div class="bento-card p-6 rounded-2xl flex flex-col justify-between" data-category="swarms">
+      <div class="noir-card p-6 rounded-xl flex flex-col justify-between" data-category="swarms">
         <div class="space-y-3">
           <div class="flex items-center justify-between">
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">AUTONOMOUS SWARM</span>
-            <span class="text-xs font-mono text-slate-500">macOS 24/7</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">AUTONOMOUS SWARM</span>
+            <span class="text-xs font-mono text-neutral-500">macOS 24/7</span>
           </div>
-          <h3 class="text-lg font-bold text-white">Hermes Swarm Core (~/.hermes)</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            18 autonomous background daemons running 24/7 on macOS with verified zero manual intervention. Features AST self-mutation, failover retry loops, clean-room reverse engineering, and 100% WhatsApp routing.
+          <h3 class="text-lg font-bold text-white font-display">Hermes Swarm Core (~/.hermes)</h3>
+          <p class="text-xs text-neutral-300 leading-relaxed">
+            18 autonomous background daemons running 24/7 on macOS with zero manual intervention. Features AST self-mutation, failover retry loops, clean-room reverse engineering, and 100% WhatsApp routing (+91 7417939838).
           </p>
-          <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400 pt-2">
+          <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-neutral-400 pt-2">
             <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Python 3.12</span>
             <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">SQLite3</span>
             <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">WhatsApp Dispatch</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Cron Supervison</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Cron Supervision</span>
           </div>
         </div>
         <div class="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono">
-          <span class="text-emerald-400">● 18 Daemons Active</span>
-          <span class="text-slate-400">Daemon Fleet</span>
+          <span class="text-white font-bold">● 18 Daemons Active</span>
+          <span class="text-neutral-500">Daemon Fleet</span>
         </div>
       </div>
 
       <!-- SafetyPin -->
-      <div class="bento-card p-6 rounded-2xl flex flex-col justify-between" data-category="security">
+      <div class="noir-card p-6 rounded-xl flex flex-col justify-between" data-category="security">
         <div class="space-y-3">
           <div class="flex items-center justify-between">
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 border border-purple-500/20">PRODUCTION SPA</span>
-            <span class="text-xs font-mono text-slate-500">Live Vercel</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">PRODUCTION SPA</span>
+            <span class="text-xs font-mono text-neutral-500">Live Vercel</span>
           </div>
-          <h3 class="text-lg font-bold text-white">SafetyPin (Sunzzx/safetypin)</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
+          <h3 class="text-lg font-bold text-white font-display">SafetyPin (Sunzzx/safetypin)</h3>
+          <p class="text-xs text-neutral-300 leading-relaxed">
             Women's safe navigation and route tracking application built with React 19, Leaflet.js, and Web Audio API. Integrates custom GPS route drift-detection algorithms to alert emergency contacts automatically.
           </p>
-          <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400 pt-2">
+          <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-neutral-400 pt-2">
             <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">React 19</span>
             <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Leaflet.js</span>
             <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Web Audio API</span>
@@ -167,115 +167,115 @@
           </div>
         </div>
         <div class="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono">
-          <a href="https://github.com/Sunzzx/safetypin" target="_blank" class="text-cyan-400 hover:underline flex items-center gap-1">
+          <a href="https://github.com/Sunzzx/safetypin" target="_blank" class="text-white hover:underline flex items-center gap-1 font-bold">
             <span>GitHub Repository</span>
             <i data-lucide="external-link" class="w-3 h-3"></i>
           </a>
-          <span class="text-slate-400">Production</span>
+          <span class="text-neutral-500">Production</span>
         </div>
       </div>
 
       <!-- Chronos HLC State Delta Replicator -->
-      <div class="bento-card p-6 rounded-2xl flex flex-col justify-between" data-category="distributed">
+      <div class="noir-card p-6 rounded-xl flex flex-col justify-between" data-category="distributed">
         <div class="space-y-3">
           <div class="flex items-center justify-between">
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">DISTRIBUTED PROTOCOL</span>
-            <span class="text-xs font-mono text-slate-500">CRDT / HLC</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">DISTRIBUTED PROTOCOL</span>
+            <span class="text-xs font-mono text-neutral-500">CRDT / HLC</span>
           </div>
-          <h3 class="text-lg font-bold text-white">chronos-hlc-state-delta-replicator</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
+          <h3 class="text-lg font-bold text-white font-display">chronos-hlc-state-delta-replicator</h3>
+          <p class="text-xs text-neutral-300 leading-relaxed">
             High-Performance Distributed State Delta Replicator with Hybrid Logical Clocks (HLC) and Delta-CRDTs. Solves distributed causal ordering and network partition synchronization without central brokers.
           </p>
-          <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400 pt-2">
+          <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-neutral-400 pt-2">
             <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Distributed Systems</span>
             <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">HLC</span>
             <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Delta-CRDT</span>
           </div>
         </div>
         <div class="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono">
-          <a href="https://github.com/Sunzzx/chronos-hlc-state-delta-replicator" target="_blank" class="text-cyan-400 hover:underline flex items-center gap-1">
+          <a href="https://github.com/Sunzzx/chronos-hlc-state-delta-replicator" target="_blank" class="text-white hover:underline flex items-center gap-1 font-bold">
             <span>GitHub Repository</span>
             <i data-lucide="external-link" class="w-3 h-3"></i>
           </a>
-          <span class="text-slate-400">Open Source</span>
+          <span class="text-neutral-500">Open Source</span>
         </div>
       </div>
 
       <!-- Quanta Core -->
-      <div class="bento-card p-6 rounded-2xl flex flex-col justify-between" data-category="quant">
+      <div class="noir-card p-6 rounded-xl flex flex-col justify-between" data-category="quant">
         <div class="space-y-3">
           <div class="flex items-center justify-between">
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">QUANT FINANCE</span>
-            <span class="text-xs font-mono text-slate-500">High-Throughput</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">QUANT FINANCE</span>
+            <span class="text-xs font-mono text-neutral-500">High-Throughput</span>
           </div>
-          <h3 class="text-lg font-bold text-white">quanta-core</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
+          <h3 class="text-lg font-bold text-white font-display">quanta-core</h3>
+          <p class="text-xs text-neutral-300 leading-relaxed">
             High-throughput quantitative alpha mining engine with tick-level backtesting, market microstructure modeling, cross-asset momentum evaluation, and vector order book simulations.
           </p>
-          <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400 pt-2">
+          <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-neutral-400 pt-2">
             <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Python / NumPy</span>
             <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Alpha Mining</span>
             <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Microstructure</span>
           </div>
         </div>
         <div class="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono">
-          <a href="https://github.com/Sunzzx" target="_blank" class="text-amber-400 hover:underline flex items-center gap-1">
+          <a href="https://github.com/Sunzzx" target="_blank" class="text-white hover:underline flex items-center gap-1 font-bold">
             <span>GitHub Repository</span>
             <i data-lucide="external-link" class="w-3 h-3"></i>
           </a>
-          <span class="text-slate-400">Quantitative</span>
+          <span class="text-neutral-500">Quantitative</span>
         </div>
       </div>
 
       <!-- Kaggle Grandmaster Autopilot -->
-      <div class="bento-card p-6 rounded-2xl flex flex-col justify-between" data-category="swarms">
+      <div class="noir-card p-6 rounded-xl flex flex-col justify-between" data-category="swarms">
         <div class="space-y-3">
           <div class="flex items-center justify-between">
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">AUTONOMOUS ML</span>
-            <span class="text-xs font-mono text-slate-500">Daily Pipeline</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">AUTONOMOUS ML</span>
+            <span class="text-xs font-mono text-neutral-500">Daily Pipeline</span>
           </div>
-          <h3 class="text-lg font-bold text-white">kaggle-grandmaster-autopilot</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
+          <h3 class="text-lg font-bold text-white font-display">kaggle-grandmaster-autopilot</h3>
+          <p class="text-xs text-neutral-300 leading-relaxed">
             Autonomous competition scout and ML pipeline. Handles dataset discovery, feature engineering, LightGBM/XGBoost cross-validation, and submission tracking targeting top 10 leaderboard placements.
           </p>
-          <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400 pt-2">
+          <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-neutral-400 pt-2">
             <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">LightGBM</span>
             <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">XGBoost</span>
             <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Kaggle API</span>
           </div>
         </div>
         <div class="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono">
-          <a href="https://github.com/Sunzzx" target="_blank" class="text-emerald-400 hover:underline flex items-center gap-1">
+          <a href="https://github.com/Sunzzx" target="_blank" class="text-white hover:underline flex items-center gap-1 font-bold">
             <span>GitHub Repository</span>
             <i data-lucide="external-link" class="w-3 h-3"></i>
           </a>
-          <span class="text-slate-400">Machine Learning</span>
+          <span class="text-neutral-500">Machine Learning</span>
         </div>
       </div>
 
       <!-- Cron Snitch -->
-      <div class="bento-card p-6 rounded-2xl flex flex-col justify-between" data-category="security">
+      <div class="noir-card p-6 rounded-xl flex flex-col justify-between" data-category="security">
         <div class="space-y-3">
           <div class="flex items-center justify-between">
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 border border-purple-500/20">WATCHDOG INFRA</span>
-            <span class="text-xs font-mono text-slate-500">Live Web App</span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">WATCHDOG INFRA</span>
+            <span class="text-xs font-mono text-neutral-500">Live Web App</span>
           </div>
-          <h3 class="text-lg font-bold text-white">cron-snitch-silent-failure-detector</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
+          <h3 class="text-lg font-bold text-white font-display">cron-snitch-silent-failure-detector</h3>
+          <p class="text-xs text-neutral-300 leading-relaxed">
             Silent Cron Failure & Dead Man's Snitch Watchdog for developers and indie hackers. Provides instant millisecond alerting, heartbeats, and WhatsApp dispatch before silent failures hit production.
           </p>
-          <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400 pt-2">
+          <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-neutral-400 pt-2">
             <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">FastAPI</span>
             <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Heartbeat Daemon</span>
             <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">WhatsApp Alerts</span>
           </div>
         </div>
         <div class="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono">
-          <a href="https://sunzzx.github.io/cron-snitch-silent-failure-detector/" target="_blank" class="text-purple-400 hover:underline flex items-center gap-1">
+          <a href="https://sunzzx.github.io/cron-snitch-silent-failure-detector/" target="_blank" class="text-white hover:underline flex items-center gap-1 font-bold">
             <span>Live Production App</span>
             <i data-lucide="external-link" class="w-3 h-3"></i>
           </a>
-          <span class="text-slate-400">Deployed</span>
+          <span class="text-neutral-500">Deployed</span>
         </div>
       </div>
 
@@ -283,10 +283,10 @@
 
   </main>
 
-  <footer class="border-t border-white/10 py-8 px-6 text-xs font-mono text-slate-400 bg-surface-900/50">
+  <footer class="border-t border-white/10 py-8 px-6 text-xs font-mono text-neutral-400 bg-black">
     <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
       <div>&copy; 2026 Ayush Kandwal ("Ayu"). Systems Fleet.</div>
-      <div class="flex items-center gap-4 text-slate-300">
+      <div class="flex items-center gap-4 text-neutral-300">
         <a href="index.html" class="hover:text-white">Overview</a>
         <a href="about.html" class="hover:text-white">Academics</a>
         <a href="cosmos.html" class="hover:text-white">Creative</a>
@@ -305,9 +305,9 @@
       buttons.forEach(b => {
         const btn = document.getElementById(`btn-${b}`);
         if (b === cat) {
-          btn.className = 'px-3.5 py-1.5 rounded-lg bg-white text-void font-bold transition-all';
+          btn.className = 'px-3.5 py-1.5 rounded bg-white text-black font-bold transition-all';
         } else {
-          btn.className = 'px-3.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 transition-all';
+          btn.className = 'px-3.5 py-1.5 rounded bg-white/5 hover:bg-white/10 text-neutral-300 transition-all';
         }
       });
 

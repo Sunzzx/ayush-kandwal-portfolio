@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth selection:bg-slate-700 selection:text-white">
+<html lang="en" class="dark scroll-smooth selection:bg-white selection:text-black">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,14 +14,15 @@
       theme: {
         extend: {
           colors: {
-            void: '#030306',
-            surface: { 900: '#08080f', 800: '#0f1019', 700: '#171826' },
-            border: 'rgba(255, 255, 255, 0.08)',
-            accent: '#38bdf8'
+            void: '#000000',
+            card: '#080808',
+            hovercard: '#0f0f0f',
+            border: 'rgba(255, 255, 255, 0.1)'
           },
           fontFamily: {
             sans: ['Space Grotesk', 'Inter', '-apple-system', 'sans-serif'],
-            mono: ['JetBrains Mono', 'Fira Code', 'monospace']
+            display: ['Syne', 'Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
           }
         }
       }
@@ -30,55 +31,54 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700;800&family=Syne:wght@700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    body { background-color: #030306; }
+    body { background-color: #000000; color: #ffffff; }
     .glass-nav {
-      background: rgba(8, 8, 15, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .bento-card {
-      background: rgba(12, 13, 22, 0.65);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      transition: all 0.25s ease-out;
+    .noir-card {
+      background: #080808;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .bento-card:hover {
-      border-color: rgba(255, 255, 255, 0.2);
+    .noir-card:hover {
+      background: #0f0f0f;
+      border-color: rgba(255, 255, 255, 0.25);
       transform: translateY(-2px);
-      background: rgba(16, 17, 30, 0.75);
     }
   </style>
 </head>
-<body class="text-slate-200 antialiased min-h-screen flex flex-col font-sans relative overflow-x-hidden">
+<body class="antialiased min-h-screen flex flex-col font-sans relative overflow-x-hidden">
 
-  <!-- Shared Deep Space Astronomical Canvas -->
+  <!-- Pure Astronomical Deep Space Canvas -->
   <script src="public/space.js"></script>
 
   <!-- Navigation Bar -->
-  <header class="fixed top-0 left-0 right-0 z-50 glass-nav px-6 lg:px-12 py-3.5">
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav px-6 lg:px-12 py-4">
     <div class="max-w-6xl mx-auto flex items-center justify-between">
       
-      <a href="index.html" class="flex items-center gap-2.5 group">
-        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400/80 group-hover:scale-125 transition-transform"></span>
-        <span class="font-bold tracking-tight text-white text-sm">AYUSH KANDWAL</span>
-        <span class="text-xs text-slate-500 font-mono hidden sm:inline">/ SUNZZX</span>
+      <a href="index.html" class="flex items-center gap-2 group">
+        <span class="w-2 h-2 rounded-full bg-white group-hover:scale-125 transition-transform"></span>
+        <span class="font-bold tracking-tight text-white text-sm font-display">AYUSH KANDWAL</span>
+        <span class="text-xs text-neutral-500 font-mono hidden sm:inline">/ SUNZZX</span>
       </a>
 
       <nav class="hidden md:flex items-center gap-1 text-xs font-mono">
-        <a href="index.html" class="px-3 py-1.5 rounded-md text-slate-400 hover:text-white hover:bg-white/5 transition-colors">Overview</a>
-        <a href="projects.html" class="px-3 py-1.5 rounded-md text-slate-400 hover:text-white hover:bg-white/5 transition-colors">Projects (51+)</a>
-        <a href="about.html" class="px-3 py-1.5 rounded-md text-slate-400 hover:text-white hover:bg-white/5 transition-colors">Academics & Dossier</a>
-        <a href="cosmos.html" class="px-3 py-1.5 rounded-md text-slate-400 hover:text-white hover:bg-white/5 transition-colors">Creative Cosmos</a>
-        <a href="contact.html" class="px-3 py-1.5 rounded-md text-white bg-white/10 font-medium">Terminal & Links</a>
+        <a href="index.html" class="px-3 py-1.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">Overview</a>
+        <a href="projects.html" class="px-3 py-1.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">Projects (51+)</a>
+        <a href="about.html" class="px-3 py-1.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">Academics & Dossier</a>
+        <a href="cosmos.html" class="px-3 py-1.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">Creative Cosmos</a>
+        <a href="contact.html" class="px-3 py-1.5 rounded text-white bg-white/10 font-bold">Contact / Shell</a>
       </nav>
 
-      <div class="flex items-center gap-3">
-        <a href="https://linktr.ee/sunzzx" target="_blank" class="px-3.5 py-1.5 rounded-md border border-white/15 bg-white/5 hover:bg-white/10 text-white text-xs font-mono transition-all flex items-center gap-1.5">
+      <div class="flex items-center gap-2">
+        <a href="https://linktr.ee/sunzzx" target="_blank" class="px-3 py-1.5 rounded border border-white/20 bg-white/5 hover:bg-white/10 text-white text-xs font-mono transition-all flex items-center gap-1.5">
           <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
           <span>Linktree</span>
         </a>
@@ -88,27 +88,27 @@
   </header>
 
   <!-- Mobile Sub-Nav -->
-  <div class="md:hidden fixed top-[53px] left-0 right-0 z-40 bg-surface-900/90 backdrop-blur-md border-b border-border px-4 py-2 flex items-center justify-between text-xs font-mono overflow-x-auto">
-    <a href="index.html" class="text-slate-400 hover:text-white whitespace-nowrap px-2">Overview</a>
-    <a href="projects.html" class="text-slate-400 hover:text-white whitespace-nowrap px-2">Projects</a>
-    <a href="about.html" class="text-slate-400 hover:text-white whitespace-nowrap px-2">Academics</a>
-    <a href="cosmos.html" class="text-slate-400 hover:text-white whitespace-nowrap px-2">Creative</a>
-    <a href="contact.html" class="text-cyan-400 font-bold whitespace-nowrap px-2">Contact</a>
+  <div class="md:hidden fixed top-[57px] left-0 right-0 z-40 bg-black/95 backdrop-blur-md border-b border-white/10 px-4 py-2.5 flex items-center justify-between text-xs font-mono overflow-x-auto">
+    <a href="index.html" class="text-neutral-400 hover:text-white whitespace-nowrap px-2">Overview</a>
+    <a href="projects.html" class="text-neutral-400 hover:text-white whitespace-nowrap px-2">Projects</a>
+    <a href="about.html" class="text-neutral-400 hover:text-white whitespace-nowrap px-2">Academics</a>
+    <a href="cosmos.html" class="text-neutral-400 hover:text-white whitespace-nowrap px-2">Creative</a>
+    <a href="contact.html" class="text-white font-bold whitespace-nowrap px-2">Contact</a>
   </div>
 
   <!-- MAIN CONTACT CONTENT -->
-  <main class="flex-1 max-w-5xl mx-auto w-full px-6 pt-32 pb-24 space-y-16">
+  <main class="flex-1 max-w-5xl mx-auto w-full px-6 pt-36 pb-24 space-y-16">
 
     <!-- Header -->
     <div class="space-y-4">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-slate-300 text-xs font-mono">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/5 text-neutral-300 text-xs font-mono">
         <span>COMMUNICATIONS & TERMINAL MATRIX</span>
       </div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-display">
         Connect & Verified Channels
       </h1>
-      <p class="text-slate-300 text-sm leading-relaxed max-w-3xl">
-        Whether discussing distributed systems architecture, quantitative research, open-source collaborations, or software consulting, reach out via any verified channel below.
+      <p class="text-neutral-300 text-sm leading-relaxed max-w-3xl">
+        Whether discussing distributed systems architecture, quantitative research, open-source collaborations, or consulting, reach out via any verified channel below.
       </p>
     </div>
 
@@ -116,127 +116,127 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       
       <!-- Primary Email -->
-      <a href="mailto:ayushkandwal2007@gmail.com" class="bento-card p-5 rounded-xl block group">
+      <a href="mailto:ayushkandwal2007@gmail.com" class="noir-card p-5 rounded-xl block group">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 group-hover:text-cyan-400 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors">
             <i data-lucide="mail" class="w-5 h-5"></i>
           </div>
           <div>
-            <div class="text-[10px] font-mono text-slate-500">PRIMARY INBOX</div>
-            <div class="text-sm font-bold text-white group-hover:text-cyan-400 transition-colors">ayushkandwal2007</div>
-            <div class="text-[11px] text-slate-400 font-mono">@gmail.com</div>
+            <div class="text-[10px] font-mono text-neutral-500">PRIMARY INBOX</div>
+            <div class="text-sm font-bold text-white group-hover:text-neutral-200 transition-colors">ayushkandwal2007</div>
+            <div class="text-[11px] text-neutral-400 font-mono">@gmail.com</div>
           </div>
         </div>
       </a>
 
       <!-- Academic Email -->
-      <a href="mailto:24f1000816@ds.study.iitm.ac.in" class="bento-card p-5 rounded-xl block group">
+      <a href="mailto:24f1000816@ds.study.iitm.ac.in" class="noir-card p-5 rounded-xl block group">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 group-hover:text-purple-400 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors">
             <i data-lucide="graduation-cap" class="w-5 h-5"></i>
           </div>
           <div>
-            <div class="text-[10px] font-mono text-slate-500">IIT MADRAS INBOX</div>
-            <div class="text-sm font-bold text-white group-hover:text-purple-400 transition-colors">24f1000816</div>
-            <div class="text-[11px] text-slate-400 font-mono">@ds.study.iitm.ac.in</div>
+            <div class="text-[10px] font-mono text-neutral-500">IIT MADRAS INBOX</div>
+            <div class="text-sm font-bold text-white group-hover:text-neutral-200 transition-colors">24f1000816</div>
+            <div class="text-[11px] text-neutral-400 font-mono">@ds.study.iitm.ac.in</div>
           </div>
         </div>
       </a>
 
       <!-- GitHub -->
-      <a href="https://github.com/Sunzzx" target="_blank" class="bento-card p-5 rounded-xl block group">
+      <a href="https://github.com/Sunzzx" target="_blank" class="noir-card p-5 rounded-xl block group">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 group-hover:text-white transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors">
             <i data-lucide="github" class="w-5 h-5"></i>
           </div>
           <div>
-            <div class="text-[10px] font-mono text-slate-500">CODE & REPOSITORIES</div>
+            <div class="text-[10px] font-mono text-neutral-500">CODE & REPOSITORIES</div>
             <div class="text-sm font-bold text-white">@Sunzzx</div>
-            <div class="text-[11px] text-slate-400 font-mono">github.com/Sunzzx</div>
+            <div class="text-[11px] text-neutral-400 font-mono">github.com/Sunzzx</div>
           </div>
         </div>
       </a>
 
       <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/in/ayush-kandwal" target="_blank" class="bento-card p-5 rounded-xl block group">
+      <a href="https://www.linkedin.com/in/ayush-kandwal" target="_blank" class="noir-card p-5 rounded-xl block group">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 group-hover:text-cyan-400 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors">
             <i data-lucide="linkedin" class="w-5 h-5"></i>
           </div>
           <div>
-            <div class="text-[10px] font-mono text-slate-500">PROFESSIONAL NETWORK</div>
+            <div class="text-[10px] font-mono text-neutral-500">PROFESSIONAL NETWORK</div>
             <div class="text-sm font-bold text-white">Ayush Kandwal</div>
-            <div class="text-[11px] text-slate-400 font-mono">LinkedIn Profile</div>
+            <div class="text-[11px] text-neutral-400 font-mono">LinkedIn Profile</div>
           </div>
         </div>
       </a>
 
       <!-- Twitter / X -->
-      <a href="https://x.com/its_ayu5" target="_blank" class="bento-card p-5 rounded-xl block group">
+      <a href="https://x.com/its_ayu5" target="_blank" class="noir-card p-5 rounded-xl block group">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 group-hover:text-cyan-400 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors">
             <i data-lucide="twitter" class="w-5 h-5"></i>
           </div>
           <div>
-            <div class="text-[10px] font-mono text-slate-500">MICROBLOG & DISPATCH</div>
+            <div class="text-[10px] font-mono text-neutral-500">MICROBLOG & DISPATCH</div>
             <div class="text-sm font-bold text-white">@its_ayu5</div>
-            <div class="text-[11px] text-slate-400 font-mono">x.com/its_ayu5</div>
+            <div class="text-[11px] text-neutral-400 font-mono">x.com/its_ayu5</div>
           </div>
         </div>
       </a>
 
       <!-- Linktree Matrix -->
-      <a href="https://linktr.ee/sunzzx" target="_blank" class="bento-card p-5 rounded-xl block group">
+      <a href="https://linktr.ee/sunzzx" target="_blank" class="noir-card p-5 rounded-xl block group">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 group-hover:text-amber-400 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors">
             <i data-lucide="share-2" class="w-5 h-5"></i>
           </div>
           <div>
-            <div class="text-[10px] font-mono text-slate-500">OMNI-CHANNEL MATRIX</div>
+            <div class="text-[10px] font-mono text-neutral-500">OMNI-CHANNEL MATRIX</div>
             <div class="text-sm font-bold text-white">linktr.ee/sunzzx</div>
-            <div class="text-[11px] text-slate-400 font-mono">All Links & Vaults</div>
+            <div class="text-[11px] text-neutral-400 font-mono">All Links & Vaults</div>
           </div>
         </div>
       </a>
 
       <!-- HackerOne -->
-      <a href="https://hackerone.com/sunzzx" target="_blank" class="bento-card p-5 rounded-xl block group">
+      <a href="https://hackerone.com/sunzzx" target="_blank" class="noir-card p-5 rounded-xl block group">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 group-hover:text-red-400 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors">
             <i data-lucide="shield" class="w-5 h-5"></i>
           </div>
           <div>
-            <div class="text-[10px] font-mono text-slate-500">BUG BOUNTIES</div>
+            <div class="text-[10px] font-mono text-neutral-500">BUG BOUNTIES</div>
             <div class="text-sm font-bold text-white">hackerone.com/sunzzx</div>
-            <div class="text-[11px] text-slate-400 font-mono">Vulnerability Research</div>
+            <div class="text-[11px] text-neutral-400 font-mono">Vulnerability Research</div>
           </div>
         </div>
       </a>
 
       <!-- TryHackMe -->
-      <a href="https://tryhackme.com/p/kanayuuh" target="_blank" class="bento-card p-5 rounded-xl block group">
+      <a href="https://tryhackme.com/p/kanayuuh" target="_blank" class="noir-card p-5 rounded-xl block group">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 group-hover:text-cyan-400 transition-colors">
+          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 group-hover:text-white transition-colors">
             <i data-lucide="terminal" class="w-5 h-5"></i>
           </div>
           <div>
-            <div class="text-[10px] font-mono text-slate-500">OFFENSIVE CTFS</div>
+            <div class="text-[10px] font-mono text-neutral-500">OFFENSIVE CTFS</div>
             <div class="text-sm font-bold text-white">tryhackme.com/p/kanayuuh</div>
-            <div class="text-[11px] text-slate-400 font-mono">Red Team Labs</div>
+            <div class="text-[11px] text-neutral-400 font-mono">Red Team Labs</div>
           </div>
         </div>
       </a>
 
       <!-- WhatsApp Primary Line -->
-      <div class="bento-card p-5 rounded-xl">
+      <div class="noir-card p-5 rounded-xl">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-emerald-400">
+          <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white font-bold">
             <i data-lucide="phone-call" class="w-5 h-5"></i>
           </div>
           <div>
-            <div class="text-[10px] font-mono text-slate-500">WHATSAPP DIRECT</div>
+            <div class="text-[10px] font-mono text-neutral-500">WHATSAPP DIRECT</div>
             <div class="text-sm font-bold text-white">+91 7417939838</div>
-            <div class="text-[11px] text-slate-400 font-mono">Hermes Notification Target</div>
+            <div class="text-[11px] text-neutral-400 font-mono">Hermes Notification Target</div>
           </div>
         </div>
       </div>
@@ -246,33 +246,33 @@
     <!-- Retro Interactive Terminal (`$ sunzzx-os`) -->
     <section class="space-y-4">
       <div class="flex items-center justify-between border-b border-white/10 pb-3">
-        <h2 class="text-lg font-bold text-white tracking-tight font-mono flex items-center gap-2">
-          <i data-lucide="terminal" class="w-4 h-4 text-cyan-400"></i>
-          <span>// INTERACTIVE TERMINAL (`$ sunzzx-os`)</span>
+        <h2 class="text-sm font-bold text-white tracking-widest font-mono flex items-center gap-2">
+          <i data-lucide="terminal" class="w-4 h-4 text-white"></i>
+          <span>// STANDALONE SHELL (`$ sunzzx-os`)</span>
         </h2>
-        <span class="text-xs text-slate-400 font-mono">CLI ENVIRONMENT</span>
+        <span class="text-xs text-neutral-500 font-mono">CLI ENVIRONMENT</span>
       </div>
 
-      <div class="bento-card rounded-2xl overflow-hidden border border-white/10 bg-surface-900/90 flex flex-col h-[400px]">
-        <div class="bg-surface-800 px-4 py-2 border-b border-white/10 flex items-center justify-between">
+      <div class="noir-card rounded-xl overflow-hidden border border-white/10 bg-black flex flex-col h-[400px]">
+        <div class="bg-neutral-900/60 px-4 py-2 border-b border-white/10 flex items-center justify-between">
           <div class="flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
-            <span class="text-xs font-mono text-slate-400 ml-2">sunzzx-os --standalone-shell</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
+            <span class="text-xs font-mono text-neutral-400 ml-2">sunzzx-os --standalone-shell</span>
           </div>
-          <span class="text-[10px] font-mono text-slate-500">zsh</span>
+          <span class="text-[10px] font-mono text-neutral-500">zsh</span>
         </div>
 
-        <div id="term-body" class="p-4 font-mono text-xs text-slate-300 overflow-y-auto flex-1 space-y-2 select-text">
-          <div class="text-cyan-400">
-            AYUSH KANDWAL // SUNZZX SHELL V3.2<br>
-            Type <strong class="text-white">'help'</strong> to inspect available commands.
+        <div id="term-body" class="p-4 font-mono text-xs text-neutral-300 overflow-y-auto flex-1 space-y-2 select-text">
+          <div class="text-white">
+            AYUSH KANDWAL // SUNZZX SHELL V3.3<br>
+            Type <strong class="text-white underline">'help'</strong> to inspect available commands.
           </div>
         </div>
 
-        <div class="bg-surface-800/80 p-3 border-t border-white/10 flex items-center gap-2">
-          <span class="text-cyan-400 font-mono text-xs">visitor@sunzzx:~$</span>
+        <div class="bg-neutral-900/80 p-3 border-t border-white/10 flex items-center gap-2">
+          <span class="text-white font-mono text-xs font-bold">visitor@sunzzx:~$</span>
           <input id="term-input" type="text" class="flex-1 bg-transparent border-none outline-none font-mono text-xs text-white" placeholder="Type a command (whoami, degrees, daemons, repos, clear)..." autocomplete="off">
         </div>
       </div>
@@ -280,10 +280,10 @@
 
   </main>
 
-  <footer class="border-t border-white/10 py-8 px-6 text-xs font-mono text-slate-400 bg-surface-900/50">
+  <footer class="border-t border-white/10 py-8 px-6 text-xs font-mono text-neutral-400 bg-black">
     <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
       <div>&copy; 2026 Ayush Kandwal ("Ayu"). Contact & CLI Matrix.</div>
-      <div class="flex items-center gap-4 text-slate-300">
+      <div class="flex items-center gap-4 text-neutral-300">
         <a href="index.html" class="hover:text-white">Overview</a>
         <a href="projects.html" class="hover:text-white">Projects</a>
         <a href="about.html" class="hover:text-white">Academics</a>
@@ -315,17 +315,17 @@
 
     function runCommand(cmd) {
       if (!cmd) return;
-      printLine(`<span class="text-slate-500">visitor@sunzzx:~$</span> <span class="text-white">${cmd}</span>`);
+      printLine(`<span class="text-neutral-500">visitor@sunzzx:~$</span> <span class="text-white">${cmd}</span>`);
       const lower = cmd.toLowerCase().trim();
 
       if (lower === 'help') {
         printLine(`
-          <div class="text-amber-300">Available commands:</div>
-          &bull; <span class="text-cyan-400">whoami</span>: Display operator summary<br>
-          &bull; <span class="text-cyan-400">degrees</span>: IIT Madras, IIT Patna & DU credentials<br>
-          &bull; <span class="text-cyan-400">daemons</span>: Active Hermes 18 daemons on macOS<br>
-          &bull; <span class="text-cyan-400">repos</span>: Shipped flagship repositories<br>
-          &bull; <span class="text-cyan-400">clear</span>: Clear terminal console
+          <div class="text-white font-bold">Available commands:</div>
+          &bull; <span class="text-neutral-300">whoami</span>: Display operator summary<br>
+          &bull; <span class="text-neutral-300">degrees</span>: IIT Madras, IIT Patna & DU credentials<br>
+          &bull; <span class="text-neutral-300">daemons</span>: Active Hermes 18 daemons on macOS<br>
+          &bull; <span class="text-neutral-300">repos</span>: Shipped flagship repositories<br>
+          &bull; <span class="text-neutral-300">clear</span>: Clear terminal console
         `);
       } else if (lower === 'whoami') {
         printLine(`
