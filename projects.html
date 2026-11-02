@@ -130,11 +130,9 @@
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
           <span>PRODUCTION FLEET &bull; 51+ VERIFIED CODEBASES &bull; FULL-STACK & QUANT</span>
         </div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/5 font-mono text-xs text-neutral-300">
-          <span class="text-neutral-500">OPERATOR AGE:</span>
-          <span class="text-white font-bold observatory-live-age">22Y 10M 23D</span>
-          <span class="text-neutral-600">//</span>
-          <span class="text-neutral-400 observatory-live-clock">--:--:-- IST</span>
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/15 bg-white/5 font-mono text-xs text-neutral-300">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+          <span class="observatory-live-sentence text-neutral-300">I have spent 22 years on this planet.</span>
         </div>
       </div>
       <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight font-display">
@@ -286,6 +284,43 @@
     // Comprehensive Project Catalogue Store (Authentic implementations only)
     const CATALOG = [
       {
+        id: 'fash-ai-agent',
+        name: 'Fash AI Multimodal Agent',
+        category: 'ai-swarms',
+        categoryLabel: 'Multimodal AI // GSSoC 2025',
+        status: '[FEATURED #01 &bull; OPEN SOURCE]',
+        language: 'python',
+        languages: ['python', 'pytorch', 'docker'],
+        tagline: 'AI-Powered Fashion Discovery & Visual Trend Assistant Across Global E-Commerce & Social Feeds',
+        description: 'Autonomous fashion discovery intelligence connecting cross-platform retail inventory (Amazon, eBay, Etsy, ASOS) with live social trend feeds from Pinterest and Instagram using OpenAI NLP, computer vision embeddings, and adaptive recommendation loops.',
+        tech: ['Python 3.11', 'Flask REST API', 'OpenAI API', 'BeautifulSoup4', 'Docker', 'GSSoC 2025'],
+        problem: 'Shoppers and stylists waste hours manually searching across fragmented retail stores to match visual aesthetic trends discovered on social media, suffering from brittle keyword-only filters.',
+        approach: 'Engineered an end-to-end intelligent agent that ingests raw fashion prompts and visual trend motifs, extracts high-dimensional style tokens, and concurrently queries multiple e-commerce scrapers while personalizing results based on user taste interactions.',
+        diagram:
+`[Social Media Trend Feed] ──▶ [OpenAI NLP & Vision Tokenizer]
+ (Pinterest / Instagram)                  │
+                                         ▼
+                             [Fashion Intent Engine]
+                                         │
+     ┌───────────────────┬───────────────┴───────────────┬───────────────────┐
+     ▼                   ▼                               ▼                   ▼
+[Amazon Scraper]  [eBay Live API]                 [Etsy Curations]    [ASOS Catalog]
+     │                   │                               │                   │
+     └───────────────────┴───────────────┬───────────────┴───────────────────┘
+                                         ▼
+                       [Taste Relevance Ranking & Filter]
+                                         │
+                                         ▼
+                     [Personalized Smart Style Stream]`,
+        results: [
+          'Selected and featured project in GirlScript Summer of Code (GSSoC 2025).',
+          'Autonomous multi-threaded scraping architecture extracting price, images, and sizing across 4 major platforms.',
+          'Over 23+ community forks and active open-source contributors on GitHub.'
+        ],
+        github: 'https://github.com/Sunzzx/fash-ai-agent',
+        live: 'https://github.com/Sunzzx/fash-ai-agent'
+      },
+      {
         id: 'hermes-core',
         name: 'Hermes Autonomous Swarm',
         category: 'ai-swarms',
@@ -317,38 +352,6 @@
         ],
         github: 'https://github.com/Sunzzx/hermes-sync',
         live: 'about.html'
-      },
-      {
-        id: 'fash-ai-agent',
-        name: 'Fash AI Multimodal Agent',
-        category: 'ai-swarms',
-        categoryLabel: 'Multimodal AI',
-        status: '[GITHUB FOSS]',
-        language: 'python',
-        languages: ['python', 'pytorch'],
-        tagline: 'Personal Shopping Assistant Scouring Global Repositories by Style Vectors',
-        description: 'Computer vision and NLP agent that searches e-commerce inventories using visual embeddings and multimodal preference alignment.',
-        tech: ['Python', 'PyTorch', 'CLIP / Embeddings', 'Vector Search', 'Web Scraping API'],
-        problem: 'Consumers struggle to locate specific aesthetic apparel across fragmented e-commerce catalogs using keyword-only search engines.',
-        approach: 'Combined multimodal contrastive vision-language representations (CLIP) with vector indexing to rank apparel by semantic and visual similarity against raw user photo uploads.',
-        diagram:
-`[User Query / Image] ──▶ [Contrastive Vision Encoder]
-                               │
-                               ▼
-                    [Style Vector Embedding]
-                               │
-                               ▼
-                 [Vector Index Distance Search]
-                               │
-                               ▼
-               [Ranked Multi-Store Deliverables]`,
-        results: [
-          'Active open-source repository with 23+ community forks on GitHub.',
-          'Real-time semantic matching across heterogeneous apparel inventories.',
-          'Zero-shot classification for nuanced aesthetic tags (e.g., vintage dark academia).'
-        ],
-        github: 'https://github.com/Sunzzx/fash-ai-agent',
-        live: ''
       },
       {
         id: 'chronos-hlc',

@@ -107,11 +107,9 @@
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
           <span>AI ARCHITECT // QUANT RESEARCH // VERIFIED CHANNELS & TERMINAL</span>
         </div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/5 font-mono text-xs text-neutral-300">
-          <span class="text-neutral-500">OPERATOR AGE:</span>
-          <span class="text-white font-bold observatory-live-age">22Y 10M 23D</span>
-          <span class="text-neutral-600">//</span>
-          <span class="text-neutral-400 observatory-live-clock">--:--:-- IST</span>
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/15 bg-white/5 font-mono text-xs text-neutral-300">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+          <span class="observatory-live-sentence text-neutral-300">I have spent 22 years on this planet.</span>
         </div>
       </div>
       <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-display">
@@ -403,13 +401,13 @@
           </div>
         `);
       } else if (lower === 'whoami' || lower === 'about' || lower === 'id') {
-        const ageData = window.calculateObservatoryAge ? window.calculateObservatoryAge() : { formattedAge: '22Y 10M 23D', formattedTime: 'IST' };
+        const ageData = window.calculateObservatoryAge ? window.calculateObservatoryAge() : { sentencePlain: 'I have spent 22 years on this planet.' };
         printLine(`
-          <div class="text-white font-bold border-b border-white/10 pb-1">OPERATOR SUMMARY & TELEMETRY:</div>
+          <div class="text-white font-bold border-b border-white/10 pb-1">OPERATOR SUMMARY & DOSSIER:</div>
           <div><strong>Name:</strong> Ayush Kandwal ("Ayu") &bull; @Sunzzx</div>
-          <div><strong>Calculated Age:</strong> ${ageData.formattedAge} (Live Clock: ${ageData.formattedTime})</div>
+          <div><strong>Journey:</strong> ${ageData.sentencePlain}</div>
           <div><strong>Focus:</strong> Autonomous AI Swarms &bull; Distributed State Replication &bull; Quantitative Alpha</div>
-          <div><strong>Institutions:</strong> Dual IIT Scholar (IIT Madras BS Data Science + IIT Patna B.Sc Hons Computer Science)</div>
+          <div><strong>Education:</strong> University of Delhi (BA Hons Economics) &bull; IIT Madras (BS Data Science) &bull; IIT Patna (BSc CSDA)</div>
           <div><strong>Quantitative:</strong> WorldQuant Brain Research Consultant (ID: AK45063, USA Region)</div>
           <div><strong>Philosophy:</strong> "Zero manual intervention. If a human repeats a task twice, it is an engineering bug."</div>
         `);

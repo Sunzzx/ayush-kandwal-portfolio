@@ -1,10 +1,10 @@
-// DEEP SPACE SYSTEMS OBSERVATORY — CENTRAL CONFIGURATION & TELEMETRY ENGINE
-// Configurable telemetry, calendar arithmetic, and operator metadata.
+// DEEP SPACE SYSTEMS OBSERVATORY — CENTRAL CONFIGURATION & DYNAMIC AGE ENGINE
+// Single dynamic sentence arithmetic without telemetry dashboard noise.
 
 window.OBSERVATORY_CONFIG = {
   operator: {
     name: 'Ayush Kandwal',
-    callsign: 'Ayu',
+    preferredName: 'Ayu',
     handle: 'Sunzzx',
     title: 'Systems Architect, AI Researcher & Quant',
     email: 'ayushkandwal2007@gmail.com',
@@ -16,20 +16,18 @@ window.OBSERVATORY_CONFIG = {
     worldquantId: 'AK45063'
   },
   // Birthdate parameter: 11 December 2003 (Midnight Asia/Kolkata timezone UTC+05:30)
-  // Note: Full birthdate is NEVER rendered in the UI; only dynamically calculated age elapsed.
-  birthDateUTC: new Date(Date.UTC(2003, 11, 10, 18, 30, 0)), // 2003-12-11 00:00:00 IST = 2003-12-10 18:30:00 UTC
+  // Exact calendar arithmetic. The birthdate itself is never printed; only the live elapsed sentence.
+  birthDateUTC: new Date(Date.UTC(2003, 11, 10, 18, 30, 0)),
   timezone: 'Asia/Kolkata',
-  timezoneOffsetMinutes: 330 // +05:30
+  timezoneOffsetMinutes: 330
 };
 
-// Exact Calendar Arithmetic Age Engine
-// Accurately calculates elapsed calendar Years, Months, Days (accounting for variable month lengths & leap years)
-// Plus exact elapsed Hours, Minutes, Seconds.
+// Exact Calendar Arithmetic Engine
 window.calculateObservatoryAge = function(targetDate) {
   const birth = targetDate || window.OBSERVATORY_CONFIG.birthDateUTC;
   const now = new Date();
 
-  // Convert both to Kolkata local time components
+  // Convert to Kolkata local time components (+05:30)
   const kolkataOffsetMs = 5.5 * 60 * 60 * 1000;
   const birthKolkata = new Date(birth.getTime() + kolkataOffsetMs);
   const nowKolkata = new Date(now.getTime() + kolkataOffsetMs);
@@ -51,7 +49,6 @@ window.calculateObservatoryAge = function(targetDate) {
 
   if (days < 0) {
     months--;
-    // Days in previous month
     const prevMonthDays = new Date(Date.UTC(nYear, nMonth, 0)).getUTCDate();
     days += prevMonthDays;
   }
@@ -63,6 +60,9 @@ window.calculateObservatoryAge = function(targetDate) {
 
   const pad = (n) => String(n).padStart(2, '0');
 
+  const sentencePlain = `I have spent ${years} years, ${months} months, ${days} days, ${nHour} hours, ${nMinute} minutes and ${nSecond} seconds on this planet.`;
+  const sentenceHTML = `I have spent <span class="text-white font-bold tabular-nums">${years}</span> years, <span class="text-white font-bold tabular-nums">${months}</span> months, <span class="text-white font-bold tabular-nums">${days}</span> days, <span class="text-white font-bold tabular-nums">${pad(nHour)}</span> hours, <span class="text-white font-bold tabular-nums">${pad(nMinute)}</span> minutes and <span class="text-white font-bold tabular-nums">${pad(nSecond)}</span> seconds on this planet.`;
+
   return {
     years,
     months,
@@ -70,39 +70,39 @@ window.calculateObservatoryAge = function(targetDate) {
     hours: pad(nHour),
     minutes: pad(nMinute),
     seconds: pad(nSecond),
-    formattedAge: `${years}Y ${months}M ${days}D`,
-    formattedTime: `${pad(nHour)}:${pad(nMinute)}:${pad(nSecond)} IST`,
-    telemetryString: `AGE: ${years}Y ${months}M ${days}D // LIVE CLOCK: ${pad(nHour)}:${pad(nMinute)}:${pad(nSecond)}`
+    sentencePlain,
+    sentenceHTML,
+    formattedAge: `${years} years, ${months} months, ${days} days`
   };
 };
 
-// Auto-bind Age Telemetry readouts across DOM elements with class 'observatory-live-age'
+// Auto-bind dynamic sentence and age across DOM elements
 (function initObservatoryAgeTelemetry() {
   if (typeof document === 'undefined') return;
 
-  function updateTelemetryDisplays() {
+  function updateDynamicSentences() {
     const data = window.calculateObservatoryAge();
-    
+
+    document.querySelectorAll('.observatory-live-sentence').forEach(el => {
+      el.innerHTML = data.sentenceHTML;
+    });
+
+    document.querySelectorAll('.observatory-plain-sentence').forEach(el => {
+      el.textContent = data.sentencePlain;
+    });
+
     document.querySelectorAll('.observatory-live-age').forEach(el => {
-      el.textContent = data.formattedAge;
-    });
-
-    document.querySelectorAll('.observatory-live-clock').forEach(el => {
-      el.textContent = data.formattedTime;
-    });
-
-    document.querySelectorAll('.observatory-live-telemetry').forEach(el => {
-      el.textContent = data.telemetryString;
+      el.textContent = `${data.years}Y ${data.months}M ${data.days}D`;
     });
   }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-      updateTelemetryDisplays();
-      setInterval(updateTelemetryDisplays, 1000);
+      updateDynamicSentences();
+      setInterval(updateDynamicSentences, 1000);
     });
   } else {
-    updateTelemetryDisplays();
-    setInterval(updateTelemetryDisplays, 1000);
+    updateDynamicSentences();
+    setInterval(updateDynamicSentences, 1000);
   }
 })();
