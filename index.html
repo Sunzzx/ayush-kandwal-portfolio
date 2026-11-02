@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth selection:bg-white selection:text-black">
 <head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ayush Kandwal — Deep Space Systems Observatory | AI Architect & Quant</title>
@@ -38,7 +42,7 @@
   <!-- Three.js (r128) & Lucide Icons & Observatory Config -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="public/config.js?v=202611030207"></script>
+  <script src="public/config.js?v=202611030230"></script>
 
   <style>
     /* Absolute White Dynamic Age Guarantee */
@@ -187,12 +191,16 @@
       position: fixed;
       inset: 0;
       z-index: 80;
-      background: #000000;
+      background: radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.82) 100%);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.7s;
+      pointer-events: none;
+    }
+    #mission-briefing .landing-card-glass {
+      pointer-events: auto;
     }
     #mission-briefing.hidden, #mission-briefing[style*="display: none"] {
       display: none !important;
@@ -235,9 +243,9 @@
   <div id="warp-curtain"></div>
 
   <!-- ACT I: CINEMATIC OPENING HERO & MISSION BRIEFING CARD -->
-  <aside id="mission-briefing" role="dialog" aria-modal="true" aria-label="Mission Briefing" class="px-6 text-center select-none">
+  <aside id="mission-briefing" role="dialog" aria-modal="true" aria-label="Mission Briefing" class="px-4 text-center select-none">
     
-    <div class="max-w-2xl space-y-6">
+    <div class="landing-card-glass max-w-2xl w-full p-8 sm:p-10 rounded-3xl border border-white/15 bg-black/70 backdrop-blur-xl shadow-2xl space-y-6 mx-auto">
       
       <!-- 1. Name Heading -->
       <div class="space-y-1">
@@ -337,12 +345,18 @@
           <span class="text-[11px]" id="btn-fasttrack-text">RÉSUMÉ</span>
         </button>
 
-        <!-- Direct Multi-Page Links Menu Trigger -->
-        <a href="projects.html" class="diegetic-btn px-2.5 py-1 rounded text-neutral-400 hover:text-white hidden lg:inline text-[11px]">
+        <!-- Direct Multi-Page Links -->
+        <a href="projects.html" class="diegetic-btn px-2 py-1 rounded text-neutral-300 hover:text-white text-[11px] whitespace-nowrap">
           PROJECTS
         </a>
-        <a href="about.html" class="diegetic-btn px-2.5 py-1 rounded text-neutral-400 hover:text-white hidden lg:inline text-[11px]">
+        <a href="about.html" class="diegetic-btn px-2 py-1 rounded text-neutral-300 hover:text-white text-[11px] whitespace-nowrap hidden sm:inline">
           ACADEMICS
+        </a>
+        <a href="cosmos.html" class="diegetic-btn px-2 py-1 rounded text-neutral-300 hover:text-white text-[11px] whitespace-nowrap hidden md:inline">
+          CREATIVE
+        </a>
+        <a href="contact.html" class="diegetic-btn px-2 py-1 rounded text-neutral-300 hover:text-white text-[11px] whitespace-nowrap hidden sm:inline">
+          CONTACT
         </a>
       </div>
 
@@ -1070,7 +1084,7 @@
         if (manifest) manifest.classList.add('hidden');
         if (bottomHud) bottomHud.classList.remove('opacity-0', 'pointer-events-none');
         if (reticles) reticles.classList.remove('opacity-0');
-        if (btnText) btnText.textContent = 'FAST-TRACK';
+        if (btnText) btnText.textContent = 'RÉSUMÉ';
       }
     }
 
@@ -1100,21 +1114,10 @@
         }, 700);
       }
 
-      // Camera Glide: Anamorphic insertion into solar ecliptic
-      let progress = 0;
-      const startPos = cameraPos.clone();
-      const endPos = new THREE.Vector3(0, 65, 215);
-
-      const glideInterval = setInterval(() => {
-        progress += 0.025;
-        const ease = 1 - Math.pow(1 - progress, 3); // cubic ease out
-        camera.position.lerpVectors(startPos, endPos, ease);
-
-        if (progress >= 1.0) {
-          clearInterval(glideInterval);
-          cameraPos.copy(endPos);
-        }
-      }, 25);
+      // Smooth camera glide into orbit view
+      targetSpherical.radius = 220;
+      targetSpherical.phi = Math.PI / 3.4;
+      targetSpherical.theta = Math.PI / 3.0;
     }
 
 
@@ -1759,7 +1762,7 @@ let currentUniverseMode = 'solar'; // 'solar' | 'galaxies'
     let ufoTractorBeam = null;
     let ufoPropulsionRing = null;
     let ufoBeacons = null;
-    let isUfoChaseCam = true;
+    let isUfoChaseCam = false;
     let ufoFlightKeys = { w: false, a: false, s: false, d: false, r: false, f: false, up: false, down: false, left: false, right: false };
     let ufoFlightState = {
       velocity: new THREE.Vector3(),
@@ -1777,15 +1780,15 @@ let currentUniverseMode = 'solar'; // 'solar' | 'galaxies'
     });
 
     // Camera Coordinates & Choreography
-    let cameraPos = new THREE.Vector3(0, 350, 900); // Deep space initial cold open
+    let cameraPos = new THREE.Vector3(0, 95, 240); // Deep space initial cold open
     let cameraTargetPos = new THREE.Vector3(0, 65, 215);
     let cameraLookAtPos = new THREE.Vector3(0, 0, 0);
 
     // Orbit Controls Coordinates
     let isDragging = false;
     let previousMouse = { x: 0, y: 0 };
-    let spherical = { radius: 215, theta: Math.PI / 4, phi: Math.PI / 3 };
-    let targetSpherical = { radius: 215, theta: Math.PI / 4, phi: Math.PI / 3 };
+    let spherical = { radius: 240, theta: Math.PI / 3.4, phi: Math.PI / 3.2 };
+    let targetSpherical = { radius: 240, theta: Math.PI / 3.4, phi: Math.PI / 3.2 };
 
     const canvas = document.getElementById('universe-canvas');
 
@@ -2625,6 +2628,7 @@ let currentUniverseMode = 'solar'; // 'solar' | 'galaxies'
         celestialMeshes.push(pMesh);
       });
 
+      syncCelestialPills();
       syncTargetReticles();
     }
 
@@ -2637,15 +2641,25 @@ let currentUniverseMode = 'solar'; // 'solar' | 'galaxies'
       earthCloudMesh = null;
       earthMoonMesh = null;
 
-      document.getElementById('hud-sector-status').textContent = 'DEEP COSMOS // 12 NASA GALAXIES';
-      document.getElementById('hud-coordinates').textContent = 'VIRGO SUPERCLUSTER • 500M LY';
+      const statusEl = document.getElementById('hud-sector-status');
+      if (statusEl) statusEl.textContent = 'DEEP COSMOS // 12 NASA GALAXIES';
+      const coordEl = document.getElementById('hud-coordinates');
+      if (coordEl) coordEl.textContent = 'VIRGO SUPERCLUSTER • 500M LY';
 
-      GALAXIES_DATA.galaxies.forEach(gData => {
+      GALAXIES_DATA.galaxies.forEach((gData, gIdx) => {
         const gMesh = buildGalaxyMesh(gData);
+        if (gData.id !== 'milky-way') {
+          const dist = Math.sqrt(gData.pos.x * gData.pos.x + gData.pos.z * gData.pos.z);
+          const initialAngle = Math.atan2(gData.pos.z, gData.pos.x);
+          gMesh.userData.orbitDistance = dist;
+          gMesh.userData.angle = initialAngle;
+          gMesh.userData.orbitSpeed = 0.001 + (gIdx * 0.00018);
+        }
         sectorGroup.add(gMesh);
         celestialMeshes.push(gMesh);
       });
 
+      syncCelestialPills();
       syncTargetReticles();
     }
 
@@ -3044,8 +3058,17 @@ let currentUniverseMode = 'solar'; // 'solar' | 'galaxies'
             mesh.rotation.y += 0.0035;
           }
         } else {
-          // Galaxies rotate slowly in place
-          mesh.rotation.y += 0.0008;
+          // Galaxies: Dynamic Cluster Orbit + Axial Particle Spin
+          if (mesh.userData && mesh.userData.isGalaxy) {
+            if (mesh.children && mesh.children[0]) {
+              mesh.children[0].rotation.y += 0.004; // Visible particle disc spin
+            }
+            if (mesh.userData.orbitDistance) {
+              mesh.userData.angle += mesh.userData.orbitSpeed;
+              mesh.position.x = Math.cos(mesh.userData.angle) * mesh.userData.orbitDistance;
+              mesh.position.z = Math.sin(mesh.userData.angle) * mesh.userData.orbitDistance;
+            }
+          }
         }
       });
 
@@ -3144,36 +3167,35 @@ let currentUniverseMode = 'solar'; // 'solar' | 'galaxies'
           speedEl.innerHTML = `VELOCITY: <strong class="text-white font-mono">${displayKm.toLocaleString()} KM/S</strong>`;
         }
 
-        // UFO Camera Tracking (Chase Cam Mode vs Free Orbit)
-        if (isUfoChaseCam && !isSurveyLocked) {
-          const camDistance = 38;
-          const camHeight = 16;
-          const desiredCamPos = new THREE.Vector3(
-            ufoGroup.position.x - Math.sin(ufoFlightState.heading) * camDistance,
-            ufoGroup.position.y + camHeight,
-            ufoGroup.position.z - Math.cos(ufoFlightState.heading) * camDistance
-          );
-
-          camera.position.lerp(desiredCamPos, 0.08);
-          cameraLookAtPos.lerp(ufoGroup.position, 0.1);
-          camera.lookAt(cameraLookAtPos);
-        }
       }
 
-      // Camera Damping for Survey Lock or Free Orbit
+      // Camera Handling: 1. Survey Target Lock -> 2. UFO Chase Cam -> 3. Cosmos Orbit View
       if (isSurveyLocked && surveyTarget) {
         const worldPos = new THREE.Vector3();
         surveyTarget.getWorldPosition(worldPos);
         cameraLookAtPos.lerp(worldPos, 0.06);
 
         const r = (surveyTarget.geometry && surveyTarget.geometry.parameters) ? (surveyTarget.geometry.parameters.radius || 12) : 12;
-        const offset = new THREE.Vector3(r * 2.6, r * 1.5, r * 2.6);
+        const offset = new THREE.Vector3(r * 2.8, r * 1.6, r * 2.8);
         cameraTargetPos.copy(worldPos).add(offset);
         camera.position.lerp(cameraTargetPos, 0.06);
         camera.lookAt(cameraLookAtPos);
 
-      } else if (!isUfoChaseCam) {
-        // Damped Free Orbit Controls
+      } else if (isUfoChaseCam && ufoGroup) {
+        const camDistance = 38;
+        const camHeight = 16;
+        const desiredCamPos = new THREE.Vector3(
+          ufoGroup.position.x - Math.sin(ufoFlightState.heading) * camDistance,
+          ufoGroup.position.y + camHeight,
+          ufoGroup.position.z - Math.cos(ufoFlightState.heading) * camDistance
+        );
+
+        camera.position.lerp(desiredCamPos, 0.08);
+        cameraLookAtPos.lerp(ufoGroup.position, 0.1);
+        camera.lookAt(cameraLookAtPos);
+
+      } else {
+        // Damped Free Orbit Controls (Cosmos View)
         spherical.radius += (targetSpherical.radius - spherical.radius) * 0.08;
         spherical.theta += (targetSpherical.theta - spherical.theta) * 0.08;
         spherical.phi += (targetSpherical.phi - spherical.phi) * 0.08;
