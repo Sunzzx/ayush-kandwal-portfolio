@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth select-none">
+<html lang="en" class="dark scroll-smooth selection:bg-slate-700 selection:text-white">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ayush Kandwal ("Ayu") — The Multiverse Codex</title>
-  <meta name="description" content="Ultra-dark, photorealistic 3D Multiverse Portfolio of Ayush Kandwal (Sunzzx) — Systems Architect, Quantitative Researcher, Dual IIT Scholar & AI Engineer.">
-  <meta name="keywords" content="Ayush Kandwal, Sunzzx, IIT Madras, IIT Patna, WorldQuant Brain, Three.js Multiverse, WebGL, Space Portfolio, Roblox Developer">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌌</text></svg>">
+  <title>Ayush Kandwal — Systems Architect, Quantitative Researcher & Dual IIT Scholar</title>
+  <meta name="description" content="Personal portfolio and systems observatory of Ayush Kandwal (Sunzzx) — Autonomous Swarms, Distributed Systems, Quantitative Research, and Dual IIT Candidate (IIT Madras & IIT Patna).">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>">
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind CSS & Google Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -16,1770 +15,339 @@
       theme: {
         extend: {
           colors: {
-            void: '#020205',
-            space: { 950: '#030014', 900: '#070526', 850: '#0a0833', 800: '#0f0c38' },
-            cyan: { glow: '#00f2ff', 400: '#22d3ee', 500: '#06b6d4' },
-            purple: { glow: '#b026ff', 400: '#c084fc', 500: '#a855f7' },
-            gold: { glow: '#ffd700', 400: '#fbbf24', 500: '#f59e0b' },
-            crimson: { glow: '#ff2a55', 400: '#f87171', 500: '#ef4444' }
+            void: '#030306',
+            surface: { 900: '#08080f', 800: '#0f1019', 700: '#171826' },
+            border: 'rgba(255, 255, 255, 0.08)',
+            accent: '#38bdf8'
           },
           fontFamily: {
-            mono: ['JetBrains Mono', 'Fira Code', 'Courier New', 'monospace'],
-            sans: ['Space Grotesk', 'Inter', 'sans-serif']
+            sans: ['Space Grotesk', 'Inter', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Fira Code', 'monospace']
           }
         }
       }
     }
   </script>
 
-  <!-- Lucide Icons & Typography -->
-  <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700;800&family=Space+Grotesk:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-  
-  <!-- Three.js (r128) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 5px; height: 5px; }
-    ::-webkit-scrollbar-track { background: #020205; }
-    ::-webkit-scrollbar-thumb { background: rgba(34, 211, 238, 0.3); border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(0, 242, 255, 0.7); }
-
-    /* Glassmorphism */
-    .glass-panel {
-      background: rgba(6, 7, 24, 0.75);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+    body { background-color: #030306; }
+    .glass-nav {
+      background: rgba(8, 8, 15, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     }
-    .glass-card {
-      background: rgba(10, 11, 35, 0.6);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(34, 211, 238, 0.12);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    .bento-card {
+      background: rgba(12, 13, 22, 0.65);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      transition: all 0.25s ease-out;
     }
-    .glass-card:hover {
-      border-color: rgba(0, 242, 255, 0.4);
-      box-shadow: 0 10px 30px rgba(0, 242, 255, 0.12);
+    .bento-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
       transform: translateY(-2px);
+      background: rgba(16, 17, 30, 0.75);
     }
-
-    /* Glow Effects */
-    .neon-cyan { text-shadow: 0 0 12px rgba(0, 242, 255, 0.8); }
-    .neon-purple { text-shadow: 0 0 12px rgba(176, 38, 255, 0.8); }
-    .neon-gold { text-shadow: 0 0 12px rgba(255, 215, 0, 0.8); }
-
-    /* Vignette & CRT Scanline */
-    .vignette-overlay {
-      background: radial-gradient(circle at center, transparent 35%, rgba(2, 2, 5, 0.9) 95%);
-      pointer-events: none;
-    }
-    .film-grain {
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
-      pointer-events: none;
-    }
-
-    /* Viewport Grading Filters */
-    .filter-noir { filter: contrast(115%) saturate(105%) brightness(95%); }
-    .filter-vintage { filter: sepia(35%) contrast(120%) brightness(90%) hue-rotate(-15deg); }
-    .filter-astral { filter: saturate(180%) contrast(125%) hue-rotate(20deg); }
-
-    /* Astral Silhouette Glow during Warp */
-    @keyframes astralPulse {
-      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 25px rgba(255, 244, 184, 0.9)) drop-shadow(0 0 60px rgba(0, 242, 255, 0.6)); }
-      50% { transform: scale(1.04); filter: drop-shadow(0 0 45px rgba(255, 215, 0, 1)) drop-shadow(0 0 90px rgba(176, 38, 255, 0.9)); }
-    }
-    .astral-silhouette { animation: astralPulse 1.2s ease-in-out infinite; }
   </style>
 </head>
-<body class="bg-void text-slate-100 font-sans overflow-x-hidden relative h-screen w-screen">
+<body class="text-slate-200 antialiased min-h-screen flex flex-col font-sans relative overflow-x-hidden">
 
-  <!-- ==================================================== -->
-  <!-- 3D WEBGL MULTIVERSE CANVAS CONTAINER                 -->
-  <!-- ==================================================== -->
-  <div id="viewport-container" class="fixed inset-0 z-0 filter-noir transition-all duration-700 pointer-events-auto">
-    <canvas id="multiverse-canvas" class="w-full h-full"></canvas>
-  </div>
+  <!-- Shared Deep Space Astronomical Canvas -->
+  <script src="public/space.js"></script>
 
-  <!-- Cosmic Shading & Noise Overlays -->
-  <div class="fixed inset-0 vignette-overlay z-10 pointer-events-none"></div>
-  <div class="fixed inset-0 film-grain z-10 pointer-events-none opacity-50"></div>
-
-  <!-- ==================================================== -->
-  <!-- ASTRAL PROJECTION WARP SEQUENCE (FULLSCREEN FX)      -->
-  <!-- ==================================================== -->
-  <div id="astral-warp-overlay" class="fixed inset-0 z-40 bg-black/90 backdrop-blur-xl flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-700">
-    <div class="relative flex flex-col items-center">
-      <!-- Human Astral Silhouette SVG -->
-      <div class="astral-silhouette w-44 h-72 text-amber-200">
-        <svg viewBox="0 0 100 200" fill="currentColor" class="w-full h-full">
-          <circle cx="50" cy="25" r="14" />
-          <path d="M38 45 C30 50, 20 70, 18 105 C16 130, 26 135, 30 115 C33 100, 35 85, 36 75 L36 120 L30 185 C28 195, 42 198, 44 185 L50 140 L56 185 C58 198, 72 195, 70 185 L64 120 L64 75 C65 85, 67 100, 70 115 C74 135, 84 130, 82 105 C80 70, 70 50, 62 45 Z" />
-        </svg>
-      </div>
-      <div class="text-xs font-mono text-cyan-300 tracking-[0.4em] uppercase mt-6 neon-cyan">
-        // INITIATING RELATIVISTIC MULTIVERSE JUMP //
-      </div>
-      <div id="warp-destination-label" class="text-2xl font-black font-sans text-white tracking-widest mt-2 neon-gold uppercase">
-        DESTINATION: GALAXY 02
-      </div>
-      <div class="w-64 h-1 bg-cyan-950 rounded-full mt-4 overflow-hidden border border-cyan-500/30">
-        <div id="warp-progress-bar" class="h-full bg-gradient-to-r from-cyan-400 via-purple-400 to-amber-300 w-0 transition-all duration-1000"></div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ==================================================== -->
-  <!-- TOP TELEMETRY HUD NAVIGATION BAR                     -->
-  <!-- ==================================================== -->
-  <header class="fixed top-0 left-0 right-0 z-30 glass-panel border-b border-white/10 px-4 lg:px-8 py-2.5">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
+  <!-- Navigation Bar -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav px-6 lg:px-12 py-3.5">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
       
-      <!-- Identity & Universe Indicator -->
-      <div class="flex items-center gap-3">
-        <div class="relative w-8 h-8 rounded-full bg-cyan-500/10 border border-cyan-400/40 flex items-center justify-center cursor-pointer hover:scale-105 transition-transform" onclick="resetCameraView()">
-          <i data-lucide="orbit" class="w-4 h-4 text-cyan-400 animate-spin-slow"></i>
-          <span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-        </div>
-        <div>
-          <div class="text-xs font-bold tracking-wider font-mono text-cyan-300 flex items-center gap-2">
-            AYUSH KANDWAL <span class="text-slate-500">//</span> <span class="text-purple-300">SUNZZX</span>
-            <span id="universe-badge" class="text-[9px] px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 font-bold">UNIVERSE 01: PRIME SOLAR</span>
-          </div>
-          <div class="text-[10px] text-slate-400 font-mono tracking-tight hidden sm:flex items-center gap-3">
-            <span>51+ FOSS TOOLS</span>
-            <span>&bull;</span>
-            <span>18 DAEMONS (24/7)</span>
-            <span>&bull;</span>
-            <span>DUAL IIT SCHOLAR</span>
-          </div>
-        </div>
-      </div>
+      <!-- Logo & Identity -->
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400/80 group-hover:scale-125 transition-transform"></span>
+        <span class="font-bold tracking-tight text-white text-sm">AYUSH KANDWAL</span>
+        <span class="text-xs text-slate-500 font-mono hidden sm:inline">/ SUNZZX</span>
+      </a>
 
-      <!-- Quick Nav Buttons for Current Universe -->
-      <nav id="planetary-nav" class="hidden xl:flex items-center gap-1.5 text-xs font-mono">
-        <button onclick="focusPlanet('sun')" class="px-2.5 py-1 rounded hover:bg-white/5 text-amber-300 border border-amber-500/20">☀️ Sol</button>
-        <button onclick="focusPlanet('earth')" class="px-2.5 py-1 rounded hover:bg-white/5 text-cyan-300 border border-cyan-500/20">🌍 Earth (Swarms)</button>
-        <button onclick="focusPlanet('jupiter')" class="px-2.5 py-1 rounded hover:bg-white/5 text-purple-300 border border-purple-500/20">🪐 Jupiter (Quant)</button>
-        <button onclick="focusPlanet('saturn')" class="px-2.5 py-1 rounded hover:bg-white/5 text-amber-300 border border-amber-500/20">🪐 Saturn (Academics)</button>
-        <button onclick="focusPlanet('neptune')" class="px-2.5 py-1 rounded hover:bg-white/5 text-blue-300 border border-blue-500/20">🛡️ Neptune (Security)</button>
+      <!-- Multi-Page Navigation Links -->
+      <nav class="hidden md:flex items-center gap-1 text-xs font-mono">
+        <a href="index.html" class="px-3 py-1.5 rounded-md text-white bg-white/10 font-medium">Overview</a>
+        <a href="projects.html" class="px-3 py-1.5 rounded-md text-slate-400 hover:text-white hover:bg-white/5 transition-colors">Projects (51+)</a>
+        <a href="about.html" class="px-3 py-1.5 rounded-md text-slate-400 hover:text-white hover:bg-white/5 transition-colors">Academics & Dossier</a>
+        <a href="cosmos.html" class="px-3 py-1.5 rounded-md text-slate-400 hover:text-white hover:bg-white/5 transition-colors">Creative Cosmos</a>
+        <a href="contact.html" class="px-3 py-1.5 rounded-md text-slate-400 hover:text-white hover:bg-white/5 transition-colors">Terminal & Links</a>
       </nav>
 
-      <!-- Control Center (Recruiter Fast-Track, Multiverse Jump, Grading, Audio) -->
-      <div class="flex items-center gap-2 text-xs font-mono">
-        
-        <!-- Recruiter Fast-Track (2D Mode) -->
-        <button onclick="toggleRecruiterMode()" class="px-3 py-1.5 rounded-lg border border-cyan-400/50 bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/25 transition-all flex items-center gap-1.5 font-bold shadow-lg shadow-cyan-500/10" title="Instant 2D Executive Dossier for Hiring Managers">
-          <i data-lucide="briefcase" class="w-3.5 h-3.5 text-cyan-400"></i>
-          <span class="hidden sm:inline">RECRUITER 2D FAST-TRACK</span>
-          <span class="sm:hidden">2D</span>
-        </button>
-
-        <!-- Wormhole Multiverse Jump Button -->
-        <button onclick="openMultiverseModal()" class="px-3 py-1.5 rounded-lg border border-purple-500/50 bg-purple-500/20 text-purple-200 hover:bg-purple-500/35 transition-all flex items-center gap-1.5 font-bold shadow-lg shadow-purple-500/15" title="Switch to Alternate Universes: Creative Galaxy or Arcade Nebula">
-          <i data-lucide="disc" class="w-3.5 h-3.5 text-purple-300 animate-spin-slow"></i>
-          <span>🌀 GALAXY JUMP</span>
-        </button>
-
-        <!-- Viewport Aesthetic Filter Toggle -->
-        <button onclick="cycleAestheticFilter()" id="filter-btn" class="px-2.5 py-1.5 rounded-lg border border-white/10 bg-space-900/80 text-slate-300 hover:text-white transition-all hidden md:flex items-center gap-1" title="Switch Viewport Color Grading">
-          <i data-lucide="palette" class="w-3.5 h-3.5 text-amber-400"></i>
-          <span id="filter-label">NOIR</span>
-        </button>
-
-        <!-- Procedural Web Audio Synthesizer -->
-        <button onclick="toggleCosmicAudio()" id="audio-btn" class="px-2.5 py-1.5 rounded-lg border border-white/10 bg-space-900/80 text-cyan-400 hover:border-cyan-400 transition-all flex items-center gap-1.5" title="Procedural Ambient Synthesizer">
-          <i data-lucide="volume-2" id="audio-icon" class="w-3.5 h-3.5"></i>
-          <span id="audio-label" class="hidden md:inline">AUDIO: ON</span>
-        </button>
-
-        <!-- Terminal Launcher -->
-        <button onclick="toggleTerminal()" class="px-2.5 py-1.5 rounded-lg border border-white/10 bg-space-900/80 text-slate-300 hover:text-cyan-300 transition-all flex items-center gap-1">
-          <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
-        </button>
-
+      <!-- Action Button -->
+      <div class="flex items-center gap-3">
+        <a href="projects.html" class="px-3.5 py-1.5 rounded-md border border-white/15 bg-white/5 hover:bg-white/10 text-white text-xs font-mono transition-all flex items-center gap-1.5">
+          <span>Systems Fleet</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
       </div>
 
     </div>
   </header>
 
+  <!-- Mobile Sub-Nav -->
+  <div class="md:hidden fixed top-[53px] left-0 right-0 z-40 bg-surface-900/90 backdrop-blur-md border-b border-border px-4 py-2 flex items-center justify-between text-xs font-mono overflow-x-auto">
+    <a href="index.html" class="text-cyan-400 font-bold whitespace-nowrap px-2">Overview</a>
+    <a href="projects.html" class="text-slate-400 hover:text-white whitespace-nowrap px-2">Projects</a>
+    <a href="about.html" class="text-slate-400 hover:text-white whitespace-nowrap px-2">Academics</a>
+    <a href="cosmos.html" class="text-slate-400 hover:text-white whitespace-nowrap px-2">Creative</a>
+    <a href="contact.html" class="text-slate-400 hover:text-white whitespace-nowrap px-2">Contact</a>
+  </div>
 
-  <!-- ==================================================== -->
-  <!-- SIDE-DOCKED GLASSMORPHIC TELEMETRY DOSSIER (3D LOCK) -->
-  <!-- ==================================================== -->
-  <aside id="dossier-drawer" class="fixed top-14 right-0 bottom-0 w-full sm:w-[480px] lg:w-[560px] z-30 glass-panel border-l border-white/10 translate-x-full transition-transform duration-500 ease-out flex flex-col shadow-2xl">
-    
-    <!-- Dossier Header -->
-    <div class="px-6 py-4 border-b border-white/10 flex items-center justify-between bg-space-950/40">
-      <div class="flex items-center gap-3">
-        <div id="dossier-icon-container" class="w-8 h-8 rounded-lg bg-cyan-500/20 border border-cyan-400/30 flex items-center justify-center text-cyan-400 text-lg">
-          🪐
-        </div>
-        <div>
-          <div id="dossier-subtitle" class="text-[10px] font-mono text-cyan-400 tracking-widest uppercase">// ORBITAL TELEMETRY</div>
-          <h2 id="dossier-title" class="text-lg font-bold font-sans text-white">Planetary Node</h2>
-        </div>
-      </div>
-      <div class="flex items-center gap-2">
-        <button onclick="resetCameraView()" class="p-1.5 rounded-lg border border-white/10 hover:bg-white/5 text-slate-400 hover:text-white" title="Unlock Orbit">
-          <i data-lucide="unlock" class="w-4 h-4"></i>
-        </button>
-        <button onclick="closeDossier()" class="p-1.5 rounded-lg border border-white/10 hover:bg-white/5 text-slate-400 hover:text-white">
-          <i data-lucide="x" class="w-4 h-4"></i>
-        </button>
-      </div>
-    </div>
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="flex-1 max-w-5xl mx-auto w-full px-6 pt-32 pb-24 space-y-24">
 
-    <!-- Dossier Scrollable Body -->
-    <div id="dossier-body" class="p-6 overflow-y-auto flex-1 space-y-6 text-xs font-sans leading-relaxed text-slate-300 select-text">
-      <!-- Dynamic Content Injected Here -->
-    </div>
-
-    <!-- Dossier Bottom Bar -->
-    <div class="px-6 py-3 border-t border-white/10 bg-space-950/60 flex items-center justify-between text-[11px] font-mono text-slate-400">
-      <span id="dossier-footer-status">STATUS: LOCKED IN LOW-ORBIT</span>
-      <button onclick="resetCameraView()" class="text-cyan-400 hover:underline">RETURN TO SYSTEM VIEW &rarr;</button>
-    </div>
-
-  </aside>
-
-
-  <!-- ==================================================== -->
-  <!-- RECRUITER 2D FAST-TRACK MODAL (CLEAN EXECUTIVE VIEW) -->
-  <!-- ==================================================== -->
-  <div id="recruiter-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-2xl hidden flex items-center justify-center p-4 lg:p-10">
-    <div class="glass-panel border border-cyan-500/30 rounded-2xl w-full max-w-5xl h-[88vh] flex flex-col overflow-hidden shadow-2xl">
+    <!-- HERO SECTION (Editorial & Restrained) -->
+    <section class="space-y-6 pt-4">
       
-      <!-- Header -->
-      <div class="px-6 py-4 border-b border-white/10 bg-space-950/80 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300 font-mono font-bold">
-            AK
-          </div>
-          <div>
-            <h2 class="text-base font-bold text-white font-sans flex items-center gap-2">
-              AYUSH KANDWAL &bull; EXECUTIVE RECRUITER DOSSIER
-              <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">AVAILABLE FOR HIRE</span>
-            </h2>
-            <div class="text-xs text-slate-400 font-mono">Systems Architect &bull; Quantitative Researcher &bull; Dual IIT Candidate</div>
-          </div>
-        </div>
-        <div class="flex items-center gap-2">
-          <a href="https://github.com/Sunzzx" target="_blank" class="px-3 py-1.5 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 text-white text-xs font-mono flex items-center gap-1.5">
-            <i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/ayush-kandwal" target="_blank" class="px-3 py-1.5 rounded-lg border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/20 text-xs font-mono flex items-center gap-1.5">
-            <i data-lucide="linkedin" class="w-3.5 h-3.5"></i> LinkedIn
-          </a>
-          <button onclick="toggleRecruiterMode()" class="p-1.5 rounded-lg border border-white/10 hover:bg-white/10 text-slate-400 hover:text-white">
-            <i data-lucide="x" class="w-5 h-5"></i>
-          </button>
-        </div>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-slate-300 text-xs font-mono">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Deep Space Observatory &bull; Available for High-Impact Roles</span>
       </div>
 
-      <!-- Recruiter Body Grid -->
-      <div class="p-6 overflow-y-auto flex-1 space-y-8 select-text">
-        
-        <!-- Summary Stats -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div class="glass-card p-4 rounded-xl border border-white/10">
-            <div class="text-[10px] font-mono text-cyan-400">ACADEMICS</div>
-            <div class="text-lg font-bold text-white mt-1">Dual IIT Scholar</div>
-            <div class="text-xs text-slate-400">IIT Madras BS + IIT Patna BS</div>
-          </div>
-          <div class="glass-card p-4 rounded-xl border border-white/10">
-            <div class="text-[10px] font-mono text-purple-400">QUANT FINANCE</div>
-            <div class="text-lg font-bold text-white mt-1">WorldQuant Brain</div>
-            <div class="text-xs text-slate-400">Consultant ID: AK45063</div>
-          </div>
-          <div class="glass-card p-4 rounded-xl border border-white/10">
-            <div class="text-[10px] font-mono text-amber-400">AUTONOMOUS SWARMS</div>
-            <div class="text-lg font-bold text-white mt-1">18 Daemons Active</div>
-            <div class="text-xs text-slate-400">macOS 24/7 Hermes Fleet</div>
-          </div>
-          <div class="glass-card p-4 rounded-xl border border-white/10">
-            <div class="text-[10px] font-mono text-emerald-400">PRODUCTION CODE</div>
-            <div class="text-lg font-bold text-white mt-1">51+ Shipped FOSS</div>
-            <div class="text-xs text-slate-400">Clean Architecture / Zero Stubs</div>
-          </div>
-        </div>
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[1.08]">
+        Engineering autonomous systems, distributed protocols & quantitative alphas.
+      </h1>
 
-        <!-- Section: Education -->
-        <div class="space-y-4">
-          <h3 class="text-sm font-bold font-mono text-cyan-400 uppercase tracking-widest flex items-center gap-2">
-            <i data-lucide="graduation-cap" class="w-4 h-4"></i> Formal Education & Fellowships
-          </h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            
-            <div class="p-4 rounded-xl bg-space-900/60 border border-white/10">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h4 class="font-bold text-white text-sm">Indian Institute of Technology, Patna</h4>
-                  <div class="text-xs text-purple-300">B.Sc. (Hons) in Computer Science & Data Analytics</div>
-                </div>
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/20 text-purple-300">Roll: 2412res45</span>
-              </div>
-              <p class="text-xs text-slate-300 mt-2">
-                Distributed Systems, Linux Kernel Internals, Low-Level Concurrency (C++, Rust, Go), Compiler Design, and High-Performance Cluster Compute.
-              </p>
-            </div>
+      <p class="max-w-3xl text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
+        I am <strong>Ayush Kandwal ("Ayu")</strong>, an autonomous systems architect and quantitative researcher. 
+        I build 24/7 background swarms, distributed state delta replicators, and order book simulation models. 
+        Currently pursuing a dual degree across <strong>IIT Madras</strong> (BS Data Science) and <strong>IIT Patna</strong> (BS Computer Science), alongside <strong>BA (Hons) Economics</strong> at the University of Delhi.
+      </p>
 
-            <div class="p-4 rounded-xl bg-space-900/60 border border-white/10">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h4 class="font-bold text-white text-sm">Indian Institute of Technology, Madras</h4>
-                  <div class="text-xs text-cyan-300">BS in Data Science & Applications</div>
-                </div>
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300">Roll: 24f1000816</span>
-              </div>
-              <p class="text-xs text-slate-300 mt-2">
-                Deep Learning (PyTorch), Distributed BigQuery, Statistical Inference, Algorithmic Decision Trees, Reinforcement Learning.
-              </p>
-            </div>
-
-            <div class="p-4 rounded-xl bg-space-900/60 border border-white/10">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h4 class="font-bold text-white text-sm">University of Delhi</h4>
-                  <div class="text-xs text-amber-300">B.A. (Hons) in Economics</div>
-                </div>
-                <span class="text-[10px] font-mono text-slate-400">Expected 2026</span>
-              </div>
-              <p class="text-xs text-slate-300 mt-2">
-                Quantitative Microeconomics, Game Theory, Econometric Time Series, Stochastic Processes, Monetary Systems.
-              </p>
-            </div>
-
-            <div class="p-4 rounded-xl bg-space-900/60 border border-white/10">
-              <div class="flex justify-between items-start">
-                <div>
-                  <h4 class="font-bold text-white text-sm">UC Berkeley & Aspire Institute</h4>
-                  <div class="text-xs text-emerald-300">REYES Physics (2025) & Aspire Leaders Alumni</div>
-                </div>
-                <span class="text-[10px] font-mono text-slate-400">International</span>
-              </div>
-              <p class="text-xs text-slate-300 mt-2">
-                Astrophysics and computational dynamics (UC Berkeley) + Global Leadership & Impact Fellowship (Aspire Institute).
-              </p>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Section: Internships & Work -->
-        <div class="space-y-4">
-          <h3 class="text-sm font-bold font-mono text-purple-400 uppercase tracking-widest flex items-center gap-2">
-            <i data-lucide="briefcase" class="w-4 h-4"></i> Work Experience & Research Internships
-          </h3>
-          <div class="space-y-3">
-            <div class="p-4 rounded-xl bg-space-900/60 border border-white/10 flex flex-col md:flex-row justify-between gap-2">
-              <div>
-                <h4 class="font-bold text-white text-sm">WorldQuant Brain &bull; Quantitative Alpha Research Consultant</h4>
-                <div class="text-xs text-slate-300 mt-1">
-                  Mining cross-asset mathematical alpha factors, market microstructure research, statistical arbitrage backtesting. (Consultant ID: AK45063, USA Region).
-                </div>
-              </div>
-              <span class="text-xs font-mono text-amber-400 whitespace-nowrap">Active Consultant</span>
-            </div>
-
-            <div class="p-4 rounded-xl bg-space-900/60 border border-white/10 flex flex-col md:flex-row justify-between gap-2">
-              <div>
-                <h4 class="font-bold text-white text-sm">Indian Institute of Technology Goa (IIT Goa) &bull; Summer Research Intern</h4>
-                <div class="text-xs text-slate-300 mt-1">
-                  Computational systems and high-throughput data processing algorithms under faculty supervision.
-                </div>
-              </div>
-              <span class="text-xs font-mono text-slate-400 whitespace-nowrap">May 2026 – June 2026</span>
-            </div>
-
-            <div class="p-4 rounded-xl bg-space-900/60 border border-white/10 flex flex-col md:flex-row justify-between gap-2">
-              <div>
-                <h4 class="font-bold text-white text-sm">Tezpur University &bull; Summer Research Intern</h4>
-                <div class="text-xs text-slate-300 mt-1">
-                  Algorithm optimization, pattern detection, and distributed computational pipelines.
-                </div>
-              </div>
-              <span class="text-xs font-mono text-slate-400 whitespace-nowrap">June 2026 – July 2026</span>
-            </div>
-
-            <div class="p-4 rounded-xl bg-space-900/60 border border-white/10 flex flex-col md:flex-row justify-between gap-2">
-              <div>
-                <h4 class="font-bold text-white text-sm">The Elite Ways &bull; Founder & Principal Architect</h4>
-                <div class="text-xs text-slate-300 mt-1">
-                  Engineered automated global e-commerce infrastructure (Shopify, Etsy, Stripe, PayPal) operated autonomously by 100+ custom AI agents.
-                </div>
-              </div>
-              <span class="text-xs font-mono text-slate-400 whitespace-nowrap">Jan 2025 – July 2025</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Section: Key Systems & Repos -->
-        <div class="space-y-4">
-          <h3 class="text-sm font-bold font-mono text-emerald-400 uppercase tracking-widest flex items-center gap-2">
-            <i data-lucide="cpu" class="w-4 h-4"></i> Flagship Production Systems
-          </h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-            <div class="p-3.5 rounded-xl bg-space-900/60 border border-white/10">
-              <div class="font-bold text-white">Hermes Autonomous Swarm Core</div>
-              <div class="text-slate-400 mt-1">18 background daemons running 24/7 on macOS with self-healing retries and 100% WhatsApp alert routing.</div>
-            </div>
-            <div class="p-3.5 rounded-xl bg-space-900/60 border border-white/10">
-              <div class="font-bold text-white">SafetyPin (Sunzzx/safetypin)</div>
-              <div class="text-slate-400 mt-1">Women's safety navigation platform: React 19, Leaflet.js, Web Audio drift detection, real-time telemetry.</div>
-            </div>
-            <div class="p-3.5 rounded-xl bg-space-900/60 border border-white/10">
-              <div class="font-bold text-white">chronos-hlc-state-delta-replicator</div>
-              <div class="text-slate-400 mt-1">Distributed state delta replicator using Hybrid Logical Clocks (HLC) and Delta-CRDTs for causal peer consistency.</div>
-            </div>
-            <div class="p-3.5 rounded-xl bg-space-900/60 border border-white/10">
-              <div class="font-bold text-white">kaggle-grandmaster-autopilot</div>
-              <div class="text-slate-400 mt-1">Autonomous competition scout, LightGBM/XGBoost CV trainer, and submission pipeline targeting Top 10 leaderboards.</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Footer CTA -->
-      <div class="px-6 py-4 border-t border-white/10 bg-space-950/80 flex items-center justify-between text-xs font-mono">
-        <span class="text-slate-400">Direct Contact: <strong class="text-white">ayushkandwal2007@gmail.com</strong></span>
-        <a href="mailto:24f1000816@ds.study.iitm.ac.in" class="px-4 py-2 rounded-lg bg-cyan-500 text-space-950 font-bold hover:bg-cyan-400 transition-all">
-          SEND INTERVIEW INQUIRY &rarr;
+      <!-- Fast Access Action Row -->
+      <div class="flex flex-wrap items-center gap-3 pt-2 text-xs font-mono">
+        <a href="projects.html" class="px-5 py-2.5 rounded-lg bg-white text-void font-bold hover:bg-slate-200 transition-all flex items-center gap-2">
+          <span>View 51+ Shipped Repositories</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="about.html" class="px-5 py-2.5 rounded-lg border border-white/15 bg-white/5 hover:bg-white/10 text-white transition-all flex items-center gap-2">
+          <span>Academic & Industry Dossier</span>
+        </a>
+        <a href="contact.html" class="px-5 py-2.5 rounded-lg border border-white/15 bg-white/5 hover:bg-white/10 text-slate-300 transition-all flex items-center gap-2">
+          <span>Terminal & Contact</span>
         </a>
       </div>
 
-    </div>
-  </div>
-
-
-  <!-- ==================================================== -->
-  <!-- MULTIVERSE SWITCHER MODAL (GALAXY JUMP GATEWAY)      -->
-  <!-- ==================================================== -->
-  <div id="multiverse-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-2xl hidden flex items-center justify-center p-4">
-    <div class="glass-panel border border-purple-500/40 rounded-3xl w-full max-w-4xl p-6 sm:p-8 flex flex-col space-y-6 shadow-2xl relative overflow-hidden">
-      
-      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+      <!-- Quick Metrics Bar -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-white/10">
         <div>
-          <div class="text-xs font-mono text-purple-400 tracking-widest uppercase">// RELATIVISTIC WORMHOLE INTERFACE</div>
-          <h2 class="text-2xl font-black text-white font-sans mt-0.5">Select Multiverse Coordinates</h2>
+          <div class="text-2xl font-bold font-mono text-white">51+</div>
+          <div class="text-xs text-slate-400 font-mono mt-0.5">Shipped FOSS Repos</div>
         </div>
-        <button onclick="closeMultiverseModal()" class="p-2 rounded-lg border border-white/10 text-slate-400 hover:text-white">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
+        <div>
+          <div class="text-2xl font-bold font-mono text-white">18</div>
+          <div class="text-xs text-slate-400 font-mono mt-0.5">24/7 Autonomous Daemons</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold font-mono text-white">Dual IIT</div>
+          <div class="text-xs text-slate-400 font-mono mt-0.5">IIT Madras + IIT Patna BS</div>
+        </div>
+        <div>
+          <div class="text-2xl font-bold font-mono text-white">AK45063</div>
+          <div class="text-xs text-slate-400 font-mono mt-0.5">WorldQuant Brain Consultant</div>
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    </section>
+
+    <!-- BENTO OVERVIEW GRID -->
+    <section class="space-y-6">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+        <h2 class="text-lg font-bold text-white tracking-tight flex items-center gap-2 font-mono">
+          <span>// CORE PILLARS</span>
+        </h2>
+        <span class="text-xs text-slate-400 font-mono">ENGINEERING & ACADEMIC POSTURE</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         
-        <!-- Universe 01: Prime Solar System -->
-        <div onclick="jumpToUniverse(1)" class="glass-card p-6 rounded-2xl border border-cyan-500/30 hover:border-cyan-400 cursor-pointer group flex flex-col justify-between">
-          <div>
-            <div class="text-2xl mb-3">☀️</div>
-            <div class="text-[10px] font-mono text-cyan-400 uppercase tracking-wider">UNIVERSE 01</div>
-            <h3 class="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">Prime Solar System</h3>
-            <p class="text-xs text-slate-400 mt-2">
-              <strong>100% Recruiter & Career Exclusive</strong>. Earth (Swarms), Jupiter (Quant), Saturn (Dual IIT), Neptune (Security).
+        <!-- Bento 1: Autonomous Swarms & Hermes Core -->
+        <a href="projects.html" class="bento-card p-6 rounded-2xl block group">
+          <div class="flex items-start justify-between">
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">AUTONOMOUS SWARMS</span>
+            <i data-lucide="cpu" class="w-5 h-5 text-slate-400 group-hover:text-cyan-300 transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mt-4 group-hover:text-cyan-300 transition-colors">
+            Hermes Fleet & Swarm Intelligence
+          </h3>
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+            18 background daemons running 24/7 on macOS. Implements clean-room reverse engineering, automated dependency pruning, speculative decoding, and 100% WhatsApp alert routing.
+          </p>
+          <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono text-slate-400">
+            <span>24/7 Zero-Touch Automation</span>
+            <span class="text-cyan-300 group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- Bento 2: Quantitative Alpha Mining -->
+        <a href="about.html" class="bento-card p-6 rounded-2xl block group">
+          <div class="flex items-start justify-between">
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">QUANTITATIVE FINANCE</span>
+            <i data-lucide="trending-up" class="w-5 h-5 text-slate-400 group-hover:text-amber-300 transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mt-4 group-hover:text-amber-300 transition-colors">
+            WorldQuant Brain & Microstructure
+          </h3>
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+            Active Research Consultant (ID: AK45063, USA Region). Mining mathematical alpha factors, analyzing cross-asset momentum, and backtesting order-book microstructure signals.
+          </p>
+          <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono text-slate-400">
+            <span>Alpha Generation & Backtesting</span>
+            <span class="text-amber-300 group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- Bento 3: Dual IIT Academic Citadel -->
+        <a href="about.html" class="bento-card p-6 rounded-2xl block group">
+          <div class="flex items-start justify-between">
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 border border-purple-500/20">ACADEMICS & DEGREES</span>
+            <i data-lucide="graduation-cap" class="w-5 h-5 text-slate-400 group-hover:text-purple-300 transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mt-4 group-hover:text-purple-300 transition-colors">
+            Dual IIT BS Candidate & Fellowships
+          </h3>
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+            BS in Data Science & Applications (IIT Madras, Roll: 24f1000816), B.Sc. (Hons) in Computer Science (IIT Patna, Roll: 2412res45), BA (Hons) Economics (University of Delhi), and UC Berkeley REYES Physics.
+          </p>
+          <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono text-slate-400">
+            <span>IIT Madras &bull; IIT Patna &bull; DU &bull; Berkeley</span>
+            <span class="text-purple-300 group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- Bento 4: Creative Cosmos & Virtual Worlds -->
+        <a href="cosmos.html" class="bento-card p-6 rounded-2xl block group">
+          <div class="flex items-start justify-between">
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">CREATIVE & GAMING</span>
+            <i data-lucide="music" class="w-5 h-5 text-slate-400 group-hover:text-emerald-300 transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mt-4 group-hover:text-emerald-300 transition-colors">
+            Music Production, Roblox & 1M+ Pinterest
+          </h3>
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+            Logic Pro music engineering by "Ayu", Roblox Luau game dev (#5294143085), competitive Steam/Twitch (CS2, Valorant), and 1M+ monthly viewers on curated dark-noir Pinterest boards.
+          </p>
+          <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono text-slate-400">
+            <span>Music Stems &bull; Roblox &bull; Cinema</span>
+            <span class="text-emerald-300 group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- SELECTED PRODUCTION SHIPMENTS -->
+    <section class="space-y-6">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+        <div>
+          <h2 class="text-lg font-bold text-white tracking-tight font-mono">// FLAGSHIP REPOSITORIES</h2>
+          <p class="text-xs text-slate-400 mt-0.5">High-complexity distributed protocols, AI tools, and production applications.</p>
+        </div>
+        <a href="projects.html" class="text-xs font-mono text-cyan-400 hover:underline">View All 51+ &rarr;</a>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- SafetyPin -->
+        <div class="bento-card p-5 rounded-xl flex flex-col md:flex-row justify-between gap-4">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">PRODUCTION SPA</span>
+              <h3 class="text-base font-bold text-white">SafetyPin (Sunzzx/safetypin)</h3>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed max-w-2xl">
+              Women's navigation and incident safety application engineered with React 19, Leaflet.js, Web Audio telemetry, and custom GPS drift-detection algorithms. Deployed live on Vercel.
             </p>
+            <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400 pt-1">
+              <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">React 19</span>
+              <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Leaflet.js</span>
+              <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Web Audio API</span>
+              <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Vercel Edge</span>
+            </div>
           </div>
-          <div class="mt-6 pt-3 border-t border-cyan-500/20 text-xs font-mono text-cyan-400 flex items-center justify-between">
-            <span>CAREER CITADEL</span>
-            <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+          <div class="flex md:flex-col items-end justify-between text-xs font-mono gap-2 shrink-0">
+            <a href="https://github.com/Sunzzx/safetypin" target="_blank" class="px-3 py-1.5 rounded bg-white/10 hover:bg-white/15 text-white flex items-center gap-1">
+              <span>GitHub</span>
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+            </a>
           </div>
         </div>
 
-        <!-- Universe 02: Alpha Centauri Creative Galaxy -->
-        <div onclick="jumpToUniverse(2)" class="glass-card p-6 rounded-2xl border border-purple-500/30 hover:border-purple-400 cursor-pointer group flex flex-col justify-between">
-          <div>
-            <div class="text-2xl mb-3">🌌</div>
-            <div class="text-[10px] font-mono text-purple-400 uppercase tracking-wider">UNIVERSE 02</div>
-            <h3 class="text-lg font-bold text-white group-hover:text-purple-300 transition-colors">Alpha Centauri Creative</h3>
-            <p class="text-xs text-slate-400 mt-2">
-              Mars (Logic Pro Beats), Alpha Centauri A (Noir Cinema & 1M+ Pinterest), Alpha Centauri B (Anime/Tensura), Moon (Roblox/Steam).
+        <!-- Chronos HLC State Delta Replicator -->
+        <div class="bento-card p-5 rounded-xl flex flex-col md:flex-row justify-between gap-4">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 border border-purple-500/20">DISTRIBUTED PROTOCOL</span>
+              <h3 class="text-base font-bold text-white">chronos-hlc-state-delta-replicator</h3>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed max-w-2xl">
+              High-performance distributed state delta replicator utilizing Hybrid Logical Clocks (HLC) and Delta-CRDTs for causal peer-to-peer conflict-free consistency without central coordination.
             </p>
+            <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400 pt-1">
+              <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Python / Rust</span>
+              <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Hybrid Logical Clocks</span>
+              <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Delta-CRDT</span>
+            </div>
           </div>
-          <div class="mt-6 pt-3 border-t border-purple-500/20 text-xs font-mono text-purple-400 flex items-center justify-between">
-            <span>MUSIC & ANIME</span>
-            <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+          <div class="flex md:flex-col items-end justify-between text-xs font-mono gap-2 shrink-0">
+            <a href="https://github.com/Sunzzx/chronos-hlc-state-delta-replicator" target="_blank" class="px-3 py-1.5 rounded bg-white/10 hover:bg-white/15 text-white flex items-center gap-1">
+              <span>GitHub</span>
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+            </a>
           </div>
         </div>
 
-        <!-- Universe 03: Arcade Nebula -->
-        <div onclick="jumpToUniverse(3)" class="glass-card p-6 rounded-2xl border border-amber-500/30 hover:border-amber-400 cursor-pointer group flex flex-col justify-between">
-          <div>
-            <div class="text-2xl mb-3">🕹️</div>
-            <div class="text-[10px] font-mono text-amber-400 uppercase tracking-wider">UNIVERSE 03</div>
-            <h3 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Arcade Nebula (Mini-Games)</h3>
-            <p class="text-xs text-slate-400 mt-2">
-              Playable browser mini-games: Asteroid Debugger, Quant Alpha Catcher, and 2 Truths & 1 Hallucination AI trivia!
+        <!-- Kaggle Grandmaster Autopilot -->
+        <div class="bento-card p-5 rounded-xl flex flex-col md:flex-row justify-between gap-4">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">AUTONOMOUS ML</span>
+              <h3 class="text-base font-bold text-white">kaggle-grandmaster-autopilot</h3>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed max-w-2xl">
+              End-to-end competition scout, automated EDA, LightGBM/XGBoost cross-validation trainer, and leaderboard submission engine configured to compete relentlessly for top-tier rankings.
             </p>
+            <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-slate-400 pt-1">
+              <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">LightGBM</span>
+              <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">XGBoost</span>
+              <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Kaggle CLI</span>
+            </div>
           </div>
-          <div class="mt-6 pt-3 border-t border-amber-500/20 text-xs font-mono text-amber-400 flex items-center justify-between">
-            <span>PLAYABLE ARCADE</span>
-            <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
+          <div class="flex md:flex-col items-end justify-between text-xs font-mono gap-2 shrink-0">
+            <a href="https://github.com/Sunzzx" target="_blank" class="px-3 py-1.5 rounded bg-white/10 hover:bg-white/15 text-white flex items-center gap-1">
+              <span>GitHub</span>
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+            </a>
           </div>
         </div>
 
       </div>
+    </section>
 
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="border-t border-white/10 py-8 px-6 text-xs font-mono text-slate-400 bg-surface-900/50">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        &copy; 2026 Ayush Kandwal ("Ayu"). Systems Architect & Quantitative Researcher.
+      </div>
+      <div class="flex items-center gap-4 text-slate-300">
+        <a href="https://github.com/Sunzzx" target="_blank" class="hover:text-white">GitHub</a>
+        <a href="https://x.com/its_ayu5" target="_blank" class="hover:text-white">Twitter/X</a>
+        <a href="https://www.linkedin.com/in/ayush-kandwal" target="_blank" class="hover:text-white">LinkedIn</a>
+        <a href="contact.html" class="hover:text-white">Contact / CLI</a>
+      </div>
     </div>
-  </div>
+  </footer>
 
-
-  <!-- ==================================================== -->
-  <!-- PLAYABLE MINI-GAMES MODAL (UNIVERSE 03 INTERFACE)    -->
-  <!-- ==================================================== -->
-  <div id="arcade-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl hidden flex items-center justify-center p-4">
-    <div class="glass-panel border border-amber-500/40 rounded-3xl w-full max-w-4xl p-6 flex flex-col h-[85vh] shadow-2xl relative">
-      
-      <!-- Arcade Header -->
-      <div class="flex items-center justify-between border-b border-white/10 pb-4">
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-300 font-bold">
-            🕹️
-          </div>
-          <div>
-            <h2 class="text-lg font-bold text-white font-sans">THE INTERACTIVE ARCADE NEBULA</h2>
-            <div class="text-xs text-slate-400 font-mono">3 Playable Browser Mini-Games About Ayush ("Ayu")</div>
-          </div>
-        </div>
-        <button onclick="closeArcadeModal()" class="p-1.5 rounded-lg border border-white/10 text-slate-400 hover:text-white">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <!-- Mini-Game Selection Tabs -->
-      <div class="flex items-center gap-2 mt-4 text-xs font-mono">
-        <button onclick="switchArcadeGame(1)" id="tab-game-1" class="px-3 py-1.5 rounded-lg bg-amber-500 text-space-950 font-bold transition-all">
-          1. Orbital Debugger (Asteroids)
-        </button>
-        <button onclick="switchArcadeGame(2)" id="tab-game-2" class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white transition-all">
-          2. Alpha Signal Catcher (Quant)
-        </button>
-        <button onclick="switchArcadeGame(3)" id="tab-game-3" class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white transition-all">
-          3. 2 Truths & 1 Hallucination
-        </button>
-      </div>
-
-      <!-- Game Stage Container -->
-      <div id="game-stage" class="flex-1 mt-4 rounded-2xl bg-space-950/80 border border-white/10 overflow-hidden relative flex flex-col items-center justify-center p-4">
-        <!-- Game 1: Asteroid Debugger Canvas -->
-        <canvas id="game-canvas" class="w-full h-full block rounded-xl"></canvas>
-      </div>
-
-      <!-- Game Score & Status Footer -->
-      <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-slate-400">
-        <span id="game-status-label">WASD or Arrow Keys to Move &bull; SPACE to Shoot Bugs</span>
-        <span id="game-score-label" class="text-amber-400 font-bold">SCORE: 0 &bull; MILESTONES UNLOCKED: 0</span>
-      </div>
-
-    </div>
-  </div>
-
-
-  <!-- ==================================================== -->
-  <!-- STARSHIP TERMINAL MODAL (`sunzzx-os`)               -->
-  <!-- ==================================================== -->
-  <div id="terminal-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-xl flex items-center justify-center p-4 hidden">
-    <div class="glass-panel border border-cyan-500/40 rounded-2xl w-full max-w-3xl overflow-hidden shadow-2xl flex flex-col h-[540px]">
-      
-      <div class="bg-space-950 px-4 py-2.5 border-b border-white/10 flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <span class="w-3 h-3 rounded-full bg-crimson-500/80 cursor-pointer" onclick="toggleTerminal()"></span>
-          <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
-          <span class="w-3 h-3 rounded-full bg-cyan-500/80"></span>
-          <span class="text-xs font-mono text-cyan-300 ml-2">sunzzx-os // multiversal-telemetry-v3.0</span>
-        </div>
-        <button onclick="toggleTerminal()" class="text-slate-400 hover:text-white">
-          <i data-lucide="x" class="w-4 h-4"></i>
-        </button>
-      </div>
-
-      <div id="terminal-body" class="p-4 font-mono text-xs text-cyan-300 overflow-y-auto flex-1 space-y-2 select-text bg-space-950/70">
-        <div class="text-purple-300">
-          ================================================================================<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;__&nbsp;&nbsp;__&nbsp;&nbsp;_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;____&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;___&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-          &nbsp;&nbsp;&nbsp;/&nbsp;/&nbsp;/&nbsp;/&nbsp;(_)___&nbsp;_/&nbsp;___/_&nbsp;&nbsp;/&nbsp;(_)___&nbsp;__&nbsp;&nbsp;__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-          &nbsp;&nbsp;/&nbsp;/_/&nbsp;/&nbsp;/&nbsp;/__&nbsp;\&nbsp;\__&nbsp;\/&nbsp;/&nbsp;/&nbsp;/&nbsp;/__&nbsp;`/_&nbsp;/&nbsp;/_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-          &nbsp;/&nbsp;___&nbsp;&nbsp;/&nbsp;/_/&nbsp;/&nbsp;___/&nbsp;/&nbsp;/_/&nbsp;/&nbsp;/_/&nbsp;/&nbsp;/_/&nbsp;/_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-          /_/&nbsp;&nbsp;/_/_/\__,_//____/\__,_/\__,_/\__,_/__/&nbsp;&nbsp;&nbsp;AYUSH&nbsp;KANDWAL&nbsp;//&nbsp;SUNZZX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-          ================================================================================
-        </div>
-        <div class="text-slate-300">
-          Type <span class="text-amber-300 font-bold">'help'</span> for instructions or <span class="text-cyan-400 font-bold">'universe [1|2|3]'</span> to jump across spacetime.
-        </div>
-      </div>
-
-      <div class="bg-space-950/95 p-3 border-t border-white/10 flex items-center gap-2">
-        <span class="text-cyan-400 font-mono text-xs">ayu@sunzzx-multiverse:~$</span>
-        <input id="terminal-input" type="text" class="flex-1 bg-transparent border-none outline-none font-mono text-xs text-white" placeholder="Type command (whoami, universe, career, degrees, daemons, music, play)..." autocomplete="off">
-      </div>
-
-    </div>
-  </div>
-
-
-  <!-- ==================================================== -->
-  <!-- JAVASCRIPT: THREE.JS MULTIVERSE ENGINE & LOGIC       -->
-  <!-- ==================================================== -->
-  <script>
-    lucide.createIcons();
-
-    /* ----------------------------------------------------
-       1. MULTIVERSE STATE & DATA ARCHITECTURE
-       ---------------------------------------------------- */
-    let currentUniverse = 1; // 1: Prime Solar, 2: Alpha Centauri, 3: Arcade Nebula
-    let activePlanetFocus = null;
-
-    // Universe 01 (Career Exclusive) Celestial Bodies
-    const solarPlanets = [
-      {
-        id: 'sun',
-        name: 'Sol (The Central Star)',
-        type: 'star',
-        color: 0xffaa00,
-        size: 14,
-        distance: 0,
-        speed: 0,
-        dossier: {
-          badge: 'EXECUTIVE CORE // AYUSH KANDWAL',
-          title: 'Ayush Kandwal ("Ayu")',
-          subtitle: 'Systems Architect & Quantitative Researcher',
-          icon: '☀️',
-          content: `
-            <div class="space-y-4">
-              <div class="p-3.5 rounded-xl bg-space-900 border border-amber-500/20 text-amber-200">
-                <strong>Executive Identity:</strong> Full-Stack AI Engineer, Distributed Systems Architect, and Quantitative Researcher.
-                Dual IIT BS Candidate at <strong>IIT Madras</strong> (Data Science) and <strong>IIT Patna</strong> (Computer Science) + <strong>BA (Hons) Economics</strong> at University of Delhi.
-              </div>
-              <div class="grid grid-cols-2 gap-2 text-xs font-mono">
-                <div class="p-2.5 rounded bg-space-900/60 border border-white/10">51+ Shipped FOSS Repos</div>
-                <div class="p-2.5 rounded bg-space-900/60 border border-white/10">18 Autonomous Daemons</div>
-                <div class="p-2.5 rounded bg-space-900/60 border border-white/10">100+ E-Commerce AI Agents</div>
-                <div class="p-2.5 rounded bg-space-900/60 border border-white/10">WorldQuant Brain AK45063</div>
-              </div>
-              <div class="flex flex-wrap gap-2 pt-2">
-                <a href="https://github.com/Sunzzx" target="_blank" class="px-3 py-1.5 rounded-lg bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 hover:bg-cyan-500/30">GitHub: @Sunzzx &rarr;</a>
-                <a href="https://www.linkedin.com/in/ayush-kandwal" target="_blank" class="px-3 py-1.5 rounded-lg bg-purple-500/20 text-purple-300 border border-purple-500/30">LinkedIn &rarr;</a>
-                <a href="https://linktr.ee/sunzzx" target="_blank" class="px-3 py-1.5 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/30">Linktree Matrix &rarr;</a>
-              </div>
-            </div>
-          `
-        }
-      },
-      {
-        id: 'earth',
-        name: 'Earth (Flagship Engineering)',
-        type: 'terrestrial',
-        color: 0x2277ff,
-        size: 5.5,
-        distance: 42,
-        speed: 0.007,
-        hasAtmosphere: true,
-        hasClouds: true,
-        hasMoon: true,
-        dossier: {
-          badge: 'FLAGSHIP PRODUCTION SYSTEMS',
-          title: 'Earth &bull; Autonomous Swarms & Full-Stack',
-          subtitle: 'Hermes Core, SafetyPin & 51+ Shipped Repositories',
-          icon: '🌍',
-          content: `
-            <div class="space-y-4">
-              <div class="p-3 rounded-xl bg-space-900 border border-cyan-500/30">
-                <h4 class="font-bold text-white text-sm">Hermes Autonomous Swarm Core (~/.hermes)</h4>
-                <p class="text-slate-300 mt-1">
-                  18 background daemons running 24/7 on macOS. Implements clean-room reverse engineering, AST dead-code pruning, speculative decoding, and 100% WhatsApp notification dispatch.
-                </p>
-              </div>
-
-              <div class="p-3 rounded-xl bg-space-900 border border-purple-500/30">
-                <h4 class="font-bold text-white text-sm">SafetyPin (Sunzzx/safetypin)</h4>
-                <p class="text-slate-300 mt-1">
-                  Women's safety navigation platform engineered with React 19, Leaflet.js, Web Audio API, and custom drift-detection algorithms. Deployed live on Vercel.
-                </p>
-              </div>
-
-              <div class="p-3 rounded-xl bg-space-900 border border-white/10">
-                <h4 class="font-bold text-white text-sm">Distributed Protocols & ML Engines</h4>
-                <ul class="list-disc list-inside mt-2 space-y-1 text-slate-300">
-                  <li><strong>chronos-hlc-state-delta-replicator:</strong> Hybrid Logical Clock & Delta-CRDT engine.</li>
-                  <li><strong>kaggle-grandmaster-autopilot:</strong> Automated LightGBM/XGBoost competition pipeline.</li>
-                  <li><strong>quanta-core:</strong> Alpha factor mining & order book simulation.</li>
-                  <li><strong>Examination Management Portal:</strong> Academic Flask & SQLite platform.</li>
-                </ul>
-              </div>
-            </div>
-          `
-        }
-      },
-      {
-        id: 'jupiter',
-        name: 'Jupiter (Quantitative Research & Work)',
-        type: 'gas',
-        color: 0xd97706,
-        size: 8.5,
-        distance: 78,
-        speed: 0.0045,
-        hasAtmosphere: true,
-        dossier: {
-          badge: 'QUANTITATIVE & INDUSTRY RESEARCH',
-          title: 'Jupiter &bull; WorldQuant & Research Fellowships',
-          subtitle: 'IIT Goa, Tezpur University & The Elite Ways',
-          icon: '🪐',
-          content: `
-            <div class="space-y-4">
-              <div class="p-3 rounded-xl bg-space-900 border border-amber-500/30">
-                <h4 class="font-bold text-white text-sm">WorldQuant Brain &bull; Quantitative Alpha Consultant</h4>
-                <div class="text-[10px] font-mono text-amber-400">ID: AK45063 (USA Region)</div>
-                <p class="text-slate-300 mt-1">
-                  Mining market microstructure alphas, cross-asset momentum factors, and statistical arbitrage strategies across global equity datasets.
-                </p>
-              </div>
-
-              <div class="p-3 rounded-xl bg-space-900 border border-purple-500/30">
-                <h4 class="font-bold text-white text-sm">IIT Goa & Tezpur University Research Intern</h4>
-                <p class="text-slate-300 mt-1">
-                  Summer Research Intern at IIT Goa (May–June 2026) and Tezpur University (June–July 2026) focusing on distributed algorithm efficiency and computational modeling.
-                </p>
-              </div>
-
-              <div class="p-3 rounded-xl bg-space-900 border border-white/10">
-                <h4 class="font-bold text-white text-sm">The Elite Ways (Founder & Architect)</h4>
-                <p class="text-slate-300 mt-1">
-                  Architected fully automated e-commerce infrastructure (Shopify, Etsy, PayPal, Razorpay) operated autonomously by 100+ custom AI agents.
-                </p>
-              </div>
-
-              <div class="p-3 rounded-xl bg-space-900 border border-white/10">
-                <h4 class="font-bold text-white text-sm">GirlScript Summer of Code (GSSoC)</h4>
-                <p class="text-slate-300 mt-1">
-                  Open Source Mentor (July 2025 – Oct 2025) guiding contributors on Git workflows, pull requests, and software architecture.
-                </p>
-              </div>
-            </div>
-          `
-        }
-      },
-      {
-        id: 'saturn',
-        name: 'Saturn (Academic Citadel & Degrees)',
-        type: 'ringed',
-        color: 0xfef08a,
-        size: 7,
-        distance: 115,
-        speed: 0.003,
-        hasRing: true,
-        dossier: {
-          badge: 'ACADEMIC EXCELLENCE & FELLOWSHIPS',
-          title: 'Saturn &bull; Dual IIT Scholar & Berkeley',
-          subtitle: 'IIT Patna + IIT Madras + DU Economics + UC Berkeley',
-          icon: '🪐',
-          content: `
-            <div class="space-y-3">
-              <div class="p-3 rounded-xl bg-space-900 border border-purple-500/30">
-                <div class="flex justify-between items-start">
-                  <h4 class="font-bold text-white text-sm">IIT Patna &bull; B.Sc. (Hons) CS & Data Analytics</h4>
-                  <span class="text-[10px] font-mono text-purple-300">Roll: 2412res45</span>
-                </div>
-                <p class="text-slate-300 text-xs mt-1">Distributed systems, C++, Go, Linux internals, compiler design.</p>
-              </div>
-
-              <div class="p-3 rounded-xl bg-space-900 border border-cyan-500/30">
-                <div class="flex justify-between items-start">
-                  <h4 class="font-bold text-white text-sm">IIT Madras &bull; BS in Data Science & Applications</h4>
-                  <span class="text-[10px] font-mono text-cyan-300">Roll: 24f1000816</span>
-                </div>
-                <p class="text-slate-300 text-xs mt-1">PyTorch, distributed BigQuery, statistical inference, deep learning.</p>
-              </div>
-
-              <div class="p-3 rounded-xl bg-space-900 border border-amber-500/30">
-                <div class="flex justify-between items-start">
-                  <h4 class="font-bold text-white text-sm">University of Delhi &bull; B.A. (Hons) Economics</h4>
-                  <span class="text-[10px] font-mono text-amber-300">Exp. 2026</span>
-                </div>
-                <p class="text-slate-300 text-xs mt-1">Game theory, microeconomic modeling, econometric time series.</p>
-              </div>
-
-              <div class="p-3 rounded-xl bg-space-900 border border-emerald-500/30">
-                <h4 class="font-bold text-white text-sm">UC Berkeley (REYES Physics) & Aspire Leaders Alumni</h4>
-                <p class="text-slate-300 text-xs mt-1">Astrophysics and computational dynamics (2025) + Aspire Institute global fellowship.</p>
-              </div>
-            </div>
-          `
-        }
-      },
-      {
-        id: 'neptune',
-        name: 'Neptune (Offensive Security & Tech Stack)',
-        type: 'ice',
-        color: 0x38bdf8,
-        size: 5.5,
-        distance: 155,
-        speed: 0.002,
-        hasAtmosphere: true,
-        dossier: {
-          badge: 'SECURITY & INFRASTRUCTURE',
-          title: 'Neptune &bull; Vulnerability Research & Stack',
-          subtitle: 'HackerOne, TryHackMe & Full Matrix',
-          icon: '🛡️',
-          content: `
-            <div class="space-y-4">
-              <div class="p-3 rounded-xl bg-space-900 border border-crimson-500/30">
-                <h4 class="font-bold text-white text-sm">HackerOne &bull; Vulnerability Researcher (@sunzzx)</h4>
-                <p class="text-slate-300 mt-1">
-                  Hunting authentication bypasses, GraphQL authorization flaws, and business logic bugs across enterprise targets.
-                </p>
-              </div>
-
-              <div class="p-3 rounded-xl bg-space-900 border border-cyan-500/30">
-                <h4 class="font-bold text-white text-sm">TryHackMe Operator (@kanayuuh)</h4>
-                <p class="text-slate-300 mt-1">
-                  Red teaming, network penetration testing, and CTF challenges across Kali & BlackArch VM testbeds.
-                </p>
-              </div>
-
-              <div class="p-3 rounded-xl bg-space-900 border border-white/10">
-                <h4 class="font-bold text-white text-sm">Comprehensive Tech Stack Matrix</h4>
-                <div class="flex flex-wrap gap-1.5 mt-2 text-[11px] font-mono">
-                  <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Python</span>
-                  <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">TypeScript</span>
-                  <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Go</span>
-                  <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">C++</span>
-                  <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">React 19</span>
-                  <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Next.js</span>
-                  <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">FastAPI</span>
-                  <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">PyTorch</span>
-                  <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Docker</span>
-                  <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Linux</span>
-                </div>
-              </div>
-            </div>
-          `
-        }
-      }
-    ];
-
-    // Universe 02 (Creative Galaxy) Celestial Bodies
-    const creativePlanets = [
-      {
-        id: 'mars-sonic',
-        name: 'Mars (The Sonic Forge — Logic Pro Music)',
-        type: 'terrestrial',
-        color: 0xef4444,
-        size: 5.5,
-        distance: 45,
-        speed: 0.006,
-        dossier: {
-          badge: 'MUSIC PRODUCTION & SONIC FORGE',
-          title: 'Mars &bull; Logic Pro Music by "Ayu"',
-          subtitle: 'Indie, Desi Hip-Hop, Melodic Electronic & Synth',
-          icon: '🎧',
-          content: `
-            <div class="space-y-4">
-              <p class="text-slate-300">
-                Crafted in <strong>Logic Pro on macOS</strong> using MIDI sequencing, ChromaVerb spatial reverb, Sampler, and live piano chords.
-              </p>
-              
-              <!-- Playable Mini Synth Pad -->
-              <div class="p-4 rounded-xl bg-space-900 border border-crimson-500/30">
-                <div class="text-xs font-mono text-crimson-400 font-bold mb-2">PLAYABLE 4-CHORD SYNTH PAD:</div>
-                <div class="grid grid-cols-4 gap-2 text-center font-mono text-xs">
-                  <button onclick="playSynthTone(220)" class="p-3 rounded-lg bg-crimson-500/20 hover:bg-crimson-500/40 border border-crimson-500/40 text-crimson-300 font-bold">Am</button>
-                  <button onclick="playSynthTone(174.6)" class="p-3 rounded-lg bg-purple-500/20 hover:bg-purple-500/40 border border-purple-500/40 text-purple-300 font-bold">F</button>
-                  <button onclick="playSynthTone(261.6)" class="p-3 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/40 border border-cyan-500/40 text-cyan-300 font-bold">C</button>
-                  <button onclick="playSynthTone(196)" class="p-3 rounded-lg bg-amber-500/20 hover:bg-amber-500/40 border border-amber-500/40 text-amber-300 font-bold">G</button>
-                </div>
-              </div>
-
-              <div class="flex items-center justify-between text-xs font-mono pt-2">
-                <a href="https://open.spotify.com/user/kanayuuh" target="_blank" class="text-emerald-400 hover:underline flex items-center gap-1">
-                  Spotify Profile: kanayuuh &rarr;
-                </a>
-              </div>
-            </div>
-          `
-        }
-      },
-      {
-        id: 'alpha-a',
-        name: 'Alpha Centauri A (Cinema, Noir & 1M+ Pinterest)',
-        type: 'star',
-        color: 0xfef08a,
-        size: 9,
-        distance: 85,
-        speed: 0.0035,
-        dossier: {
-          badge: 'CINEMA, NOIR & 1M+ PINTEREST',
-          title: 'Alpha Centauri A &bull; Aesthetics & Literature',
-          subtitle: '90s Dark-Noir, Dostoevsky & Visual Moodboards',
-          icon: '🎬',
-          content: `
-            <div class="space-y-4">
-              <div class="p-3 rounded-xl bg-space-900 border border-amber-500/30">
-                <h4 class="font-bold text-white text-sm">1M+ Monthly Pinterest Viewers</h4>
-                <p class="text-slate-300 mt-1">
-                  Curating dark-noir minimalism, vintage astral photography, and cinematic aesthetic boards.
-                </p>
-                <div class="mt-2 text-xs font-mono space-y-1">
-                  <a href="https://in.pinterest.com/pin/1136736762245083998/" target="_blank" class="text-amber-400 hover:underline block">&bull; Vintage Astral Reference #1 &rarr;</a>
-                  <a href="https://in.pinterest.com/pin/1126040713112245777/" target="_blank" class="text-amber-400 hover:underline block">&bull; Dark Cosmic Vault #2 &rarr;</a>
-                </div>
-              </div>
-
-              <div class="p-3 rounded-xl bg-space-900 border border-white/10">
-                <h4 class="font-bold text-white text-sm">Literary Foundations</h4>
-                <p class="text-slate-300 mt-1">
-                  Deep engagement with <em>The Brothers Karamazov</em> (Dostoevsky), existential ethics, and psychological narrative arcs.
-                </p>
-              </div>
-            </div>
-          `
-        }
-      },
-      {
-        id: 'alpha-b',
-        name: 'Alpha Centauri B (Anime, Light Novels & Mind Games)',
-        type: 'star',
-        color: 0xa855f7,
-        size: 7.5,
-        distance: 130,
-        speed: 0.0025,
-        dossier: {
-          badge: 'ANIME & STRATEGIC COGNITION',
-          title: 'Alpha Centauri B &bull; Anime & Light Novels',
-          subtitle: 'Tensura, Mushoku Tensei & The Devil\'s Plan',
-          icon: '⚔️',
-          content: `
-            <div class="space-y-4">
-              <div class="grid grid-cols-2 gap-2 text-xs">
-                <div class="p-3 rounded-xl bg-space-900 border border-cyan-500/20">
-                  <strong class="text-cyan-300">Mushoku Tensei:</strong> Void chronicles, mana systems, redemption arcs.
-                </div>
-                <div class="p-3 rounded-xl bg-space-900 border border-purple-500/20">
-                  <strong class="text-purple-300">Tensura:</strong> Wisdom King Raphael, sovereign world-building.
-                </div>
-                <div class="p-3 rounded-xl bg-space-900 border border-crimson-500/20">
-                  <strong class="text-crimson-300">The Devil\'s Plan:</strong> High-stakes game theory & social deduction.
-                </div>
-                <div class="p-3 rounded-xl bg-space-900 border border-amber-500/20">
-                  <strong class="text-amber-300">Bloody Game X:</strong> Psychological resilience & deception.
-                </div>
-              </div>
-            </div>
-          `
-        }
-      },
-      {
-        id: 'arcadia-moon',
-        name: 'Moon of Arcadia (Roblox Dev & Steam Hub)',
-        type: 'terrestrial',
-        color: 0x38bdf8,
-        size: 4.5,
-        distance: 170,
-        speed: 0.002,
-        dossier: {
-          badge: 'VIRTUAL WORLDS & GAMING',
-          title: 'Moon of Arcadia &bull; Roblox & Competitive Steam',
-          subtitle: 'Developer ayuissicktoday (ID: 5294143085) & kanayuuh',
-          icon: '🎮',
-          content: `
-            <div class="space-y-4">
-              <div class="p-3 rounded-xl bg-space-900 border border-amber-500/30">
-                <h4 class="font-bold text-white text-sm">Roblox Studio & Luau Engine</h4>
-                <div class="text-[10px] font-mono text-amber-400">Handle: ayuissicktoday (User ID: 5294143085)</div>
-                <p class="text-slate-300 mt-1">
-                  Engineering multiplayer games using Rojo file sync, Knit and Fusion state management, and physics replication.
-                </p>
-              </div>
-
-              <div class="p-3 rounded-xl bg-space-900 border border-cyan-500/30">
-                <h4 class="font-bold text-white text-sm">Steam & Twitch Gaming (@kanayuuh)</h4>
-                <p class="text-slate-300 mt-1">
-                  Competitive tactical shooters (CS2, Valorant), deep space simulation (Kerbal Space Program, Elite Dangerous).
-                </p>
-              </div>
-
-              <div class="p-3 rounded-xl bg-space-900 border border-purple-500/30">
-                <h4 class="font-bold text-white text-sm">ARC Prize 2026 & Chess Combinatorics</h4>
-                <p class="text-slate-300 mt-1">
-                  Active research in ARC-AGI 3 symbolic reasoning benchmarks and hyper-modern chess combinatorics.
-                </p>
-              </div>
-            </div>
-          `
-        }
-      }
-    ];
-
-
-    /* ----------------------------------------------------
-       2. WEB AUDIO PROCEDURAL SYNTHESIZER
-       ---------------------------------------------------- */
-    let audioCtx = null;
-    let masterGain = null;
-    let isAudioOn = true;
-
-    function initAudio() {
-      if (!audioCtx) {
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        audioCtx = new AudioContext();
-
-        masterGain = audioCtx.createGain();
-        masterGain.gain.setValueAtTime(0.04, audioCtx.currentTime);
-
-        const filter = audioCtx.createBiquadFilter();
-        filter.type = 'lowpass';
-        filter.frequency.setValueAtTime(200, audioCtx.currentTime);
-
-        const osc1 = audioCtx.createOscillator();
-        osc1.type = 'sine';
-        osc1.frequency.setValueAtTime(55, audioCtx.currentTime); // A1
-
-        const osc2 = audioCtx.createOscillator();
-        osc2.type = 'triangle';
-        osc2.frequency.setValueAtTime(110.3, audioCtx.currentTime);
-
-        osc1.connect(filter);
-        osc2.connect(filter);
-        filter.connect(masterGain);
-        masterGain.connect(audioCtx.destination);
-
-        osc1.start();
-        osc2.start();
-      } else if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-      }
-    }
-
-    function toggleCosmicAudio() {
-      initAudio();
-      isAudioOn = !isAudioOn;
-      if (masterGain) {
-        masterGain.gain.setValueAtTime(isAudioOn ? 0.04 : 0.0001, audioCtx.currentTime);
-      }
-      document.getElementById('audio-label').textContent = isAudioOn ? 'AUDIO: ON' : 'AUDIO: OFF';
-      playChirp(isAudioOn ? 600 : 300);
-    }
-
-    function playChirp(freq = 600) {
-      if (!audioCtx || !isAudioOn) return;
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.1);
-      gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
-      gain.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-      osc.start();
-      osc.stop(audioCtx.currentTime + 0.1);
-    }
-
-    function playSynthTone(freq) {
-      initAudio();
-      if (!audioCtx) return;
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.type = 'sawtooth';
-      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-      gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.8);
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-      osc.start();
-      osc.stop(audioCtx.currentTime + 0.8);
-    }
-
-    window.addEventListener('click', () => { if (!audioCtx) initAudio(); }, { once: true });
-
-
-    /* ----------------------------------------------------
-       3. THREE.JS PHOTOREALISTIC MULTIVERSE ENGINE
-       ---------------------------------------------------- */
-    const canvas = document.getElementById('multiverse-canvas');
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 4000);
-    camera.position.set(0, 110, 240);
-
-    const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.15);
-    scene.add(ambientLight);
-
-    const solLight = new THREE.PointLight(0xffeedd, 2.5, 800);
-    scene.add(solLight);
-
-    // Procedural Starfield with Spectral Classes
-    const starCount = 20000;
-    const starGeo = new THREE.BufferGeometry();
-    const starPos = new Float32Array(starCount * 3);
-    const starCols = new Float32Array(starCount * 3);
-
-    const colors = [
-      new THREE.Color(0xa5f3fc), // Icy Cyan
-      new THREE.Color(0xe0e7ff), // Blue-white
-      new THREE.Color(0xfef08a), // Pale Yellow
-      new THREE.Color(0xfca5a5), // Soft Red
-      new THREE.Color(0xd8b4fe)  // Lavender
-    ];
-
-    for (let i = 0; i < starCount; i++) {
-      const idx = i * 3;
-      const radius = 500 + Math.random() * 1500;
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos((Math.random() * 2) - 1);
-
-      starPos[idx] = radius * Math.sin(phi) * Math.cos(theta);
-      starPos[idx + 1] = radius * Math.sin(phi) * Math.sin(theta);
-      starPos[idx + 2] = radius * Math.cos(phi);
-
-      const c = colors[Math.floor(Math.random() * colors.length)];
-      starCols[idx] = c.r;
-      starCols[idx + 1] = c.g;
-      starCols[idx + 2] = c.b;
-    }
-    starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
-    starGeo.setAttribute('color', new THREE.BufferAttribute(starCols, 3));
-
-    const starMat = new THREE.PointsMaterial({
-      size: 1.5,
-      vertexColors: true,
-      transparent: true,
-      opacity: 0.8
-    });
-    const starField = new THREE.Points(starGeo, starMat);
-    scene.add(starField);
-
-    // Procedural Texture Helpers for Photorealistic Planets
-    function createProceduralTexture(type, baseHex) {
-      const c = document.createElement('canvas');
-      c.width = 512;
-      c.height = 256;
-      const ctx = c.getContext('2d');
-
-      ctx.fillStyle = baseHex;
-      ctx.fillRect(0, 0, 512, 256);
-
-      if (type === 'earth') {
-        // Continents and water bodies
-        ctx.fillStyle = '#1e3a8a';
-        ctx.fillRect(0, 0, 512, 256);
-        ctx.fillStyle = '#065f46';
-        for (let i = 0; i < 16; i++) {
-          ctx.beginPath();
-          ctx.arc(Math.random() * 512, Math.random() * 256, 30 + Math.random() * 50, 0, Math.PI * 2);
-          ctx.fill();
-        }
-        ctx.fillStyle = '#10b981';
-        for (let i = 0; i < 20; i++) {
-          ctx.beginPath();
-          ctx.arc(Math.random() * 512, Math.random() * 256, 15 + Math.random() * 25, 0, Math.PI * 2);
-          ctx.fill();
-        }
-        // Polar Ice
-        ctx.fillStyle = '#f8fafc';
-        ctx.fillRect(0, 0, 512, 24);
-        ctx.fillRect(0, 232, 512, 24);
-      } else if (type === 'gas') {
-        // Banded gas giant stripes
-        for (let y = 0; y < 256; y += 8) {
-          ctx.fillStyle = (y % 16 === 0) ? '#b45309' : '#f59e0b';
-          ctx.fillRect(0, y, 512, 8);
-        }
-        // Great Red Spot
-        ctx.fillStyle = '#991b1b';
-        ctx.beginPath();
-        ctx.ellipse(320, 160, 40, 20, 0, 0, Math.PI * 2);
-        ctx.fill();
-      } else if (type === 'ringed') {
-        // Saturn banded ochre
-        for (let y = 0; y < 256; y += 6) {
-          ctx.fillStyle = (y % 12 === 0) ? '#ca8a04' : '#fef08a';
-          ctx.fillRect(0, y, 512, 6);
-        }
-      } else if (type === 'ice') {
-        // Neptune deep azure streaks
-        for (let y = 0; y < 256; y += 12) {
-          ctx.fillStyle = (y % 24 === 0) ? '#0284c7' : '#0369a1';
-          ctx.fillRect(0, y, 512, 12);
-        }
-      }
-      return new THREE.CanvasTexture(c);
-    }
-
-    // Celestial Mesh Objects Container
-    let activePlanetaryMeshes = [];
-    const systemGroup = new THREE.Group();
-    scene.add(systemGroup);
-
-    // Build Current Universe Planetary System
-    function buildUniverseSystem(universeId) {
-      // Clear existing planetary meshes
-      while (systemGroup.children.length > 0) {
-        systemGroup.remove(systemGroup.children[0]);
-      }
-      activePlanetaryMeshes = [];
-
-      const planetList = (universeId === 1) ? solarPlanets : creativePlanets;
-
-      planetList.forEach((data) => {
-        const pGroup = new THREE.Group();
-
-        // Orbit Line
-        if (data.distance > 0) {
-          const orbitGeo = new THREE.BufferGeometry();
-          const points = [];
-          for (let i = 0; i <= 64; i++) {
-            const angle = (i / 64) * Math.PI * 2;
-            points.push(new THREE.Vector3(Math.cos(angle) * data.distance, 0, Math.sin(angle) * data.distance));
-          }
-          orbitGeo.setFromPoints(points);
-          const orbitMat = new THREE.LineBasicMaterial({ color: data.color, transparent: true, opacity: 0.18 });
-          const orbitLine = new THREE.Line(orbitGeo, orbitMat);
-          systemGroup.add(orbitLine);
-        }
-
-        // Planet Sphere Material
-        let pMat;
-        if (data.type === 'star') {
-          pMat = new THREE.MeshBasicMaterial({ color: data.color });
-        } else {
-          const texture = createProceduralTexture(data.type, '#' + data.color.toString(16).padStart(6, '0'));
-          pMat = new THREE.MeshStandardMaterial({
-            map: texture,
-            roughness: 0.7,
-            metalness: 0.1
-          });
-        }
-
-        const pGeo = new THREE.SphereGeometry(data.size, 32, 32);
-        const pMesh = new THREE.Mesh(pGeo, pMat);
-        pGroup.add(pMesh);
-
-        // Atmospheric Cloud Layer for Earth
-        if (data.hasClouds) {
-          const cloudGeo = new THREE.SphereGeometry(data.size * 1.02, 32, 32);
-          const cloudMat = new THREE.MeshStandardMaterial({
-            color: 0xffffff,
-            transparent: true,
-            opacity: 0.35,
-            wireframe: false
-          });
-          const cloudMesh = new THREE.Mesh(cloudGeo, cloudMat);
-          pMesh.add(cloudMesh);
-          pMesh.userData.cloudMesh = cloudMesh;
-        }
-
-        // Saturn Ring System
-        if (data.hasRing) {
-          const ringGeo = new THREE.RingGeometry(data.size * 1.4, data.size * 2.3, 48);
-          const ringMat = new THREE.MeshBasicMaterial({
-            color: 0xfef08a,
-            side: THREE.DoubleSide,
-            transparent: true,
-            opacity: 0.7
-          });
-          const ringMesh = new THREE.Mesh(ringGeo, ringMat);
-          ringMesh.rotation.x = Math.PI / 2.3;
-          pGroup.add(ringMesh);
-        }
-
-        pGroup.userData = { ...data, angle: Math.random() * Math.PI * 2, mesh: pMesh };
-        systemGroup.add(pGroup);
-        activePlanetaryMeshes.push(pGroup);
-      });
-    }
-
-    // Build Initial Universe 01
-    buildUniverseSystem(1);
-
-    // Floating Holographic Shards in Universe 02
-    function addHolographicShards() {
-      if (currentUniverse !== 2) return;
-      const shardGeo = new THREE.PlaneGeometry(8, 12);
-      const shardMat = new THREE.MeshBasicMaterial({
-        color: 0xa855f7,
-        side: THREE.DoubleSide,
-        transparent: true,
-        opacity: 0.65,
-        wireframe: true
-      });
-      for (let i = 0; i < 6; i++) {
-        const shard = new THREE.Mesh(shardGeo, shardMat);
-        shard.position.set(Math.cos(i) * 110, Math.sin(i * 2) * 20, Math.sin(i) * 110);
-        shard.rotation.y = Math.random() * Math.PI;
-        systemGroup.add(shard);
-      }
-    }
-
-
-    /* ----------------------------------------------------
-       4. CAMERA CONTROLS & PLANET FOCUS ORBIT
-       ---------------------------------------------------- */
-    let targetCamera = { x: 0, y: 110, z: 240 };
-    let mouseX = 0, mouseY = 0;
-
-    window.addEventListener('mousemove', (e) => {
-      mouseX = (e.clientX - window.innerWidth / 2) * 0.04;
-      mouseY = (e.clientY - window.innerHeight / 2) * 0.04;
-    });
-
-    function focusPlanet(planetId) {
-      playChirp(700);
-      const group = activePlanetaryMeshes.find(p => p.userData.id === planetId);
-      if (group) {
-        activePlanetFocus = group;
-        openDossier(group.userData);
-      }
-    }
-
-    function resetCameraView() {
-      playChirp(400);
-      activePlanetFocus = null;
-      targetCamera = { x: 0, y: 110, z: 240 };
-      closeDossier();
-    }
-
-    // Raycasting Click-to-Focus Planets
-    const raycaster = new THREE.Raycaster();
-    const mouseVector = new THREE.Vector2();
-
-    window.addEventListener('click', (e) => {
-      // Ignore click if clicking HUD elements
-      if (e.target.closest('header') || e.target.closest('aside') || e.target.closest('#recruiter-modal') || e.target.closest('#multiverse-modal') || e.target.closest('#arcade-modal') || e.target.closest('#terminal-modal')) {
-        return;
-      }
-      mouseVector.x = (e.clientX / window.innerWidth) * 2 - 1;
-      mouseVector.y = -(e.clientY / window.innerHeight) * 2 + 1;
-
-      raycaster.setFromCamera(mouseVector, camera);
-      const intersects = raycaster.intersectObjects(systemGroup.children, true);
-
-      if (intersects.length > 0) {
-        let hit = intersects[0].object;
-        while (hit.parent && hit.parent !== systemGroup) {
-          hit = hit.parent;
-        }
-        if (hit.userData && hit.userData.id) {
-          focusPlanet(hit.userData.id);
-        }
-      }
-    });
-
-
-    /* ----------------------------------------------------
-       5. ASTRAL WARP & MULTIVERSE JUMP DRIVE
-       ---------------------------------------------------- */
-    function openMultiverseModal() {
-      playChirp(500);
-      document.getElementById('multiverse-modal').classList.remove('hidden');
-    }
-    function closeMultiverseModal() {
-      document.getElementById('multiverse-modal').classList.add('hidden');
-    }
-
-    function jumpToUniverse(targetUniverseId) {
-      closeMultiverseModal();
-      if (targetUniverseId === 3) {
-        openArcadeModal();
-        return;
-      }
-
-      currentUniverse = targetUniverseId;
-      const overlay = document.getElementById('astral-warp-overlay');
-      const label = document.getElementById('warp-destination-label');
-      const progressBar = document.getElementById('warp-progress-bar');
-      const badge = document.getElementById('universe-badge');
-
-      label.textContent = targetUniverseId === 1 ? 'DESTINATION: PRIME SOLAR SYSTEM' : 'DESTINATION: ALPHA CENTAURI GALAXY';
-      overlay.classList.remove('opacity-0', 'pointer-events-none');
-      progressBar.style.width = '100%';
-
-      // Web Audio Sub-Bass Warp Sound
-      if (audioCtx) {
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(60, audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 1.2);
-        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-        gain.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 1.2);
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start();
-        osc.stop(audioCtx.currentTime + 1.2);
-      }
-
-      setTimeout(() => {
-        buildUniverseSystem(targetUniverseId);
-        if (targetUniverseId === 2) addHolographicShards();
-        resetCameraView();
-
-        badge.textContent = targetUniverseId === 1 ? 'UNIVERSE 01: PRIME SOLAR' : 'UNIVERSE 02: ALPHA CENTAURI';
-        badge.className = targetUniverseId === 1 
-          ? 'text-[9px] px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 font-bold'
-          : 'text-[9px] px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30 font-bold';
-
-        overlay.classList.add('opacity-0', 'pointer-events-none');
-        progressBar.style.width = '0%';
-      }, 1200);
-    }
-
-
-    /* ----------------------------------------------------
-       6. VIEWPORT AESTHETIC FILTER HUD SWITCHER
-       ---------------------------------------------------- */
-    const filters = ['noir', 'vintage', 'astral'];
-    let filterIndex = 0;
-
-    function cycleAestheticFilter() {
-      filterIndex = (filterIndex + 1) % filters.length;
-      const chosen = filters[filterIndex];
-      const container = document.getElementById('viewport-container');
-      const label = document.getElementById('filter-label');
-
-      container.className = `fixed inset-0 z-0 transition-all duration-700 pointer-events-auto filter-${chosen}`;
-      label.textContent = chosen.toUpperCase();
-      playChirp(800);
-    }
-
-
-    /* ----------------------------------------------------
-       7. DOSSIER & RECRUITER FAST-TRACK UI HANDLERS
-       ---------------------------------------------------- */
-    const dossierDrawer = document.getElementById('dossier-drawer');
-
-    function openDossier(data) {
-      if (!data || !data.dossier) return;
-      document.getElementById('dossier-subtitle').textContent = data.dossier.badge;
-      document.getElementById('dossier-title').textContent = data.dossier.title;
-      document.getElementById('dossier-icon-container').textContent = data.dossier.icon;
-      document.getElementById('dossier-body').innerHTML = data.dossier.content;
-      dossierDrawer.classList.remove('translate-x-full');
-    }
-
-    function closeDossier() {
-      dossierDrawer.classList.add('translate-x-full');
-    }
-
-    function toggleRecruiterMode() {
-      playChirp(650);
-      const modal = document.getElementById('recruiter-modal');
-      modal.classList.toggle('hidden');
-    }
-
-
-    /* ----------------------------------------------------
-       8. PLAYABLE BROWSER MINI-GAMES (UNIVERSE 03)
-       ---------------------------------------------------- */
-    let activeMiniGame = 1;
-    let gameLoopId = null;
-    const gameCanvas = document.getElementById('game-canvas');
-    const gctx = gameCanvas.getContext('2d');
-
-    function openArcadeModal() {
-      playChirp(600);
-      document.getElementById('arcade-modal').classList.remove('hidden');
-      initGame1();
-    }
-    function closeArcadeModal() {
-      document.getElementById('arcade-modal').classList.add('hidden');
-      if (gameLoopId) cancelAnimationFrame(gameLoopId);
-    }
-
-    function switchArcadeGame(gameNum) {
-      activeMiniGame = gameNum;
-      for (let i = 1; i <= 3; i++) {
-        const btn = document.getElementById(`tab-game-${i}`);
-        if (i === gameNum) {
-          btn.className = 'px-3 py-1.5 rounded-lg bg-amber-500 text-space-950 font-bold transition-all';
-        } else {
-          btn.className = 'px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-white transition-all';
-        }
-      }
-      if (gameLoopId) cancelAnimationFrame(gameLoopId);
-
-      if (gameNum === 1) initGame1();
-      else if (gameNum === 2) initGame2();
-      else if (gameNum === 3) initGame3();
-    }
-
-    // GAME 1: ORBITAL DEBUGGER (ASTEROID DEFENSE)
-    let ship = { x: 200, y: 300, vx: 0, vy: 0 };
-    let bullets = [];
-    let asteroids = [];
-    let score = 0;
-    const bugLabels = ['DeadCode', 'AST-Glitch', 'MemoryLeak', 'RaceCondition', 'CORS-Err', 'CRDT-Conflict'];
-
-    function initGame1() {
-      gameCanvas.width = 720;
-      gameCanvas.height = 420;
-      ship = { x: 360, y: 360, vx: 0, vy: 0 };
-      bullets = [];
-      asteroids = [];
-      score = 0;
-
-      for (let i = 0; i < 5; i++) spawnAsteroid();
-
-      document.getElementById('game-status-label').textContent = 'Controls: Arrow Keys to Move &bull; SPACE to Shoot Bugs';
-      document.getElementById('game-score-label').textContent = 'SCORE: 0';
-
-      runGame1Loop();
-    }
-
-    function spawnAsteroid() {
-      asteroids.push({
-        x: Math.random() * 720,
-        y: -30,
-        radius: 24,
-        vy: 1 + Math.random() * 1.5,
-        label: bugLabels[Math.floor(Math.random() * bugLabels.length)]
-      });
-    }
-
-    window.addEventListener('keydown', (e) => {
-      if (activeMiniGame === 1) {
-        if (e.key === 'ArrowLeft' || e.key === 'a') ship.vx = -4;
-        if (e.key === 'ArrowRight' || e.key === 'd') ship.vx = 4;
-        if (e.key === ' ' || e.key === 'ArrowUp') {
-          bullets.push({ x: ship.x, y: ship.y - 10, vy: -7 });
-          playChirp(900);
-        }
-      }
-    });
-    window.addEventListener('keyup', (e) => {
-      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'a' || e.key === 'd') ship.vx = 0;
-    });
-
-    function runGame1Loop() {
-      gctx.fillStyle = '#070526';
-      gctx.fillRect(0, 0, 720, 420);
-
-      // Draw Ship
-      ship.x += ship.vx;
-      if (ship.x < 20) ship.x = 20;
-      if (ship.x > 700) ship.x = 700;
-
-      gctx.fillStyle = '#00f2ff';
-      gctx.beginPath();
-      gctx.moveTo(ship.x, ship.y - 16);
-      gctx.lineTo(ship.x - 12, ship.y + 12);
-      gctx.lineTo(ship.x + 12, ship.y + 12);
-      gctx.fill();
-
-      // Bullets
-      gctx.fillStyle = '#fef08a';
-      bullets.forEach((b, bi) => {
-        b.y += b.vy;
-        gctx.fillRect(b.x - 2, b.y, 4, 8);
-        if (b.y < 0) bullets.splice(bi, 1);
-      });
-
-      // Asteroids
-      asteroids.forEach((ast, ai) => {
-        ast.y += ast.vy;
-        gctx.strokeStyle = '#ef4444';
-        gctx.lineWidth = 1.5;
-        gctx.strokeRect(ast.x - ast.radius, ast.y - 12, ast.radius * 2, 24);
-        gctx.fillStyle = '#fca5a5';
-        gctx.font = '10px JetBrains Mono';
-        gctx.fillText(ast.label, ast.x - ast.radius + 4, ast.y + 4);
-
-        // Check bullet hit
-        bullets.forEach((b, bi) => {
-          if (Math.abs(b.x - ast.x) < ast.radius && Math.abs(b.y - ast.y) < 16) {
-            asteroids.splice(ai, 1);
-            bullets.splice(bi, 1);
-            score += 100;
-            document.getElementById('game-score-label').textContent = `SCORE: ${score} &bull; REPO BUG INCINERATED!`;
-            playChirp(450);
-            spawnAsteroid();
-          }
-        });
-
-        if (ast.y > 440) {
-          asteroids.splice(ai, 1);
-          spawnAsteroid();
-        }
-      });
-
-      gameLoopId = requestAnimationFrame(runGame1Loop);
-    }
-
-    // GAME 2: ALPHA SIGNAL CATCHER (QUANT GAME)
-    function initGame2() {
-      gctx.fillStyle = '#070526';
-      gctx.fillRect(0, 0, 720, 420);
-      gctx.fillStyle = '#f59e0b';
-      gctx.font = '14px JetBrains Mono';
-      gctx.fillText('WORLDQUANT ALPHA CATCHER: Click the Anomaly Spike!', 160, 180);
-      document.getElementById('game-status-label').textContent = 'Statistical Anomaly Reflex Game (WorldQuant Inspired)';
-    }
-
-    // GAME 3: 2 TRUTHS & 1 HALLUCINATION
-    function initGame3() {
-      gctx.fillStyle = '#070526';
-      gctx.fillRect(0, 0, 720, 420);
-      gctx.fillStyle = '#a855f7';
-      gctx.font = '14px JetBrains Mono';
-      gctx.fillText('TRIVIA PROTOCOL: Which fact about Ayush is real?', 180, 160);
-      gctx.fillStyle = '#ffffff';
-      gctx.font = '12px Space Grotesk';
-      gctx.fillText('A) Running 18 background daemons 24/7 on macOS (TRUE)', 180, 200);
-      gctx.fillText('B) Dual degree candidate at IIT Madras & IIT Patna (TRUE)', 180, 230);
-      gctx.fillText('C) Reached 1M+ Monthly Pinterest Viewers on Dark Noir (TRUE)', 180, 260);
-      document.getElementById('game-status-label').textContent = 'ALL OF THEM ARE TRUE! Ayush is genuinely that versatile.';
-    }
-
-
-    /* ----------------------------------------------------
-       9. STARSHIP TERMINAL EMULATOR
-       ---------------------------------------------------- */
-    const terminalModal = document.getElementById('terminal-modal');
-    const terminalInput = document.getElementById('terminal-input');
-    const terminalBody = document.getElementById('terminal-body');
-
-    function toggleTerminal() {
-      playChirp(600);
-      terminalModal.classList.toggle('hidden');
-      if (!terminalModal.classList.contains('hidden')) terminalInput.focus();
-    }
-
-    terminalInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        const cmd = terminalInput.value.trim();
-        terminalInput.value = '';
-        executeTerminal(cmd);
-      }
-    });
-
-    function printTerm(html) {
-      const line = document.createElement('div');
-      line.innerHTML = html;
-      terminalBody.appendChild(line);
-      terminalBody.scrollTop = terminalBody.scrollHeight;
-    }
-
-    function executeTerminal(cmd) {
-      if (!cmd) return;
-      printTerm(`<span class="text-slate-400">ayu@sunzzx-multiverse:~$</span> <span class="text-white font-bold">${cmd}</span>`);
-      const lower = cmd.toLowerCase().trim();
-
-      if (lower === 'help') {
-        printTerm(`
-          <div class="text-amber-300">Available commands:</div>
-          &bull; <span class="text-cyan-400">whoami</span>: Executive profile & credentials<br>
-          &bull; <span class="text-cyan-400">universe [1|2|3]</span>: Jump across 3 distinct multiverse sectors<br>
-          &bull; <span class="text-cyan-400">career</span>: Launch Recruiter Fast-Track 2D Dossier<br>
-          &bull; <span class="text-cyan-400">degrees</span>: IIT Madras, IIT Patna & DU credentials<br>
-          &bull; <span class="text-cyan-400">daemons</span>: Inspect 18 active Hermes background swarms<br>
-          &bull; <span class="text-cyan-400">play</span>: Launch Arcade Nebula mini-games<br>
-          &bull; <span class="text-cyan-400">linktree</span>: Direct social matrix<br>
-          &bull; <span class="text-cyan-400">clear</span>: Clear console
-        `);
-      } else if (lower === 'whoami') {
-        printTerm(`
-          <div class="text-cyan-300 font-bold">Ayush Kandwal ("Ayu") &bull; Sunzzx</div>
-          Systems Architect, Quant Researcher, Dual IIT BS Candidate & Full-Stack AI Engineer.
-        `);
-      } else if (lower === 'career') {
-        toggleRecruiterMode();
-        printTerm('<span class="text-emerald-400">Recruiter Fast-Track 2D Dossier launched!</span>');
-      } else if (lower.startsWith('universe')) {
-        const parts = lower.split(' ');
-        const u = parseInt(parts[1]) || 1;
-        jumpToUniverse(u);
-        printTerm(`<span class="text-purple-300">Warping to Universe 0${u}...</span>`);
-      } else if (lower === 'play') {
-        openArcadeModal();
-        printTerm('<span class="text-amber-300">Interactive Arcade Nebula launched!</span>');
-      } else if (lower === 'degrees') {
-        printTerm(`
-          <div class="text-purple-300 font-bold">ACADEMIC CITADEL:</div>
-          1. IIT Patna &mdash; B.Sc. (Hons) CS & Data Analytics (Roll: 2412res45)<br>
-          2. IIT Madras &mdash; BS in Data Science & Applications (Roll: 24f1000816)<br>
-          3. University of Delhi &mdash; B.A. (Hons) Economics<br>
-          4. UC Berkeley &mdash; REYES Physics (2025)
-        `);
-      } else if (lower === 'daemons') {
-        printTerm(`
-          <div class="text-cyan-300 font-bold">18 HERMES DAEMONS ACTIVE (24/7):</div>
-          [RUNNING] kaggle-grandmaster-autopilot<br>
-          [RUNNING] rea-clean-room-reconstructor-8h<br>
-          [RUNNING] chronos-state-delta-replicator<br>
-          [RUNNING] omni-revenue-syndicate-180m<br>
-          [RUNNING] whatsapp-alert-notifier (+91 7417939838)
-        `);
-      } else if (lower === 'clear') {
-        terminalBody.innerHTML = '';
-      } else {
-        printTerm(`<span class="text-crimson-400">Unknown command: '${cmd}'. Type 'help' for options.</span>`);
-      }
-    }
-
-
-    /* ----------------------------------------------------
-       10. ANIMATION & RENDER LOOP
-       ---------------------------------------------------- */
-    let clock = new THREE.Clock();
-
-    function animate() {
-      requestAnimationFrame(animate);
-      const delta = clock.getDelta();
-
-      // Camera Smooth Interpolation
-      if (activePlanetFocus) {
-        // Orbit lock mode: track moving planet
-        const targetPos = activePlanetFocus.position;
-        camera.position.x += ((targetPos.x + 18) - camera.position.x) * 0.05;
-        camera.position.y += ((targetPos.y + 12) - camera.position.y) * 0.05;
-        camera.position.z += ((targetPos.z + 28) - camera.position.z) * 0.05;
-        camera.lookAt(targetPos);
-      } else {
-        // System wide view with mouse parallax
-        camera.position.x += (targetCamera.x + mouseX - camera.position.x) * 0.04;
-        camera.position.y += (targetCamera.y - mouseY - camera.position.y) * 0.04;
-        camera.position.z += (targetCamera.z - camera.position.z) * 0.04;
-        camera.lookAt(0, 0, 0);
-      }
-
-      // Rotate Stars
-      starField.rotation.y += 0.0003;
-
-      // Revolution of Planets
-      activePlanetaryMeshes.forEach((pGroup) => {
-        pGroup.userData.angle += pGroup.userData.speed;
-        pGroup.position.x = Math.cos(pGroup.userData.angle) * pGroup.userData.distance;
-        pGroup.position.z = Math.sin(pGroup.userData.angle) * pGroup.userData.distance;
-
-        // Self rotation
-        if (pGroup.userData.mesh) {
-          pGroup.userData.mesh.rotation.y += 0.015;
-          // Rotate clouds if present
-          if (pGroup.userData.mesh.userData.cloudMesh) {
-            pGroup.userData.mesh.userData.cloudMesh.rotation.y += 0.02;
-          }
-        }
-      });
-
-      renderer.render(scene, camera);
-    }
-    animate();
-
-    // Window Resize Handler
-    window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-  </script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>
