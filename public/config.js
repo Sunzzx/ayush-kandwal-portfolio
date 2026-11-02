@@ -23,55 +23,72 @@ rootEnv.OBSERVATORY_CONFIG = {
   timezoneOffsetMinutes: 330
 };
 
-// High-Precision Decimal & Calendar Age Engine
+// High-Precision Decimal Age Engine: 22.dayshoursminutessecondsmilliseconds
 rootEnv.calculateObservatoryAge = function(targetDate) {
   const birth = targetDate || rootEnv.OBSERVATORY_CONFIG.birthDateUTC;
   const nowMs = Date.now();
   const birthMs = birth instanceof Date ? birth.getTime() : new Date(birth).getTime();
-  const diffMs = Math.max(0, nowMs - birthMs);
 
-  // Exact average Gregorian calendar year accounting for 400-year leap cycle (365.2425 days)
-  const msPerYear = 365.2425 * 24 * 60 * 60 * 1000;
-  const decimalYearsVal = diffMs / msPerYear;
-  
-  // 10 decimal places captures millisecond-level precision (1 ms ≈ 3.17e-11 years)
-  const decimalYears = decimalYearsVal.toFixed(10);
-  const [wholeYears, fracYears] = decimalYears.split('.');
-
-  // Traditional calendar breakdown (kept as secondary utility)
+  // Time calculations in Asia/Kolkata (IST = UTC + 5:30)
   const kolkataOffsetMs = 5.5 * 60 * 60 * 1000;
-  const birthKolkata = new Date(birthMs + kolkataOffsetMs);
   const nowKolkata = new Date(nowMs + kolkataOffsetMs);
 
+  const nYear = nowKolkata.getUTCFullYear();
+  const nMonth = nowKolkata.getUTCMonth(); // 0-indexed (11 is December)
+  const nDay = nowKolkata.getUTCDate();
+
+  // Born Dec 11, 2003 at 00:00:00 IST
+  const hadBirthdayThisYear = (nMonth > 11) || (nMonth === 11 && nDay >= 11);
+  const ageYears = hadBirthdayThisYear ? (nYear - 2003) : (nYear - 2003 - 1);
+  const lastBirthdayYear = hadBirthdayThisYear ? nYear : (nYear - 1);
+
+  // Exact timestamp of the most recent birthday in UTC (Dec 10 18:30:00 UTC = Dec 11 00:00:00 IST)
+  const lastBirthdayUTC = new Date(Date.UTC(lastBirthdayYear, 11, 10, 18, 30, 0));
+  const elapsedSinceBirthdayMs = Math.max(0, nowMs - lastBirthdayUTC.getTime());
+
+  // Elapsed days, hours, minutes, seconds, milliseconds since turning ageYears
+  const days = Math.floor(elapsedSinceBirthdayMs / (24 * 60 * 60 * 1000));
+  let remMs = elapsedSinceBirthdayMs % (24 * 60 * 60 * 1000);
+  const hours = Math.floor(remMs / (60 * 60 * 1000));
+  remMs = remMs % (60 * 60 * 1000);
+  const minutes = Math.floor(remMs / (60 * 1000));
+  remMs = remMs % (60 * 1000);
+  const seconds = Math.floor(remMs / 1000);
+  const milliseconds = remMs % 1000;
+
+  const pad3 = (n) => String(n).padStart(3, '0');
+  const pad2 = (n) => String(n).padStart(2, '0');
+
+  // Format: 22.dayshoursminutessecondsmilliseconds
+  // Days (3 digits) + Hours (2 digits) + Minutes (2 digits) + Seconds (2 digits) + Milliseconds (3 digits)
+  // Example: 22.327012845941 (looks like 22.xxxxxxxxxxxx)
+  const daysStr = pad3(days);
+  const hoursStr = pad2(hours);
+  const minutesStr = pad2(minutes);
+  const secondsStr = pad2(seconds);
+  const msStr = pad3(milliseconds);
+
+  const wholeYears = String(ageYears);
+  const fracYears = `${daysStr}${hoursStr}${minutesStr}${secondsStr}${msStr}`;
+  const decimalYears = `${wholeYears}.${fracYears}`;
+
+  // Calendar months for backwards compatibility
+  const birthKolkata = new Date(birthMs + kolkataOffsetMs);
   let bYear = birthKolkata.getUTCFullYear();
   let bMonth = birthKolkata.getUTCMonth();
   let bDay = birthKolkata.getUTCDate();
-
-  let nYear = nowKolkata.getUTCFullYear();
-  let nMonth = nowKolkata.getUTCMonth();
-  let nDay = nowKolkata.getUTCDate();
-  let nHour = nowKolkata.getUTCHours();
-  let nMinute = nowKolkata.getUTCMinutes();
-  let nSecond = nowKolkata.getUTCSeconds();
-
-  let years = nYear - bYear;
-  let months = nMonth - bMonth;
-  let days = nDay - bDay;
-
-  if (days < 0) {
-    months--;
+  let calMonths = nMonth - bMonth;
+  let calDays = nDay - bDay;
+  if (calDays < 0) {
+    calMonths--;
     const prevMonthDays = new Date(Date.UTC(nYear, nMonth, 0)).getUTCDate();
-    days += prevMonthDays;
+    calDays += prevMonthDays;
+  }
+  if (calMonths < 0) {
+    calMonths += 12;
   }
 
-  if (months < 0) {
-    years--;
-    months += 12;
-  }
-
-  const pad = (n) => String(n).padStart(2, '0');
-
-  // Primary dynamic sentence format: 22.xxxxxxxxxx years till milliseconds
+  // Primary dynamic sentence format: 22.dayshoursminutessecondsmilliseconds
   const sentencePlain = `I have spent ${decimalYears} years on this planet.`;
   const sentenceHTML = `I have spent <span class="text-white font-bold tabular-nums">${wholeYears}</span>.<span class="text-emerald-400 font-bold tabular-nums">${fracYears}</span> years on this planet.`;
   const timerPlain = `${decimalYears} years`;
@@ -81,12 +98,13 @@ rootEnv.calculateObservatoryAge = function(targetDate) {
     decimalYears,
     wholeYears,
     fracYears,
-    years,
-    months,
+    years: ageYears,
+    months: calMonths,
     days,
-    hours: pad(nHour),
-    minutes: pad(nMinute),
-    seconds: pad(nSecond),
+    hours: hoursStr,
+    minutes: minutesStr,
+    seconds: secondsStr,
+    milliseconds: msStr,
     sentencePlain,
     sentenceHTML,
     timerPlain,
