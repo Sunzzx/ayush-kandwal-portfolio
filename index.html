@@ -1,837 +1,1398 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ayush Kandwal | AI Systems Engineer & Autonomous Software Architect</title>
-  <meta name="description" content="Portfolio of Ayush Kandwal — AI Systems Engineer, IIT Madras Data Science, Autonomous Agent Architect, 50+ Open-Source Systems & Quant Engines.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Ayush Kandwal (Sunzzx) — Cosmic Codex & Autonomous Systems Multiverse</title>
+  <meta name="description" content="Personal Multiverse & Portfolio of Ayush Kandwal (Sunzzx) — Autonomous Systems Architect, Dual IIT Scholar (IIT Madras + IIT Patna), Roblox Game Engineer, Security Researcher & Kaggle Autopilot.">
+  <meta name="keywords" content="Ayush Kandwal, Sunzzx, IIT Madras, IIT Patna, Autonomous AI, Roblox Developer, Steam kanayuuh, Quant, Three.js, Space Portfolio">
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
-          },
           colors: {
-            brand: {
-              50: '#eef2ff',
-              100: '#e0e7ff',
-              500: '#6366f1',
-              600: '#4f46e5',
-              700: '#4338ca',
-              accent: '#06b6d4',
-              emerald: '#10b981',
-              dark: '#090a0f',
-              card: '#12141c',
-              border: '#1f2433'
+            space: {
+              950: '#030014',
+              900: '#070526',
+              800: '#0f0c38',
+              700: '#191557'
+            },
+            cyan: { 400: '#22d3ee', 500: '#06b6d4', glow: '#00f2ff' },
+            purple: { 400: '#c084fc', 500: '#a855f7', glow: '#b026ff' },
+            gold: { 400: '#fbbf24', 500: '#f59e0b', glow: '#ffd700' },
+            crimson: { 400: '#f87171', 500: '#ef4444', glow: '#ff2a55' }
+          },
+          fontFamily: {
+            mono: ['JetBrains Mono', 'Fira Code', 'Courier New', 'monospace'],
+            sans: ['Space Grotesk', 'Inter', 'sans-serif']
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'spin-slow': 'spin 20s linear infinite',
+            'glow-pulse': 'glowPulse 2s ease-in-out infinite alternate'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' }
+            },
+            glowPulse: {
+              '0%': { filter: 'drop-shadow(0 0 10px rgba(0,242,255,0.4))' },
+              '100%': { filter: 'drop-shadow(0 0 25px rgba(176,38,255,0.8))' }
             }
           }
         }
       }
     }
   </script>
+
+  <!-- Lucide Icons & Google Fonts -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Three.js (r128) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
   <style>
-    body {
-      background-color: #08090d;
-      color: #f1f5f9;
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.06) 0px, transparent 50%),
-        radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.04) 0px, transparent 50%);
-      background-attachment: fixed;
-    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #030014; }
+    ::-webkit-scrollbar-thumb { background: #22d3ee44; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #00f2ff88; }
+
+    /* Glassmorphism */
     .glass-card {
-      background: rgba(18, 20, 28, 0.7);
+      background: rgba(7, 5, 38, 0.65);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(34, 211, 238, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
     }
     .glass-card:hover {
-      border-color: rgba(99, 102, 241, 0.3);
-      box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.15);
+      border-color: rgba(0, 242, 255, 0.4);
+      box-shadow: 0 12px 40px 0 rgba(0, 242, 255, 0.15);
     }
-    .glow-badge {
-      box-shadow: 0 0 15px rgba(16, 185, 129, 0.35);
+
+    /* Cyber Glows */
+    .neon-text-cyan {
+      text-shadow: 0 0 10px rgba(0, 242, 255, 0.7), 0 0 20px rgba(0, 242, 255, 0.4);
     }
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
+    .neon-text-purple {
+      text-shadow: 0 0 10px rgba(176, 38, 255, 0.7), 0 0 20px rgba(176, 38, 255, 0.4);
     }
-    .custom-scrollbar::-webkit-scrollbar-track {
-      background: #0d0f17;
+    .neon-text-gold {
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 0 20px rgba(255, 215, 0, 0.4);
     }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #252b3d;
-      border-radius: 3px;
+    .neon-border-cyan {
+      box-shadow: 0 0 15px rgba(0, 242, 255, 0.3), inset 0 0 15px rgba(0, 242, 255, 0.1);
+    }
+
+    /* Scanline effect */
+    .scanline-overlay {
+      background: linear-gradient(rgba(18, 16, 38, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+      background-size: 100% 3px, 3px 100%;
+      pointer-events: none;
+    }
+
+    /* Radial Vignette */
+    .vignette-overlay {
+      background: radial-gradient(circle at center, transparent 40%, rgba(3, 0, 20, 0.85) 90%);
+      pointer-events: none;
     }
   </style>
 </head>
-<body class="font-sans antialiased selection:bg-brand-500 selection:text-white">
+<body class="bg-space-950 text-slate-100 font-sans selection:bg-cyan-500 selection:text-space-950 overflow-x-hidden relative">
 
-  <!-- TOP STATUS BANNER -->
-  <aside aria-label="Status Announcement" class="border-b border-brand-border/60 bg-brand-dark/80 px-4 py-2 text-xs text-slate-400 backdrop-blur sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-2">
-        <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 glow-badge"></span>
-        </span>
-        <span class="text-slate-200 font-mono font-medium">Hermes Operational Hub: 18 Autonomous Daemons Live</span>
-      </div>
-      <div class="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
-        <span>IIT Madras BS Data Science</span>
-        <span class="text-slate-600">•</span>
-        <span class="text-brand-accent">WorldQuant BRAIN Gold</span>
-        <span class="text-slate-600">•</span>
-        <a href="https://github.com/Sunzzx" target="_blank" rel="noopener noreferrer" class="hover:text-white transition flex items-center gap-1 text-slate-300">
-          <i data-lucide="github" class="w-3.5 h-3.5"></i> @Sunzzx
+  <!-- 3D WebGL Canvas Layer -->
+  <div id="canvas-container" class="fixed inset-0 z-0 pointer-events-auto">
+    <canvas id="universe-canvas" class="w-full h-full"></canvas>
+  </div>
+
+  <!-- Cosmic Overlays -->
+  <div class="fixed inset-0 vignette-overlay z-10 pointer-events-none"></div>
+  <div class="fixed inset-0 scanline-overlay z-10 pointer-events-none opacity-40"></div>
+
+  <!-- UI CONTENT LAYER -->
+  <div class="relative z-20 min-h-screen flex flex-col">
+
+    <!-- Top Celestial Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-cyan-500/20 px-4 lg:px-8 py-3 transition-all duration-300">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        
+        <!-- Identity / Stargate Title -->
+        <a href="#hero" class="flex items-center gap-3 group">
+          <div class="relative w-9 h-9 rounded-full bg-cyan-500/10 border border-cyan-400 flex items-center justify-center group-hover:scale-110 transition-transform">
+            <i data-lucide="orbit" class="w-5 h-5 text-cyan-400 animate-spin-slow"></i>
+            <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></span>
+          </div>
+          <div>
+            <div class="text-sm font-bold tracking-wider font-mono text-cyan-400 flex items-center gap-2">
+              SUNZZX // AYUSH KANDWAL
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">CORE V2</span>
+            </div>
+            <div class="text-[10px] text-slate-400 font-mono tracking-tight hidden sm:block">
+              RA 19h 50m 47s | Dec +08° 52′ | 18 DAEMONS ACTIVE
+            </div>
+          </div>
         </a>
-      </div>
-    </div>
-  </aside>
 
-  <!-- NAVIGATION -->
-  <nav class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
-    <a href="#" class="flex items-center gap-2 group">
-      <div class="h-9 w-9 rounded-lg bg-gradient-to-br from-indigo-500 to-cyan-500 p-[1px] flex items-center justify-center">
-        <div class="h-full w-full bg-brand-dark rounded-[7px] flex items-center justify-center font-mono font-bold text-white group-hover:bg-transparent transition duration-300 text-sm">
-          AK
+        <!-- Desktop Sector Navigation -->
+        <nav class="hidden xl:flex items-center gap-1 text-xs font-mono">
+          <button onclick="flyToSector('hero')" class="px-3 py-1.5 rounded hover:text-cyan-400 hover:bg-cyan-500/10 transition-all">🌌 Core</button>
+          <button onclick="flyToSector('academics')" class="px-3 py-1.5 rounded hover:text-purple-400 hover:bg-purple-500/10 transition-all">🎓 Academics (Dual IIT)</button>
+          <button onclick="flyToSector('gaming')" class="px-3 py-1.5 rounded hover:text-gold-400 hover:bg-gold-500/10 transition-all">🎮 Gaming & Roblox</button>
+          <button onclick="flyToSector('swarms')" class="px-3 py-1.5 rounded hover:text-cyan-400 hover:bg-cyan-500/10 transition-all">🪐 AI Swarms</button>
+          <button onclick="flyToSector('systems')" class="px-3 py-1.5 rounded hover:text-purple-400 hover:bg-purple-500/10 transition-all">⚡ Systems & Quant</button>
+          <button onclick="flyToSector('security')" class="px-3 py-1.5 rounded hover:text-crimson-400 hover:bg-crimson-500/10 transition-all">🛡️ Security & CTF</button>
+          <button onclick="flyToSector('linktree')" class="px-3 py-1.5 rounded hover:text-gold-400 hover:bg-gold-500/10 transition-all">🔗 Linktree Matrix</button>
+          <button onclick="toggleTerminal()" class="px-3 py-1.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 hover:bg-cyan-500/30 transition-all flex items-center gap-1.5">
+            <i data-lucide="terminal" class="w-3.5 h-3.5"></i> Terminal
+          </button>
+        </nav>
+
+        <!-- Dynamic Controls (Audio & Warp Speed) -->
+        <div class="flex items-center gap-2">
+          <!-- Audio Synthesizer Toggle -->
+          <button id="audio-toggle-btn" onclick="toggleCosmicAudio()" class="px-2.5 py-1.5 rounded-lg border border-cyan-500/30 bg-space-900/80 text-cyan-400 hover:border-cyan-400 transition-all text-xs font-mono flex items-center gap-2" title="Toggle Procedural Cosmic Synthesizer">
+            <span class="flex items-center gap-0.5 h-3" id="audio-visualizer">
+              <span class="w-1 bg-cyan-400 h-2 rounded-full"></span>
+              <span class="w-1 bg-cyan-400 h-3 rounded-full"></span>
+              <span class="w-1 bg-cyan-400 h-1.5 rounded-full"></span>
+            </span>
+            <span id="audio-status-label" class="hidden sm:inline">AUDIO: ON</span>
+          </button>
+
+          <!-- Warp Drive Toggle -->
+          <button id="warp-drive-btn" onclick="toggleWarpDrive()" class="px-3 py-1.5 rounded-lg border border-purple-500/40 bg-purple-500/20 text-purple-300 hover:bg-purple-500/30 hover:border-purple-400 transition-all text-xs font-mono font-bold flex items-center gap-1.5">
+            <i data-lucide="zap" class="w-3.5 h-3.5 text-purple-400"></i>
+            <span id="warp-label">WARP: OFF</span>
+          </button>
+
+          <!-- Mobile Menu Toggle -->
+          <button onclick="toggleMobileMenu()" class="xl:hidden p-2 rounded-lg border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
         </div>
-      </div>
-      <div>
-        <span class="font-bold text-slate-100 tracking-tight block text-base leading-none">Ayush Kandwal</span>
-        <span class="text-[11px] font-mono text-slate-400">Systems & AI Engineer</span>
-      </div>
-    </a>
 
-    <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
-      <a href="#about" class="hover:text-white transition">About</a>
-      <a href="#projects" class="hover:text-white transition">Projects</a>
-      <a href="#telemetry" class="hover:text-white transition">Live Terminal</a>
-      <a href="#stack" class="hover:text-white transition">Stack</a>
-      <a href="#contact" class="hover:text-white transition">Contact</a>
-      <a href="https://github.com/Sunzzx" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-full bg-slate-800/80 hover:bg-slate-700 text-xs font-mono font-semibold text-slate-100 border border-slate-700/60 transition flex items-center gap-1.5">
-        <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400"></i> 50+ Repos
-      </a>
-    </div>
-  </nav>
+      </div>
 
-  <!-- HERO SECTION -->
-  <header class="max-w-6xl mx-auto px-6 pt-12 pb-20">
-    <div class="grid lg:grid-cols-12 gap-12 items-center">
-      <div class="lg:col-span-7 space-y-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 font-mono text-xs">
-          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
-          <span>AUTONOMOUS SYSTEMS ARCHITECT</span>
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="hidden xl:hidden pt-4 pb-2 border-t border-cyan-500/20 mt-3 grid grid-cols-2 gap-2 text-xs font-mono">
+        <button onclick="flyToSector('hero')" class="p-2 text-left rounded hover:bg-cyan-500/10">🌌 Cosmic Core</button>
+        <button onclick="flyToSector('academics')" class="p-2 text-left rounded hover:bg-purple-500/10">🎓 Dual IIT Academics</button>
+        <button onclick="flyToSector('gaming')" class="p-2 text-left rounded hover:bg-gold-500/10">🎮 Gaming & Roblox</button>
+        <button onclick="flyToSector('swarms')" class="p-2 text-left rounded hover:bg-cyan-500/10">🪐 AI Swarms & Kaggle</button>
+        <button onclick="flyToSector('systems')" class="p-2 text-left rounded hover:bg-purple-500/10">⚡ Systems & Quant</button>
+        <button onclick="flyToSector('security')" class="p-2 text-left rounded hover:bg-crimson-500/10">🛡️ Security & CTF</button>
+        <button onclick="flyToSector('linktree')" class="p-2 text-left rounded hover:bg-gold-500/10">🔗 Linktree Matrix</button>
+        <button onclick="toggleTerminal()" class="p-2 text-left rounded bg-cyan-500/20 text-cyan-300">💻 Launch Terminal</button>
+      </div>
+    </header>
+
+    <!-- MAIN BODY SECTORS -->
+    <main class="flex-1 pt-24 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full space-y-32">
+
+      <!-- ========================================== -->
+      <!-- SECTOR 0: HERO & THE SINGULARITY CORE      -->
+      <!-- ========================================== -->
+      <section id="hero" class="min-h-[85vh] flex flex-col justify-center items-center text-center relative pt-8">
+        
+        <!-- Live Telemetry Badge -->
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-cyan-500/40 bg-space-900/90 text-cyan-300 text-xs font-mono mb-8 neon-border-cyan animate-pulse-slow">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+          <span>ORBITAL COORDINATE: THE COSMIC CODEX // 51+ FOSS NODES ENGAGED</span>
         </div>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
-          Architecting <span class="bg-gradient-to-r from-indigo-400 via-cyan-300 to-emerald-400 bg-clip-text text-transparent">Self-Evolving AI</span> & High-Concurrence Systems.
+        <!-- Mind-Blowing Glitch Heading -->
+        <h1 class="text-4xl sm:text-6xl md:text-8xl font-black tracking-tight font-sans mb-6">
+          <span class="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-300 to-cyan-200 neon-text-cyan">
+            AYUSH KANDWAL
+          </span>
+          <span class="text-xl sm:text-3xl md:text-4xl font-mono text-purple-400 font-normal tracking-widest mt-2 block neon-text-purple">
+            // SUNZZX &bull; KANAYUUH
+          </span>
         </h1>
 
-        <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
-          Hi, I'm <strong class="text-white font-semibold">Ayush Kandwal</strong>. I build autonomous agents that evolve their own codebases, distributed consensus protocols, relativistic physics simulators, and quantitative alpha pipelines. 
-          Currently studying BS in Data Science at <span class="text-slate-100 font-semibold">IIT Madras</span>.
+        <!-- High-Impact Bio & Architectural Posture -->
+        <p class="max-w-3xl text-sm sm:text-lg text-slate-300 leading-relaxed font-sans mb-10 text-center">
+          Autonomous Systems Architect, Quantitative Finance Developer, and Dual IIT Scholar 
+          <span class="text-cyan-300 font-semibold">(IIT Madras BS Data Science + IIT Patna BS Computer Science)</span>. 
+          Architecting 24/7 autonomous daemon swarms, high-throughput HLC delta replicators, competitive game engines 
+          <span class="text-gold-300 font-semibold">(Roblox Luau #5294143085 & Steam)</span>, and Kaggle Grandmaster systems.
         </p>
 
-        <div class="flex flex-wrap items-center gap-4 pt-2">
-          <a href="#projects" class="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white font-medium shadow-lg shadow-indigo-600/25 transition duration-200 flex items-center gap-2">
-            <span>Explore 50+ Projects</span>
-            <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
-          </a>
-          <a href="#telemetry" class="px-6 py-3 rounded-xl glass-card text-slate-200 hover:text-white font-mono text-sm transition flex items-center gap-2">
-            <i data-lucide="terminal" class="w-4 h-4 text-brand-accent"></i>
-            <span>Interactive Terminal</span>
-          </a>
-          <a href="https://github.com/Sunzzx" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl glass-card text-slate-400 hover:text-white transition">
-            <i data-lucide="github" class="w-5 h-5"></i>
-          </a>
-          <a href="mailto:ayufrom03@gmail.com" class="p-3 rounded-xl glass-card text-slate-400 hover:text-white transition">
-            <i data-lucide="mail" class="w-5 h-5"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- HERO STATS CARD -->
-      <div class="lg:col-span-5">
-        <div class="glass-card rounded-2xl p-6 relative overflow-hidden">
-          <div class="absolute -top-12 -right-12 w-48 h-48 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <!-- Fast Action Launchpad -->
+        <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-mono">
+          <button onclick="flyToSector('academics')" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold hover:opacity-90 transition-all flex items-center gap-2 shadow-lg shadow-cyan-500/25">
+            <i data-lucide="compass" class="w-4 h-4"></i> EXPLORE MULTIVERSE SECTORS
+          </button>
           
-          <div class="flex items-center justify-between pb-4 border-b border-white/5 mb-6">
-            <div class="flex items-center gap-2 font-mono text-xs text-slate-400">
-              <i data-lucide="activity" class="w-4 h-4 text-emerald-400"></i>
-              <span>SYSTEM METRICS & PROVENANCE</span>
-            </div>
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">LIVE</span>
+          <button onclick="toggleWarpDrive()" class="px-6 py-3.5 rounded-xl glass-card border border-purple-500/40 text-purple-300 hover:border-purple-400 hover:bg-purple-500/10 transition-all flex items-center gap-2">
+            <i data-lucide="zap" class="w-4 h-4 text-purple-400"></i> ENGAGE WARP ACCELERATION
+          </button>
+
+          <button onclick="toggleTerminal()" class="px-6 py-3.5 rounded-xl glass-card border border-cyan-500/40 text-cyan-300 hover:border-cyan-400 hover:bg-cyan-500/10 transition-all flex items-center gap-2">
+            <i data-lucide="terminal" class="w-4 h-4 text-cyan-400"></i> LAUNCH SYSTEM TERMINAL
+          </button>
+
+          <button onclick="flyToSector('linktree')" class="px-6 py-3.5 rounded-xl glass-card border border-gold-500/40 text-gold-300 hover:border-gold-400 hover:bg-gold-500/10 transition-all flex items-center gap-2">
+            <i data-lucide="share-2" class="w-4 h-4 text-gold-400"></i> LINKTREE MATRIX
+          </button>
+        </div>
+
+        <!-- Telemetry HUD Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-4xl mt-16 text-left">
+          <div class="glass-card p-4 rounded-xl border border-cyan-500/20">
+            <div class="text-[10px] font-mono text-cyan-400 tracking-wider">ACADEMIC STATUS</div>
+            <div class="text-xl font-bold font-sans text-white mt-1">Dual IIT Scholar</div>
+            <div class="text-[11px] text-slate-400 font-mono mt-0.5">IITM BS + IITP BS + BA Econ</div>
+          </div>
+          
+          <div class="glass-card p-4 rounded-xl border border-purple-500/20">
+            <div class="text-[10px] font-mono text-purple-400 tracking-wider">HERMES FLEET</div>
+            <div class="text-xl font-bold font-sans text-white mt-1">18 Daemons Active</div>
+            <div class="text-[11px] text-slate-400 font-mono mt-0.5">100% WhatsApp Routed</div>
           </div>
 
-          <div class="grid grid-cols-2 gap-4 font-mono">
-            <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5">
-              <div class="text-3xl font-bold text-white mb-1">51+</div>
-              <div class="text-xs text-slate-400">Shipped FOSS Repos</div>
-              <div class="text-[10px] text-indigo-400 mt-2">Zero boilerplate</div>
-            </div>
-
-            <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5">
-              <div class="text-3xl font-bold text-white mb-1">18</div>
-              <div class="text-xs text-slate-400">Active Cron Daemons</div>
-              <div class="text-[10px] text-emerald-400 mt-2">100% trial success</div>
-            </div>
-
-            <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5">
-              <div class="text-3xl font-bold text-white mb-1">0.874</div>
-              <div class="text-xs text-slate-400">Kaggle Tri-Model CV</div>
-              <div class="text-[10px] text-cyan-400 mt-2">Top-10 Autopilot</div>
-            </div>
-
-            <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5">
-              <div class="text-3xl font-bold text-white mb-1">Gold</div>
-              <div class="text-xs text-slate-400">WorldQuant BRAIN</div>
-              <div class="text-[10px] text-amber-400 mt-2">Quant Alpha Stream</div>
-            </div>
+          <div class="glass-card p-4 rounded-xl border border-gold-500/20">
+            <div class="text-[10px] font-mono text-gold-400 tracking-wider">VIRTUAL WORLDS & GAMING</div>
+            <div class="text-xl font-bold font-sans text-white mt-1">Roblox Dev + Steam</div>
+            <div class="text-[11px] text-slate-400 font-mono mt-0.5">ID: 5294143085 & kanayuuh</div>
           </div>
 
-          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-slate-400">
-            <span>Primary Node: Apple Silicon M-Series</span>
-            <span class="font-mono text-indigo-400">macOS / Python 3.15</span>
+          <div class="glass-card p-4 rounded-xl border border-crimson-500/20">
+            <div class="text-[10px] font-mono text-crimson-400 tracking-wider">OFFENSIVE SECURITY</div>
+            <div class="text-xl font-bold font-sans text-white mt-1">HackerOne & CTFs</div>
+            <div class="text-[11px] text-slate-400 font-mono mt-0.5">sunzzx & TryHackMe</div>
           </div>
         </div>
-      </div>
-    </div>
-  </header>
 
-  <!-- HIGHLIGHTED PILLARS -->
-  <section id="about" class="max-w-6xl mx-auto px-6 py-12">
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="glass-card rounded-2xl p-6">
-        <div class="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-4">
-          <i data-lucide="bot" class="w-5 h-5"></i>
-        </div>
-        <h3 class="text-lg font-bold text-white mb-2">Autonomous Agent Swarms</h3>
-        <p class="text-sm text-slate-400 leading-relaxed">
-          Pioneering multi-tier agent orchestrators with self-healing reflection loops, reflective stack-trace repair, and multi-channel IPC across WhatsApp, Telegram, and Discord.
-        </p>
-      </div>
+      </section>
 
-      <div class="glass-card rounded-2xl p-6">
-        <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4">
-          <i data-lucide="network" class="w-5 h-5"></i>
-        </div>
-        <h3 class="text-lg font-bold text-white mb-2">Distributed Protocols & Systems</h3>
-        <p class="text-sm text-slate-400 leading-relaxed">
-          Architecting lock-free concurrent primitives, Hybrid Logical Clocks (HLC) for state delta synchronization, zero-copy socket buffers, and deterministic AST compilers.
-        </p>
-      </div>
 
-      <div class="glass-card rounded-2xl p-6">
-        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-4">
-          <i data-lucide="trending-up" class="w-5 h-5"></i>
-        </div>
-        <h3 class="text-lg font-bold text-white mb-2">Quantitative Alpha & Science</h3>
-        <p class="text-sm text-slate-400 leading-relaxed">
-          Designing non-linear alpha signals, Tri-Model gradient boosting stacking (LightGBM, CatBoost, XGBoost), 4D relativistic raymarching, and quantum density matrix simulation.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS DIRECTORY -->
-  <section id="projects" class="max-w-6xl mx-auto px-6 py-16">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-      <div>
-        <div class="inline-flex items-center gap-2 text-indigo-400 font-mono text-xs uppercase tracking-wider mb-2">
-          <i data-lucide="layers" class="w-3.5 h-3.5"></i>
-          <span>Production Portfolio</span>
-        </div>
-        <h2 class="text-3xl font-extrabold text-white tracking-tight">Engineered Architectures & Systems</h2>
-      </div>
-
-      <!-- FILTER PILLS -->
-      <div class="flex flex-wrap items-center gap-2 font-mono text-xs" id="filter-container">
-        <button onclick="filterProjects('all')" class="filter-btn active px-3.5 py-1.5 rounded-lg bg-indigo-600 text-white font-medium transition" data-filter="all">All</button>
-        <button onclick="filterProjects('ai')" class="filter-btn px-3.5 py-1.5 rounded-lg glass-card text-slate-300 hover:text-white transition" data-filter="ai">Autonomous AI</button>
-        <button onclick="filterProjects('systems')" class="filter-btn px-3.5 py-1.5 rounded-lg glass-card text-slate-300 hover:text-white transition" data-filter="systems">Systems & Protocols</button>
-        <button onclick="filterProjects('quant')" class="filter-btn px-3.5 py-1.5 rounded-lg glass-card text-slate-300 hover:text-white transition" data-filter="quant">Quant & Science</button>
-        <button onclick="filterProjects('tools')" class="filter-btn px-3.5 py-1.5 rounded-lg glass-card text-slate-300 hover:text-white transition" data-filter="tools">Developer Tools</button>
-      </div>
-    </div>
-
-    <!-- PROJECT CARDS GRID -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
-
-      <!-- PROJECT 1: Hermes -->
-      <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="ai systems">
-        <div>
-          <div class="flex items-center justify-between mb-3">
-            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Flagship System</span>
-            <div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
-              <i data-lucide="git-fork" class="w-3.5 h-3.5"></i> 18 Daemons
-            </div>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2 group-hover:text-indigo-400 transition">hermes-sync</h3>
-          <p class="text-slate-400 text-sm leading-relaxed mb-4">
-            Autonomous self-evolving intelligence operating 18 continuous background jobs. Includes AST mutation, quota failover, and WhatsApp/Discord/Telegram omnichannel gateway.
-          </p>
-        </div>
-        <div>
-          <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-slate-400">
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Python 3.15</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Node.js</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Launchd</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">SQLite WAL</span>
-          </div>
-          <div class="flex items-center justify-between pt-3 border-t border-white/5 text-xs font-mono">
-            <a href="https://github.com/Sunzzx/hermes-sync" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 flex items-center gap-1 font-semibold">
-              <span>View Source</span> <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-            <span class="text-slate-500">Continuous Sync</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECT 2: Kaggle Top-10 Autopilot -->
-      <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="ai quant">
-        <div>
-          <div class="flex items-center justify-between mb-3">
-            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Machine Learning</span>
-            <div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
-              <i data-lucide="award" class="w-3.5 h-3.5 text-amber-400"></i> Top-10 Gate
-            </div>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">kaggle-grandmaster-autopilot</h3>
-          <p class="text-slate-400 text-sm leading-relaxed mb-4">
-            Autonomous competitive ML agent based on 5-stage milestone planning and reflective self-healing loops. Employs Tri-Model Stacking (LightGBM + CatBoost + XGBoost) with SLSQP meta-learners.
-          </p>
-        </div>
-        <div>
-          <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-slate-400">
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">PyTorch</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">LightGBM</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">CatBoost</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Optuna</span>
-          </div>
-          <div class="flex items-center justify-between pt-3 border-t border-white/5 text-xs font-mono">
-            <a href="https://github.com/Sunzzx" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1 font-semibold">
-              <span>View Benchmark</span> <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-            <span class="text-emerald-400 font-semibold">CV: 0.8744</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECT 3: Quanta Core -->
-      <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="quant systems">
-        <div>
-          <div class="flex items-center justify-between mb-3">
-            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-purple-500/10 text-purple-400 border border-purple-500/20">Quantum Computing</span>
-            <div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
-              <i data-lucide="box" class="w-3.5 h-3.5"></i> 100% Tests
-            </div>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">quanta-core</h3>
-          <p class="text-slate-400 text-sm leading-relaxed mb-4">
-            Clifford / stabilizer & density matrix quantum state simulator. Models decoherence via depolarizing and phase damping Kraus operator channels with Grover / Shor validation.
-          </p>
-        </div>
-        <div>
-          <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-slate-400">
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Linear Algebra</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Kraus Operators</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Stabilizers</span>
-          </div>
-          <div class="flex items-center justify-between pt-3 border-t border-white/5 text-xs font-mono">
-            <a href="https://github.com/Sunzzx/quanta-core" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:text-purple-300 flex items-center gap-1 font-semibold">
-              <span>View Source</span> <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-            <span class="text-slate-500">Pure Numpy</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECT 4: Chronos HLC State Delta Replicator -->
-      <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="systems">
-        <div>
-          <div class="flex items-center justify-between mb-3">
-            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20">Distributed Consensus</span>
-            <div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
-              <i data-lucide="cpu" class="w-3.5 h-3.5"></i> Zero-Copy
-            </div>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">chronos-hlc-state-delta-replicator</h3>
-          <p class="text-slate-400 text-sm leading-relaxed mb-4">
-            Zero-dependency Hybrid Logical Clock (HLC) state replication engine. Solves clock drift, causality ordering, and partition re-synchronization across peer topologies.
-          </p>
-        </div>
-        <div>
-          <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-slate-400">
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">HLC</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">CRDTs</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Vector Clocks</span>
-          </div>
-          <div class="flex items-center justify-between pt-3 border-t border-white/5 text-xs font-mono">
-            <a href="https://github.com/Sunzzx/chronos-hlc-state-delta-replicator" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 flex items-center gap-1 font-semibold">
-              <span>View Source</span> <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-            <span class="text-slate-500">Deterministic</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECT 5: Cron Snitch -->
-      <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="tools systems">
-        <div>
-          <div class="flex items-center justify-between mb-3">
-            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-rose-500/10 text-rose-400 border border-rose-500/20">Indie Utility</span>
-            <div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
-              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span> Live App
-            </div>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">cron-snitch-silent-failure-detector</h3>
-          <p class="text-slate-400 text-sm leading-relaxed mb-4">
-            Instant micro-SaaS utility that catches dead crons, silent memory leaks, and dropped executions without agent bloat. Shipped live with custom SSL subdomain.
-          </p>
-        </div>
-        <div>
-          <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-slate-400">
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">TypeScript</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Tailwind</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">GitHub Pages</span>
-          </div>
-          <div class="flex items-center justify-between pt-3 border-t border-white/5 text-xs font-mono">
-            <a href="https://sunzzx.github.io/cron-snitch-silent-failure-detector/" target="_blank" rel="noopener noreferrer" class="text-rose-400 hover:text-rose-300 flex items-center gap-1 font-semibold">
-              <span>Launch Live App</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-            </a>
-            <a href="https://github.com/Sunzzx/cron-snitch-silent-failure-detector" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white">
-              GitHub
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECT 6: Fash AI Agent -->
-      <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="ai tools">
-        <div>
-          <div class="flex items-center justify-between mb-3">
-            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Top Community</span>
-            <div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
-              <i data-lucide="git-fork" class="w-3.5 h-3.5"></i> 23 Forks
-            </div>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">fash-ai-agent</h3>
-          <p class="text-slate-400 text-sm leading-relaxed mb-4">
-            Autonomous multi-modal fashion intelligence agent. Scours live e-commerce platforms, extracts design embeddings, and synthesizes personalized outfit curation.
-          </p>
-        </div>
-        <div>
-          <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-slate-400">
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Vision AI</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">CLIP Embeddings</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Crawlers</span>
-          </div>
-          <div class="flex items-center justify-between pt-3 border-t border-white/5 text-xs font-mono">
-            <a href="https://github.com/Sunzzx/fash-ai-agent" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 flex items-center gap-1 font-semibold">
-              <span>View Repository</span> <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-            <span class="text-slate-500">6 Stars</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECT 7: QuickRay Core -->
-      <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="quant systems">
-        <div>
-          <div class="flex items-center justify-between mb-3">
-            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Relativistic Graphics</span>
-            <div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
-              <i data-lucide="activity" class="w-3.5 h-3.5"></i> Kerr Metric
-            </div>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">quickray-core</h3>
-          <p class="text-slate-400 text-sm leading-relaxed mb-4">
-            4D relativistic spacetime raymarching renderer. Traces geodesic null vectors around spinning Kerr and Schwarzschild black hole horizons with gravitational lensing.
-          </p>
-        </div>
-        <div>
-          <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-slate-400">
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">General Relativity</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Runge-Kutta 4</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Raymarching</span>
-          </div>
-          <div class="flex items-center justify-between pt-3 border-t border-white/5 text-xs font-mono">
-            <a href="https://github.com/Sunzzx/quickray-core" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1 font-semibold">
-              <span>View Source</span> <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-            <span class="text-slate-500">SIMD Vectorized</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECT 8: Necro Prune AST -->
-      <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="tools systems">
-        <div>
-          <div class="flex items-center justify-between mb-3">
-            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Compiler Tooling</span>
-            <div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
-              <i data-lucide="terminal" class="w-3.5 h-3.5"></i> Zero RegEx
-            </div>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">necro-prune-ast-deadcode</h3>
-          <p class="text-slate-400 text-sm leading-relaxed mb-4">
-            AST-level dead-code incinerator and cycle resolver. Parses syntax graphs directly to remove unreachable symbols, circular dependencies, and shadow variables.
-          </p>
-        </div>
-        <div>
-          <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-slate-400">
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Python AST</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Call Graph</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Tarjan SCC</span>
-          </div>
-          <div class="flex items-center justify-between pt-3 border-t border-white/5 text-xs font-mono">
-            <a href="https://github.com/Sunzzx/necro-prune-ast-deadcode-incinerator" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 flex items-center gap-1 font-semibold">
-              <span>View Source</span> <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-            <span class="text-slate-500">100% Deterministic</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- PROJECT 9: Speculate Infer -->
-      <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="ai systems">
-        <div>
-          <div class="flex items-center justify-between mb-3">
-            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">LLM Inference</span>
-            <div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
-              <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400"></i> 2.8x Speedup
-            </div>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">speculate-infer</h3>
-          <p class="text-slate-400 text-sm leading-relaxed mb-4">
-            High-performance speculative decoding engine. Employs lightweight draft models to generate candidate token sequences validated in a single forward pass by target models.
-          </p>
-        </div>
-        <div>
-          <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-slate-400">
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Speculative Decoding</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">KV-Cache</span>
-            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Transformers</span>
-          </div>
-          <div class="flex items-center justify-between pt-3 border-t border-white/5 text-xs font-mono">
-            <a href="https://github.com/Sunzzx/speculate-infer" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 flex items-center gap-1 font-semibold">
-              <span>View Source</span> <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-            <span class="text-slate-500">Lossless Parity</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- LIVE TERMINAL EMULATOR / HERMES TELEMETRY -->
-  <section id="telemetry" class="max-w-6xl mx-auto px-6 py-16">
-    <div class="glass-card rounded-2xl overflow-hidden border border-brand-border">
-      <!-- Terminal Header -->
-      <div class="px-4 py-3 bg-slate-900/90 border-b border-brand-border flex items-center justify-between font-mono text-xs">
-        <div class="flex items-center gap-2">
-          <div class="flex items-center gap-1.5">
-            <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
-            <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
-            <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
-          </div>
-          <span class="ml-2 text-slate-400">hermes@ayush-kandwal ~ interactive-shell</span>
-        </div>
-        <div class="text-[11px] text-slate-400">Type <span class="text-brand-accent">help</span> to begin</div>
-      </div>
-
-      <!-- Terminal Body -->
-      <div id="terminal-body" class="p-6 font-mono text-sm leading-relaxed max-h-96 overflow-y-auto custom-scrollbar space-y-2 bg-brand-dark/95">
-        <div class="text-slate-400">Hermes Autonomous Systems Intelligence [v2.4.0-omni]</div>
-        <div class="text-slate-400">Connected to operator node: <span class="text-emerald-400">Ayush Kandwal (@Sunzzx)</span></div>
-        <div class="text-slate-400">Type <span class="text-indigo-400">help</span> to view available queries, or click a shortcut below:</div>
-        <div class="flex flex-wrap gap-2 pt-2">
-          <button onclick="runCommand('whoami')" class="px-2.5 py-1 rounded bg-slate-800 text-xs text-indigo-300 hover:bg-slate-700">whoami</button>
-          <button onclick="runCommand('daemons')" class="px-2.5 py-1 rounded bg-slate-800 text-xs text-cyan-300 hover:bg-slate-700">daemons</button>
-          <button onclick="runCommand('kaggle')" class="px-2.5 py-1 rounded bg-slate-800 text-xs text-emerald-300 hover:bg-slate-700">kaggle</button>
-          <button onclick="runCommand('skills')" class="px-2.5 py-1 rounded bg-slate-800 text-xs text-amber-300 hover:bg-slate-700">skills</button>
-          <button onclick="runCommand('clear')" class="px-2.5 py-1 rounded bg-slate-800 text-xs text-slate-400 hover:bg-slate-700">clear</button>
-        </div>
-        <div class="pt-2 text-slate-500">--------------------------------------------------</div>
-      </div>
-
-      <!-- Terminal Input Line -->
-      <div class="px-6 py-3 bg-slate-900/60 border-t border-brand-border flex items-center gap-2 font-mono text-sm">
-        <span class="text-emerald-400 font-bold">$</span>
-        <input type="text" id="term-input" placeholder="type a command (whoami, daemons, kaggle, contact)..." class="w-full bg-transparent text-slate-100 placeholder-slate-600 focus:outline-none" autofocus>
-      </div>
-    </div>
-  </section>
-
-  <!-- TECHNICAL STACK & CREDENTIALS -->
-  <section id="stack" class="max-w-6xl mx-auto px-6 py-16">
-    <div class="grid lg:grid-cols-2 gap-12">
-      <!-- Left: Skills Matrix -->
-      <div>
-        <div class="inline-flex items-center gap-2 text-indigo-400 font-mono text-xs uppercase tracking-wider mb-2">
-          <i data-lucide="code" class="w-3.5 h-3.5"></i>
-          <span>Core Capabilities</span>
-        </div>
-        <h2 class="text-3xl font-extrabold text-white tracking-tight mb-6">Technical Weapons & Fluency</h2>
-
-        <div class="space-y-6">
+      <!-- ========================================== -->
+      <!-- SECTOR 1: 🎓 ACADEMICS & LINKEDIN DOSSIER  -->
+      <!-- ========================================== -->
+      <section id="academics" class="space-y-8 scroll-mt-28">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-cyan-500/20 pb-4 gap-4">
           <div>
-            <h4 class="text-sm font-semibold font-mono text-slate-300 mb-3 flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-indigo-500"></span> SYSTEMS & ARCHITECTURE
-            </h4>
-            <div class="flex flex-wrap gap-2 text-xs font-mono">
-              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Rust / C++</span>
-              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Linux Kernel & eBPF</span>
-              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Lock-Free Concurrency</span>
-              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Zero-Copy IO</span>
-              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">HLC / Raft Consensus</span>
-              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">AST Compilers</span>
+            <div class="text-xs font-mono text-cyan-400 tracking-widest uppercase">// PLANETARY NODE ALPHA &bull; ACADEMIC CITADEL</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-sans mt-1">
+              Education & Professional Dossier
+            </h2>
+          </div>
+          <div class="text-xs font-mono text-slate-400">
+            VERIFIED CREDENTIALS // DUAL BS CANDIDATE
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- IIT Madras -->
+          <div class="glass-card p-6 rounded-2xl border border-cyan-500/30 hover:border-cyan-400 transition-all relative overflow-hidden group">
+            <div class="absolute -right-12 -top-12 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all"></div>
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">FLAGSHIP DATA SCIENCE</span>
+                <h3 class="text-xl font-bold text-white mt-2">Indian Institute of Technology, Madras</h3>
+                <div class="text-sm text-cyan-300 font-medium">BS in Data Science & Applications</div>
+              </div>
+              <span class="text-xs font-mono text-slate-400">2023 &ndash; 2027</span>
+            </div>
+            <p class="text-xs text-slate-300 mt-4 leading-relaxed font-sans">
+              Rigorous curriculum spanning Machine Learning, Deep Learning (PyTorch), Distributed BigQuery, Statistical Inference, Algorithmic Decision Trees, and Reinforcement Learning architectures.
+            </p>
+            <div class="mt-4 pt-4 border-t border-cyan-500/10 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span>Official Student Roll No: <strong class="text-cyan-400">24f1000816</strong></span>
+              <span class="text-cyan-400">Academic Fellowship</span>
             </div>
           </div>
 
+          <!-- IIT Patna -->
+          <div class="glass-card p-6 rounded-2xl border border-purple-500/30 hover:border-purple-400 transition-all relative overflow-hidden group">
+            <div class="absolute -right-12 -top-12 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all"></div>
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">CORE CS & SYSTEMS</span>
+                <h3 class="text-xl font-bold text-white mt-2">Indian Institute of Technology, Patna</h3>
+                <div class="text-sm text-purple-300 font-medium">BS in Computer Science & Data Analytics</div>
+              </div>
+              <span class="text-xs font-mono text-slate-400">2023 &ndash; 2027</span>
+            </div>
+            <p class="text-xs text-slate-300 mt-4 leading-relaxed font-sans">
+              Specializing in Distributed Systems, Linux Kernel Internals, Low-Level Concurrency (C++, Rust, Go), OS Architecture, Compiler Design, and High-Performance Cluster Compute.
+            </p>
+            <div class="mt-4 pt-4 border-t border-purple-500/10 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span>Systems Flagship</span>
+              <span class="text-purple-400">C++ / Rust / Linux</span>
+            </div>
+          </div>
+
+          <!-- BA (Hons) Economics -->
+          <div class="glass-card p-6 rounded-2xl border border-gold-500/30 hover:border-gold-400 transition-all relative overflow-hidden group">
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-gold-500/20 text-gold-300 border border-gold-500/30">QUANT & ECONOMETRICS</span>
+                <h3 class="text-xl font-bold text-white mt-2">BA (Honours) in Economics</h3>
+                <div class="text-sm text-gold-300 font-medium">Quantitative Microeconomics & Financial Theory</div>
+              </div>
+              <span class="text-xs font-mono text-slate-400">2023 &ndash; 2026</span>
+            </div>
+            <p class="text-xs text-slate-300 mt-4 leading-relaxed font-sans">
+              In-depth research into Game Theory, Microeconomic Market Microstructure, Econometric Time Series, Stochastic Processes, and Central Banking Monetary Mechanics.
+            </p>
+            <div class="mt-4 pt-4 border-t border-gold-500/10 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span>Mathematical Modeling</span>
+              <span class="text-gold-400">Alpha Factors & Game Theory</span>
+            </div>
+          </div>
+
+          <!-- UC Berkeley Physics -->
+          <div class="glass-card p-6 rounded-2xl border border-cyan-500/30 hover:border-cyan-400 transition-all relative overflow-hidden group">
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-[10px] font-mono px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">THEORETICAL PHYSICS</span>
+                <h3 class="text-xl font-bold text-white mt-2">University of California, Berkeley</h3>
+                <div class="text-sm text-cyan-300 font-medium">EYES Physics Specialization</div>
+              </div>
+              <span class="text-xs font-mono text-slate-400">International Program</span>
+            </div>
+            <p class="text-xs text-slate-300 mt-4 leading-relaxed font-sans">
+              Rigorous mechanics, computational dynamics, orbital mechanics, electromagnetic fields, and numerical simulation of complex physical and cosmological phenomena.
+            </p>
+            <div class="mt-4 pt-4 border-t border-cyan-500/10 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span>Astrophysics & Dynamics</span>
+              <span class="text-cyan-400">Lagrangian Mechanics</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- WorldQuant Brain & Quant League Highlight -->
+        <div class="glass-card p-6 rounded-2xl border border-gold-500/30 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/40 flex items-center justify-center text-gold-400 text-xl font-mono font-bold">
+              WQ
+            </div>
+            <div>
+              <div class="text-xs font-mono text-gold-400 uppercase tracking-wider">WORLDQUANT BRAIN &bull; QUANTITATIVE FACTOR MINING</div>
+              <div class="text-lg font-bold text-white">Active Research Consultant // ID: <span class="font-mono text-gold-300">AK45063</span> (USA Region)</div>
+              <div class="text-xs text-slate-400 mt-0.5">Market microstructure, mathematical alphas, cross-asset momentum, and statistical arbitrage.</div>
+            </div>
+          </div>
+          <span class="px-4 py-2 rounded-lg bg-gold-500/20 text-gold-300 border border-gold-500/40 font-mono text-xs whitespace-nowrap">
+            VERIFIED QUANT LEAGUE
+          </span>
+        </div>
+
+      </section>
+
+
+      <!-- ========================================== -->
+      <!-- SECTOR 2: 🎮 GAMING, ROBLOX & SIMULATIONS  -->
+      <!-- ========================================== -->
+      <section id="gaming" class="space-y-8 scroll-mt-28">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-gold-500/20 pb-4 gap-4">
           <div>
-            <h4 class="text-sm font-semibold font-mono text-slate-300 mb-3 flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-cyan-500"></span> AI, ML & DATA SCIENCE
-            </h4>
-            <div class="flex flex-wrap gap-2 text-xs font-mono">
-              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">PyTorch & Triton</span>
-              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Flow Matching & Diffusion</span>
-              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Sparse Autoencoders</span>
-              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Mamba-2 SSM</span>
-              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Tri-Model Stacking</span>
-              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Speculative Decoding</span>
+            <div class="text-xs font-mono text-gold-400 tracking-widest uppercase">// PLANETARY NODE ARCADIA &bull; VIRTUAL WORLDS & GAMING</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-sans mt-1">
+              Gaming Architecture & Virtual Universes
+            </h2>
+          </div>
+          <div class="text-xs font-mono text-slate-400">
+            ENGINEERING & COMPETITIVE PLAY
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+          <!-- Roblox Engineering -->
+          <div class="glass-card p-6 rounded-2xl border border-gold-500/30 hover:border-gold-400 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-gold-500/20 text-gold-300 border border-gold-500/30">ROBLOX GAME ENGINE</span>
+                <i data-lucide="gamepad-2" class="w-5 h-5 text-gold-400"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white">Roblox Developer & Luau Engineer</h3>
+              <div class="text-xs font-mono text-gold-400 mt-1">Handle: ayuissicktoday (ID: 5294143085)</div>
+              <p class="text-xs text-slate-300 mt-4 leading-relaxed">
+                Multiplayer game architecture in Roblox Studio utilizing professional file synchronization via <strong>Rojo</strong>, <strong>Knit</strong>, and <strong>Fusion</strong> frameworks. 
+                Developing high-tick client-server prediction, physics-based vehicles, spatial 3D audio, and zero-latency data-store state synchronization.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-gold-500/10 flex items-center justify-between text-xs font-mono">
+              <span class="text-slate-400">Rojo &bull; Luau &bull; Netcode</span>
+              <span class="text-gold-400">Roblox Studio Verified</span>
             </div>
           </div>
 
+          <!-- Steam & Tactical FPS -->
+          <div class="glass-card p-6 rounded-2xl border border-cyan-500/30 hover:border-cyan-400 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">TACTICAL & SIMULATION</span>
+                <i data-lucide="crosshair" class="w-5 h-5 text-cyan-400"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white">Steam & Twitch Player</h3>
+              <div class="text-xs font-mono text-cyan-400 mt-1">Handle: kanayuuh (Steam & Twitch)</div>
+              <p class="text-xs text-slate-300 mt-4 leading-relaxed">
+                Dedicated player of competitive tactical shooters (Counter-Strike 2, Valorant), deep space simulation engines (Kerbal Space Program, Elite Dangerous), and complex open-world cyberpunk RPGs. 
+                Streaming game logic deep dives and competitive gameplay on Twitch.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-cyan-500/10 flex items-center justify-between text-xs font-mono">
+              <a href="https://steamcommunity.com/id/kanayuuh" target="_blank" class="text-cyan-400 hover:underline flex items-center gap-1">
+                Steam: kanayuuh <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+              <a href="https://www.twitch.tv/kanayuuh" target="_blank" class="text-purple-400 hover:underline flex items-center gap-1">
+                Twitch: kanayuuh <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Chess & ARC-AGI Strategic Cognitive Games -->
+          <div class="glass-card p-6 rounded-2xl border border-purple-500/30 hover:border-purple-400 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">COGNITIVE PUZZLES & CHESS</span>
+                <i data-lucide="cpu" class="w-5 h-5 text-purple-400"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white">Strategic Combinatorics & ARC-AGI</h3>
+              <div class="text-xs font-mono text-purple-400 mt-1">ARC Prize 2026 & Chess Combinatorics</div>
+              <p class="text-xs text-slate-300 mt-4 leading-relaxed">
+                Active researcher and participant in the <strong>ARC Prize 2026 (ARC-AGI 3)</strong>, engineering symbolic program synthesis and Monte Carlo Tree Search (MCTS) algorithms to solve unseen spatial transformation games. 
+                Passionate chess tactician focusing on hyper-modern positional structures and engine analysis.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-purple-500/10 flex items-center justify-between text-xs font-mono">
+              <span class="text-slate-400">MCTS &bull; Program Synthesis</span>
+              <span class="text-purple-400">ARC-AGI 3 Researcher</span>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ========================================== -->
+      <!-- SECTOR 3: 🪐 AUTONOMOUS AI SWARMS & KAGGLE -->
+      <!-- ========================================== -->
+      <section id="swarms" class="space-y-8 scroll-mt-28">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-cyan-500/20 pb-4 gap-4">
           <div>
-            <h4 class="text-sm font-semibold font-mono text-slate-300 mb-3 flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-emerald-500"></span> FULL-STACK & CLOUD
-            </h4>
-            <div class="flex flex-wrap gap-2 text-xs font-mono">
-              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">TypeScript / Next.js</span>
-              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Cloudflare Workers & D1</span>
-              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Vercel Edge</span>
-              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Docker & Kubernetes</span>
-              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">PostgreSQL & SQLite WAL</span>
-              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Tailwind CSS</span>
-            </div>
+            <div class="text-xs font-mono text-cyan-400 tracking-widest uppercase">// PLANETARY NODE NEBULA &bull; AI SWARMS & REASONING</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-sans mt-1">
+              Autonomous AI Swarms & Kaggle Grandmaster
+            </h2>
+          </div>
+          <div class="text-xs font-mono text-slate-400">
+            HERMES CORE // 18 DAEMONS
           </div>
         </div>
-      </div>
 
-      <!-- Right: Education & Achievements -->
-      <div>
-        <div class="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-wider mb-2">
-          <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
-          <span>Background</span>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Kaggle Grandmaster Autopilot -->
+          <div class="glass-card p-6 rounded-2xl border border-cyan-500/30 hover:border-cyan-400 transition-all">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">AUTONOMOUS ML</span>
+              <i data-lucide="trophy" class="w-5 h-5 text-cyan-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">kaggle-grandmaster-autopilot</h3>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Autonomous competition scouting, automated EDA, LightGBM/XGBoost cross-validation, and submission pipeline targeting Top 10 leaderboard placements.
+            </p>
+            <div class="mt-4 pt-3 border-t border-cyan-500/10 flex items-center justify-between text-xs font-mono">
+              <span class="text-slate-400">XGBoost &bull; LightGBM</span>
+              <a href="https://github.com/Sunzzx" target="_blank" class="text-cyan-400 hover:underline">GitHub &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Hermes Omni-Revenue Syndicate -->
+          <div class="glass-card p-6 rounded-2xl border border-purple-500/30 hover:border-purple-400 transition-all">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">MONETIZATION ENGINE</span>
+              <i data-lucide="layers" class="w-5 h-5 text-purple-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">omni-revenue-syndicate</h3>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Horizontal execution engine spanning RapidAPI, Polar.sh, Postman directories, dynamic SDK generation, and instant WhatsApp alerts.
+            </p>
+            <div class="mt-4 pt-3 border-t border-purple-500/10 flex items-center justify-between text-xs font-mono">
+              <span class="text-slate-400">10k+ Endpoints</span>
+              <span class="text-purple-400">Daemon Active</span>
+            </div>
+          </div>
+
+          <!-- REA Clean Room Reconstructor -->
+          <div class="glass-card p-6 rounded-2xl border border-gold-500/30 hover:border-gold-400 transition-all">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-gold-500/20 text-gold-300 border border-gold-500/30">REVERSE ENGINEERING</span>
+              <i data-lucide="git-branch" class="w-5 h-5 text-gold-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">rea-clean-room-reconstructor</h3>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Every 8 hours, autonomously selects proprietary enterprise utilities and reconstructs clean-room FOSS implementations with zero license leakage.
+            </p>
+            <div class="mt-4 pt-3 border-t border-gold-500/10 flex items-center justify-between text-xs font-mono">
+              <span class="text-slate-400">REA MCP &bull; Static Analysis</span>
+              <span class="text-gold-400">FOSS Machine</span>
+            </div>
+          </div>
+
         </div>
-        <h2 class="text-3xl font-extrabold text-white tracking-tight mb-6">Education & Honors</h2>
 
-        <div class="space-y-4">
-          <div class="glass-card rounded-xl p-5">
-            <div class="flex items-center justify-between mb-1">
-              <h4 class="font-bold text-white text-base">Indian Institute of Technology Madras</h4>
-              <span class="text-xs font-mono text-indigo-400">Undergraduate</span>
-            </div>
-            <div class="text-sm text-slate-300 font-medium">BS in Data Science & Applications</div>
-            <p class="text-xs text-slate-400 mt-2">
-              Advanced algorithms, statistical machine learning, linear algebra, distributed computing, and database internals.
-            </p>
+      </section>
+
+
+      <!-- ========================================== -->
+      <!-- SECTOR 4: ⚡ DISTRIBUTED SYSTEMS & QUANT   -->
+      <!-- ========================================== -->
+      <section id="systems" class="space-y-8 scroll-mt-28">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-purple-500/20 pb-4 gap-4">
+          <div>
+            <div class="text-xs font-mono text-purple-400 tracking-widest uppercase">// PLANETARY NODE TITAN &bull; SYSTEMS, PROTOCOLS & QUANT</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-sans mt-1">
+              Distributed Systems & High-Frequency Engines
+            </h2>
           </div>
-
-          <div class="glass-card rounded-xl p-5">
-            <div class="flex items-center justify-between mb-1">
-              <h4 class="font-bold text-white text-base">Indian Institute of Technology Patna</h4>
-              <span class="text-xs font-mono text-cyan-400">Academic Track</span>
-            </div>
-            <div class="text-sm text-slate-300 font-medium">Engineering & Computer Science</div>
-            <p class="text-xs text-slate-400 mt-2">
-              Systems architecture, computer networks, and operating system mechanics.
-            </p>
-          </div>
-
-          <div class="glass-card rounded-xl p-5">
-            <div class="flex items-center justify-between mb-1">
-              <h4 class="font-bold text-white text-base">WorldQuant BRAIN Fast Track</h4>
-              <span class="text-xs font-mono text-amber-400">Consultant / Gold</span>
-            </div>
-            <div class="text-sm text-slate-300 font-medium">Quantitative Alpha Researcher (ID: AK45063)</div>
-            <p class="text-xs text-slate-400 mt-2">
-              Developed mathematical alphas with high Sharpe ratios, low turnover, and market-neutral correlation across global equity universes.
-            </p>
+          <div class="text-xs font-mono text-slate-400">
+            ZERO-COPY &bull; DELTA-CRDT &bull; HLC
           </div>
         </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Chronos HLC State Replicator -->
+          <div class="glass-card p-6 rounded-2xl border border-cyan-500/30 hover:border-cyan-400 transition-all">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">DISTRIBUTED STATE</span>
+              <i data-lucide="clock" class="w-5 h-5 text-cyan-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">chronos-hlc-state-delta-replicator</h3>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Hybrid Logical Clock (HLC) and Delta-CRDT state synchronization engine guaranteeing causal consistency and peer-to-peer conflict resolution.
+            </p>
+            <div class="mt-4 pt-3 border-t border-cyan-500/10 flex items-center justify-between text-xs font-mono">
+              <span class="text-slate-400">HLC &bull; CRDT</span>
+              <a href="https://github.com/Sunzzx/chronos-hlc-state-delta-replicator" target="_blank" class="text-cyan-400 hover:underline">Repo &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Quanta Core -->
+          <div class="glass-card p-6 rounded-2xl border border-gold-500/30 hover:border-gold-400 transition-all">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-gold-500/20 text-gold-300 border border-gold-500/30">QUANT FINANCE</span>
+              <i data-lucide="trending-up" class="w-5 h-5 text-gold-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">quanta-core</h3>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              High-throughput quantitative alpha mining engine with tick-level backtesting, microstructure simulation, and vector order book execution.
+            </p>
+            <div class="mt-4 pt-3 border-t border-gold-500/10 flex items-center justify-between text-xs font-mono">
+              <span class="text-slate-400">Alpha Factors &bull; Microstructure</span>
+              <a href="https://github.com/Sunzzx" target="_blank" class="text-gold-400 hover:underline">Repo &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Cron Snitch -->
+          <div class="glass-card p-6 rounded-2xl border border-purple-500/30 hover:border-purple-400 transition-all">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">INFRASTRUCTURE</span>
+              <i data-lucide="bell-ring" class="w-5 h-5 text-purple-400"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">cron-snitch-silent-failure-detector</h3>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Dead man's snitch watchdog with millisecond anomaly detection, heartbeat telemetry, and WhatsApp instant notification delivery.
+            </p>
+            <div class="mt-4 pt-3 border-t border-purple-500/10 flex items-center justify-between text-xs font-mono">
+              <span class="text-slate-400">FastAPI &bull; Edge</span>
+              <a href="https://sunzzx.github.io/cron-snitch-silent-failure-detector/" target="_blank" class="text-purple-400 hover:underline">Live App &rarr;</a>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ========================================== -->
+      <!-- SECTOR 5: 🛡️ SECURITY & CTF BUG BOUNTIES   -->
+      <!-- ========================================== -->
+      <section id="security" class="space-y-8 scroll-mt-28">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-crimson-500/20 pb-4 gap-4">
+          <div>
+            <div class="text-xs font-mono text-crimson-400 tracking-widest uppercase">// PLANETARY NODE SPECTRE &bull; SECURITY RESEARCH</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-sans mt-1">
+              Offensive Security, CTFs & Web3 Auditing
+            </h2>
+          </div>
+          <div class="text-xs font-mono text-slate-400">
+            HACKERONE &bull; TRYHACKME &bull; IMMUNEFI
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <!-- HackerOne Profile -->
+          <div class="glass-card p-6 rounded-2xl border border-crimson-500/30 hover:border-crimson-400 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-crimson-500/20 text-crimson-300 border border-crimson-500/30">VULNERABILITY DISCLOSURE</span>
+                <i data-lucide="shield-alert" class="w-5 h-5 text-crimson-400"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">HackerOne Security Researcher</h3>
+              <div class="text-xs font-mono text-crimson-400 mt-1">Handle: sunzzx</div>
+              <p class="text-xs text-slate-300 mt-3 leading-relaxed">
+                Hunting logic flaws, IDOR vulnerabilities, GraphQL authorization bypasses, and distributed race conditions across global VDP & bug bounty programs.
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-crimson-500/10">
+              <a href="https://hackerone.com/sunzzx" target="_blank" class="text-xs font-mono text-crimson-400 hover:underline flex items-center gap-1">
+                hackerone.com/sunzzx <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- TryHackMe Profile -->
+          <div class="glass-card p-6 rounded-2xl border border-cyan-500/30 hover:border-cyan-400 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">CTF & RED TEAM</span>
+                <i data-lucide="terminal" class="w-5 h-5 text-cyan-400"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">TryHackMe Operator</h3>
+              <div class="text-xs font-mono text-cyan-400 mt-1">Handle: kanayuuh</div>
+              <p class="text-xs text-slate-300 mt-3 leading-relaxed">
+                Active penetration testing practice, binary exploitation, Linux privilege escalation, network pivoting, and CTF challenge solving.
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-cyan-500/10">
+              <a href="https://tryhackme.com/p/kanayuuh" target="_blank" class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">
+                tryhackme.com/p/kanayuuh <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Web3 Smart Contract Audits -->
+          <div class="glass-card p-6 rounded-2xl border border-purple-500/30 hover:border-purple-400 transition-all flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">DEFI PROTOCOLS</span>
+                <i data-lucide="lock" class="w-5 h-5 text-purple-400"></i>
+              </div>
+              <h3 class="text-lg font-bold text-white">Web3 & EVM Audits</h3>
+              <div class="text-xs font-mono text-purple-400 mt-1">Immunefi & Code4rena</div>
+              <p class="text-xs text-slate-300 mt-3 leading-relaxed">
+                Automated static analysis and formal verification of Solidity smart contracts for reentrancy, flash-loan vulnerabilities, and AMM pricing manipulation.
+              </p>
+            </div>
+            <div class="mt-6 pt-3 border-t border-purple-500/10 flex items-center justify-between text-xs font-mono">
+              <span class="text-slate-400">Slither &bull; Foundry</span>
+              <span class="text-purple-400">EVM Security</span>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ========================================== -->
+      <!-- SECTOR 6: 🔗 LINKTREE MATRIX (SUNZZX)      -->
+      <!-- ========================================== -->
+      <section id="linktree" class="space-y-8 scroll-mt-28">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between border-b border-gold-500/20 pb-4 gap-4">
+          <div>
+            <div class="text-xs font-mono text-gold-400 tracking-widest uppercase">// STARGATE WORMHOLE &bull; LINKTREE SUNZZX MATRIX</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-sans mt-1">
+              Omni-Channel Linktree & Social Grid
+            </h2>
+          </div>
+          <div class="text-xs font-mono text-slate-400">
+            VERIFIED ENDPOINTS & CHANNELS
+          </div>
+        </div>
+
+        <p class="text-sm text-slate-300 font-sans max-w-2xl">
+          Direct connections to every public profile, repository, gaming identity, and payment routing vault. One click to inspect or copy.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+          <!-- GitHub -->
+          <a href="https://github.com/Sunzzx" target="_blank" class="glass-card p-4 rounded-xl border border-cyan-500/20 hover:border-cyan-400 transition-all flex items-center gap-3 group">
+            <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+              <i data-lucide="github" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xs font-mono text-cyan-400">GitHub</div>
+              <div class="text-sm font-bold text-white">@Sunzzx</div>
+            </div>
+          </a>
+
+          <!-- Twitter / X -->
+          <a href="https://x.com/its_ayu5" target="_blank" class="glass-card p-4 rounded-xl border border-purple-500/20 hover:border-purple-400 transition-all flex items-center gap-3 group">
+            <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xs font-mono text-purple-400">Twitter / X</div>
+              <div class="text-sm font-bold text-white">@its_ayu5</div>
+            </div>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/ayush-kandwal" target="_blank" class="glass-card p-4 rounded-xl border border-cyan-500/20 hover:border-cyan-400 transition-all flex items-center gap-3 group">
+            <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+              <i data-lucide="linkedin" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xs font-mono text-cyan-400">LinkedIn</div>
+              <div class="text-sm font-bold text-white">Ayush Kandwal</div>
+            </div>
+          </a>
+
+          <!-- HackerOne -->
+          <a href="https://hackerone.com/sunzzx" target="_blank" class="glass-card p-4 rounded-xl border border-crimson-500/20 hover:border-crimson-400 transition-all flex items-center gap-3 group">
+            <div class="w-10 h-10 rounded-lg bg-crimson-500/10 flex items-center justify-center text-crimson-400 group-hover:scale-110 transition-transform">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xs font-mono text-crimson-400">HackerOne</div>
+              <div class="text-sm font-bold text-white">@sunzzx</div>
+            </div>
+          </a>
+
+          <!-- TryHackMe -->
+          <a href="https://tryhackme.com/p/kanayuuh" target="_blank" class="glass-card p-4 rounded-xl border border-cyan-500/20 hover:border-cyan-400 transition-all flex items-center gap-3 group">
+            <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+              <i data-lucide="terminal" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xs font-mono text-cyan-400">TryHackMe</div>
+              <div class="text-sm font-bold text-white">@kanayuuh</div>
+            </div>
+          </a>
+
+          <!-- Steam -->
+          <a href="https://steamcommunity.com/id/kanayuuh" target="_blank" class="glass-card p-4 rounded-xl border border-cyan-500/20 hover:border-cyan-400 transition-all flex items-center gap-3 group">
+            <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+              <i data-lucide="gamepad" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xs font-mono text-cyan-400">Steam Profile</div>
+              <div class="text-sm font-bold text-white">kanayuuh</div>
+            </div>
+          </a>
+
+          <!-- Twitch -->
+          <a href="https://www.twitch.tv/kanayuuh" target="_blank" class="glass-card p-4 rounded-xl border border-purple-500/20 hover:border-purple-400 transition-all flex items-center gap-3 group">
+            <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
+              <i data-lucide="tv" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xs font-mono text-purple-400">Twitch TV</div>
+              <div class="text-sm font-bold text-white">@kanayuuh</div>
+            </div>
+          </a>
+
+          <!-- Spotify -->
+          <a href="https://open.spotify.com/user/kanayuuh" target="_blank" class="glass-card p-4 rounded-xl border border-gold-500/20 hover:border-gold-400 transition-all flex items-center gap-3 group">
+            <div class="w-10 h-10 rounded-lg bg-gold-500/10 flex items-center justify-center text-gold-400 group-hover:scale-110 transition-transform">
+              <i data-lucide="music" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xs font-mono text-gold-400">Spotify</div>
+              <div class="text-sm font-bold text-white">kanayuuh</div>
+            </div>
+          </a>
+
+          <!-- Roblox Account -->
+          <div class="glass-card p-4 rounded-xl border border-gold-500/20 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-gold-500/10 flex items-center justify-center text-gold-400">
+              <i data-lucide="box" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xs font-mono text-gold-400">Roblox Studio</div>
+              <div class="text-sm font-bold text-white">ayuissicktoday (#5294143085)</div>
+            </div>
+          </div>
+
+          <!-- Primary Email -->
+          <a href="mailto:ayushkandwal2007@gmail.com" class="glass-card p-4 rounded-xl border border-cyan-500/20 hover:border-cyan-400 transition-all flex items-center gap-3 group">
+            <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+              <i data-lucide="mail" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xs font-mono text-cyan-400">Primary Email</div>
+              <div class="text-xs font-mono font-bold text-white truncate max-w-[150px]">ayushkandwal2007</div>
+            </div>
+          </a>
+
+          <!-- IITM Academic Email -->
+          <a href="mailto:24f1000816@ds.study.iitm.ac.in" class="glass-card p-4 rounded-xl border border-purple-500/20 hover:border-purple-400 transition-all flex items-center gap-3 group">
+            <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
+              <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xs font-mono text-purple-400">IITM Email</div>
+              <div class="text-xs font-mono font-bold text-white truncate max-w-[150px]">24f1000816@ds</div>
+            </div>
+          </a>
+
+          <!-- WhatsApp Primary Dispatch -->
+          <div class="glass-card p-4 rounded-xl border border-gold-500/20 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-gold-500/10 flex items-center justify-center text-gold-400">
+              <i data-lucide="phone-call" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="text-xs font-mono text-gold-400">WhatsApp Alert Line</div>
+              <div class="text-xs font-mono font-bold text-white">+91 7417939838</div>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- INTERACTIVE STARSHIP TERMINAL MODAL       -->
+    <!-- ========================================== -->
+    <div id="terminal-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
+      <div class="glass-card border border-cyan-500/40 rounded-2xl w-full max-w-3xl overflow-hidden shadow-2xl flex flex-col h-[560px]">
+        
+        <!-- Terminal Top Bar -->
+        <div class="bg-space-900 px-4 py-3 border-b border-cyan-500/20 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-crimson-500/80 inline-block cursor-pointer" onclick="toggleTerminal()"></span>
+            <span class="w-3 h-3 rounded-full bg-gold-500/80 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-cyan-500/80 inline-block"></span>
+            <span class="text-xs font-mono text-cyan-400 ml-2">sunzzx-os // hermes-telemetry-v2.9</span>
+          </div>
+          <button onclick="toggleTerminal()" class="text-slate-400 hover:text-white">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Terminal Output Console -->
+        <div id="terminal-body" class="p-4 font-mono text-xs text-cyan-300 overflow-y-auto flex-1 space-y-2 select-text">
+          <div class="text-purple-400">
+            ================================================================================<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;____&nbsp;&nbsp;__&nbsp;&nbsp;__&nbsp;&nbsp;_&nbsp;&nbsp;__&nbsp;&nbsp;_____&nbsp;_____&nbsp;&nbsp;_&nbsp;&nbsp;__<br>
+            &nbsp;&nbsp;&nbsp;/&nbsp;___/&nbsp;/&nbsp;/&nbsp;/&nbsp;/&nbsp;/&nbsp;|/&nbsp;/&nbsp;/__&nbsp;&nbsp;/__&nbsp;&nbsp;/&nbsp;|&nbsp;|/&nbsp;/<br>
+            &nbsp;&nbsp;&nbsp;\__&nbsp;\&nbsp;/&nbsp;/_/&nbsp;/&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;/&nbsp;&nbsp;&nbsp;/&nbsp;/&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;/&nbsp;<br>
+            &nbsp;&nbsp;___/&nbsp;//&nbsp;___&nbsp;&nbsp;/&nbsp;/&nbsp;/|_/&nbsp;/&nbsp;&nbsp;&nbsp;/_/&nbsp;&nbsp;&nbsp;/_/&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<br>
+            &nbsp;/____//_/&nbsp;&nbsp;/_/&nbsp;/_/&nbsp;&nbsp;/_/&nbsp;&nbsp;(_)___(_)___//_/|_|&nbsp;&nbsp;<br>
+            ================================================================================
+          </div>
+          <div class="text-slate-300">
+            Welcome to the Cosmic Codex of Ayush Kandwal (Sunzzx).<br>
+            Type <span class="text-gold-300 font-bold">'help'</span> to see available commands or <span class="text-cyan-400 font-bold">'planets'</span> to scan sectors.
+          </div>
+        </div>
+
+        <!-- Terminal Command Input Bar -->
+        <div class="bg-space-900/90 p-3 border-t border-cyan-500/20 flex items-center gap-2">
+          <span class="text-cyan-400 font-mono text-xs">ayu@sunzzx-cosmos:~$</span>
+          <input id="terminal-input" type="text" class="flex-1 bg-transparent border-none outline-none font-mono text-xs text-white" placeholder="Type a command (whoami, planets, degrees, gaming, warp, linktree, audio, clear)..." autocomplete="off" autofocus>
+        </div>
+
       </div>
     </div>
-  </section>
 
-  <!-- CONTACT & FOOTER -->
-  <footer id="contact" class="border-t border-brand-border/60 bg-brand-dark/90 mt-20">
-    <div class="max-w-6xl mx-auto px-6 py-16">
-      <div class="grid md:grid-cols-12 gap-8 items-center">
-        <div class="md:col-span-8 space-y-4">
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Let's build something exceptional together.
-          </h2>
-          <p class="text-slate-400 text-sm max-w-xl">
-            Available for high-comp systems & AI engineering roles, deep-tech research fellowships, and autonomous architecture contracts.
-          </p>
-          <div class="flex flex-wrap items-center gap-4 pt-2">
-            <a href="mailto:ayufrom03@gmail.com" class="px-5 py-2.5 rounded-xl bg-white text-slate-900 font-semibold text-sm hover:bg-slate-200 transition flex items-center gap-2">
-              <i data-lucide="mail" class="w-4 h-4"></i>
-              <span>ayufrom03@gmail.com</span>
-            </a>
-            <a href="https://github.com/Sunzzx" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl glass-card text-slate-200 font-mono text-xs hover:text-white transition flex items-center gap-2">
-              <i data-lucide="github" class="w-4 h-4"></i>
-              <span>GitHub: @Sunzzx</span>
-            </a>
-            <a href="https://wa.me/917417939838" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl glass-card text-emerald-400 font-mono text-xs hover:text-emerald-300 transition flex items-center gap-2">
-              <i data-lucide="message-square" class="w-4 h-4"></i>
-              <span>WhatsApp Direct</span>
-            </a>
-          </div>
+    <!-- Bottom Footer -->
+    <footer class="border-t border-cyan-500/20 glass-card py-6 px-4 text-center text-xs font-mono text-slate-400">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          &copy; 2026 Ayush Kandwal (Sunzzx). Crafted for the Cosmic Frontier. Deployed on Vercel & GitHub Pages.
         </div>
-
-        <div class="md:col-span-4 flex flex-col md:items-end text-xs text-slate-500 font-mono space-y-2">
-          <div>© 2026 Ayush Kandwal. All rights reserved.</div>
-          <div>Deployed live on <span class="text-slate-300">Vercel Edge</span></div>
-          <div>Autonomous Telemetry Sync: <span class="text-emerald-400">OK</span></div>
+        <div class="flex items-center gap-4 text-cyan-400">
+          <a href="https://github.com/Sunzzx" target="_blank" class="hover:underline">GitHub</a>
+          <span>&bull;</span>
+          <a href="https://x.com/its_ayu5" target="_blank" class="hover:underline">Twitter/X</a>
+          <span>&bull;</span>
+          <a href="https://hackerone.com/sunzzx" target="_blank" class="hover:underline">HackerOne</a>
+          <span>&bull;</span>
+          <a href="https://tryhackme.com/p/kanayuuh" target="_blank" class="hover:underline">TryHackMe</a>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- INTERACTIVE TERMINAL JAVASCRIPT -->
+  </div>
+
+  <!-- ========================================== -->
+  <!-- JAVASCRIPT: THREE.JS COSMIC SCENE & AUDIO  -->
+  <!-- ========================================== -->
   <script>
+    // Lucide Icons Initialization
     lucide.createIcons();
 
-    function filterProjects(cat) {
-      const cards = document.querySelectorAll('.project-card');
-      const buttons = document.querySelectorAll('.filter-btn');
+    /* ========================================================
+       1. WEB AUDIO API PROCEDURAL COSMIC SYNTHESIZER
+       ======================================================== */
+    let audioCtx = null;
+    let isAudioPlaying = false;
+    let droneGain = null;
+    let oscillator1 = null;
+    let oscillator2 = null;
 
-      buttons.forEach(b => {
-        if (b.dataset.filter === cat) {
-          b.className = 'filter-btn active px-3.5 py-1.5 rounded-lg bg-indigo-600 text-white font-medium transition';
-        } else {
-          b.className = 'filter-btn px-3.5 py-1.5 rounded-lg glass-card text-slate-300 hover:text-white transition';
-        }
-      });
+    function initAudio() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
 
-      cards.forEach(c => {
-        if (cat === 'all') {
-          c.style.display = 'flex';
-        } else {
-          const cats = c.dataset.category.split(' ');
-          c.style.display = cats.includes(cat) ? 'flex' : 'none';
+        // Master Drone Gain
+        droneGain = audioCtx.createGain();
+        droneGain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+
+        // Low Pass Filter for cosmic warmth
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(220, audioCtx.currentTime);
+
+        // Sub Drone Oscillator 1 (55Hz - A1)
+        oscillator1 = audioCtx.createOscillator();
+        oscillator1.type = 'sine';
+        oscillator1.frequency.setValueAtTime(55, audioCtx.currentTime);
+
+        // Harmonic Drone Oscillator 2 (110Hz - A2 with slow chorus detune)
+        oscillator2 = audioCtx.createOscillator();
+        oscillator2.type = 'triangle';
+        oscillator2.frequency.setValueAtTime(110.5, audioCtx.currentTime);
+
+        oscillator1.connect(filter);
+        oscillator2.connect(filter);
+        filter.connect(droneGain);
+        droneGain.connect(audioCtx.destination);
+
+        oscillator1.start();
+        oscillator2.start();
+        isAudioPlaying = true;
+      } else {
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+          isAudioPlaying = true;
         }
-      });
+      }
     }
 
-    const termBody = document.getElementById('terminal-body');
-    const termInput = document.getElementById('term-input');
-
-    const COMMANDS = {
-      help: () => `
-<div class="text-slate-300 font-semibold">Available Hermes Commands:</div>
-  • <span class="text-indigo-400 font-bold">whoami</span>      : Operator profile, credentials, and institutional background
-  • <span class="text-cyan-400 font-bold">daemons</span>     : Status of the 18 autonomous background engines
-  • <span class="text-emerald-400 font-bold">kaggle</span>      : Latest Kaggle Grandmaster Autopilot telemetry & CV scores
-  • <span class="text-amber-400 font-bold">skills</span>      : Technical arsenal & languages
-  • <span class="text-rose-400 font-bold">contact</span>     : Fast communication coordinates
-  • <span class="text-slate-400 font-bold">clear</span>       : Flush terminal output
-`,
-      whoami: () => `
-<div class="text-slate-200">
-  <span class="text-emerald-400 font-bold">AYUSH KANDWAL</span> (GitHub: @Sunzzx)
-  -------------------------------------------------------------
-  • <strong class="text-white">Education:</strong> BS in Data Science @ IIT Madras | IIT Patna
-  • <strong class="text-white">Focus:</strong> Systems Engineering, Autonomous AI Agents, Deep Learning & Quant
-  • <strong class="text-white">Portfolio:</strong> 51+ live open-source repositories & zero-cost indie tools
-  • <strong class="text-white">Credentials:</strong> WorldQuant BRAIN Gold / Master Rank (ID: AK45063)
-</div>
-`,
-      daemons: () => `
-<div class="text-slate-300 font-semibold">Active Hermes Autonomous Daemon Fleet (18 Live):</div>
-  [1]  <span class="text-emerald-400">frontier-research-engine</span>     (every 180m)  [OK: Deep Learning & Systems]
-  [2]  <span class="text-emerald-400">kaggle-grandmaster-autopilot</span> (every 240m)  [OK: Tri-Model Stacking]
-  [3]  <span class="text-emerald-400">hermes-hourly-evolution</span>      (every 60m)   [OK: Skill Crystallizer]
-  [4]  <span class="text-emerald-400">opportunity-scout</span>            (every 120m)  [OK: Auto-Applicator Handoff]
-  [5]  <span class="text-emerald-400">officer-exam-drills</span>          (every 120m)  [OK: WhatsApp & Feed Sync]
-  [6]  <span class="text-emerald-400">indie-micro-saas-foundry</span>     (every 1440m) [OK: 51 Shipped Products]
-  [7]  <span class="text-emerald-400">quota-failover</span>               (every 1m)    [OK: Gemini / xAI / Codex]
-  ... [11 additional active daemons verified running]
-`,
-      kaggle: () => `
-<div class="text-slate-200">
-  <span class="text-cyan-400 font-bold">KAGGLE GRANDMASTER AUTOPILOT TELEMETRY</span>
-  -------------------------------------------------------------
-  • <strong class="text-white">Active Milestone:</strong> Stage 4 Out-of-Fold Constrained SLSQP Stacking
-  • <strong class="text-white">Architecture:</strong> Tri-Model Gradient Boosting (LGBM + CatBoost + XGBoost)
-  • <strong class="text-white">Latest Benchmarks:</strong>
-      - Spaceship Titanic: CV Accuracy = <span class="text-emerald-400 font-bold">0.80916</span> (Leaderboard climbed to 1004)
-      - Titanic Challenge: CV ROC-AUC  = <span class="text-emerald-400 font-bold">0.87436</span> (Accepted by Kaggle API)
-  • <strong class="text-white">Engine:</strong> Self-healing reflection loop with automatic hyperparameter relaxation
-</div>
-`,
-      skills: () => `
-<div class="text-slate-300">
-  • <strong class="text-indigo-400">Languages:</strong> Python, TypeScript, Rust, C++, SQL, Bash/Zsh
-  • <strong class="text-cyan-400">AI / ML:</strong> PyTorch, Flow Matching, Sparse Autoencoders, Mamba-2 SSM, Stacking
-  • <strong class="text-emerald-400">Systems:</strong> Distributed Consensus (HLC/Raft), eBPF, Lock-free queues, AST Compilers
-  • <strong class="text-amber-400">Cloud/Edge:</strong> Cloudflare Workers, Vercel, Docker, SQLite WAL, Launchd
-</div>
-`,
-      contact: () => `
-<div class="text-slate-200">
-  • <strong class="text-white">Email:</strong> <a href="mailto:ayufrom03@gmail.com" class="text-indigo-400 underline">ayufrom03@gmail.com</a>
-  • <strong class="text-white">GitHub:</strong> <a href="https://github.com/Sunzzx" target="_blank" class="text-indigo-400 underline">https://github.com/Sunzzx</a>
-  • <strong class="text-white">WhatsApp Direct:</strong> <a href="https://wa.me/917417939838" target="_blank" class="text-emerald-400 underline">+91 7417939838</a>
-</div>
-`,
-      clear: () => {
-        termBody.innerHTML = '';
-        return null;
+    function toggleCosmicAudio() {
+      if (!audioCtx) {
+        initAudio();
+        document.getElementById('audio-status-label').textContent = 'AUDIO: ON';
+        document.getElementById('audio-visualizer').classList.remove('opacity-30');
+      } else if (audioCtx.state === 'running') {
+        audioCtx.suspend();
+        isAudioPlaying = false;
+        document.getElementById('audio-status-label').textContent = 'AUDIO: OFF';
+        document.getElementById('audio-visualizer').classList.add('opacity-30');
+      } else {
+        audioCtx.resume();
+        isAudioPlaying = true;
+        document.getElementById('audio-status-label').textContent = 'AUDIO: ON';
+        document.getElementById('audio-visualizer').classList.remove('opacity-30');
       }
-    };
-
-    function runCommand(cmd) {
-      const cleanCmd = cmd.trim().toLowerCase();
-      const line = document.createElement('div');
-      line.innerHTML = `<span class="text-emerald-400 font-bold">$</span> <span class="text-white">${cmd}</span>`;
-      termBody.appendChild(line);
-
-      if (COMMANDS[cleanCmd]) {
-        const out = COMMANDS[cleanCmd]();
-        if (out !== null) {
-          const resp = document.createElement('div');
-          resp.innerHTML = out;
-          termBody.appendChild(resp);
-        }
-      } else if (cleanCmd !== '') {
-        const err = document.createElement('div');
-        err.innerHTML = `<span class="text-rose-400">Command not recognized: "${cleanCmd}". Type <span class="text-indigo-400">help</span> for commands.</span>`;
-        termBody.appendChild(err);
-      }
-      termBody.scrollTop = termBody.scrollHeight;
+      playLaserChirp();
     }
 
-    termInput.addEventListener('keydown', (e) => {
+    // Interactive Sci-Fi Sound Effects
+    function playLaserChirp() {
+      if (!audioCtx || audioCtx.state !== 'running') return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(120, audioCtx.currentTime + 0.12);
+      gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+      gain.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 0.12);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.12);
+    }
+
+    function playWarpSound(engaging) {
+      if (!audioCtx || audioCtx.state !== 'running') return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sawtooth';
+      if (engaging) {
+        osc.frequency.setValueAtTime(60, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(440, audioCtx.currentTime + 0.8);
+      } else {
+        osc.frequency.setValueAtTime(440, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(60, audioCtx.currentTime + 0.8);
+      }
+      gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+      gain.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + 0.8);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.8);
+    }
+
+    // Auto-init audio on first user touch / click
+    window.addEventListener('click', () => {
+      if (!audioCtx) initAudio();
+    }, { once: true });
+
+
+    /* ========================================================
+       2. THREE.JS 3D COSMIC ENGINE & PLANETARY ORBITS
+       ======================================================== */
+    const container = document.getElementById('canvas-container');
+    const canvas = document.getElementById('universe-canvas');
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 3000);
+    camera.position.set(0, 80, 220);
+
+    const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // Dynamic Starfield (22,000 Stars)
+    const starCount = 22000;
+    const starGeometry = new THREE.BufferGeometry();
+    const starPositions = new Float32Array(starCount * 3);
+    const starColors = new Float32Array(starCount * 3);
+
+    const colorPalette = [
+      new THREE.Color(0x22d3ee), // Cyan
+      new THREE.Color(0xa855f7), // Purple
+      new THREE.Color(0xf59e0b), // Gold
+      new THREE.Color(0xffffff), // Pure White
+      new THREE.Color(0x60a5fa)  // Blue
+    ];
+
+    for (let i = 0; i < starCount; i++) {
+      const idx = i * 3;
+      const radius = 400 + Math.random() * 1200;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos((Math.random() * 2) - 1);
+
+      starPositions[idx] = radius * Math.sin(phi) * Math.cos(theta);
+      starPositions[idx + 1] = radius * Math.sin(phi) * Math.sin(theta);
+      starPositions[idx + 2] = radius * Math.cos(phi);
+
+      const chosenColor = colorPalette[Math.floor(Math.random() * colorPalette.length)];
+      starColors[idx] = chosenColor.r;
+      starColors[idx + 1] = chosenColor.g;
+      starColors[idx + 2] = chosenColor.b;
+    }
+
+    starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+    starGeometry.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
+
+    const starMaterial = new THREE.PointsMaterial({
+      size: 1.6,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.85
+    });
+
+    const starField = new THREE.Points(starGeometry, starMaterial);
+    scene.add(starField);
+
+    // CENTRAL SINGULARITY (THE PULSAR SUN)
+    const coreGeometry = new THREE.SphereGeometry(14, 32, 32);
+    const coreMaterial = new THREE.MeshBasicMaterial({
+      color: 0x00f2ff,
+      wireframe: true
+    });
+    const corePulsar = new THREE.Mesh(coreGeometry, coreMaterial);
+    scene.add(corePulsar);
+
+    // Inner Glowing Core
+    const innerCoreGeo = new THREE.SphereGeometry(10, 32, 32);
+    const innerCoreMat = new THREE.MeshBasicMaterial({ color: 0x9333ea });
+    const innerCore = new THREE.Mesh(innerCoreGeo, innerCoreMat);
+    scene.add(innerCore);
+
+    // 6 ORBITING PLANETARY NODES
+    const planetsData = [
+      { id: 'academics', name: 'Aegis (Academics)', color: 0x22d3ee, radius: 45, speed: 0.007, size: 5 },
+      { id: 'gaming', name: 'Arcadia (Gaming)', color: 0xf59e0b, radius: 75, speed: 0.005, size: 6.5 },
+      { id: 'swarms', name: 'Nebula (AI Swarms)', color: 0xc084fc, radius: 110, speed: 0.004, size: 7 },
+      { id: 'systems', name: 'Titan (Systems/Quant)', color: 0x06b6d4, radius: 145, speed: 0.003, size: 6 },
+      { id: 'security', name: 'Spectre (Security/CTF)', color: 0xef4444, radius: 180, speed: 0.0025, size: 5.5 },
+      { id: 'linktree', name: 'Nexus (Linktree)', color: 0xfbbf24, radius: 215, speed: 0.002, size: 6 }
+    ];
+
+    const planetMeshes = [];
+
+    planetsData.forEach((p) => {
+      // Orbit Ring
+      const orbitGeo = new THREE.RingGeometry(p.radius - 0.2, p.radius + 0.2, 64);
+      const orbitMat = new THREE.MeshBasicMaterial({ color: p.color, side: THREE.DoubleSide, transparent: true, opacity: 0.2 });
+      const orbitRing = new THREE.Mesh(orbitGeo, orbitMat);
+      orbitRing.rotation.x = Math.PI / 2;
+      scene.add(orbitRing);
+
+      // Planet Sphere
+      const pGeo = new THREE.SphereGeometry(p.size, 24, 24);
+      const pMat = new THREE.MeshBasicMaterial({ color: p.color, wireframe: true });
+      const pMesh = new THREE.Mesh(pGeo, pMat);
+
+      pMesh.userData = { ...p, angle: Math.random() * Math.PI * 2 };
+      scene.add(pMesh);
+      planetMeshes.push(pMesh);
+    });
+
+    // Warp Drive State
+    let isWarpEngaged = false;
+    let warpSpeedMultiplier = 1;
+
+    function toggleWarpDrive() {
+      isWarpEngaged = !isWarpEngaged;
+      playWarpSound(isWarpEngaged);
+      const label = document.getElementById('warp-label');
+      const btn = document.getElementById('warp-drive-btn');
+
+      if (isWarpEngaged) {
+        label.textContent = 'WARP: ENGAGED';
+        btn.classList.add('bg-purple-600', 'border-cyan-400', 'neon-border-cyan');
+      } else {
+        label.textContent = 'WARP: OFF';
+        btn.classList.remove('bg-purple-600', 'border-cyan-400', 'neon-border-cyan');
+      }
+    }
+
+    // Camera Navigation and Parallax
+    let targetCameraPosition = { x: 0, y: 80, z: 220 };
+    let mouseX = 0, mouseY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = (e.clientX - window.innerWidth / 2) * 0.05;
+      mouseY = (e.clientY - window.innerHeight / 2) * 0.05;
+    });
+
+    function flyToSector(sectorId) {
+      playLaserChirp();
+      const el = document.getElementById(sectorId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      // Find matching planet mesh to direct camera towards
+      const planet = planetMeshes.find(p => p.userData.id === sectorId);
+      if (planet) {
+        targetCameraPosition.x = planet.position.x * 0.7;
+        targetCameraPosition.y = planet.position.y + 40;
+        targetCameraPosition.z = planet.position.z + 80;
+      } else {
+        targetCameraPosition = { x: 0, y: 80, z: 220 };
+      }
+    }
+
+    // Animation Render Loop
+    let clock = new THREE.Clock();
+
+    function animate() {
+      requestAnimationFrame(animate);
+      const delta = clock.getDelta();
+
+      // Smooth camera interpolation
+      camera.position.x += (targetCameraPosition.x + mouseX - camera.position.x) * 0.04;
+      camera.position.y += (targetCameraPosition.y - mouseY - camera.position.y) * 0.04;
+      camera.position.z += (targetCameraPosition.z - camera.position.z) * 0.04;
+      camera.lookAt(0, 0, 0);
+
+      // Rotate Pulsar Sun
+      corePulsar.rotation.y += 0.01;
+      corePulsar.rotation.x += 0.005;
+      innerCore.rotation.y -= 0.005;
+
+      // Warp speed starfield elongation
+      if (isWarpEngaged) {
+        warpSpeedMultiplier = THREE.MathUtils.lerp(warpSpeedMultiplier, 18, 0.05);
+        starField.rotation.y += 0.015 * warpSpeedMultiplier;
+      } else {
+        warpSpeedMultiplier = THREE.MathUtils.lerp(warpSpeedMultiplier, 1, 0.05);
+        starField.rotation.y += 0.0004;
+      }
+
+      // Orbit Planets
+      planetMeshes.forEach(mesh => {
+        mesh.userData.angle += mesh.userData.speed * (isWarpEngaged ? 3 : 1);
+        mesh.position.x = Math.cos(mesh.userData.angle) * mesh.userData.radius;
+        mesh.position.z = Math.sin(mesh.userData.angle) * mesh.userData.radius;
+        mesh.position.y = Math.sin(mesh.userData.angle * 2) * 8; // subtle orbital inclination
+        mesh.rotation.y += 0.02;
+      });
+
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Window Resize Handler
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+
+    /* ========================================================
+       3. INTERACTIVE STARSHIP TERMINAL EMULATOR
+       ======================================================== */
+    const terminalModal = document.getElementById('terminal-modal');
+    const terminalInput = document.getElementById('terminal-input');
+    const terminalBody = document.getElementById('terminal-body');
+
+    function toggleTerminal() {
+      playLaserChirp();
+      terminalModal.classList.toggle('hidden');
+      if (!terminalModal.classList.contains('hidden')) {
+        terminalInput.focus();
+      }
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+
+    terminalInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
-        const val = termInput.value;
-        termInput.value = '';
-        runCommand(val);
+        const rawCmd = terminalInput.value.trim();
+        terminalInput.value = '';
+        executeTerminalCommand(rawCmd);
       }
     });
+
+    function printToTerminal(html) {
+      const line = document.createElement('div');
+      line.innerHTML = html;
+      terminalBody.appendChild(line);
+      terminalBody.scrollTop = terminalBody.scrollHeight;
+    }
+
+    function executeTerminalCommand(cmd) {
+      if (!cmd) return;
+      printToTerminal(`<span class="text-slate-400">ayu@sunzzx-cosmos:~$</span> <span class="text-white font-bold">${cmd}</span>`);
+      const lower = cmd.toLowerCase().trim();
+
+      switch (lower) {
+        case 'help':
+          printToTerminal(`
+            <div class="text-gold-300">Available commands:</div>
+            &bull; <span class="text-cyan-400">whoami</span>: Display identity, credentials & background<br>
+            &bull; <span class="text-cyan-400">planets</span>: Scan all 6 active planetary nodes<br>
+            &bull; <span class="text-cyan-400">degrees</span>: Output IIT Madras & IIT Patna degrees<br>
+            &bull; <span class="text-cyan-400">gaming</span>: Roblox dev (ID: 5294143085) & Steam profiles<br>
+            &bull; <span class="text-cyan-400">daemons</span>: View active 18 Hermes background daemons<br>
+            &bull; <span class="text-cyan-400">warp</span>: Toggle warp-speed celestial acceleration<br>
+            &bull; <span class="text-cyan-400">linktree</span>: List all verified social and payment endpoints<br>
+            &bull; <span class="text-cyan-400">audio</span>: Toggle procedural Web Audio synthesizer<br>
+            &bull; <span class="text-cyan-400">clear</span>: Clear terminal console
+          `);
+          break;
+
+        case 'whoami':
+          printToTerminal(`
+            <div class="text-cyan-300 font-bold">Ayush Kandwal (Sunzzx / kanayuuh)</div>
+            &bull; Autonomous Systems Architect & Quantitative Finance Developer<br>
+            &bull; Dual IIT Scholar: IIT Madras BS Data Science + IIT Patna BS CS<br>
+            &bull; WorldQuant Brain Consultant (AK45063)<br>
+            &bull; Roblox Game Engineer (ayuissicktoday) & HackerOne Security Researcher
+          `);
+          break;
+
+        case 'degrees':
+          printToTerminal(`
+            <div class="text-purple-300 font-bold">ACADEMIC CITADEL CREDENTIALS:</div>
+            1. IIT Madras &mdash; BS in Data Science & Applications (Roll: 24f1000816)<br>
+            2. IIT Patna &mdash; BS in Computer Science & Data Analytics<br>
+            3. BA (Hons) in Economics &mdash; Microeconomic & Game Theory<br>
+            4. UC Berkeley &mdash; Physics (EYES Specialization)
+          `);
+          break;
+
+        case 'gaming':
+        case 'roblox':
+        case 'steam':
+          printToTerminal(`
+            <div class="text-gold-300 font-bold">VIRTUAL WORLDS & GAMING HUB:</div>
+            &bull; <span class="text-white">Roblox Developer:</span> ayuissicktoday (User ID: 5294143085)<br>
+            &bull; <span class="text-white">Steam ID:</span> <a href="https://steamcommunity.com/id/kanayuuh" target="_blank" class="underline text-cyan-400">kanayuuh</a> (Tactical Shooters, Sims & RPGs)<br>
+            &bull; <span class="text-white">Twitch:</span> <a href="https://www.twitch.tv/kanayuuh" target="_blank" class="underline text-purple-400">twitch.tv/kanayuuh</a><br>
+            &bull; <span class="text-white">Cognitive Games:</span> ARC Prize 2026 (ARC-AGI 3) & Chess combinatorics
+          `);
+          break;
+
+        case 'planets':
+          printToTerminal(`
+            <div class="text-cyan-300 font-bold">CELESTIAL NODES DETECTED:</div>
+            1. Aegis &mdash; Dual IIT Academic Citadel (Sector: academics)<br>
+            2. Arcadia &mdash; Virtual Worlds, Roblox & Steam Gaming (Sector: gaming)<br>
+            3. Nebula &mdash; Autonomous AI Swarms & Kaggle (Sector: swarms)<br>
+            4. Titan &mdash; Distributed Protocols & Quant Engines (Sector: systems)<br>
+            5. Spectre &mdash; HackerOne & Offensive Security (Sector: security)<br>
+            6. Nexus &mdash; Linktree Sunzzx Matrix (Sector: linktree)
+          `);
+          break;
+
+        case 'daemons':
+          printToTerminal(`
+            <div class="text-purple-300 font-bold">HERMES AUTONOMOUS FLEET (18 DAEMONS ACTIVE):</div>
+            [OK] kaggle-daily-autopilot (CV + Submissions)<br>
+            [OK] rea-foss-reconstruction-8h (Clean-Room Builder)<br>
+            [OK] omni-revenue-syndicate-180m (10k+ Endpoints)<br>
+            [OK] indie-micro-saas-foundry-24h (Zero-to-MRR)<br>
+            [OK] hermes-hourly-evolution (AST Pruning & Self-Upgrade)<br>
+            [OK] notifier-whatsapp (100% Routed to +91 7417939838)
+          `);
+          break;
+
+        case 'warp':
+          toggleWarpDrive();
+          printToTerminal(`<span class="text-gold-300">Warp drive state toggled! Current speed: ${isWarpEngaged ? 'LIGHT-SPEED WARP' : 'NORMAL ORBITAL'}</span>`);
+          break;
+
+        case 'audio':
+          toggleCosmicAudio();
+          printToTerminal(`<span class="text-cyan-300">Procedural audio toggled: ${isAudioPlaying ? 'ENGAGED' : 'MUTED'}</span>`);
+          break;
+
+        case 'linktree':
+          printToTerminal(`
+            <div class="text-gold-300 font-bold">LINKTREE SUNZZX DIRECT MATRIX:</div>
+            &bull; GitHub: https://github.com/Sunzzx<br>
+            &bull; Twitter/X: https://x.com/its_ayu5<br>
+            &bull; HackerOne: https://hackerone.com/sunzzx<br>
+            &bull; TryHackMe: https://tryhackme.com/p/kanayuuh<br>
+            &bull; Steam: https://steamcommunity.com/id/kanayuuh<br>
+            &bull; Twitch: https://www.twitch.tv/kanayuuh<br>
+            &bull; Spotify: https://open.spotify.com/user/kanayuuh<br>
+            &bull; Roblox: ayuissicktoday (#5294143085)
+          `);
+          break;
+
+        case 'clear':
+          terminalBody.innerHTML = '';
+          break;
+
+        default:
+          printToTerminal(`<span class="text-crimson-400">Command not recognized: '${cmd}'. Type 'help' for guidance.</span>`);
+      }
+    }
   </script>
 </body>
 </html>
