@@ -1,7 +1,9 @@
-// DEEP SPACE SYSTEMS OBSERVATORY — CENTRAL CONFIGURATION & DYNAMIC AGE ENGINE
-// Single dynamic sentence arithmetic without telemetry dashboard noise.
+// DEEP SPACE SYSTEMS OBSERVATORY — CENTRAL CONFIGURATION & HIGH-PRECISION DYNAMIC AGE ENGINE
+// Precise decimal years calculation down to milliseconds: 22.xxxxxxxxxx years.
 
-window.OBSERVATORY_CONFIG = {
+var rootEnv = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
+
+rootEnv.OBSERVATORY_CONFIG = {
   operator: {
     name: 'Ayush Kandwal',
     preferredName: 'Ayu',
@@ -16,21 +18,31 @@ window.OBSERVATORY_CONFIG = {
     worldquantId: 'AK45063'
   },
   // Birthdate parameter: 11 December 2003 (Midnight Asia/Kolkata timezone UTC+05:30)
-  // Exact calendar arithmetic. The birthdate itself is never printed; only the live elapsed sentence.
+  // Exact calendar arithmetic: 2003-12-10T18:30:00.000Z
   birthDateUTC: new Date(Date.UTC(2003, 11, 10, 18, 30, 0)),
   timezone: 'Asia/Kolkata',
   timezoneOffsetMinutes: 330
 };
 
-// Exact Calendar Arithmetic Engine
-window.calculateObservatoryAge = function(targetDate) {
-  const birth = targetDate || window.OBSERVATORY_CONFIG.birthDateUTC;
-  const now = new Date();
+// High-Precision Decimal & Calendar Age Engine
+rootEnv.calculateObservatoryAge = function(targetDate) {
+  const birth = targetDate || rootEnv.OBSERVATORY_CONFIG.birthDateUTC;
+  const nowMs = Date.now();
+  const birthMs = birth instanceof Date ? birth.getTime() : new Date(birth).getTime();
+  const diffMs = Math.max(0, nowMs - birthMs);
 
-  // Convert to Kolkata local time components (+05:30)
+  // Exact average Gregorian calendar year accounting for 400-year leap cycle (365.2425 days)
+  const msPerYear = 365.2425 * 24 * 60 * 60 * 1000;
+  const decimalYearsVal = diffMs / msPerYear;
+  
+  // 10 decimal places captures millisecond-level precision (1 ms ≈ 3.17e-11 years)
+  const decimalYears = decimalYearsVal.toFixed(10);
+  const [wholeYears, fracYears] = decimalYears.split('.');
+
+  // Traditional calendar breakdown (kept as secondary utility)
   const kolkataOffsetMs = 5.5 * 60 * 60 * 1000;
-  const birthKolkata = new Date(birth.getTime() + kolkataOffsetMs);
-  const nowKolkata = new Date(now.getTime() + kolkataOffsetMs);
+  const birthKolkata = new Date(birthMs + kolkataOffsetMs);
+  const nowKolkata = new Date(nowMs + kolkataOffsetMs);
 
   let bYear = birthKolkata.getUTCFullYear();
   let bMonth = birthKolkata.getUTCMonth();
@@ -60,10 +72,16 @@ window.calculateObservatoryAge = function(targetDate) {
 
   const pad = (n) => String(n).padStart(2, '0');
 
-  const sentencePlain = `I have spent ${years} years, ${months} months, ${days} days, ${nHour} hours, ${nMinute} minutes and ${nSecond} seconds on this planet.`;
-  const sentenceHTML = `I have spent <span class="text-white font-bold tabular-nums">${years}</span> years, <span class="text-white font-bold tabular-nums">${months}</span> months, <span class="text-white font-bold tabular-nums">${days}</span> days, <span class="text-white font-bold tabular-nums">${pad(nHour)}</span> hours, <span class="text-white font-bold tabular-nums">${pad(nMinute)}</span> minutes and <span class="text-white font-bold tabular-nums">${pad(nSecond)}</span> seconds on this planet.`;
+  // Primary dynamic sentence format: 22.xxxxxxxxxx years till milliseconds
+  const sentencePlain = `I have spent ${decimalYears} years on this planet.`;
+  const sentenceHTML = `I have spent <span class="text-white font-bold tabular-nums">${wholeYears}</span>.<span class="text-emerald-400 font-bold tabular-nums">${fracYears}</span> years on this planet.`;
+  const timerPlain = `${decimalYears} years`;
+  const timerHTML = `<span class="text-white font-bold tabular-nums">${wholeYears}</span>.<span class="text-emerald-400 font-bold tabular-nums">${fracYears}</span> years`;
 
   return {
+    decimalYears,
+    wholeYears,
+    fracYears,
     years,
     months,
     days,
@@ -72,11 +90,15 @@ window.calculateObservatoryAge = function(targetDate) {
     seconds: pad(nSecond),
     sentencePlain,
     sentenceHTML,
-    formattedAge: `${years} years, ${months} months, ${days} days`
+    timerPlain,
+    timerHTML,
+    rawTimerHTML: timerHTML,
+    rawTimerPlain: timerPlain,
+    formattedAge: `${decimalYears} years`
   };
 };
 
-// Auto-bind dynamic sentence and age across DOM elements
+// Auto-bind dynamic high-precision millisecond odometer across DOM elements
 (function initObservatoryAgeTelemetry() {
   if (typeof document === 'undefined') return;
 
@@ -91,18 +113,42 @@ window.calculateObservatoryAge = function(targetDate) {
       el.textContent = data.sentencePlain;
     });
 
-    document.querySelectorAll('.observatory-live-age').forEach(el => {
-      el.textContent = `${data.years}Y ${data.months}M ${data.days}D`;
+    document.querySelectorAll('.observatory-live-timer, .observatory-raw-timer').forEach(el => {
+      el.innerHTML = data.timerHTML;
     });
+
+    document.querySelectorAll('.observatory-live-age').forEach(el => {
+      el.textContent = `${data.decimalYears} years`;
+    });
+  }
+
+  // Use requestAnimationFrame throttled to ~30-33ms for smooth millisecond ticking with 0 CPU overhead
+  let lastFrameTime = 0;
+  function loop(timestamp) {
+    if (!lastFrameTime || timestamp - lastFrameTime >= 30) {
+      updateDynamicSentences();
+      lastFrameTime = timestamp;
+    }
+    if (typeof requestAnimationFrame !== 'undefined') {
+      requestAnimationFrame(loop);
+    }
   }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       updateDynamicSentences();
-      setInterval(updateDynamicSentences, 1000);
+      if (typeof requestAnimationFrame !== 'undefined') {
+        requestAnimationFrame(loop);
+      } else {
+        setInterval(updateDynamicSentences, 33);
+      }
     });
   } else {
     updateDynamicSentences();
-    setInterval(updateDynamicSentences, 1000);
+    if (typeof requestAnimationFrame !== 'undefined') {
+      requestAnimationFrame(loop);
+    } else {
+      setInterval(updateDynamicSentences, 33);
+    }
   }
 })();
