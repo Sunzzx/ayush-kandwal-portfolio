@@ -33,6 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700;800&family=Syne:wght@700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="public/config.js"></script>
 
   <style>
     body { background-color: #000000; color: #ffffff; }
@@ -101,9 +102,17 @@
 
     <!-- Header -->
     <div class="space-y-4">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/5 text-neutral-300 text-xs font-mono">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-        <span>AI ARCHITECT // QUANT RESEARCH // VERIFIED CHANNELS & TERMINAL</span>
+      <div class="flex flex-wrap items-center gap-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/5 text-neutral-300 text-xs font-mono">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span>AI ARCHITECT // QUANT RESEARCH // VERIFIED CHANNELS & TERMINAL</span>
+        </div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/5 font-mono text-xs text-neutral-300">
+          <span class="text-neutral-500">OPERATOR AGE:</span>
+          <span class="text-white font-bold observatory-live-age">22Y 10M 23D</span>
+          <span class="text-neutral-600">//</span>
+          <span class="text-neutral-400 observatory-live-clock">--:--:-- IST</span>
+        </div>
       </div>
       <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-display">
         Connect & Verified Channels
@@ -321,7 +330,11 @@
     const history = [];
     let historyIdx = -1;
 
-    const COMMAND_LIST = ['help', 'whoami', 'degrees', 'academics', 'hermes', 'daemons', 'swarm', 'projects', 'repos', 'quant', 'alphas', 'skills', 'stack', 'contact', 'pgp', 'clear', 'cls', 'uptime'];
+    const COMMAND_LIST = [
+      'help', 'about', 'whoami', 'degrees', 'education', 'experience', 'research',
+      'hermes', 'daemons', 'swarm', 'projects', 'repos', 'quant', 'alphas',
+      'skills', 'stack', 'github', 'contact', 'pgp', 'uptime', 'clear', 'cls'
+    ];
 
     input.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
@@ -374,28 +387,65 @@
         printLine(`
           <div class="text-white font-bold border-b border-white/10 pb-1">AVAILABLE COMMANDS & SUBSYSTEMS:</div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 text-xs">
-            <div>&bull; <strong class="text-white">whoami</strong> &mdash; Operator identity & dual-degree status</div>
-            <div>&bull; <strong class="text-white">degrees</strong> &mdash; Verified IIT Madras, IIT Patna & DU credentials</div>
+            <div>&bull; <strong class="text-white">whoami</strong> / <strong class="text-white">about</strong> &mdash; Operator identity, live age & philosophy</div>
+            <div>&bull; <strong class="text-white">experience</strong> &mdash; Professional timeline & founding engineering</div>
+            <div>&bull; <strong class="text-white">degrees</strong> / <strong class="text-white">education</strong> &mdash; IIT Madras, IIT Patna & DU credentials</div>
+            <div>&bull; <strong class="text-white">research</strong> &mdash; ARC-AGI 3 program synthesis & arXiv telemetry</div>
             <div>&bull; <strong class="text-white">hermes</strong> &mdash; 18 active macOS daemons & multi-agent telemetry</div>
-            <div>&bull; <strong class="text-white">projects</strong> &mdash; Shipped open-source systems & GitHub links</div>
+            <div>&bull; <strong class="text-white">projects</strong> / <strong class="text-white">repos</strong> &mdash; Shipped open-source systems & GitHub links</div>
             <div>&bull; <strong class="text-white">quant</strong> &mdash; WorldQuant Brain alpha mining & Quanta-Core</div>
             <div>&bull; <strong class="text-white">skills</strong> &mdash; Systems programming languages & tooling stack</div>
+            <div>&bull; <strong class="text-white">github</strong> &mdash; Direct link to @Sunzzx GitHub profile</div>
             <div>&bull; <strong class="text-white">contact</strong> &mdash; Verified communication vectors & socials</div>
-            <div>&bull; <strong class="text-white">pgp</strong> &mdash; Public key cryptographic identity</div>
             <div>&bull; <strong class="text-white">uptime</strong> &mdash; System clock, solar cycle & daemon health</div>
+            <div>&bull; <strong class="text-white">pgp</strong> &mdash; Public key cryptographic identity</div>
             <div>&bull; <strong class="text-white">clear</strong> &mdash; Flush terminal display buffer</div>
           </div>
         `);
-      } else if (lower === 'whoami' || lower === 'id') {
+      } else if (lower === 'whoami' || lower === 'about' || lower === 'id') {
+        const ageData = window.calculateObservatoryAge ? window.calculateObservatoryAge() : { formattedAge: '22Y 10M 23D', formattedTime: 'IST' };
         printLine(`
-          <div class="text-white font-bold">OPERATOR SUMMARY:</div>
+          <div class="text-white font-bold border-b border-white/10 pb-1">OPERATOR SUMMARY & TELEMETRY:</div>
           <div><strong>Name:</strong> Ayush Kandwal ("Ayu") &bull; @Sunzzx</div>
-          <div><strong>Focus:</strong> Autonomous AI Swarms &bull; Distributed State Replication &bull; Quantitative Finance</div>
+          <div><strong>Calculated Age:</strong> ${ageData.formattedAge} (Live Clock: ${ageData.formattedTime})</div>
+          <div><strong>Focus:</strong> Autonomous AI Swarms &bull; Distributed State Replication &bull; Quantitative Alpha</div>
           <div><strong>Institutions:</strong> Dual IIT Scholar (IIT Madras BS Data Science + IIT Patna B.Sc Hons Computer Science)</div>
           <div><strong>Quantitative:</strong> WorldQuant Brain Research Consultant (ID: AK45063, USA Region)</div>
-          <div><strong>Philosophy:</strong> Zero manual intervention. Autonomous self-evolving systems. Zero fabrication.</div>
+          <div><strong>Philosophy:</strong> "Zero manual intervention. If a human repeats a task twice, it is an engineering bug."</div>
         `);
-      } else if (lower === 'degrees' || lower === 'academics') {
+      } else if (lower === 'experience') {
+        printLine(`
+          <div class="text-white font-bold border-b border-white/10 pb-1">PROFESSIONAL & RESEARCH EXPERIENCE:</div>
+          <div class="space-y-2 pt-1 text-xs">
+            <div>
+              <div class="text-white font-bold">&bull; WorldQuant Brain &mdash; Quantitative Research Consultant (AK45063)</div>
+              <div class="text-neutral-400">Developing mathematical alpha expressions, statistical arbitrage, and order book backtesting.</div>
+            </div>
+            <div>
+              <div class="text-white font-bold">&bull; The Elite Ways &mdash; Founder & Systems Architect</div>
+              <div class="text-neutral-400">Autonomous digital commerce infrastructure run by 100+ deployed AI agents.</div>
+            </div>
+            <div>
+              <div class="text-white font-bold">&bull; GirlScript Summer of Code (GSSoC) &mdash; Open Source Mentor</div>
+              <div class="text-neutral-400">Mentored contributors in full-stack engineering, git workflows, and pull request reviews.</div>
+            </div>
+            <div>
+              <div class="text-white font-bold">&bull; Independent FOSS Author &mdash; 51+ Repositories on GitHub</div>
+              <div class="text-neutral-400">Author of Hermes Swarm, Chronos HLC, RingFlash, SafetyPin, and Tachyon JIT.</div>
+            </div>
+          </div>
+        `);
+      } else if (lower === 'research') {
+        printLine(`
+          <div class="text-white font-bold border-b border-white/10 pb-1">FRONTIER AI & SYSTEMS RESEARCH:</div>
+          <div class="space-y-1.5 pt-1 text-xs">
+            <div>&bull; <strong class="text-white">ARC-AGI 3 Benchmark:</strong> Program synthesis via Monte Carlo Tree Search (MCTS) and domain-specific logic languages.</div>
+            <div>&bull; <strong class="text-white">Distributed Consensus:</strong> Hybrid Logical Clocks (HLC) paired with Delta-CRDTs for partition-tolerant causal ordering.</div>
+            <div>&bull; <strong class="text-white">Distributed Attention:</strong> RingFlash zero-bubble communication topology for long-context LLM inference.</div>
+            <div>&bull; <strong class="text-white">Microstructure Alphas:</strong> High-frequency volume-imbalance and order-flow decay factors at WorldQuant Brain.</div>
+          </div>
+        `);
+      } else if (lower === 'education' || lower === 'degrees' || lower === 'academics') {
         printLine(`
           <div class="text-white font-bold border-b border-white/10 pb-1">VERIFIED ACADEMIC DOSSIER:</div>
           <div class="space-y-2 pt-1">
@@ -419,6 +469,13 @@
               <div class="text-neutral-400">Astrophysics & Relativistic Mechanics &bull; <span class="text-neutral-300">[COMPLETED 2025]</span></div>
             </div>
           </div>
+        `);
+      } else if (lower === 'github') {
+        printLine(`
+          <div class="text-white font-bold">GITHUB REPOSITORY ARCHIVE:</div>
+          <div>Profile: <a href="https://github.com/Sunzzx" target="_blank" class="text-white underline">https://github.com/Sunzzx</a></div>
+          <div>Public Repositories: 51+ Production Codebases</div>
+          <div class="text-neutral-400 text-[11px]">Flagship: Sunzzx/fash-ai-agent, Sunzzx/chronos-hlc-state-delta-replicator, Sunzzx/safetypin</div>
         `);
       } else if (lower === 'hermes' || lower === 'daemons' || lower === 'swarm') {
         printLine(`

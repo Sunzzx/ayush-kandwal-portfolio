@@ -45,6 +45,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700;800&family=Syne:wght@700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="public/config.js"></script>
 
   <style>
     body { background-color: #000000; color: #ffffff; }
@@ -113,9 +114,17 @@
 
     <!-- Header & Bio -->
     <div class="space-y-4">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/5 text-neutral-300 text-xs font-mono">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-        <span>ACADEMIC DOSSIER &bull; RESEARCH FELLOWSHIPS &bull; WORLDQUANT BRAIN</span>
+      <div class="flex flex-wrap items-center gap-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/5 text-neutral-300 text-xs font-mono">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span>ACADEMIC DOSSIER &bull; RESEARCH FELLOWSHIPS &bull; WORLDQUANT BRAIN</span>
+        </div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/5 font-mono text-xs text-neutral-300">
+          <span class="text-neutral-500">OPERATOR AGE:</span>
+          <span class="text-white font-bold observatory-live-age">22Y 10M 23D</span>
+          <span class="text-neutral-600">//</span>
+          <span class="text-neutral-400 observatory-live-clock">--:--:-- IST</span>
+        </div>
       </div>
       <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight font-display">
         Academic Trajectory & Research Credentials
