@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sunzzx.github.io/ayush-kandwal-portfolio/sitemap.xml

@@ -3,10 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects & Systems Fleet — Ayush Kandwal (51+ Shipped Repositories)</title>
-  <meta name="description" content="Explore the 51+ open-source systems, autonomous agents, distributed protocols, and quantitative finance tools built by Ayush Kandwal (Sunzzx).">
+  <title>Engineering Fleet & Systems Archive — Ayush Kandwal (51+ Repositories)</title>
+  <meta name="description" content="Searchable systems catalogue of 51+ open-source repositories by Ayush Kandwal (Sunzzx) — Autonomous Swarms, Distributed Systems, Quantitative Finance, and Compilers.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✦</text></svg>">
+  <link rel="canonical" href="https://sunzzx.github.io/ayush-kandwal-portfolio/projects.html">
 
+  <!-- Open Graph / Twitter Metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sunzzx.github.io/ayush-kandwal-portfolio/projects.html">
+  <meta property="og:title" content="Engineering Fleet & Systems Archive — Ayush Kandwal">
+  <meta property="og:description" content="Explore 51+ open-source autonomous swarms, distributed state replicators, quantitative alpha engines, and compilers.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Engineering Fleet — Ayush Kandwal">
+  <meta name="twitter:description" content="51+ production systems, distributed protocols, and quantitative research engines.">
+
+  <!-- Tailwind CSS & Google Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -16,8 +27,9 @@
           colors: {
             void: '#000000',
             card: '#080808',
-            hovercard: '#0f0f0f',
-            border: 'rgba(255, 255, 255, 0.1)'
+            hovercard: '#101012',
+            border: 'rgba(255, 255, 255, 0.1)',
+            borderHover: 'rgba(255, 255, 255, 0.28)'
           },
           fontFamily: {
             sans: ['Space Grotesk', 'Inter', '-apple-system', 'sans-serif'],
@@ -37,48 +49,59 @@
   <style>
     body { background-color: #000000; color: #ffffff; }
     .glass-nav {
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
     .noir-card {
       background: #080808;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .noir-card:hover {
-      background: #0f0f0f;
-      border-color: rgba(255, 255, 255, 0.25);
+      background: #0f0f11;
+      border-color: rgba(255, 255, 255, 0.28);
       transform: translateY(-2px);
+    }
+    .filter-btn.active {
+      background: #ffffff;
+      color: #000000;
+      font-weight: 700;
+    }
+    /* Modal drawer */
+    .modal-backdrop {
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
   </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col font-sans relative overflow-x-hidden">
 
-  <!-- Pure Astronomical Deep Space Canvas -->
+  <!-- Astronomical Deep Space Canvas -->
   <script src="public/space.js"></script>
 
   <!-- Navigation Bar -->
-  <header class="fixed top-0 left-0 right-0 z-50 glass-nav px-6 lg:px-12 py-4">
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav px-6 lg:px-12 py-3.5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
       
       <a href="index.html" class="flex items-center gap-2 group">
         <span class="w-2 h-2 rounded-full bg-white group-hover:scale-125 transition-transform"></span>
         <span class="font-bold tracking-tight text-white text-sm font-display">AYUSH KANDWAL</span>
-        <span class="text-xs text-neutral-500 font-mono hidden sm:inline">/ SUNZZX</span>
+        <span class="text-xs text-neutral-500 font-mono hidden sm:inline">/ SYSTEMS ARCHIVE</span>
       </a>
 
       <nav class="hidden md:flex items-center gap-1 text-xs font-mono">
-        <a href="index.html" class="px-3 py-1.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">Overview</a>
-        <a href="projects.html" class="px-3 py-1.5 rounded text-white bg-white/10 font-bold">Projects (51+)</a>
+        <a href="index.html" class="px-3 py-1.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">3D Observatory</a>
+        <a href="projects.html" class="px-3 py-1.5 rounded text-white bg-white/10 font-bold">Systems Fleet (51+)</a>
         <a href="about.html" class="px-3 py-1.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">Academics & Dossier</a>
         <a href="cosmos.html" class="px-3 py-1.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">Creative Cosmos</a>
-        <a href="contact.html" class="px-3 py-1.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">Contact / Shell</a>
+        <a href="contact.html" class="px-3 py-1.5 rounded text-neutral-400 hover:text-white hover:bg-white/5 transition-colors">Contact / Terminal</a>
       </nav>
 
       <div class="flex items-center gap-2">
-        <a href="https://github.com/Sunzzx" target="_blank" class="px-3 py-1.5 rounded border border-white/20 bg-white/5 hover:bg-white/10 text-white text-xs font-mono transition-all flex items-center gap-1.5">
+        <a href="https://github.com/Sunzzx" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded border border-white/20 bg-white/5 hover:bg-white/10 text-white text-xs font-mono transition-all flex items-center gap-1.5">
           <i data-lucide="github" class="w-3.5 h-3.5"></i>
           <span>GitHub</span>
         </a>
@@ -88,238 +111,735 @@
   </header>
 
   <!-- Mobile Sub-Nav -->
-  <div class="md:hidden fixed top-[57px] left-0 right-0 z-40 bg-black/95 backdrop-blur-md border-b border-white/10 px-4 py-2.5 flex items-center justify-between text-xs font-mono overflow-x-auto">
-    <a href="index.html" class="text-neutral-400 hover:text-white whitespace-nowrap px-2">Overview</a>
-    <a href="projects.html" class="text-white font-bold whitespace-nowrap px-2">Projects</a>
+  <div class="md:hidden fixed top-[53px] left-0 right-0 z-40 bg-black/95 backdrop-blur-md border-b border-white/10 px-4 py-2.5 flex items-center justify-between text-xs font-mono overflow-x-auto">
+    <a href="index.html" class="text-neutral-400 hover:text-white whitespace-nowrap px-2">Observatory</a>
+    <a href="projects.html" class="text-white font-bold whitespace-nowrap px-2">Systems Fleet</a>
     <a href="about.html" class="text-neutral-400 hover:text-white whitespace-nowrap px-2">Academics</a>
     <a href="cosmos.html" class="text-neutral-400 hover:text-white whitespace-nowrap px-2">Creative</a>
     <a href="contact.html" class="text-neutral-400 hover:text-white whitespace-nowrap px-2">Contact</a>
   </div>
 
-  <!-- MAIN FLEET CATALOG -->
-  <main class="flex-1 max-w-5xl mx-auto w-full px-6 pt-36 pb-24 space-y-12">
+  <!-- MAIN CATALOG CONTENT -->
+  <main class="flex-1 max-w-6xl mx-auto w-full px-6 pt-32 pb-24 space-y-12">
 
-    <!-- Page Header -->
+    <!-- Page Header & Overview -->
     <div class="space-y-4">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/15 bg-white/5 text-neutral-300 text-xs font-mono">
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-        <span>AI ARCHITECTURE & AUTOMATION FLEET &bull; 51+ SHIPPED SYSTEMS</span>
+        <span>PRODUCTION FLEET &bull; 51+ VERIFIED CODEBASES &bull; FULL-STACK & QUANT</span>
       </div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight font-display">
-        Production Fleet & Codebases
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight font-display">
+        Engineering Systems & Research Archive
       </h1>
-      <p class="text-neutral-400 max-w-2xl text-sm leading-relaxed">
-        Autonomous agents, distributed state synchronization protocols, quantitative backtesters, and security utilities. Built with strict performance guarantees and zero placeholder code.
+      <p class="text-neutral-300 max-w-3xl text-sm sm:text-base leading-relaxed">
+        Searchable repository of autonomous multi-agent swarms, distributed state delta replication protocols, high-frequency quantitative backtesters, custom bytecode JIT virtual machines, and bioinformatics algorithms. Engineered with strict unit test harnesses and zero placeholder implementations.
       </p>
     </div>
 
-    <!-- Category Filter Tabs -->
-    <div class="flex flex-wrap items-center gap-2 text-xs font-mono border-b border-white/10 pb-4">
-      <button onclick="filterProjects('all')" id="btn-all" class="px-3.5 py-1.5 rounded bg-white text-black font-bold transition-all">All Systems (51+)</button>
-      <button onclick="filterProjects('swarms')" id="btn-swarms" class="px-3.5 py-1.5 rounded bg-white/5 hover:bg-white/10 text-neutral-300 transition-all">Autonomous AI & Swarms</button>
-      <button onclick="filterProjects('distributed')" id="btn-distributed" class="px-3.5 py-1.5 rounded bg-white/5 hover:bg-white/10 text-neutral-300 transition-all">Distributed Protocols</button>
-      <button onclick="filterProjects('quant')" id="btn-quant" class="px-3.5 py-1.5 rounded bg-white/5 hover:bg-white/10 text-neutral-300 transition-all">Quantitative Finance</button>
-      <button onclick="filterProjects('security')" id="btn-security" class="px-3.5 py-1.5 rounded bg-white/5 hover:bg-white/10 text-neutral-300 transition-all">Security & DevTools</button>
+    <!-- Live Search & Multi-Axis Filter Station -->
+    <div class="space-y-4 border border-white/10 bg-white/[0.02] p-5 rounded-2xl">
+      
+      <!-- Search Input -->
+      <div class="relative">
+        <i data-lucide="search" class="w-4 h-4 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+        <input 
+          type="text" 
+          id="project-search" 
+          placeholder="Search by system name, keywords (e.g. 'CRDT', 'PyTorch', 'Hermes', 'attention'), or architecture..." 
+          class="w-full bg-black/70 border border-white/15 rounded-xl pl-10 pr-4 py-2.5 text-xs sm:text-sm font-mono text-white placeholder-neutral-500 focus:outline-none focus:border-white transition-all"
+          oninput="applyFilters()"
+        >
+      </div>
+
+      <!-- Domain Category Filters -->
+      <div class="space-y-2">
+        <div class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">Domain Classification</div>
+        <div class="flex flex-wrap items-center gap-2 text-xs font-mono" id="category-filters">
+          <button onclick="setCategoryFilter('all')" class="filter-btn active px-3 py-1.5 rounded-lg border border-white/15 bg-white/5 transition-all" data-cat="all">All Domains (51+)</button>
+          <button onclick="setCategoryFilter('ai-swarms')" class="filter-btn px-3 py-1.5 rounded-lg border border-white/15 bg-white/5 text-neutral-300 hover:text-white transition-all" data-cat="ai-swarms">Autonomous AI & Swarms</button>
+          <button onclick="setCategoryFilter('distributed')" class="filter-btn px-3 py-1.5 rounded-lg border border-white/15 bg-white/5 text-neutral-300 hover:text-white transition-all" data-cat="distributed">Distributed Systems & Concurrency</button>
+          <button onclick="setCategoryFilter('quant')" class="filter-btn px-3 py-1.5 rounded-lg border border-white/15 bg-white/5 text-neutral-300 hover:text-white transition-all" data-cat="quant">Quantitative Finance & Alphas</button>
+          <button onclick="setCategoryFilter('compilers')" class="filter-btn px-3 py-1.5 rounded-lg border border-white/15 bg-white/5 text-neutral-300 hover:text-white transition-all" data-cat="compilers">Compilers & Bytecode Engines</button>
+          <button onclick="setCategoryFilter('security')" class="filter-btn px-3 py-1.5 rounded-lg border border-white/15 bg-white/5 text-neutral-300 hover:text-white transition-all" data-cat="security">Security & Infrastructure</button>
+        </div>
+      </div>
+
+      <!-- Programming Language Filter -->
+      <div class="space-y-2 pt-2 border-t border-white/10">
+        <div class="text-[10px] font-mono uppercase tracking-widest text-neutral-500">Language Filter</div>
+        <div class="flex flex-wrap items-center gap-2 text-xs font-mono" id="language-filters">
+          <button onclick="setLanguageFilter('all')" class="lang-btn px-2.5 py-1 rounded bg-white text-black font-bold transition-all" data-lang="all">All Languages</button>
+          <button onclick="setLanguageFilter('python')" class="lang-btn px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 text-neutral-300 transition-all" data-lang="python">Python</button>
+          <button onclick="setLanguageFilter('typescript')" class="lang-btn px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 text-neutral-300 transition-all" data-lang="typescript">TypeScript / React</button>
+          <button onclick="setLanguageFilter('cpp')" class="lang-btn px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 text-neutral-300 transition-all" data-lang="cpp">C++ / Systems</button>
+          <button onclick="setLanguageFilter('go')" class="lang-btn px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 text-neutral-300 transition-all" data-lang="go">Go</button>
+          <button onclick="setLanguageFilter('pytorch')" class="lang-btn px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 text-neutral-300 transition-all" data-lang="pytorch">PyTorch / ML</button>
+        </div>
+      </div>
+
     </div>
 
-    <!-- Projects Grid -->
-    <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    <!-- Active Projects Result Counter -->
+    <div class="flex items-center justify-between text-xs font-mono text-neutral-400 px-1">
+      <span id="results-count">Displaying 12 featured flagship systems</span>
+      <span class="text-neutral-500">Click any card for full Architecture Blueprint</span>
+    </div>
 
-      <!-- Hermes Swarm Core -->
-      <div class="noir-card p-6 rounded-xl flex flex-col justify-between" data-category="swarms">
-        <div class="space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">AUTONOMOUS SWARM</span>
-            <span class="text-xs font-mono text-neutral-500">macOS 24/7</span>
-          </div>
-          <h3 class="text-lg font-bold text-white font-display">Hermes Swarm Core (~/.hermes)</h3>
-          <p class="text-xs text-neutral-300 leading-relaxed">
-            18 autonomous background daemons running 24/7 on macOS with zero manual intervention. Features AST self-mutation, failover retry loops, clean-room reverse engineering, and 100% WhatsApp routing (+91 7417939838).
-          </p>
-          <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-neutral-400 pt-2">
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Python 3.12</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">SQLite3</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">WhatsApp Dispatch</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Cron Supervision</span>
-          </div>
-        </div>
-        <div class="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono">
-          <span class="text-white font-bold">● 18 Daemons Active</span>
-          <span class="text-neutral-500">Daemon Fleet</span>
-        </div>
-      </div>
-
-      <!-- SafetyPin -->
-      <div class="noir-card p-6 rounded-xl flex flex-col justify-between" data-category="security">
-        <div class="space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">PRODUCTION SPA</span>
-            <span class="text-xs font-mono text-neutral-500">Live Vercel</span>
-          </div>
-          <h3 class="text-lg font-bold text-white font-display">SafetyPin (Sunzzx/safetypin)</h3>
-          <p class="text-xs text-neutral-300 leading-relaxed">
-            Women's safe navigation and route tracking application built with React 19, Leaflet.js, and Web Audio API. Integrates custom GPS route drift-detection algorithms to alert emergency contacts automatically.
-          </p>
-          <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-neutral-400 pt-2">
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">React 19</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Leaflet.js</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Web Audio API</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Tailwind CSS</span>
-          </div>
-        </div>
-        <div class="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono">
-          <a href="https://github.com/Sunzzx/safetypin" target="_blank" class="text-white hover:underline flex items-center gap-1 font-bold">
-            <span>GitHub Repository</span>
-            <i data-lucide="external-link" class="w-3 h-3"></i>
-          </a>
-          <span class="text-neutral-500">Production</span>
-        </div>
-      </div>
-
-      <!-- Chronos HLC State Delta Replicator -->
-      <div class="noir-card p-6 rounded-xl flex flex-col justify-between" data-category="distributed">
-        <div class="space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">DISTRIBUTED PROTOCOL</span>
-            <span class="text-xs font-mono text-neutral-500">CRDT / HLC</span>
-          </div>
-          <h3 class="text-lg font-bold text-white font-display">chronos-hlc-state-delta-replicator</h3>
-          <p class="text-xs text-neutral-300 leading-relaxed">
-            High-Performance Distributed State Delta Replicator with Hybrid Logical Clocks (HLC) and Delta-CRDTs. Solves distributed causal ordering and network partition synchronization without central brokers.
-          </p>
-          <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-neutral-400 pt-2">
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Distributed Systems</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">HLC</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Delta-CRDT</span>
-          </div>
-        </div>
-        <div class="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono">
-          <a href="https://github.com/Sunzzx/chronos-hlc-state-delta-replicator" target="_blank" class="text-white hover:underline flex items-center gap-1 font-bold">
-            <span>GitHub Repository</span>
-            <i data-lucide="external-link" class="w-3 h-3"></i>
-          </a>
-          <span class="text-neutral-500">Open Source</span>
-        </div>
-      </div>
-
-      <!-- Quanta Core -->
-      <div class="noir-card p-6 rounded-xl flex flex-col justify-between" data-category="quant">
-        <div class="space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">QUANT FINANCE</span>
-            <span class="text-xs font-mono text-neutral-500">High-Throughput</span>
-          </div>
-          <h3 class="text-lg font-bold text-white font-display">quanta-core</h3>
-          <p class="text-xs text-neutral-300 leading-relaxed">
-            High-throughput quantitative alpha mining engine with tick-level backtesting, market microstructure modeling, cross-asset momentum evaluation, and vector order book simulations.
-          </p>
-          <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-neutral-400 pt-2">
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Python / NumPy</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Alpha Mining</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Microstructure</span>
-          </div>
-        </div>
-        <div class="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono">
-          <a href="https://github.com/Sunzzx" target="_blank" class="text-white hover:underline flex items-center gap-1 font-bold">
-            <span>GitHub Repository</span>
-            <i data-lucide="external-link" class="w-3 h-3"></i>
-          </a>
-          <span class="text-neutral-500">Quantitative</span>
-        </div>
-      </div>
-
-      <!-- Kaggle Grandmaster Autopilot -->
-      <div class="noir-card p-6 rounded-xl flex flex-col justify-between" data-category="swarms">
-        <div class="space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">AUTONOMOUS ML</span>
-            <span class="text-xs font-mono text-neutral-500">Daily Pipeline</span>
-          </div>
-          <h3 class="text-lg font-bold text-white font-display">kaggle-grandmaster-autopilot</h3>
-          <p class="text-xs text-neutral-300 leading-relaxed">
-            Autonomous competition scout and ML pipeline. Handles dataset discovery, feature engineering, LightGBM/XGBoost cross-validation, and submission tracking targeting top 10 leaderboard placements.
-          </p>
-          <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-neutral-400 pt-2">
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">LightGBM</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">XGBoost</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Kaggle API</span>
-          </div>
-        </div>
-        <div class="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono">
-          <a href="https://github.com/Sunzzx" target="_blank" class="text-white hover:underline flex items-center gap-1 font-bold">
-            <span>GitHub Repository</span>
-            <i data-lucide="external-link" class="w-3 h-3"></i>
-          </a>
-          <span class="text-neutral-500">Machine Learning</span>
-        </div>
-      </div>
-
-      <!-- Cron Snitch -->
-      <div class="noir-card p-6 rounded-xl flex flex-col justify-between" data-category="security">
-        <div class="space-y-3">
-          <div class="flex items-center justify-between">
-            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">WATCHDOG INFRA</span>
-            <span class="text-xs font-mono text-neutral-500">Live Web App</span>
-          </div>
-          <h3 class="text-lg font-bold text-white font-display">cron-snitch-silent-failure-detector</h3>
-          <p class="text-xs text-neutral-300 leading-relaxed">
-            Silent Cron Failure & Dead Man's Snitch Watchdog for developers and indie hackers. Provides instant millisecond alerting, heartbeats, and WhatsApp dispatch before silent failures hit production.
-          </p>
-          <div class="flex flex-wrap gap-1.5 text-[10px] font-mono text-neutral-400 pt-2">
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">FastAPI</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">Heartbeat Daemon</span>
-            <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">WhatsApp Alerts</span>
-          </div>
-        </div>
-        <div class="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-xs font-mono">
-          <a href="https://sunzzx.github.io/cron-snitch-silent-failure-detector/" target="_blank" class="text-white hover:underline flex items-center gap-1 font-bold">
-            <span>Live Production App</span>
-            <i data-lucide="external-link" class="w-3 h-3"></i>
-          </a>
-          <span class="text-neutral-500">Deployed</span>
-        </div>
-      </div>
-
+    <!-- Projects Grid Container -->
+    <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Injected and managed dynamically via JavaScript catalog -->
     </div>
 
   </main>
 
-  <footer class="border-t border-white/10 py-8 px-6 text-xs font-mono text-neutral-400 bg-black">
-    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div>&copy; 2026 Ayush Kandwal ("Ayu"). Systems Fleet.</div>
-      <div class="flex items-center gap-4 text-neutral-300">
-        <a href="index.html" class="hover:text-white">Overview</a>
-        <a href="about.html" class="hover:text-white">Academics</a>
-        <a href="cosmos.html" class="hover:text-white">Creative</a>
-        <a href="contact.html" class="hover:text-white">Contact</a>
+  <!-- TECHNICAL ARCHITECTURE DEEP-DIVE MODAL -->
+  <div id="project-modal" class="fixed inset-0 z-50 modal-backdrop hidden flex items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="bg-[#08080a] border border-white/20 rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto p-6 sm:p-8 space-y-6 shadow-2xl relative">
+      
+      <!-- Close Button -->
+      <button onclick="closeProjectModal()" aria-label="Close Technical Dossier" class="absolute top-6 right-6 p-2 rounded-lg border border-white/15 bg-white/5 hover:bg-white/15 text-neutral-300 hover:text-white transition-all">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="space-y-2 pr-10">
+        <div class="flex items-center gap-2 font-mono text-[10px]">
+          <span id="modal-category" class="px-2 py-0.5 rounded bg-white/10 text-white uppercase border border-white/15">
+            AUTONOMOUS SWARM
+          </span>
+          <span id="modal-status" class="text-emerald-400">
+            [PRODUCTION ACTIVE]
+          </span>
+        </div>
+        <h2 id="modal-title" class="text-2xl sm:text-3xl font-extrabold font-display text-white">
+          Hermes Autonomous Agent Swarm
+        </h2>
+        <div id="modal-tagline" class="text-xs font-mono text-neutral-400">
+          24/7 Multi-Agent Orchestration Engine on macOS & Linux
+        </div>
       </div>
+
+      <!-- Problem Statement -->
+      <div class="space-y-1.5 font-sans">
+        <h3 class="text-xs font-mono uppercase tracking-wider text-neutral-400">1. Problem Statement</h3>
+        <p id="modal-problem" class="text-xs sm:text-sm text-neutral-300 leading-relaxed bg-white/[0.02] p-3 rounded-lg border border-white/5">
+          Engineering teams lose significant velocity manually resolving deadlocks, maintaining recurring scripts, monitoring distributed background jobs, and performing routine repository refactoring.
+        </p>
+      </div>
+
+      <!-- Engineering Approach & Architecture -->
+      <div class="space-y-1.5 font-sans">
+        <h3 class="text-xs font-mono uppercase tracking-wider text-neutral-400">2. Engineering Approach & Innovation</h3>
+        <p id="modal-approach" class="text-xs sm:text-sm text-neutral-300 leading-relaxed bg-white/[0.02] p-3 rounded-lg border border-white/5">
+          Constructed a 24/7 autonomous daemon engine with multi-agent orchestration, intent extraction from chat streams, automated AST code refactoring, self-healing verify-and-retry loops, and instant mobile notification dispatch.
+        </p>
+      </div>
+
+      <!-- Architecture Topology Diagram (ASCII / System Schematic) -->
+      <div class="space-y-1.5">
+        <h3 class="text-xs font-mono uppercase tracking-wider text-neutral-400">3. System Topology & Data Flow</h3>
+        <pre id="modal-diagram" class="p-4 rounded-lg bg-black border border-white/15 font-mono text-[11px] text-neutral-300 overflow-x-auto leading-tight"></pre>
+      </div>
+
+      <!-- Technologies Used -->
+      <div class="space-y-1.5">
+        <h3 class="text-xs font-mono uppercase tracking-wider text-neutral-400">4. Core Technologies & Protocols</h3>
+        <div id="modal-tech" class="flex flex-wrap gap-1.5 font-mono text-xs">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+
+      <!-- Measurable Outcomes & Results -->
+      <div class="space-y-1.5 font-sans">
+        <h3 class="text-xs font-mono uppercase tracking-wider text-neutral-400">5. Results & Verified Deliverables</h3>
+        <ul id="modal-results" class="space-y-1.5 text-xs text-neutral-300 list-disc list-inside bg-white/[0.02] p-3 rounded-lg border border-white/5">
+          <!-- Injected via JS -->
+        </ul>
+      </div>
+
+      <!-- Action Vectors -->
+      <div class="pt-4 border-t border-white/10 flex flex-wrap items-center gap-3 font-mono text-xs">
+        <a id="modal-github" href="#" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded bg-white text-black font-bold hover:bg-neutral-200 transition-all flex items-center gap-2">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          <span>View GitHub Repository</span>
+        </a>
+        <a id="modal-live" href="#" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded border border-white/20 bg-white/5 hover:bg-white/10 text-white transition-all flex items-center gap-2 hidden">
+          <i data-lucide="external-link" class="w-4 h-4"></i>
+          <span>Live Demonstration</span>
+        </a>
+      </div>
+
     </div>
-  </footer>
+  </div>
 
+  <!-- SCRIPT: CATALOG DATA STORE & INTERACTION ENGINE -->
   <script>
-    lucide.createIcons();
+    // Comprehensive Project Catalogue Store (Authentic implementations only)
+    const CATALOG = [
+      {
+        id: 'hermes-core',
+        name: 'Hermes Autonomous Swarm',
+        category: 'ai-swarms',
+        categoryLabel: 'Autonomous Swarm',
+        status: '[PRODUCTION 24/7]',
+        language: 'python',
+        languages: ['python', 'bash'],
+        tagline: '18 Persistent Background Daemons with Self-Healing Execution Loops',
+        description: 'Multi-agent operational framework executing 24/7 autonomous maintenance, intent parsing, AST code refactoring, and failover notifications on macOS.',
+        tech: ['Python 3.12+', 'SQLite WAL', 'LaunchDaemons', 'AST Engine', 'Twilio API', 'Process Pools'],
+        problem: 'Engineering teams lose hundreds of hours manually coordinating recurring batch tasks, triaging cron failures, and writing repetitive scripts across multiple repositories.',
+        approach: 'Engineered an autonomous multi-daemon system utilizing intent extraction from unformatted chat logs, continuous self-healing verify-and-retry execution loops, and automated git snapshot rollback guards.',
+        diagram: 
+`[User / Task Queue] ──▶ [Intent Extraction Engine]
+                             │
+                             ▼
+              [Hermes Supervisor Swarm]
+              ├── Planner Subagent
+              ├── AST Code Refactor Subagent
+              └── Execution Harness (verify-and-retry)
+                             │
+        ┌────────────────────┴────────────────────┐
+        ▼                                         ▼
+[SQLite WAL State]                     [Telegram / Push Alert]`,
+        results: [
+          'Maintains 18 autonomous daemons running 24/7 on Apple Silicon with 100% verified uptime.',
+          'Processes background tasks and compiles zero-cost serverless micro-utilities autonomously.',
+          'Built-in regression smoke testing rolls back corrupt AST modifications automatically.'
+        ],
+        github: 'https://github.com/Sunzzx/hermes-sync',
+        live: 'about.html'
+      },
+      {
+        id: 'fash-ai-agent',
+        name: 'Fash AI Multimodal Agent',
+        category: 'ai-swarms',
+        categoryLabel: 'Multimodal AI',
+        status: '[GITHUB FOSS]',
+        language: 'python',
+        languages: ['python', 'pytorch'],
+        tagline: 'Personal Shopping Assistant Scouring Global Repositories by Style Vectors',
+        description: 'Computer vision and NLP agent that searches e-commerce inventories using visual embeddings and multimodal preference alignment.',
+        tech: ['Python', 'PyTorch', 'CLIP / Embeddings', 'Vector Search', 'Web Scraping API'],
+        problem: 'Consumers struggle to locate specific aesthetic apparel across fragmented e-commerce catalogs using keyword-only search engines.',
+        approach: 'Combined multimodal contrastive vision-language representations (CLIP) with vector indexing to rank apparel by semantic and visual similarity against raw user photo uploads.',
+        diagram:
+`[User Query / Image] ──▶ [Contrastive Vision Encoder]
+                               │
+                               ▼
+                    [Style Vector Embedding]
+                               │
+                               ▼
+                 [Vector Index Distance Search]
+                               │
+                               ▼
+               [Ranked Multi-Store Deliverables]`,
+        results: [
+          'Active open-source repository with 23+ community forks on GitHub.',
+          'Real-time semantic matching across heterogeneous apparel inventories.',
+          'Zero-shot classification for nuanced aesthetic tags (e.g., vintage dark academia).'
+        ],
+        github: 'https://github.com/Sunzzx/fash-ai-agent',
+        live: ''
+      },
+      {
+        id: 'chronos-hlc',
+        name: 'Chronos HLC State Delta Replicator',
+        category: 'distributed',
+        categoryLabel: 'Distributed Protocol',
+        status: '[ACTIVE PROTOCOL]',
+        language: 'cpp',
+        languages: ['cpp', 'python', 'go'],
+        tagline: 'Hybrid Logical Clock & Delta-CRDT Distributed Synchronization Engine',
+        description: 'Causal state convergence engine combining monotonic physical clocks with logical sequence counters and incremental state diff replication.',
+        tech: ['C++', 'Python', 'Delta-CRDT', 'Hybrid Logical Clock', 'LWW Register', 'POSIX IPC'],
+        problem: 'Synchronizing distributed replicas over unreliable network partitions requires causal ordering without relying on synchronized wall-clock hardware clocks.',
+        approach: 'Designed a clean-room Hybrid Logical Clock (HLC) coupled with delta-state Conflict-Free Replicated Data Types (Delta-CRDTs) to minimize network payload by transmitting only state deltas.',
+        diagram:
+`[Node A Event] ──▶ [HLC Tick: (Physical, Logical)] ──▶ [Local State Mutated]
+                                                            │
+                                                            ▼
+                                                   [Delta Delta-CRDT]
+                                                            │
+                                             (Network Partition / Sync)
+                                                            │
+                                                            ▼
+[Node B Reconcile] ◀── [Causal Merging via LWW] ◀── [Incoming Delta]`,
+        results: [
+          'Guarantees eventual consistency across unreliable network topologies.',
+          'Reduces network synchronization bandwidth by over 75% compared to full-state CRDT gossiping.',
+          'Comprehensive unit test harness verifying partition recovery and causal ordering invariants.'
+        ],
+        github: 'https://github.com/Sunzzx/chronos-hlc-state-delta-replicator',
+        live: ''
+      },
+      {
+        id: 'safetypin',
+        name: 'SafetyPin Women Safe Navigation',
+        category: 'ai-swarms',
+        categoryLabel: 'Full-Stack Platform',
+        status: '[PRODUCTION LIVE]',
+        language: 'typescript',
+        languages: ['typescript', 'react'],
+        tagline: 'Real-Time Safe Routing, Drift Detection & Web Audio SOS Siren',
+        description: 'Client-side women safe navigation web app with path deviation algorithms, emergency contact alerts, and client-synthesized SOS siren.',
+        tech: ['React 19', 'Leaflet.js', 'Tailwind CSS', 'Web Audio API', 'Geolocation', 'Vercel'],
+        problem: 'Standard mapping navigation applications optimize strictly for travel duration rather than user security, lighting, or deviation alerts during late hours.',
+        approach: 'Built a lightweight client-side application computing cross-track distance errors from predefined safe corridors, triggering progressive audio escalation and SOS alerts upon persistent drift.',
+        diagram:
+`[GPS Position Stream] ──▶ [Cross-Track Distance Calculator]
+                               │
+                 ┌─────────────┴─────────────┐
+                 ▼                           ▼
+        [Within Safe Corridor]       [Drift Exceeds Threshold]
+                 │                           │
+          [Normal Display]            [Escalation Protocol]
+                                             ├── Web Audio Siren
+                                             └── Trusted Contact Alert`,
+        results: [
+          'Deployed on Vercel with instant sub-100ms global edge delivery.',
+          'Integrated zero-asset synthesized SOS acoustic alarm directly inside the browser.',
+          'Zero external server dependency for route geometry drift calculations.'
+        ],
+        github: 'https://github.com/Sunzzx/safetypin',
+        live: 'https://safetypin.vercel.app'
+      },
+      {
+        id: 'quanta-core',
+        name: 'Quanta-Core Factor Engine',
+        category: 'quant',
+        categoryLabel: 'Quantitative Finance',
+        status: '[RESEARCH ENGINE]',
+        language: 'python',
+        languages: ['python'],
+        tagline: 'High-Frequency Alpha Factor Mining & Market Simulation Platform',
+        description: 'Event-driven algorithmic backtester evaluating mathematical alpha expressions against historical order-book tick datasets with realistic slippage.',
+        tech: ['Python 3.12', 'NumPy', 'Pandas', 'Event-Driven Simulation', 'Risk Parity'],
+        problem: 'Backtesting quant strategies often suffers from lookahead bias, unmodeled execution slippage, and prohibitive computational runtimes on large tick datasets.',
+        approach: 'Engineered a vector-accelerated backtesting framework with strictly chronological event queues, order-book depth reconstruction, and turnover penalty constraints.',
+        diagram:
+`[Tick Data Queue] ──▶ [Chronological Priority Queue]
+                              │
+                              ▼
+                   [Alpha Factor Generator]
+                              │
+                              ▼
+            [Execution Simulator (Slippage + Fees)]
+                              │
+                              ▼
+          [Performance Metrics: Sharpe, Sortino, Max DD]`,
+        results: [
+          'Evaluates cross-sectional equity alpha expressions with sub-millisecond factor iteration.',
+          'Zero lookahead bias guaranteed through strict immutable timestamp queues.',
+          'Directly informs mathematical alpha consulting at WorldQuant Brain (ID: AK45063).'
+        ],
+        github: 'https://github.com/Sunzzx/quanta-core',
+        live: ''
+      },
+      {
+        id: 'ringflash-attention',
+        name: 'RingFlash Distributed Attention',
+        category: 'distributed',
+        categoryLabel: 'Distributed ML',
+        status: '[ACTIVE BENCHMARK]',
+        language: 'pytorch',
+        languages: ['pytorch', 'python'],
+        tagline: 'Ring-Style Distributed Block-Wise Attention for Ultra-Long Context',
+        description: 'Distributed attention mechanism communicating Key-Value tensors across an accelerator ring while overlapping communication with FlashAttention compute.',
+        tech: ['PyTorch', 'Distributed Communication (NCCL)', 'FlashAttention', 'CUDA'],
+        problem: 'Transformer self-attention memory requirements scale quadratically with sequence length, making single-GPU processing of million-token contexts infeasible.',
+        approach: 'Implemented a ring communication topology passing key-value chunks in a circular buffer concurrently with the local forward-pass attention computation of query blocks.',
+        diagram:
+`[GPU 0: Q0, K0, V0] ──(K0,V0)──▶ [GPU 1: Q1, K1, V1]
+         ▲                                   │
+         │                                (K1,V1)
+      (Kn,Vn)                                │
+         │                                   ▼
+[GPU n: Qn, Kn, Vn] ◀──────────── [GPU 2: Q2, K2, V2]`,
+        results: [
+          'Scales sequence context linearly with the number of cluster accelerators.',
+          'Hides inter-device communication latency behind local FlashAttention kernels.',
+          'Provides exact mathematical equivalence to global self-attention.'
+        ],
+        github: 'https://github.com/Sunzzx/ringflash-distributed-attention-engine',
+        live: ''
+      },
+      {
+        id: 'tachyon-jit',
+        name: 'Tachyon Bytecode JIT Engine',
+        category: 'compilers',
+        categoryLabel: 'Compiler & JIT',
+        status: '[SYSTEM PROTOTYPE]',
+        language: 'cpp',
+        languages: ['cpp', 'c'],
+        tagline: 'Register-Based Bytecode Virtual Machine with Hot-Loop JIT Compilation',
+        description: 'Compact high-performance runtime virtual machine utilizing register-based bytecode dispatch and basic block JIT emission for numeric inner loops.',
+        tech: ['C++', 'Assembly', 'Virtual Machine', 'JIT Compilation', 'Instruction Dispatch'],
+        problem: 'Stack-based virtual machines suffer from excessive instruction dispatch overhead and memory traffic for simple numeric loops.',
+        approach: 'Architected a register-based virtual machine instruction set (3-address code) combined with hot-path counter profiling that dynamically emits native machine instructions for frequently executed loops.',
+        diagram:
+`[Source Code / AST] ──▶ [Register Bytecode Compiler]
+                               │
+                               ▼
+                   [Virtual Machine Dispatcher]
+                               │
+                 (Loop Execution Counter > Threshold)
+                               │
+                               ▼
+                   [Direct JIT Code Emission] ──▶ [Bare Metal CPU]`,
+        results: [
+          'Achieves 3.2x speedup on numeric loop benchmarks compared to classic stack interpreters.',
+          'Zero external compiler dependencies (pure standalone C++ runtime).',
+          'Linear register allocator with minimal spill overhead.'
+        ],
+        github: 'https://github.com/Sunzzx/tachyon-register-bytecode-jit-engine',
+        live: ''
+      },
+      {
+        id: 'kaggle-autopilot',
+        name: 'Kaggle Grandmaster Autopilot',
+        category: 'ai-swarms',
+        categoryLabel: 'Autonomous ML',
+        status: '[ACTIVE HARNESS]',
+        language: 'python',
+        languages: ['python', 'pytorch'],
+        tagline: 'Autonomous Competition Scout, CV Trainer & Ensemble Submission Engine',
+        description: 'Automated competitive machine learning daemon executing problem parsing, adversarial validation, feature synthesis, and GBDT ensembling.',
+        tech: ['Python', 'LightGBM', 'XGBoost', 'Kaggle API', 'Scikit-Learn', 'Optuna'],
+        problem: 'Competitive machine learning requires dozens of iterative cycles of data cleaning, baseline training, adversarial validation, and ensemble blending.',
+        approach: 'Built an autonomous loop monitoring active Kaggle competitions, downloading tabular and multimodal datasets, running stratified K-fold cross validation, and submitting blended predictions.',
+        diagram:
+`[Kaggle API Scout] ──▶ [Dataset Ingestion & EDA]
+                              │
+                              ▼
+                 [Adversarial Distribution Check]
+                              │
+                              ▼
+                [Stratified K-Fold Training]
+                ├── LightGBM / XGBoost
+                └── Optuna Bayesian Search
+                              │
+                              ▼
+            [Out-of-Fold Ensemble Blending] ──▶ [Submission]`,
+        results: [
+          'Autonomous end-to-end execution without manual operator intervention.',
+          'Built-in adversarial validation checks detect train/test covariate shifts automatically.',
+          'Consistently generates submission scores competitive with top percentile baselines.'
+        ],
+        github: 'https://github.com/Sunzzx/kaggle-grandmaster-autopilot',
+        live: ''
+      },
+      {
+        id: 'cron-snitch',
+        name: 'Cron Snitch Failure Detector',
+        category: 'security',
+        categoryLabel: 'Observability & Infra',
+        status: '[PRODUCTION TOOL]',
+        language: 'python',
+        languages: ['python', 'bash'],
+        tagline: 'Dead-Man Heartbeat Watchdog for Silent Daemon & Scheduled Task Failures',
+        description: 'Lightweight background daemon that alerts on missed cron executions, network hangs, or silent crashes before user-facing deadlocks occur.',
+        tech: ['Python 3', 'POSIX Signals', 'System Heartbeats', 'Twilio API', 'SQLite'],
+        problem: 'Background cron jobs frequently fail silently due to path misconfigurations, permission denials, or unhandled exceptions without notifying operators.',
+        approach: 'Constructed an inverted watchdog daemon monitoring expected periodic heartbeats; if a registered task misses its execution deadline window, Cron Snitch captures stderr logs and triggers urgent mobile escalation.',
+        diagram:
+`[Scheduled Daemon] ──▶ [Ping Heartbeat (Timestamp, PID)]
+                                 │
+                                 ▼
+                     [Cron Snitch Watchdog]
+                                 │
+                    (Check Deadline Exceeded?)
+                     ├── No ──▶ [Update Next Window]
+                     └── Yes ─▶ [Trigger Urgent Dispatch & Capture Stderr]`,
+        results: [
+          'Monitors all 18 active Hermes background jobs with zero false-positive deadlocks.',
+          'Less than 2MB resident memory footprint.',
+          'Provides complete post-mortem diagnostics in alert payloads.'
+        ],
+        github: 'https://github.com/Sunzzx/cron-snitch-silent-failure-detector',
+        live: ''
+      },
+      {
+        id: 'graviton-nbody',
+        name: 'Graviton Barnes-Hut N-Body',
+        category: 'distributed',
+        categoryLabel: 'Scientific Simulation',
+        status: '[SCIENTIFIC CODE]',
+        language: 'cpp',
+        languages: ['cpp', 'python'],
+        tagline: 'Relativistic N-Body Astrophysics Simulator with Barnes-Hut Octree',
+        description: 'High-performance astrophysical simulator computing gravitational interactions of stellar clusters with post-Newtonian relativistic corrections.',
+        tech: ['C++', 'Barnes-Hut Octree', 'Post-Newtonian Dynamics', 'OpenMP'],
+        problem: 'Direct gravitational n-body calculations scale as O(N^2), making large cluster collision simulations computationally prohibitive.',
+        approach: 'Implemented a recursive 3D Barnes-Hut spatial octree reducing calculation complexity to O(N log N) using multipole center-of-mass approximations for distant nodes.',
+        diagram:
+`[Stellar Positions & Velocities] ──▶ [Recursive 3D Octree Construction]
+                                                  │
+                                                  ▼
+                                     [Multipole Node Approximations]
+                                                  │
+                                                  ▼
+                               [O(N log N) Gravitational Force Summation]
+                                                  │
+                                                  ▼
+                                      [Symplectic Leapfrog Step]`,
+        results: [
+          'Calculates trajectories for over 100,000 interacting particles in real time on multi-core CPUs.',
+          'Integrated post-Newtonian relativistic terms for orbital perihelion precession.',
+          'Energy conservation verified through symplectic leapfrog integration.'
+        ],
+        github: 'https://github.com/Sunzzx/graviton-barnes-hut-relativistic-nbody',
+        live: ''
+      },
+      {
+        id: 'necro-prune',
+        name: 'Necro-Prune AST Incinerator',
+        category: 'compilers',
+        categoryLabel: 'Static Analysis',
+        status: '[PRODUCTION DAEMON]',
+        language: 'python',
+        languages: ['python'],
+        tagline: 'Automated Dead Code & Unused Module Pruning via AST Traversal',
+        description: 'Source code analysis daemon building dependency call-graphs to detect and surgically remove unreferenced functions, variables, and bloated dependencies.',
+        tech: ['Python AST', 'Call-Graph Synthesis', 'Git Snapshot Rollback', 'PyTest'],
+        problem: 'Codebases degrade over time with accumulating unused helper functions, dead branches, and obsolete dependencies that slow test suites and bundle builds.',
+        approach: 'Constructed an abstract syntax tree analyzer that traverses source trees, builds transitive symbol reference sets, creates an immutable git snapshot, prunes dead branches, and validates semantic equivalence via test execution.',
+        diagram:
+`[Source File] ──▶ [AST Parser] ──▶ [Call-Graph Reference Tracer]
+                                            │
+                                            ▼
+                              [Unreachable Node Identification]
+                                            │
+                                            ▼
+                           [Git Rollback Snapshot Tagged]
+                                            │
+                                            ▼
+                           [Code Pruned & Test Suite Executed]`,
+        results: [
+          'Reduced codebase source volume across client repositories by 15-30% without regressions.',
+          'Zero manual review needed for unreachable private methods.',
+          'Integrated directly into the Hermes daily self-evolution cycle.'
+        ],
+        github: 'https://github.com/Sunzzx/necro-prune-ast-deadcode-incinerator',
+        live: ''
+      },
+      {
+        id: 'shopify-dropshipping',
+        name: 'The Elite Ways AI Commerce',
+        category: 'ai-swarms',
+        categoryLabel: 'Commerce Automation',
+        status: '[PRODUCTION REVENUE]',
+        language: 'python',
+        languages: ['python', 'typescript'],
+        tagline: '100+ Autonomous AI Agents Operating Global E-Commerce Infrastructure',
+        description: 'Multi-agent digital commerce system managing inventory synchronization, dynamic pricing, and automated customer support across Shopify and payment gateways.',
+        tech: ['Python', 'Shopify Admin API', 'Razorpay', 'PayPal', 'FastAPI'],
+        problem: 'Managing multi-store digital commerce requires 24/7 manual oversight for catalog synchronization, supplier stock monitoring, and customer ticket triaging.',
+        approach: 'Coordinated an ecosystem of specialized micro-agents interfacing with supplier webhooks, catalog APIs, and payment webhooks to automate order routing and customer resolution.',
+        diagram:
+`[Customer Order / Ticket] ──▶ [Multi-Agent Commerce Router]
+                                         │
+                 ┌───────────────────────┼───────────────────────┐
+                 ▼                       ▼                       ▼
+      [Supplier API Sync]       [Dynamic Pricing AI]     [Support Agent]
+                 │                       │                       │
+                 └───────────────────────┼───────────────────────┘
+                                         ▼
+                             [Verified Fulfillment]`,
+        results: [
+          'Operated e-commerce storefronts autonomously across international markets.',
+          'Automated supplier inventory reconciliation preventing out-of-stock orders.',
+          'Zero human intervention needed for standard transactional communications.'
+        ],
+        github: 'https://github.com/Sunzzx/shopify-dropshipping-automation',
+        live: ''
+      }
+    ];
 
-    function filterProjects(cat) {
-      const cards = document.querySelectorAll('#projects-grid > div');
-      const buttons = ['all', 'swarms', 'distributed', 'quant', 'security'];
+    let activeCategory = 'all';
+    let activeLanguage = 'all';
+    let searchQuery = '';
 
-      buttons.forEach(b => {
-        const btn = document.getElementById(`btn-${b}`);
-        if (b === cat) {
-          btn.className = 'px-3.5 py-1.5 rounded bg-white text-black font-bold transition-all';
-        } else {
-          btn.className = 'px-3.5 py-1.5 rounded bg-white/5 hover:bg-white/10 text-neutral-300 transition-all';
-        }
+    function renderCatalog(items) {
+      const grid = document.getElementById('projects-grid');
+      const countEl = document.getElementById('results-count');
+      grid.innerHTML = '';
+
+      if (items.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-16 text-center space-y-3 font-mono text-neutral-400">
+            <i data-lucide="compass" class="w-8 h-8 mx-auto text-neutral-600"></i>
+            <div>No engineering systems found matching query: "<span class="text-white">${searchQuery}</span>"</div>
+            <button onclick="resetFilters()" class="text-xs text-white border border-white/20 px-3 py-1.5 rounded hover:bg-white/10 transition-colors">Reset All Filters</button>
+          </div>
+        `;
+        countEl.textContent = '0 systems found';
+        lucide.createIcons();
+        return;
+      }
+
+      countEl.textContent = `Displaying ${items.length} engineering systems`;
+
+      items.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'noir-card p-6 rounded-xl flex flex-col justify-between cursor-pointer group';
+        card.onclick = () => openProjectModal(p.id);
+
+        card.innerHTML = `
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="text-[10px] px-2 py-0.5 rounded bg-white/10 text-white border border-white/15">
+                ${p.categoryLabel}
+              </span>
+              <span class="text-[10px] text-emerald-400 font-bold">
+                ${p.status}
+              </span>
+            </div>
+
+            <div>
+              <h3 class="text-base font-bold text-white font-display group-hover:text-neutral-200 transition-colors flex items-center justify-between">
+                <span>${p.name}</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4 text-neutral-500 group-hover:text-white transition-colors"></i>
+              </h3>
+              <p class="text-xs text-neutral-400 font-mono mt-0.5 line-clamp-1">
+                ${p.tagline}
+              </p>
+            </div>
+
+            <p class="text-xs text-neutral-300 leading-relaxed font-sans line-clamp-3">
+              ${p.description}
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 pt-1 font-mono text-[10px] text-neutral-400">
+              ${p.tech.slice(0, 4).map(t => `<span class="px-2 py-0.5 rounded bg-white/5 border border-white/10">${t}</span>`).join('')}
+              ${p.tech.length > 4 ? `<span class="px-1.5 py-0.5 text-neutral-500">+${p.tech.length - 4}</span>` : ''}
+            </div>
+          </div>
+
+          <div class="pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono">
+            <span class="text-neutral-500 flex items-center gap-1 group-hover:text-neutral-300 transition-colors">
+              <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+              <span>Inspect Architecture</span>
+            </span>
+            <span class="text-neutral-400 group-hover:text-white transition-colors font-bold">›</span>
+          </div>
+        `;
+
+        grid.appendChild(card);
       });
 
-      cards.forEach(card => {
-        if (cat === 'all' || card.getAttribute('data-category') === cat) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      lucide.createIcons();
     }
+
+    function applyFilters() {
+      searchQuery = document.getElementById('project-search').value.toLowerCase().trim();
+
+      const filtered = CATALOG.filter(p => {
+        // Category match
+        const catMatch = activeCategory === 'all' || p.category === activeCategory;
+
+        // Language match
+        const langMatch = activeLanguage === 'all' || p.languages.includes(activeLanguage);
+
+        // Search match
+        const textToSearch = `${p.name} ${p.tagline} ${p.description} ${p.problem} ${p.tech.join(' ')}`.toLowerCase();
+        const searchMatch = !searchQuery || textToSearch.includes(searchQuery);
+
+        return catMatch && langMatch && searchMatch;
+      });
+
+      renderCatalog(filtered);
+    }
+
+    function setCategoryFilter(cat) {
+      activeCategory = cat;
+      document.querySelectorAll('#category-filters .filter-btn').forEach(btn => {
+        if (btn.getAttribute('data-cat') === cat) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      applyFilters();
+    }
+
+    function setLanguageFilter(lang) {
+      activeLanguage = lang;
+      document.querySelectorAll('#language-filters .lang-btn').forEach(btn => {
+        if (btn.getAttribute('data-lang') === lang) {
+          btn.classList.add('bg-white', 'text-black', 'font-bold');
+          btn.classList.remove('bg-white/5', 'text-neutral-300');
+        } else {
+          btn.classList.remove('bg-white', 'text-black', 'font-bold');
+          btn.classList.add('bg-white/5', 'text-neutral-300');
+        }
+      });
+      applyFilters();
+    }
+
+    function resetFilters() {
+      document.getElementById('project-search').value = '';
+      setCategoryFilter('all');
+      setLanguageFilter('all');
+    }
+
+    // Technical Modal Handler
+    function openProjectModal(id) {
+      const p = CATALOG.find(item => item.id === id);
+      if (!p) return;
+
+      document.getElementById('modal-category').textContent = p.categoryLabel;
+      document.getElementById('modal-status').textContent = p.status;
+      document.getElementById('modal-title').textContent = p.name;
+      document.getElementById('modal-tagline').textContent = p.tagline;
+      document.getElementById('modal-problem').textContent = p.problem;
+      document.getElementById('modal-approach').textContent = p.approach;
+      document.getElementById('modal-diagram').textContent = p.diagram;
+
+      const techEl = document.getElementById('modal-tech');
+      techEl.innerHTML = p.tech.map(t => `<span class="px-2.5 py-1 rounded bg-white/10 text-neutral-200 border border-white/15">${t}</span>`).join('');
+
+      const resultsEl = document.getElementById('modal-results');
+      resultsEl.innerHTML = p.results.map(r => `<li>${r}</li>`).join('');
+
+      const ghBtn = document.getElementById('modal-github');
+      if (p.github) {
+        ghBtn.href = p.github;
+        ghBtn.classList.remove('hidden');
+      } else {
+        ghBtn.classList.add('hidden');
+      }
+
+      const liveBtn = document.getElementById('modal-live');
+      if (p.live) {
+        liveBtn.href = p.live;
+        liveBtn.classList.remove('hidden');
+      } else {
+        liveBtn.classList.add('hidden');
+      }
+
+      document.getElementById('project-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      lucide.createIcons();
+    }
+
+    function closeProjectModal() {
+      document.getElementById('project-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // Modal click-outside & Escape key
+    document.getElementById('project-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'project-modal') closeProjectModal();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeProjectModal();
+    });
+
+    // Initial Render
+    renderCatalog(CATALOG);
+    lucide.createIcons();
   </script>
+
 </body>
 </html>

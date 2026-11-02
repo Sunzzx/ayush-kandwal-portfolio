@@ -17,9 +17,9 @@
 1. **Sol (The Central Star — Executive Identity):**
    - **Ayush Kandwal** &bull; Systems Architect, Quantitative Researcher, & Full-Stack AI Engineer.
    - **Counters:** 51+ Shipped FOSS Repos | 18 Autonomous Daemons (24/7 macOS Hermes Swarm) | 100+ E-Commerce AI Agents Deployed.
-   - **Direct Channels:** LinkedIn, GitHub (`@Sunzzx`), Linktree (`linktr.ee/sunzzx`), Academic Email (`24f1000816@ds.study.iitm.ac.in`).
+   - **Direct Channels:** LinkedIn, GitHub (`@Sunzzx`), Linktree (`linktr.ee/sunzzx`), Academic Inquiries (`ayushkandwal@gmail.com`).
 2. **Earth (Flagship Swarms & Full-Stack Systems):**
-   - **Hermes Autonomous Swarm Core:** 18 background daemons running 24/7 on macOS with clean-room reverse engineering, AST dead-code pruning, and 100% WhatsApp routing.
+   - **Hermes Autonomous Swarm Core:** 18 background daemons running 24/7 on macOS with clean-room reverse engineering, AST dead-code pruning, and verified operator notification routing.
    - **SafetyPin (`Sunzzx/safetypin`):** Women's safety navigation platform (React 19, Leaflet.js, Web Audio drift detection).
    - **51+ FOSS Repos:** `chronos-hlc-state-delta-replicator`, `kaggle-grandmaster-autopilot`, `quanta-core`, `cron-snitch-silent-failure-detector`, and Examination Management Portal.
 3. **Jupiter (Quantitative Research & Work Experience):**
@@ -28,8 +28,8 @@
    - **The Elite Ways (Founder & Architect):** Automated e-commerce infrastructure operated autonomously by 100+ AI agents.
    - **GirlScript Summer of Code (GSSoC):** Open Source Mentor.
 4. **Saturn (Academic Citadel & Degrees):**
-   - **IIT Patna:** B.Sc. (Hons) in Computer Science & Data Analytics (Roll: `2412res45`) &mdash; Distributed systems, C++, Go, Linux internals.
-   - **IIT Madras:** BS in Data Science & Applications (Roll: `24f1000816`) &mdash; PyTorch, distributed BigQuery, statistical inference, RL.
+   - **IIT Patna:** B.Sc. (Hons) in Computer Science & Data Analytics (Status: Active Scholar) &mdash; Distributed systems, C++, Go, Linux internals.
+   - **IIT Madras:** BS in Data Science & Applications (Status: Active Scholar) &mdash; PyTorch, distributed BigQuery, statistical inference, RL.
    - **University of Delhi:** B.A. (Hons) in Economics (Expected 2026) &mdash; Game theory, econometrics, microeconomics.
    - **UC Berkeley (REYES Physics 2025):** Computational dynamics & astrophysics.
    - **Aspire Institute Alumni:** Global leadership fellowship.
