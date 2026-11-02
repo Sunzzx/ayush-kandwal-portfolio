@@ -45,9 +45,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700;800&family=Syne:wght@700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="public/config.js"></script>
+  <script src="public/config.js?v=202611030138"></script>
 
   <style>
+    .observatory-live-sentence,
+    .observatory-live-sentence *,
+    .observatory-live-timer,
+    .observatory-live-timer * {
+      color: #ffffff !important;
+    }
     body { background-color: #000000; color: #ffffff; }
     .glass-nav {
       background: rgba(0, 0, 0, 0.88);
@@ -121,7 +127,7 @@
         </div>
         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/15 bg-white/5 font-mono text-xs text-neutral-300">
           <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-          <span class="observatory-live-sentence text-neutral-300">I have spent 22.327012850000 years on this planet.</span>
+          <span class="observatory-live-sentence text-white" style="color: #ffffff !important;">I have spent 22.327012850000 years on this planet.</span>
         </div>
       </div>
       <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight font-display">

@@ -88,11 +88,11 @@ rootEnv.calculateObservatoryAge = function(targetDate) {
     calMonths += 12;
   }
 
-  // Primary dynamic sentence format: 22.dayshoursminutessecondsmilliseconds (pure white)
+  // Primary dynamic sentence format: 22.dayshoursminutessecondsmilliseconds (strictly pure white)
   const sentencePlain = `I have spent ${decimalYears} years on this planet.`;
-  const sentenceHTML = `I have spent <span class="text-white font-bold tabular-nums">${wholeYears}</span>.<span class="text-white font-bold tabular-nums">${fracYears}</span> years on this planet.`;
+  const sentenceHTML = `I have spent <span class="text-white font-bold tabular-nums" style="color: #ffffff !important;">${wholeYears}</span>.<span class="text-white font-bold tabular-nums" style="color: #ffffff !important;">${fracYears}</span> years on this planet.`;
   const timerPlain = `${decimalYears} years`;
-  const timerHTML = `<span class="text-white font-bold tabular-nums">${wholeYears}</span>.<span class="text-white font-bold tabular-nums">${fracYears}</span> years`;
+  const timerHTML = `<span class="text-white font-bold tabular-nums" style="color: #ffffff !important;">${wholeYears}</span>.<span class="text-white font-bold tabular-nums" style="color: #ffffff !important;">${fracYears}</span> years`;
 
   return {
     decimalYears,
