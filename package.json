@@ -1,0 +1,11 @@
+{
+  "name": "ayush-kandwal-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio of Ayush Kandwal (Sunzzx) - Autonomous Systems Architect & AI Engineer",
+  "author": "Ayush Kandwal <ayushkandwal@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "npx serve ."
+  }
+}

@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayush Kandwal | AI Systems Engineer & Autonomous Software Architect</title>
+  <meta name="description" content="Portfolio of Ayush Kandwal — AI Systems Engineer, IIT Madras Data Science, Autonomous Agent Architect, 50+ Open-Source Systems & Quant Engines.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              accent: '#06b6d4',
+              emerald: '#10b981',
+              dark: '#090a0f',
+              card: '#12141c',
+              border: '#1f2433'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #08090d;
+      color: #f1f5f9;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.06) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.04) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
+    .glass-card {
+      background: rgba(18, 20, 28, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .glass-card:hover {
+      border-color: rgba(99, 102, 241, 0.3);
+      box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.15);
+    }
+    .glow-badge {
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.35);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0d0f17;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #252b3d;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- TOP STATUS BANNER -->
+  <aside aria-label="Status Announcement" class="border-b border-brand-border/60 bg-brand-dark/80 px-4 py-2 text-xs text-slate-400 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 glow-badge"></span>
+        </span>
+        <span class="text-slate-200 font-mono font-medium">Hermes Operational Hub: 18 Autonomous Daemons Live</span>
+      </div>
+      <div class="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
+        <span>IIT Madras BS Data Science</span>
+        <span class="text-slate-600">•</span>
+        <span class="text-brand-accent">WorldQuant BRAIN Gold</span>
+        <span class="text-slate-600">•</span>
+        <a href="https://github.com/Sunzzx" target="_blank" rel="noopener noreferrer" class="hover:text-white transition flex items-center gap-1 text-slate-300">
+          <i data-lucide="github" class="w-3.5 h-3.5"></i> @Sunzzx
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- NAVIGATION -->
+  <nav class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2 group">
+      <div class="h-9 w-9 rounded-lg bg-gradient-to-br from-indigo-500 to-cyan-500 p-[1px] flex items-center justify-center">
+        <div class="h-full w-full bg-brand-dark rounded-[7px] flex items-center justify-center font-mono font-bold text-white group-hover:bg-transparent transition duration-300 text-sm">
+          AK
+        </div>
+      </div>
+      <div>
+        <span class="font-bold text-slate-100 tracking-tight block text-base leading-none">Ayush Kandwal</span>
+        <span class="text-[11px] font-mono text-slate-400">Systems & AI Engineer</span>
+      </div>
+    </a>
+
+    <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+      <a href="#about" class="hover:text-white transition">About</a>
+      <a href="#projects" class="hover:text-white transition">Projects</a>
+      <a href="#telemetry" class="hover:text-white transition">Live Terminal</a>
+      <a href="#stack" class="hover:text-white transition">Stack</a>
+      <a href="#contact" class="hover:text-white transition">Contact</a>
+      <a href="https://github.com/Sunzzx" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-full bg-slate-800/80 hover:bg-slate-700 text-xs font-mono font-semibold text-slate-100 border border-slate-700/60 transition flex items-center gap-1.5">
+        <i data-lucide="star" class="w-3.5 h-3.5 text-amber-400"></i> 50+ Repos
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="max-w-6xl mx-auto px-6 pt-12 pb-20">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 font-mono text-xs">
+          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+          <span>AUTONOMOUS SYSTEMS ARCHITECT</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
+          Architecting <span class="bg-gradient-to-r from-indigo-400 via-cyan-300 to-emerald-400 bg-clip-text text-transparent">Self-Evolving AI</span> & High-Concurrence Systems.
+        </h1>
+
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+          Hi, I'm <strong class="text-white font-semibold">Ayush Kandwal</strong>. I build autonomous agents that evolve their own codebases, distributed consensus protocols, relativistic physics simulators, and quantitative alpha pipelines. 
+          Currently studying BS in Data Science at <span class="text-slate-100 font-semibold">IIT Madras</span>.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a href="#projects" class="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white font-medium shadow-lg shadow-indigo-600/25 transition duration-200 flex items-center gap-2">
+            <span>Explore 50+ Projects</span>
+            <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+          </a>
+          <a href="#telemetry" class="px-6 py-3 rounded-xl glass-card text-slate-200 hover:text-white font-mono text-sm transition flex items-center gap-2">
+            <i data-lucide="terminal" class="w-4 h-4 text-brand-accent"></i>
+            <span>Interactive Terminal</span>
+          </a>
+          <a href="https://github.com/Sunzzx" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl glass-card text-slate-400 hover:text-white transition">
+            <i data-lucide="github" class="w-5 h-5"></i>
+          </a>
+          <a href="mailto:ayufrom03@gmail.com" class="p-3 rounded-xl glass-card text-slate-400 hover:text-white transition">
+            <i data-lucide="mail" class="w-5 h-5"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- HERO STATS CARD -->
+      <div class="lg:col-span-5">
+        <div class="glass-card rounded-2xl p-6 relative overflow-hidden">
+          <div class="absolute -top-12 -right-12 w-48 h-48 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+          
+          <div class="flex items-center justify-between pb-4 border-b border-white/5 mb-6">
+            <div class="flex items-center gap-2 font-mono text-xs text-slate-400">
+              <i data-lucide="activity" class="w-4 h-4 text-emerald-400"></i>
+              <span>SYSTEM METRICS & PROVENANCE</span>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">LIVE</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 font-mono">
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5">
+              <div class="text-3xl font-bold text-white mb-1">51+</div>
+              <div class="text-xs text-slate-400">Shipped FOSS Repos</div>
+              <div class="text-[10px] text-indigo-400 mt-2">Zero boilerplate</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5">
+              <div class="text-3xl font-bold text-white mb-1">18</div>
+              <div class="text-xs text-slate-400">Active Cron Daemons</div>
+              <div class="text-[10px] text-emerald-400 mt-2">100% trial success</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5">
+              <div class="text-3xl font-bold text-white mb-1">0.874</div>
+              <div class="text-xs text-slate-400">Kaggle Tri-Model CV</div>
+              <div class="text-[10px] text-cyan-400 mt-2">Top-10 Autopilot</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-white/5">
+              <div class="text-3xl font-bold text-white mb-1">Gold</div>
+              <div class="text-xs text-slate-400">WorldQuant BRAIN</div>
+              <div class="text-[10px] text-amber-400 mt-2">Quant Alpha Stream</div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-slate-400">
+            <span>Primary Node: Apple Silicon M-Series</span>
+            <span class="font-mono text-indigo-400">macOS / Python 3.15</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HIGHLIGHTED PILLARS -->
+  <section id="about" class="max-w-6xl mx-auto px-6 py-12">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="glass-card rounded-2xl p-6">
+        <div class="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-4">
+          <i data-lucide="bot" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">Autonomous Agent Swarms</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">
+          Pioneering multi-tier agent orchestrators with self-healing reflection loops, reflective stack-trace repair, and multi-channel IPC across WhatsApp, Telegram, and Discord.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-6">
+        <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4">
+          <i data-lucide="network" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">Distributed Protocols & Systems</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">
+          Architecting lock-free concurrent primitives, Hybrid Logical Clocks (HLC) for state delta synchronization, zero-copy socket buffers, and deterministic AST compilers.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-2xl p-6">
+        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-4">
+          <i data-lucide="trending-up" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">Quantitative Alpha & Science</h3>
+        <p class="text-sm text-slate-400 leading-relaxed">
+          Designing non-linear alpha signals, Tri-Model gradient boosting stacking (LightGBM, CatBoost, XGBoost), 4D relativistic raymarching, and quantum density matrix simulation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS DIRECTORY -->
+  <section id="projects" class="max-w-6xl mx-auto px-6 py-16">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 text-indigo-400 font-mono text-xs uppercase tracking-wider mb-2">
+          <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+          <span>Production Portfolio</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-white tracking-tight">Engineered Architectures & Systems</h2>
+      </div>
+
+      <!-- FILTER PILLS -->
+      <div class="flex flex-wrap items-center gap-2 font-mono text-xs" id="filter-container">
+        <button onclick="filterProjects('all')" class="filter-btn active px-3.5 py-1.5 rounded-lg bg-indigo-600 text-white font-medium transition" data-filter="all">All</button>
+        <button onclick="filterProjects('ai')" class="filter-btn px-3.5 py-1.5 rounded-lg glass-card text-slate-300 hover:text-white transition" data-filter="ai">Autonomous AI</button>
+        <button onclick="filterProjects('systems')" class="filter-btn px-3.5 py-1.5 rounded-lg glass-card text-slate-300 hover:text-white transition" data-filter="systems">Systems & Protocols</button>
+        <button onclick="filterProjects('quant')" class="filter-btn px-3.5 py-1.5 rounded-lg glass-card text-slate-300 hover:text-white transition" data-filter="quant">Quant & Science</button>
+        <button onclick="filterProjects('tools')" class="filter-btn px-3.5 py-1.5 rounded-lg glass-card text-slate-300 hover:text-white transition" data-filter="tools">Developer Tools</button>
+      </div>
+    </div>
+
+    <!-- PROJECT CARDS GRID -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+
+      <!-- PROJECT 1: Hermes -->
+      <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="ai systems">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Flagship System</span>
+            <div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
+              <i data-lucide="git-fork" class="w-3.5 h-3.5"></i> 18 Daemons
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2 group-hover:text-indigo-400 transition">hermes-sync</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">
+            Autonomous self-evolving intelligence operating 18 continuous background jobs. Includes AST mutation, quota failover, and WhatsApp/Discord/Telegram omnichannel gateway.
+          </p>
+        </div>
+        <div>
+          <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-slate-400">
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Python 3.15</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Node.js</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Launchd</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">SQLite WAL</span>
+          </div>
+          <div class="flex items-center justify-between pt-3 border-t border-white/5 text-xs font-mono">
+            <a href="https://github.com/Sunzzx/hermes-sync" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 flex items-center gap-1 font-semibold">
+              <span>View Source</span> <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-slate-500">Continuous Sync</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2: Kaggle Top-10 Autopilot -->
+      <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="ai quant">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Machine Learning</span>
+            <div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
+              <i data-lucide="award" class="w-3.5 h-3.5 text-amber-400"></i> Top-10 Gate
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">kaggle-grandmaster-autopilot</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">
+            Autonomous competitive ML agent based on 5-stage milestone planning and reflective self-healing loops. Employs Tri-Model Stacking (LightGBM + CatBoost + XGBoost) with SLSQP meta-learners.
+          </p>
+        </div>
+        <div>
+          <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-slate-400">
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">PyTorch</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">LightGBM</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">CatBoost</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Optuna</span>
+          </div>
+          <div class="flex items-center justify-between pt-3 border-t border-white/5 text-xs font-mono">
+            <a href="https://github.com/Sunzzx" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1 font-semibold">
+              <span>View Benchmark</span> <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-emerald-400 font-semibold">CV: 0.8744</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 3: Quanta Core -->
+      <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="quant systems">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-purple-500/10 text-purple-400 border border-purple-500/20">Quantum Computing</span>
+            <div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
+              <i data-lucide="box" class="w-3.5 h-3.5"></i> 100% Tests
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">quanta-core</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">
+            Clifford / stabilizer & density matrix quantum state simulator. Models decoherence via depolarizing and phase damping Kraus operator channels with Grover / Shor validation.
+          </p>
+        </div>
+        <div>
+          <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-slate-400">
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Linear Algebra</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Kraus Operators</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Stabilizers</span>
+          </div>
+          <div class="flex items-center justify-between pt-3 border-t border-white/5 text-xs font-mono">
+            <a href="https://github.com/Sunzzx/quanta-core" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:text-purple-300 flex items-center gap-1 font-semibold">
+              <span>View Source</span> <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-slate-500">Pure Numpy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 4: Chronos HLC State Delta Replicator -->
+      <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="systems">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-amber-500/10 text-amber-400 border border-amber-500/20">Distributed Consensus</span>
+            <div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
+              <i data-lucide="cpu" class="w-3.5 h-3.5"></i> Zero-Copy
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">chronos-hlc-state-delta-replicator</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">
+            Zero-dependency Hybrid Logical Clock (HLC) state replication engine. Solves clock drift, causality ordering, and partition re-synchronization across peer topologies.
+          </p>
+        </div>
+        <div>
+          <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-slate-400">
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">HLC</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">CRDTs</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Vector Clocks</span>
+          </div>
+          <div class="flex items-center justify-between pt-3 border-t border-white/5 text-xs font-mono">
+            <a href="https://github.com/Sunzzx/chronos-hlc-state-delta-replicator" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 flex items-center gap-1 font-semibold">
+              <span>View Source</span> <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-slate-500">Deterministic</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 5: Cron Snitch -->
+      <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="tools systems">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-rose-500/10 text-rose-400 border border-rose-500/20">Indie Utility</span>
+            <div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span> Live App
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">cron-snitch-silent-failure-detector</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">
+            Instant micro-SaaS utility that catches dead crons, silent memory leaks, and dropped executions without agent bloat. Shipped live with custom SSL subdomain.
+          </p>
+        </div>
+        <div>
+          <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-slate-400">
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">TypeScript</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Tailwind</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">GitHub Pages</span>
+          </div>
+          <div class="flex items-center justify-between pt-3 border-t border-white/5 text-xs font-mono">
+            <a href="https://sunzzx.github.io/cron-snitch-silent-failure-detector/" target="_blank" rel="noopener noreferrer" class="text-rose-400 hover:text-rose-300 flex items-center gap-1 font-semibold">
+              <span>Launch Live App</span> <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+            <a href="https://github.com/Sunzzx/cron-snitch-silent-failure-detector" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white">
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 6: Fash AI Agent -->
+      <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="ai tools">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Top Community</span>
+            <div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
+              <i data-lucide="git-fork" class="w-3.5 h-3.5"></i> 23 Forks
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">fash-ai-agent</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">
+            Autonomous multi-modal fashion intelligence agent. Scours live e-commerce platforms, extracts design embeddings, and synthesizes personalized outfit curation.
+          </p>
+        </div>
+        <div>
+          <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-slate-400">
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Vision AI</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">CLIP Embeddings</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Crawlers</span>
+          </div>
+          <div class="flex items-center justify-between pt-3 border-t border-white/5 text-xs font-mono">
+            <a href="https://github.com/Sunzzx/fash-ai-agent" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 flex items-center gap-1 font-semibold">
+              <span>View Repository</span> <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-slate-500">6 Stars</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 7: QuickRay Core -->
+      <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="quant systems">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">Relativistic Graphics</span>
+            <div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
+              <i data-lucide="activity" class="w-3.5 h-3.5"></i> Kerr Metric
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">quickray-core</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">
+            4D relativistic spacetime raymarching renderer. Traces geodesic null vectors around spinning Kerr and Schwarzschild black hole horizons with gravitational lensing.
+          </p>
+        </div>
+        <div>
+          <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-slate-400">
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">General Relativity</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Runge-Kutta 4</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Raymarching</span>
+          </div>
+          <div class="flex items-center justify-between pt-3 border-t border-white/5 text-xs font-mono">
+            <a href="https://github.com/Sunzzx/quickray-core" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 flex items-center gap-1 font-semibold">
+              <span>View Source</span> <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-slate-500">SIMD Vectorized</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 8: Necro Prune AST -->
+      <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="tools systems">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Compiler Tooling</span>
+            <div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
+              <i data-lucide="terminal" class="w-3.5 h-3.5"></i> Zero RegEx
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">necro-prune-ast-deadcode</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">
+            AST-level dead-code incinerator and cycle resolver. Parses syntax graphs directly to remove unreachable symbols, circular dependencies, and shadow variables.
+          </p>
+        </div>
+        <div>
+          <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-slate-400">
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Python AST</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Call Graph</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Tarjan SCC</span>
+          </div>
+          <div class="flex items-center justify-between pt-3 border-t border-white/5 text-xs font-mono">
+            <a href="https://github.com/Sunzzx/necro-prune-ast-deadcode-incinerator" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 flex items-center gap-1 font-semibold">
+              <span>View Source</span> <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-slate-500">100% Deterministic</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 9: Speculate Infer -->
+      <div class="project-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="ai systems">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="px-2.5 py-0.5 rounded text-[11px] font-mono bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">LLM Inference</span>
+            <div class="flex items-center gap-2 text-slate-400 text-xs font-mono">
+              <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400"></i> 2.8x Speedup
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">speculate-infer</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">
+            High-performance speculative decoding engine. Employs lightweight draft models to generate candidate token sequences validated in a single forward pass by target models.
+          </p>
+        </div>
+        <div>
+          <div class="flex flex-wrap gap-1.5 mb-4 text-[11px] font-mono text-slate-400">
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Speculative Decoding</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">KV-Cache</span>
+            <span class="px-2 py-0.5 bg-slate-900 rounded border border-white/5">Transformers</span>
+          </div>
+          <div class="flex items-center justify-between pt-3 border-t border-white/5 text-xs font-mono">
+            <a href="https://github.com/Sunzzx/speculate-infer" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 flex items-center gap-1 font-semibold">
+              <span>View Source</span> <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+            <span class="text-slate-500">Lossless Parity</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LIVE TERMINAL EMULATOR / HERMES TELEMETRY -->
+  <section id="telemetry" class="max-w-6xl mx-auto px-6 py-16">
+    <div class="glass-card rounded-2xl overflow-hidden border border-brand-border">
+      <!-- Terminal Header -->
+      <div class="px-4 py-3 bg-slate-900/90 border-b border-brand-border flex items-center justify-between font-mono text-xs">
+        <div class="flex items-center gap-2">
+          <div class="flex items-center gap-1.5">
+            <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+          </div>
+          <span class="ml-2 text-slate-400">hermes@ayush-kandwal ~ interactive-shell</span>
+        </div>
+        <div class="text-[11px] text-slate-400">Type <span class="text-brand-accent">help</span> to begin</div>
+      </div>
+
+      <!-- Terminal Body -->
+      <div id="terminal-body" class="p-6 font-mono text-sm leading-relaxed max-h-96 overflow-y-auto custom-scrollbar space-y-2 bg-brand-dark/95">
+        <div class="text-slate-400">Hermes Autonomous Systems Intelligence [v2.4.0-omni]</div>
+        <div class="text-slate-400">Connected to operator node: <span class="text-emerald-400">Ayush Kandwal (@Sunzzx)</span></div>
+        <div class="text-slate-400">Type <span class="text-indigo-400">help</span> to view available queries, or click a shortcut below:</div>
+        <div class="flex flex-wrap gap-2 pt-2">
+          <button onclick="runCommand('whoami')" class="px-2.5 py-1 rounded bg-slate-800 text-xs text-indigo-300 hover:bg-slate-700">whoami</button>
+          <button onclick="runCommand('daemons')" class="px-2.5 py-1 rounded bg-slate-800 text-xs text-cyan-300 hover:bg-slate-700">daemons</button>
+          <button onclick="runCommand('kaggle')" class="px-2.5 py-1 rounded bg-slate-800 text-xs text-emerald-300 hover:bg-slate-700">kaggle</button>
+          <button onclick="runCommand('skills')" class="px-2.5 py-1 rounded bg-slate-800 text-xs text-amber-300 hover:bg-slate-700">skills</button>
+          <button onclick="runCommand('clear')" class="px-2.5 py-1 rounded bg-slate-800 text-xs text-slate-400 hover:bg-slate-700">clear</button>
+        </div>
+        <div class="pt-2 text-slate-500">--------------------------------------------------</div>
+      </div>
+
+      <!-- Terminal Input Line -->
+      <div class="px-6 py-3 bg-slate-900/60 border-t border-brand-border flex items-center gap-2 font-mono text-sm">
+        <span class="text-emerald-400 font-bold">$</span>
+        <input type="text" id="term-input" placeholder="type a command (whoami, daemons, kaggle, contact)..." class="w-full bg-transparent text-slate-100 placeholder-slate-600 focus:outline-none" autofocus>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNICAL STACK & CREDENTIALS -->
+  <section id="stack" class="max-w-6xl mx-auto px-6 py-16">
+    <div class="grid lg:grid-cols-2 gap-12">
+      <!-- Left: Skills Matrix -->
+      <div>
+        <div class="inline-flex items-center gap-2 text-indigo-400 font-mono text-xs uppercase tracking-wider mb-2">
+          <i data-lucide="code" class="w-3.5 h-3.5"></i>
+          <span>Core Capabilities</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-white tracking-tight mb-6">Technical Weapons & Fluency</h2>
+
+        <div class="space-y-6">
+          <div>
+            <h4 class="text-sm font-semibold font-mono text-slate-300 mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-indigo-500"></span> SYSTEMS & ARCHITECTURE
+            </h4>
+            <div class="flex flex-wrap gap-2 text-xs font-mono">
+              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Rust / C++</span>
+              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Linux Kernel & eBPF</span>
+              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Lock-Free Concurrency</span>
+              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Zero-Copy IO</span>
+              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">HLC / Raft Consensus</span>
+              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">AST Compilers</span>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-sm font-semibold font-mono text-slate-300 mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-500"></span> AI, ML & DATA SCIENCE
+            </h4>
+            <div class="flex flex-wrap gap-2 text-xs font-mono">
+              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">PyTorch & Triton</span>
+              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Flow Matching & Diffusion</span>
+              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Sparse Autoencoders</span>
+              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Mamba-2 SSM</span>
+              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Tri-Model Stacking</span>
+              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Speculative Decoding</span>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-sm font-semibold font-mono text-slate-300 mb-3 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span> FULL-STACK & CLOUD
+            </h4>
+            <div class="flex flex-wrap gap-2 text-xs font-mono">
+              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">TypeScript / Next.js</span>
+              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Cloudflare Workers & D1</span>
+              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Vercel Edge</span>
+              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Docker & Kubernetes</span>
+              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">PostgreSQL & SQLite WAL</span>
+              <span class="px-3 py-1.5 rounded-lg glass-card text-slate-200">Tailwind CSS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Education & Achievements -->
+      <div>
+        <div class="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-wider mb-2">
+          <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+          <span>Background</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-white tracking-tight mb-6">Education & Honors</h2>
+
+        <div class="space-y-4">
+          <div class="glass-card rounded-xl p-5">
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="font-bold text-white text-base">Indian Institute of Technology Madras</h4>
+              <span class="text-xs font-mono text-indigo-400">Undergraduate</span>
+            </div>
+            <div class="text-sm text-slate-300 font-medium">BS in Data Science & Applications</div>
+            <p class="text-xs text-slate-400 mt-2">
+              Advanced algorithms, statistical machine learning, linear algebra, distributed computing, and database internals.
+            </p>
+          </div>
+
+          <div class="glass-card rounded-xl p-5">
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="font-bold text-white text-base">Indian Institute of Technology Patna</h4>
+              <span class="text-xs font-mono text-cyan-400">Academic Track</span>
+            </div>
+            <div class="text-sm text-slate-300 font-medium">Engineering & Computer Science</div>
+            <p class="text-xs text-slate-400 mt-2">
+              Systems architecture, computer networks, and operating system mechanics.
+            </p>
+          </div>
+
+          <div class="glass-card rounded-xl p-5">
+            <div class="flex items-center justify-between mb-1">
+              <h4 class="font-bold text-white text-base">WorldQuant BRAIN Fast Track</h4>
+              <span class="text-xs font-mono text-amber-400">Consultant / Gold</span>
+            </div>
+            <div class="text-sm text-slate-300 font-medium">Quantitative Alpha Researcher (ID: AK45063)</div>
+            <p class="text-xs text-slate-400 mt-2">
+              Developed mathematical alphas with high Sharpe ratios, low turnover, and market-neutral correlation across global equity universes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT & FOOTER -->
+  <footer id="contact" class="border-t border-brand-border/60 bg-brand-dark/90 mt-20">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-8 space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Let's build something exceptional together.
+          </h2>
+          <p class="text-slate-400 text-sm max-w-xl">
+            Available for high-comp systems & AI engineering roles, deep-tech research fellowships, and autonomous architecture contracts.
+          </p>
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="mailto:ayufrom03@gmail.com" class="px-5 py-2.5 rounded-xl bg-white text-slate-900 font-semibold text-sm hover:bg-slate-200 transition flex items-center gap-2">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+              <span>ayufrom03@gmail.com</span>
+            </a>
+            <a href="https://github.com/Sunzzx" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl glass-card text-slate-200 font-mono text-xs hover:text-white transition flex items-center gap-2">
+              <i data-lucide="github" class="w-4 h-4"></i>
+              <span>GitHub: @Sunzzx</span>
+            </a>
+            <a href="https://wa.me/917417939838" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl glass-card text-emerald-400 font-mono text-xs hover:text-emerald-300 transition flex items-center gap-2">
+              <i data-lucide="message-square" class="w-4 h-4"></i>
+              <span>WhatsApp Direct</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="md:col-span-4 flex flex-col md:items-end text-xs text-slate-500 font-mono space-y-2">
+          <div>© 2026 Ayush Kandwal. All rights reserved.</div>
+          <div>Deployed live on <span class="text-slate-300">Vercel Edge</span></div>
+          <div>Autonomous Telemetry Sync: <span class="text-emerald-400">OK</span></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE TERMINAL JAVASCRIPT -->
+  <script>
+    lucide.createIcons();
+
+    function filterProjects(cat) {
+      const cards = document.querySelectorAll('.project-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(b => {
+        if (b.dataset.filter === cat) {
+          b.className = 'filter-btn active px-3.5 py-1.5 rounded-lg bg-indigo-600 text-white font-medium transition';
+        } else {
+          b.className = 'filter-btn px-3.5 py-1.5 rounded-lg glass-card text-slate-300 hover:text-white transition';
+        }
+      });
+
+      cards.forEach(c => {
+        if (cat === 'all') {
+          c.style.display = 'flex';
+        } else {
+          const cats = c.dataset.category.split(' ');
+          c.style.display = cats.includes(cat) ? 'flex' : 'none';
+        }
+      });
+    }
+
+    const termBody = document.getElementById('terminal-body');
+    const termInput = document.getElementById('term-input');
+
+    const COMMANDS = {
+      help: () => `
+<div class="text-slate-300 font-semibold">Available Hermes Commands:</div>
+  • <span class="text-indigo-400 font-bold">whoami</span>      : Operator profile, credentials, and institutional background
+  • <span class="text-cyan-400 font-bold">daemons</span>     : Status of the 18 autonomous background engines
+  • <span class="text-emerald-400 font-bold">kaggle</span>      : Latest Kaggle Grandmaster Autopilot telemetry & CV scores
+  • <span class="text-amber-400 font-bold">skills</span>      : Technical arsenal & languages
+  • <span class="text-rose-400 font-bold">contact</span>     : Fast communication coordinates
+  • <span class="text-slate-400 font-bold">clear</span>       : Flush terminal output
+`,
+      whoami: () => `
+<div class="text-slate-200">
+  <span class="text-emerald-400 font-bold">AYUSH KANDWAL</span> (GitHub: @Sunzzx)
+  -------------------------------------------------------------
+  • <strong class="text-white">Education:</strong> BS in Data Science @ IIT Madras | IIT Patna
+  • <strong class="text-white">Focus:</strong> Systems Engineering, Autonomous AI Agents, Deep Learning & Quant
+  • <strong class="text-white">Portfolio:</strong> 51+ live open-source repositories & zero-cost indie tools
+  • <strong class="text-white">Credentials:</strong> WorldQuant BRAIN Gold / Master Rank (ID: AK45063)
+</div>
+`,
+      daemons: () => `
+<div class="text-slate-300 font-semibold">Active Hermes Autonomous Daemon Fleet (18 Live):</div>
+  [1]  <span class="text-emerald-400">frontier-research-engine</span>     (every 180m)  [OK: Deep Learning & Systems]
+  [2]  <span class="text-emerald-400">kaggle-grandmaster-autopilot</span> (every 240m)  [OK: Tri-Model Stacking]
+  [3]  <span class="text-emerald-400">hermes-hourly-evolution</span>      (every 60m)   [OK: Skill Crystallizer]
+  [4]  <span class="text-emerald-400">opportunity-scout</span>            (every 120m)  [OK: Auto-Applicator Handoff]
+  [5]  <span class="text-emerald-400">officer-exam-drills</span>          (every 120m)  [OK: WhatsApp & Feed Sync]
+  [6]  <span class="text-emerald-400">indie-micro-saas-foundry</span>     (every 1440m) [OK: 51 Shipped Products]
+  [7]  <span class="text-emerald-400">quota-failover</span>               (every 1m)    [OK: Gemini / xAI / Codex]
+  ... [11 additional active daemons verified running]
+`,
+      kaggle: () => `
+<div class="text-slate-200">
+  <span class="text-cyan-400 font-bold">KAGGLE GRANDMASTER AUTOPILOT TELEMETRY</span>
+  -------------------------------------------------------------
+  • <strong class="text-white">Active Milestone:</strong> Stage 4 Out-of-Fold Constrained SLSQP Stacking
+  • <strong class="text-white">Architecture:</strong> Tri-Model Gradient Boosting (LGBM + CatBoost + XGBoost)
+  • <strong class="text-white">Latest Benchmarks:</strong>
+      - Spaceship Titanic: CV Accuracy = <span class="text-emerald-400 font-bold">0.80916</span> (Leaderboard climbed to 1004)
+      - Titanic Challenge: CV ROC-AUC  = <span class="text-emerald-400 font-bold">0.87436</span> (Accepted by Kaggle API)
+  • <strong class="text-white">Engine:</strong> Self-healing reflection loop with automatic hyperparameter relaxation
+</div>
+`,
+      skills: () => `
+<div class="text-slate-300">
+  • <strong class="text-indigo-400">Languages:</strong> Python, TypeScript, Rust, C++, SQL, Bash/Zsh
+  • <strong class="text-cyan-400">AI / ML:</strong> PyTorch, Flow Matching, Sparse Autoencoders, Mamba-2 SSM, Stacking
+  • <strong class="text-emerald-400">Systems:</strong> Distributed Consensus (HLC/Raft), eBPF, Lock-free queues, AST Compilers
+  • <strong class="text-amber-400">Cloud/Edge:</strong> Cloudflare Workers, Vercel, Docker, SQLite WAL, Launchd
+</div>
+`,
+      contact: () => `
+<div class="text-slate-200">
+  • <strong class="text-white">Email:</strong> <a href="mailto:ayufrom03@gmail.com" class="text-indigo-400 underline">ayufrom03@gmail.com</a>
+  • <strong class="text-white">GitHub:</strong> <a href="https://github.com/Sunzzx" target="_blank" class="text-indigo-400 underline">https://github.com/Sunzzx</a>
+  • <strong class="text-white">WhatsApp Direct:</strong> <a href="https://wa.me/917417939838" target="_blank" class="text-emerald-400 underline">+91 7417939838</a>
+</div>
+`,
+      clear: () => {
+        termBody.innerHTML = '';
+        return null;
+      }
+    };
+
+    function runCommand(cmd) {
+      const cleanCmd = cmd.trim().toLowerCase();
+      const line = document.createElement('div');
+      line.innerHTML = `<span class="text-emerald-400 font-bold">$</span> <span class="text-white">${cmd}</span>`;
+      termBody.appendChild(line);
+
+      if (COMMANDS[cleanCmd]) {
+        const out = COMMANDS[cleanCmd]();
+        if (out !== null) {
+          const resp = document.createElement('div');
+          resp.innerHTML = out;
+          termBody.appendChild(resp);
+        }
+      } else if (cleanCmd !== '') {
+        const err = document.createElement('div');
+        err.innerHTML = `<span class="text-rose-400">Command not recognized: "${cleanCmd}". Type <span class="text-indigo-400">help</span> for commands.</span>`;
+        termBody.appendChild(err);
+      }
+      termBody.scrollTop = termBody.scrollHeight;
+    }
+
+    termInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const val = termInput.value;
+        termInput.value = '';
+        runCommand(val);
+      }
+    });
+  </script>
+</body>
+</html>
