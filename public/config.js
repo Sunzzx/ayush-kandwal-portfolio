@@ -7,14 +7,13 @@ rootEnv.OBSERVATORY_CONFIG = {
   operator: {
     name: 'Ayush Kandwal',
     handle: 'Sunzzx',
-    title: 'Systems Architect, AI Researcher & Quant',
+    title: 'Software Engineer & Systems Builder',
     email: 'ayushkandwal2007@gmail.com',
     academicEmail: 'ayushkandwal@gmail.com',
     github: 'https://github.com/Sunzzx',
     linkedin: 'https://www.linkedin.com/in/ayush-kandwal',
     twitter: 'https://x.com/its_ayu5',
-    linktree: 'https://linktr.ee/sunzzx',
-    worldquantId: 'AK45063'
+    linktree: 'https://linktr.ee/sunzzx'
   },
   // Birthdate parameter: 11 December 2003 (Midnight Asia/Kolkata timezone UTC+05:30)
   // Exact calendar arithmetic: 2003-12-10T18:30:00.000Z
