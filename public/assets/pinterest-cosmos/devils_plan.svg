@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800">
+  <defs>
+    <linearGradient id="dbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#120406"/>
+      <stop offset="50%" stop-color="#2a080e"/>
+      <stop offset="100%" stop-color="#050102"/>
+    </linearGradient>
+    <radialGradient id="core" cx="50%" cy="38%" r="45%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#e11d48" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="800" fill="url(#dbg)"/>
+  <circle cx="300" cy="310" r="160" fill="url(#core)"/>
+  <!-- Tactical Chess Grid -->
+  <rect x="200" y="210" width="200" height="200" fill="none" stroke="#f43f5e" stroke-width="1.5" opacity="0.6"/>
+  <line x1="250" y1="210" x2="250" y2="410" stroke="#f43f5e" stroke-width="1" opacity="0.4"/>
+  <line x1="300" y1="210" x2="300" y2="410" stroke="#f43f5e" stroke-width="1" opacity="0.4"/>
+  <line x1="350" y1="210" x2="350" y2="410" stroke="#f43f5e" stroke-width="1" opacity="0.4"/>
+  <line x1="200" y1="260" x2="400" y2="260" stroke="#f43f5e" stroke-width="1" opacity="0.4"/>
+  <line x1="200" y1="310" x2="400" y2="310" stroke="#f43f5e" stroke-width="1" opacity="0.4"/>
+  <line x1="200" y1="360" x2="400" y2="360" stroke="#f43f5e" stroke-width="1" opacity="0.4"/>
+  <text x="300" y="580" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="28" fill="#ffffff" text-anchor="middle" letter-spacing="4">THE DEVIL'S PLAN</text>
+  <text x="300" y="615" font-family="'JetBrains Mono', monospace" font-size="14" fill="#fb7185" text-anchor="middle" letter-spacing="2">PSYCHOLOGICAL STRATEGY &bull; GAME THEORY</text>
+  <text x="300" y="650" font-family="'Space Grotesk', sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">"Combinatorial games, deception & Nash equilibria"</text>
+</svg>
