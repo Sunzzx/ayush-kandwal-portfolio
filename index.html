@@ -367,6 +367,22 @@
         <div id="landing-email-feedback" class="text-xs font-mono text-emerald-400 min-h-[16px]"></div>
       </div>
 
+      <!-- Email Dispatch Subscription (At the Bottom of Card) -->
+      <div class="pt-4 border-t border-white/10 space-y-2">
+        <div class="flex items-center justify-center gap-2 text-[11px] font-mono text-neutral-400">
+          <i data-lucide="mail" class="w-3.5 h-3.5 text-neutral-300"></i>
+          <span class="tracking-wider uppercase">STAY IN THE ORBIT // AI &amp; QUANT RESEARCH DISPATCHES</span>
+        </div>
+        <form onsubmit="handleEmailSubscribe(event)" class="flex flex-col sm:flex-row items-center justify-center gap-2 max-w-md mx-auto">
+          <input type="email" id="landing-email-input" required placeholder="your.email@domain.com" class="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/15 text-white placeholder-neutral-500 font-mono text-xs focus:outline-none focus:border-white/50 transition-colors">
+          <button type="submit" id="landing-email-submit" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-white text-black font-mono font-bold text-xs hover:bg-neutral-200 transition-all flex items-center justify-center gap-1.5 shrink-0 shadow-lg">
+            <span>SUBSCRIBE</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </button>
+        </form>
+        <div id="landing-email-feedback" class="text-xs font-mono text-emerald-400 min-h-[16px]"></div>
+      </div>
+
     </div>
 
   </aside>
@@ -1904,6 +1920,7 @@ let currentUniverseMode = 'solar'; // 'solar' | 'galaxies'
       buildDeepStarfield();
       buildMilkyWayGalacticBand();
       buildNamedStars();
+      buildEvolvedMultiverseEntities();
 
       // Distant 3D Interstellar Nebulae
       deepNebulae = buildInterstellarNebulae();
@@ -2860,6 +2877,175 @@ let currentUniverseMode = 'solar'; // 'solar' | 'galaxies'
       scene.add(starGroup);
     }
 
+    // =========================================================================
+    // SECTION: HERMES AUTONOMOUS MULTIVERSE EXPANSION & EVOLVED ENTITIES
+    // Dynamically expanded every 2 days by ~/.hermes/scripts/multiverse_portfolio_evolver.py
+    // =========================================================================
+    const EVOLVED_MULTIVERSE_ENTITIES = [
+        {
+          id: 'kepler-452b-quant',
+          name: 'Kepler-452b // Stochastic Volatility & Rough Heston Lab',
+          category: 'QUANTITATIVE RESEARCH // STOCHASTIC ALPHA MODELING',
+          subtitle: 'Exoplanet Core • WorldQuant Brain Microstructure Factor Mining',
+          catalog: 'KOI-7016.01 • Goldilocks Super-Earth',
+          morphology: 'exoplanet',
+          color: 0x38bdf8,
+          radius: 4.8,
+          pos: { x: 280, y: 140, z: -220 },
+          quick_pill: { name: 'Kepler-452b (Rough Heston)', icon: '🪐' },
+          metrics: [{"label": "Alpha Sharpe Ratio", "value": "2.84 Simulated"}, {"label": "Stochastic Kernel", "value": "Rough Fractional Brownian H=0.14"}, {"label": "Execution Latency", "value": "< 12 microseconds"}, {"label": "Academic Base", "value": "IIT Madras BS in Data Science"}],
+          description: "Kepler-452b serves as the Deep Space Stochastic Volatility Observatory. Here, Ayush models rough Bergomi volatility surfaces, jump-diffusion processes, and high-frequency order-book dynamics using tick-level equities and futures microstructure.",
+          tags: ["Quantitative Finance", "Rough Volatility", "WorldQuant Brain", "IIT Madras", "Heston PDE", "Stochastic Calculus"],
+          signals: ["Continuous fractional Brownian motion modeling capturing sub-diffusive volatility clustering.", "Formulates orthogonal alpha signals with information coefficients exceeding 0.08.", "Integrated with real-time risk parity and maximum draw-down circuit breakers."],
+          actions: [{"label": "WorldQuant Brain Profile", "url": "https://brain.worldquant.com", "primary": true, "icon": "trending-up"}, {"label": "Explore Quant Code", "url": "https://github.com/Sunzzx/quanta-core", "primary": false, "icon": "github"}]
+        }
+    ];
+
+    let evolvedEntityMeshes = [];
+    let evolvedEntityObjects = [];
+    let evolvedEntitiesGroup = null;
+
+    function buildEvolvedMultiverseEntities() {
+      if (evolvedEntitiesGroup) scene.remove(evolvedEntitiesGroup);
+      evolvedEntitiesGroup = new THREE.Group();
+      evolvedEntitiesGroup.name = 'EvolvedMultiverseGroup';
+      evolvedEntityMeshes = [];
+      evolvedEntityObjects = [];
+
+      const hudLayer = document.getElementById('star-labels-layer');
+
+      EVOLVED_MULTIVERSE_ENTITIES.forEach((ent, idx) => {
+        const entGroup = new THREE.Group();
+        entGroup.position.set(ent.pos.x, ent.pos.y, ent.pos.z);
+
+        if (ent.morphology === 'exoplanet') {
+          // Exoplanet Sphere with atmospheric rim
+          const coreGeo = new THREE.SphereGeometry(ent.radius || 4.2, 32, 32);
+          const coreMat = new THREE.MeshPhongMaterial({
+            color: ent.color || 0x38bdf8,
+            emissive: ent.color || 0x38bdf8,
+            emissiveIntensity: 0.28,
+            shininess: 40
+          });
+          const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+          entGroup.add(coreMesh);
+
+          // Atmosphere ring / glow
+          const atmGeo = new THREE.RingGeometry(ent.radius * 1.3, ent.radius * 1.9, 32);
+          const atmMat = new THREE.MeshBasicMaterial({
+            color: ent.color || 0x38bdf8,
+            side: THREE.DoubleSide,
+            transparent: true,
+            opacity: 0.35,
+            blending: THREE.AdditiveBlending
+          });
+          const ringMesh = new THREE.Mesh(atmGeo, atmMat);
+          ringMesh.rotation.x = Math.PI / 2.8;
+          entGroup.add(ringMesh);
+
+        } else if (ent.morphology === 'pulsar') {
+          // Pulsar core with high-energy jet beams
+          const coreGeo = new THREE.SphereGeometry(ent.radius || 3.5, 24, 24);
+          const coreMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+          entGroup.add(new THREE.Mesh(coreGeo, coreMat));
+
+          const coronaGeo = new THREE.SphereGeometry((ent.radius || 3.5) * 2.8, 24, 24);
+          const coronaMat = new THREE.MeshBasicMaterial({
+            color: ent.color || 0xa855f7,
+            transparent: true,
+            opacity: 0.4,
+            blending: THREE.AdditiveBlending
+          });
+          entGroup.add(new THREE.Mesh(coronaGeo, coronaMat));
+
+          // Jet beams
+          const beamGeo = new THREE.CylinderGeometry(0.4, 3.2, (ent.radius || 3.5) * 12, 16);
+          const beamMat = new THREE.MeshBasicMaterial({
+            color: ent.color || 0xa855f7,
+            transparent: true,
+            opacity: 0.6,
+            blending: THREE.AdditiveBlending
+          });
+          const beamMesh = new THREE.Mesh(beamGeo, beamMat);
+          entGroup.add(beamMesh);
+
+        } else {
+          // Nebula or cluster particle cloud
+          const count = ent.starsCount || 1800;
+          const pGeo = new THREE.BufferGeometry();
+          const pPos = new Float32Array(count * 3);
+          const pCols = new Float32Array(count * 3);
+          const baseC = new THREE.Color(ent.color || 0x38bdf8);
+
+          for (let i = 0; i < count; i++) {
+            const pi = i * 3;
+            const r = Math.pow(Math.random(), 1.4) * (ent.radius || 18);
+            const theta = Math.random() * Math.PI * 2;
+            const phi = Math.acos((Math.random() * 2) - 1);
+            pPos[pi] = r * Math.sin(phi) * Math.cos(theta);
+            pPos[pi + 1] = r * Math.sin(phi) * Math.sin(theta) * 0.7;
+            pPos[pi + 2] = r * Math.cos(phi);
+
+            pCols[pi] = baseC.r * (0.8 + Math.random() * 0.4);
+            pCols[pi + 1] = baseC.g * (0.8 + Math.random() * 0.4);
+            pCols[pi + 2] = baseC.b * (0.8 + Math.random() * 0.4);
+          }
+          pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+          pGeo.setAttribute('color', new THREE.BufferAttribute(pCols, 3));
+
+          const pMat = new THREE.PointsMaterial({
+            size: 1.8,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.85,
+            blending: THREE.AdditiveBlending
+          });
+          entGroup.add(new THREE.Points(pGeo, pMat));
+        }
+
+        // Attach scientific telemetry data
+        entGroup.userData = {
+          isEvolvedEntity: true,
+          name: ent.name,
+          data: {
+            name: ent.name,
+            category: ent.category || 'HERMES AUTONOMOUS EXPANSION',
+            subtitle: ent.subtitle || '',
+            catalog: ent.catalog || '',
+            pos: ent.pos,
+            description: ent.description || '',
+            metrics: ent.metrics || [],
+            tags: ent.tags || ['Multiverse Sector', 'Autonomous Evolution', 'Hermes Engine'],
+            signals: ent.signals || [],
+            actions: ent.actions || []
+          }
+        };
+
+        evolvedEntitiesGroup.add(entGroup);
+        evolvedEntityMeshes.push(entGroup);
+        evolvedEntityObjects.push({ mesh: entGroup, data: ent });
+
+        // HUD Reticle Label
+        if (hudLayer) {
+          const el = document.createElement('div');
+          el.id = `evolved-label-${idx}`;
+          el.className = 'star-hud-label evolved-hud-label';
+          el.innerHTML = `<span class="star-dot" style="background-color: #${(ent.color || 0x38bdf8).toString(16)};"></span><strong>${ent.quick_pill?.name || ent.name.split(' //')[0]}</strong> <span class="text-emerald-400 text-[9px]">EXPANDED</span>`;
+          el.onclick = (e) => {
+            e.stopPropagation();
+            flyUfoToTarget(entGroup);
+            lockOnCelestialTarget(entGroup);
+          };
+          hudLayer.appendChild(el);
+        }
+      });
+
+      scene.add(evolvedEntitiesGroup);
+      syncCelestialPills();
+    }
+
+
+
     // TOGGLE STAR LABELS DISPLAY
     function toggleStarLabels() {
       isStarLabelsVisible = !isStarLabelsVisible;
@@ -2902,6 +3088,29 @@ let currentUniverseMode = 'solar'; // 'solar' | 'galaxies'
         el.style.left = `${screenX}px`;
         el.style.top = `${screenY}px`;
       });
+
+      // Project evolved multiverse entities
+      evolvedEntityObjects.forEach((item, idx) => {
+        const el = document.getElementById(`evolved-label-${idx}`);
+        if (!el) return;
+
+        item.mesh.getWorldPosition(_starScrProj);
+        _starScrProj.project(camera);
+
+        if (_starScrProj.z > 1.0 || _starScrProj.x < -1.1 || _starScrProj.x > 1.1 || _starScrProj.y < -1.1 || _starScrProj.y > 1.1) {
+          el.style.display = 'none';
+          return;
+        }
+
+        const screenX = (_starScrProj.x * halfW) + halfW;
+        const screenY = -(_starScrProj.y * halfH) + halfH;
+
+        el.style.display = 'block';
+        el.style.left = `${screenX}px`;
+        el.style.top = `${screenY}px`;
+      });
+
+
     }
 
     // PHOTOREALISTIC MILKY WAY GALACTIC PLANE BAND & ENDLESS SKY
@@ -3537,6 +3746,29 @@ let currentUniverseMode = 'solar'; // 'solar' | 'galaxies'
         };
         container.appendChild(starPill);
       });
+
+      // Hermes Evolved Multiverse Entities Quick-Warp Beacons
+      if (typeof EVOLVED_MULTIVERSE_ENTITIES !== 'undefined' && EVOLVED_MULTIVERSE_ENTITIES.length > 0) {
+        const evoSep = document.createElement('span');
+        evoSep.className = 'text-emerald-500/40 px-1 font-mono select-none hidden sm:inline';
+        evoSep.textContent = '│';
+        container.appendChild(evoSep);
+
+        EVOLVED_MULTIVERSE_ENTITIES.forEach((ent, eIdx) => {
+          const evoPill = document.createElement('button');
+          evoPill.className = 'px-2.5 py-1 rounded bg-emerald-950/40 hover:bg-emerald-900/60 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5 transition-all text-[11px] font-semibold';
+          const icon = ent.quick_pill?.icon || '🪐';
+          const name = ent.quick_pill?.name || ent.name.split(' //')[0];
+          evoPill.innerHTML = `<span>${icon}</span><span>${name}</span>`;
+          evoPill.onclick = () => {
+            const eMesh = evolvedEntityMeshes[eIdx];
+            if (eMesh) flyUfoToTarget(eMesh);
+          };
+          container.appendChild(evoPill);
+        });
+      }
+
+
     }
 
     // FLY UFO TO TARGET (AUTOPILOT WARP)
