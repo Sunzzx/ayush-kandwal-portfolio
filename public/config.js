@@ -7,7 +7,7 @@ rootEnv.OBSERVATORY_CONFIG = {
   operator: {
     name: 'Ayush Kandwal',
     handle: 'Sunzzx',
-    title: 'Software Engineer & Systems Builder',
+    title: 'AI & Quant Researcher',
     email: 'ayushkandwal2007@gmail.com',
     academicEmail: 'ayushkandwal@gmail.com',
     github: 'https://github.com/Sunzzx',

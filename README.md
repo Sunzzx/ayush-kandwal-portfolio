@@ -15,7 +15,7 @@
 *Default destination for recruiters, founders, and hiring managers. Strictly professional engineering, research, and academic credentials with ZERO gaming or casual hobbies.*
 
 1. **Sol (The Central Star — Executive Identity):**
-   - **Ayush Kandwal** &bull; Systems Architect, Quantitative Researcher, & Full-Stack AI Engineer.
+   - **Ayush Kandwal** &bull; AI &amp; Quantitative Researcher (Dual IIT Scholar &amp; WorldQuant Brain Consultant).
    - **Counters:** 51+ Shipped FOSS Repos | 18 Autonomous Daemons (24/7 macOS Hermes Swarm) | 100+ E-Commerce AI Agents Deployed.
    - **Direct Channels:** LinkedIn, GitHub (`@Sunzzx`), Linktree (`linktr.ee/sunzzx`), Academic Inquiries (`ayushkandwal@gmail.com`).
 2. **Earth (Flagship Swarms & Full-Stack Systems):**
